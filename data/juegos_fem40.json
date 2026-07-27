@@ -1,3 +1,16 @@
 {
-  "juegos": []
+  "juegos": [
+    {
+      "mvp_nombre": "Ana Gutierreza, 14 puntos.",
+      "sede_id": "gimnasio",
+      "marcador_visita": 21,
+      "local": "LARAF40",
+      "visita": "TEALONGF40",
+      "hora": "18:00",
+      "estatus": "jugado",
+      "marcador_local": 36,
+      "id": "fem1",
+      "fecha": "2026-07-25"
+    }
+  ]
 }
