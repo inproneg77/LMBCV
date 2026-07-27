@@ -70,9 +70,14 @@ function renderJuego(j) {
          <span class="mono" style="color:var(--text-dim); font-size:16px;">–</span>
          <span class="${j.marcador_visita >= j.marcador_local ? 'gano' : 'perdio'}">${j.marcador_visita}</span>
        </div>
-       <div class="marcador__badge">Final</div>`
+       <div class="marcador__badge">Terminado</div>`
     : `<div class="marcador__vs">VS</div>
        <div class="marcador__info mono">${j.hora} hrs</div>`;
+
+  const fase = j.fase ?? 'regular';
+  const faseHTML = fase !== 'regular'
+    ? `<div class="fase-tag">${fase === 'final' ? '🏆 Gran Final' : 'Playoffs'}</div>`
+    : '';
 
   const mvpHTML = jugado && j.mvp_nombre
     ? `<div class="mvp"><span class="mvp__icon">★</span> Jugador destacado: <b>${j.mvp_nombre}</b></div>`
@@ -84,6 +89,7 @@ function renderJuego(j) {
 
   return `
     <div class="juego ${jugado ? 'is-jugado' : ''}">
+      ${faseHTML}
       <div class="equipo equipo--local">
         <img src="${RUTA_IMG}${local?.logo ?? 'img/equipos/placeholder.svg'}" alt="${local?.nombre ?? ''}" loading="lazy">
         <span class="equipo__nombre">${local?.nombre ?? 'Por definir'}</span>

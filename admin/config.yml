@@ -76,6 +76,15 @@ collections:
                 search_fields: ["equipos.*.nombre"]
                 display_fields: ["equipos.*.nombre"]
                 value_field: "equipos.*.id"
+              - name: "fase"
+                label: "Fase"
+                widget: "select"
+                hint: "Los juegos de Playoffs/Final NO se cuentan en la tabla de posiciones."
+                options:
+                  - { label: "Temporada regular", value: "regular" }
+                  - { label: "Playoffs", value: "playoffs" }
+                  - { label: "Final", value: "final" }
+                default: "regular"
               - name: "estatus"
                 label: "Estatus"
                 widget: "select"
@@ -142,6 +151,15 @@ collections:
                 search_fields: ["equipos.*.nombre"]
                 display_fields: ["equipos.*.nombre"]
                 value_field: "equipos.*.id"
+              - name: "fase"
+                label: "Fase"
+                widget: "select"
+                hint: "Los juegos de Playoffs/Final NO se cuentan en la tabla de posiciones."
+                options:
+                  - { label: "Temporada regular", value: "regular" }
+                  - { label: "Playoffs", value: "playoffs" }
+                  - { label: "Final", value: "final" }
+                default: "regular"
               - name: "estatus"
                 label: "Estatus"
                 widget: "select"
@@ -208,6 +226,15 @@ collections:
                 search_fields: ["equipos.*.nombre"]
                 display_fields: ["equipos.*.nombre"]
                 value_field: "equipos.*.id"
+              - name: "fase"
+                label: "Fase"
+                widget: "select"
+                hint: "Los juegos de Playoffs/Final NO se cuentan en la tabla de posiciones."
+                options:
+                  - { label: "Temporada regular", value: "regular" }
+                  - { label: "Playoffs", value: "playoffs" }
+                  - { label: "Final", value: "final" }
+                default: "regular"
               - name: "estatus"
                 label: "Estatus"
                 widget: "select"

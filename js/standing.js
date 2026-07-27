@@ -30,7 +30,7 @@ function calcularStanding(categoriaId) {
   }]));
 
   ESTADO_S.juegos
-    .filter(j => j.categoria_id === categoriaId && j.estatus === 'jugado')
+    .filter(j => j.categoria_id === categoriaId && j.estatus === 'jugado' && (j.fase ?? 'regular') === 'regular')
     .forEach(j => {
       const local = tabla[j.local];
       const visita = tabla[j.visita];
