@@ -11,7 +11,6 @@ async function iniciar() {
   tabs.innerHTML = cats.map(c => `
     <button class="tab ${c.id === categoriaActiva ? 'is-active' : ''}" data-cat="${c.id}">
       ${c.nombre}
-      <span class="tab-meta">Juega ${c.dia_regular}</span>
     </button>
   `).join('');
 
