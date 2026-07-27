@@ -25,6 +25,58 @@
       "marcador_local": 44,
       "id": "fe2",
       "fecha": "2026-07-25"
+    },
+    {
+      "mvp_nombre": "Kenia Quiroz, 12 puntos",
+      "sede_id": "gimnasio",
+      "marcador_visita": 16,
+      "local": "LARAF40",
+      "fase": "regular",
+      "visita": "MAESTRASF40",
+      "hora": "16:00",
+      "estatus": "jugado",
+      "marcador_local": 33,
+      "id": "f3",
+      "fecha": "2026-07-04"
+    },
+    {
+      "mvp_nombre": "Karina Silva, 8 puntos",
+      "sede_id": "gimnasio",
+      "marcador_visita": 21,
+      "local": "TEALONGF40",
+      "fase": "regular",
+      "visita": "DIAMONDS40",
+      "hora": "17:00",
+      "estatus": "jugado",
+      "marcador_local": 28,
+      "id": "f4",
+      "fecha": "2026-07-04"
+    },
+    {
+      "mvp_nombre": "Nereyda Santiago, 21 puntos",
+      "sede_id": "duela",
+      "marcador_visita": 17,
+      "local": "SALDOSF40",
+      "fase": "regular",
+      "visita": "TEALONGF40",
+      "hora": "16:00",
+      "estatus": "jugado",
+      "marcador_local": 36,
+      "id": "f5",
+      "fecha": "2026-07-11"
+    },
+    {
+      "mvp_nombre": "Kenia Quiroz, 8 puntos",
+      "sede_id": "duela",
+      "marcador_visita": 13,
+      "local": "LARAF40",
+      "fase": "regular",
+      "visita": "DIAMONDS40",
+      "hora": "17:00",
+      "estatus": "jugado",
+      "marcador_local": 25,
+      "id": "f6",
+      "fecha": "2026-07-11"
     }
   ]
 }
