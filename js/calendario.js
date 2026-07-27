@@ -43,7 +43,7 @@ function render() {
     porMes[mesKey][j.fecha].push(j);
   });
 
-  const mesesOrdenados = Object.keys(porMes).sort();
+  const mesesOrdenados = Object.keys(porMes).sort().reverse();
   const hoyMesKey = new Date().toISOString().slice(0, 7);
 
   cont.innerHTML = mesesOrdenados.map(mesKey => {
