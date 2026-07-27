@@ -1,3 +1,14 @@
 {
-  "juegos": []
+  "juegos": [
+    {
+      "estatus": "programado",
+      "sede_id": "gimnasio",
+      "local": "CFEV40",
+      "visita": "SMV40",
+      "id": "FINAL DE VETERANOS 40+ 2026-1 JUEGO 2",
+      "fecha": "2026-08-01",
+      "hora": "19:00",
+      "marcador_local": 0
+    }
+  ]
 }
