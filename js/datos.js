@@ -1,19 +1,30 @@
-// Carga los archivos de datos del sitio. Todo es JSON estático editable
-// desde el panel /admin (Decap CMS) o directamente en el repositorio.
+// Carga los archivos de datos del sitio. Equipos y juegos viven separados
+// por categoría (así el panel /admin solo ofrece equipos de esa categoría).
 async function cargarDatos() {
-  const [categorias, sedesData, equiposData, juegosData, patrociniosData] = await Promise.all([
+  const CATS = ['var40', 'fem40', 'var49'];
+
+  const [categorias, sedesData, patrociniosData, ...resto] = await Promise.all([
     fetch('data/categorias.json').then(r => r.json()),
     fetch('data/sedes.json').then(r => r.json()),
-    fetch('data/equipos.json').then(r => r.json()),
-    fetch('data/juegos.json').then(r => r.json()),
     fetch('data/patrocinadores.json').then(r => r.json()).catch(() => ({ patrocinadores: [] })),
+    ...CATS.map(c => fetch(`data/equipos_${c}.json`).then(r => r.json())),
+    ...CATS.map(c => fetch(`data/juegos_${c}.json`).then(r => r.json())),
   ]);
 
-  // Decap CMS guarda cada colección envuelta en un objeto: {"equipos":[...]}
+  const equiposPorCat = resto.slice(0, CATS.length);
+  const juegosPorCat = resto.slice(CATS.length);
+
   const sedes = sedesData.sedes ?? sedesData;
-  const equipos = equiposData.equipos ?? equiposData;
-  const juegos = juegosData.juegos ?? juegosData;
   const patrocinadores = patrociniosData.patrocinadores ?? patrociniosData ?? [];
+
+  // Reinyectamos categoria_id (implícito por el archivo de origen) para que
+  // el resto del sitio funcione igual que antes.
+  const equipos = CATS.flatMap((cat, i) =>
+    (equiposPorCat[i].equipos ?? []).map(e => ({ ...e, categoria_id: cat }))
+  );
+  const juegos = CATS.flatMap((cat, i) =>
+    (juegosPorCat[i].juegos ?? []).map(j => ({ ...j, categoria_id: cat }))
+  );
 
   const equiposPorId = Object.fromEntries(equipos.map(e => [e.id, e]));
   const sedesPorId = Object.fromEntries(sedes.map(s => [s.id, s]));

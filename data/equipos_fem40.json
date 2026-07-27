@@ -1,0 +1,24 @@
+{
+  "equipos": [
+    {
+      "logo": "img/equipos/las-maestras-n.png",
+      "id": "MAESTRASF40",
+      "nombre": "LAS MAESTRAS"
+    },
+    {
+      "logo": "img/equipos/saldos-laortiz.png",
+      "id": "SALDOSF40",
+      "nombre": "SALDOS LA ORTIZ"
+    },
+    {
+      "logo": "img/equipos/tea-long2.png",
+      "id": "TEALONGF40",
+      "nombre": "TEA LONG"
+    },
+    {
+      "logo": "img/equipos/lara-tire.png",
+      "id": "LARAF40",
+      "nombre": "LARA TIRES"
+    }
+  ]
+}

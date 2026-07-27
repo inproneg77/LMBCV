@@ -1,0 +1,64 @@
+{
+  "equipos": [
+    {
+      "logo": "img/equipos/2.png",
+      "nombre": "CFE SUTERM",
+      "id": "CFEV40"
+    },
+    {
+      "logo": "img/equipos/48.png",
+      "id": "SMV40",
+      "nombre": "SPORT MIER"
+    },
+    {
+      "logo": "img/equipos/3.png",
+      "id": "NARANJOV40",
+      "nombre": "EL NARANJO"
+    },
+    {
+      "logo": "img/equipos/15.png",
+      "id": "OSV40",
+      "nombre": "OLD SCHOOL"
+    },
+    {
+      "logo": "img/equipos/35.png",
+      "id": "VIKINGOSV40",
+      "nombre": "VIKINGOS"
+    },
+    {
+      "logo": "img/equipos/30.png",
+      "id": "CHUYV40",
+      "nombre": "PRODUCTOS DEL CHUY"
+    },
+    {
+      "logo": "img/equipos/31.png",
+      "id": "MADERASV40",
+      "nombre": "MADERAS QUIÑONES"
+    },
+    {
+      "logo": "img/equipos/cuervos-logo-oficial.png",
+      "id": "CUERVOSV40",
+      "nombre": "CUERVOS"
+    },
+    {
+      "logo": "img/equipos/39.png",
+      "id": "CONEXIONV40",
+      "nombre": "CONEXION PC"
+    },
+    {
+      "logo": "img/equipos/icatson.png",
+      "id": "ICATSONV40",
+      "nombre": "ICATSON"
+    },
+    {
+      "logo": "img/equipos/40.png",
+      "id": "BURROSV40",
+      "nombre": "BURROS SONORA"
+    },
+    {
+      "logo": "img/equipos/placeholder.svg",
+      "id": "ALTOV40",
+      "nombre": "EL ALTO"
+    }
+  ]
+}

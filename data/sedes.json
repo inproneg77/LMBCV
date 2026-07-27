@@ -1,6 +1,12 @@
 {
   "sedes": [
-    { "id": "gimnasio", "nombre": "Gimnasio Municipal" },
-    { "id": "duela", "nombre": "Duela del Polifuncional" }
+    {
+      "id": "gimnasio",
+      "nombre": "Gimnasio Municipal"
+    },
+    {
+      "id": "duela",
+      "nombre": "Duela del Polifuncional"
+    }
   ]
 }
