@@ -9,6 +9,30 @@
       "fecha": "2026-08-01",
       "hora": "19:00",
       "marcador_local": 0
+    },
+    {
+      "mvp_nombre": "Daniel Neblina, 12 Puntos. Gerardo Feliz, 12 puntos",
+      "sede_id": "gimnasio",
+      "marcador_visita": 63,
+      "local": "ICATSONV40",
+      "visita": "OSV40",
+      "hora": "16:00",
+      "estatus": "programado",
+      "marcador_local": 27,
+      "id": "v1",
+      "fecha": "2026-07-25"
+    },
+    {
+      "mvp_nombre": "Angel Fierros, 17 puntos",
+      "sede_id": "gimnasio",
+      "marcador_visita": 50,
+      "local": "CUERVOSV40",
+      "visita": "BURROSV40",
+      "hora": "17:00",
+      "estatus": "jugado",
+      "marcador_local": 53,
+      "id": "v2",
+      "fecha": "2026-07-25"
     }
   ]
 }
