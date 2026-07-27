@@ -93,8 +93,22 @@ collections:
                 options:
                   - { label: "Gimnasio Municipal", value: "gimnasio" }
                   - { label: "Duela del Polifuncional", value: "duela" }
-              - { name: "local", label: "ID del equipo local (revisa la sección Equipos)", widget: "string" }
-              - { name: "visita", label: "ID del equipo visitante (revisa la sección Equipos)", widget: "string" }
+              - name: "local"
+                label: "Equipo local"
+                widget: "relation"
+                collection: "equipos"
+                file: "equipos"
+                search_fields: ["equipos.*.nombre"]
+                display_fields: ["equipos.*.nombre"]
+                value_field: "equipos.*.id"
+              - name: "visita"
+                label: "Equipo visitante"
+                widget: "relation"
+                collection: "equipos"
+                file: "equipos"
+                search_fields: ["equipos.*.nombre"]
+                display_fields: ["equipos.*.nombre"]
+                value_field: "equipos.*.id"
               - name: "estatus"
                 label: "Estatus"
                 widget: "select"
