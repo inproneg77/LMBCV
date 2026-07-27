@@ -1,25 +1,6 @@
-# Use DecapBridge classic auth (required)
 backend:
   name: git-gateway
-  repo: inproneg77/LMBCV
   branch: main
-  identity_url: https://auth.decapbridge.com/sites/72377b45-d6d5-49f3-9ab3-ea2219ab15ab
-  gateway_url: https://gateway.decapbridge.com
-
-  # See who did what (optional)
-  commit_messages:
-    create: Create {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
-    update: Update {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
-    delete: Delete {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
-    uploadMedia: Upload “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
-    deleteMedia: Delete “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
-    openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
-
-# Better Decap + Bridge logo (optional)
-logo_url: https://decapbridge.com/decapcms-with-bridge.svg
-
-# Add site links in Decap CMS (optional)
-site_url: https://lmbcv.netlify.app
 
 media_folder: "img/equipos"
 public_folder: "img/equipos"
@@ -118,3 +99,21 @@ collections:
                 default: "programado"
               - { name: "marcador_local", label: "Marcador local (vacío si no se ha jugado)", widget: "number", required: false, value_type: "int" }
               - { name: "marcador_visita", label: "Marcador visita (vacío si no se ha jugado)", widget: "number", required: false, value_type: "int" }
+              - { name: "mvp_nombre", label: "Jugador destacado del partido (opcional)", widget: "string", required: false }
+              - { name: "observaciones", label: "Observaciones del partido (opcional)", widget: "text", required: false }
+
+  - name: "patrocinadores"
+    label: "Patrocinadores"
+    files:
+      - name: "patrocinadores"
+        label: "Patrocinadores"
+        file: "data/patrocinadores.json"
+        fields:
+          - name: "patrocinadores"
+            label: "Patrocinadores"
+            widget: "list"
+            summary: "{{fields.nombre}}"
+            fields:
+              - { name: "nombre", label: "Nombre del patrocinador", widget: "string" }
+              - { name: "logo", label: "Logo", widget: "image" }
+              - { name: "url", label: "Sitio web o Facebook (opcional)", widget: "string", required: false }

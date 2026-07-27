@@ -5,6 +5,7 @@ async function iniciar() {
   ESTADO = await cargarDatos();
   const cats = [...ESTADO.categorias].sort((a,b) => a.orden - b.orden);
   categoriaActiva = cats[0]?.id;
+  renderPatrocinadores(ESTADO.patrocinadores);
 
   const tabs = document.getElementById('tabs');
   tabs.innerHTML = cats.map(c => `
@@ -73,6 +74,14 @@ function renderJuego(j) {
     : `<div class="marcador__vs">VS</div>
        <div class="marcador__info mono">${j.hora} hrs</div>`;
 
+  const mvpHTML = jugado && j.mvp_nombre
+    ? `<div class="mvp"><span class="mvp__icon">★</span> Jugador destacado: <b>${j.mvp_nombre}</b></div>`
+    : '';
+
+  const observacionHTML = jugado && j.observaciones
+    ? `<div class="observacion">${j.observaciones}</div>`
+    : '';
+
   return `
     <div class="juego ${jugado ? 'is-jugado' : ''}">
       <div class="equipo equipo--local">
@@ -87,6 +96,8 @@ function renderJuego(j) {
         <img src="${visita?.logo ?? 'img/equipos/placeholder.svg'}" alt="${visita?.nombre ?? ''}" loading="lazy">
         <span class="equipo__nombre">${visita?.nombre ?? 'Por definir'}</span>
       </div>
+      ${mvpHTML}
+      ${observacionHTML}
     </div>
   `;
 }

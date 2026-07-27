@@ -5,6 +5,7 @@ async function iniciarStanding() {
   ESTADO_S = await cargarDatos();
   const cats = [...ESTADO_S.categorias].sort((a,b) => a.orden - b.orden);
   categoriaActivaS = cats[0]?.id;
+  renderPatrocinadores(ESTADO_S.patrocinadores);
 
   const tabs = document.getElementById('tabs');
   tabs.innerHTML = cats.map(c => `
@@ -67,7 +68,7 @@ function renderStanding() {
       <tbody>
         ${filas.map((f, i) => `
           <tr>
-            <td>${i + 1}</td>
+            <td class="rank">${i + 1}</td>
             <td>
               <div class="equipo-cell">
                 <img src="${f.equipo.logo}" alt="${f.equipo.nombre}" loading="lazy">
