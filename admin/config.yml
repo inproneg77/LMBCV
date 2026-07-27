@@ -1,0 +1,87 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "img/equipos"
+public_folder: "img/equipos"
+
+locale: "es"
+
+collections:
+  - name: "equipos"
+    label: "Equipos"
+    files:
+      - name: "equipos"
+        label: "Equipos"
+        file: "data/equipos.json"
+        fields:
+          - name: "equipos"
+            label: "Equipos"
+            widget: "list"
+            summary: "{{fields.nombre}} — {{fields.categoria_id}}"
+            fields:
+              - { name: "id", label: "ID (único, sin espacios, ej. v40-13)", widget: "string" }
+              - { name: "nombre", label: "Nombre del equipo", widget: "string" }
+              - name: "categoria_id"
+                label: "Categoría"
+                widget: "select"
+                options:
+                  - { label: "Varonil 40 y más", value: "var40" }
+                  - { label: "Femenil 40 y más", value: "fem40" }
+                  - { label: "Varonil 49 y más", value: "var49" }
+              - { name: "logo", label: "Logo del equipo", widget: "image", default: "img/equipos/placeholder.svg" }
+
+  - name: "sedes"
+    label: "Sedes"
+    files:
+      - name: "sedes"
+        label: "Sedes"
+        file: "data/sedes.json"
+        fields:
+          - name: "sedes"
+            label: "Sedes"
+            widget: "list"
+            summary: "{{fields.nombre}}"
+            fields:
+              - { name: "id", label: "ID (único, sin espacios, ej. gimnasio)", widget: "string" }
+              - { name: "nombre", label: "Nombre de la sede", widget: "string" }
+
+  - name: "juegos"
+    label: "Rol de Juegos"
+    files:
+      - name: "juegos"
+        label: "Juegos"
+        file: "data/juegos.json"
+        fields:
+          - name: "juegos"
+            label: "Juegos"
+            widget: "list"
+            summary: "{{fields.fecha}} — {{fields.local}} vs {{fields.visita}}"
+            fields:
+              - { name: "id", label: "ID (único, ej. j-016)", widget: "string" }
+              - name: "categoria_id"
+                label: "Categoría"
+                widget: "select"
+                options:
+                  - { label: "Varonil 40 y más", value: "var40" }
+                  - { label: "Femenil 40 y más", value: "fem40" }
+                  - { label: "Varonil 49 y más", value: "var49" }
+              - { name: "fecha", label: "Fecha del juego", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+              - { name: "hora", label: "Hora (formato 24h, ej. 17:00)", widget: "string" }
+              - name: "sede_id"
+                label: "Sede"
+                widget: "select"
+                options:
+                  - { label: "Gimnasio Municipal", value: "gimnasio" }
+                  - { label: "Duela del Polifuncional", value: "duela" }
+              - { name: "local", label: "ID del equipo local (revisa la sección Equipos)", widget: "string" }
+              - { name: "visita", label: "ID del equipo visitante (revisa la sección Equipos)", widget: "string" }
+              - name: "estatus"
+                label: "Estatus"
+                widget: "select"
+                options:
+                  - { label: "Programado (sin resultado)", value: "programado" }
+                  - { label: "Jugado (con resultado)", value: "jugado" }
+                default: "programado"
+              - { name: "marcador_local", label: "Marcador local (vacío si no se ha jugado)", widget: "number", required: false, value_type: "int" }
+              - { name: "marcador_visita", label: "Marcador visita (vacío si no se ha jugado)", widget: "number", required: false, value_type: "int" }

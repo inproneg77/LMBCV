@@ -1,0 +1,20 @@
+[
+  {
+    "id": "var40",
+    "nombre": "Varonil 40 y más",
+    "dia_regular": "Sábado",
+    "orden": 1
+  },
+  {
+    "id": "fem40",
+    "nombre": "Femenil 40 y más",
+    "dia_regular": "Sábado",
+    "orden": 2
+  },
+  {
+    "id": "var49",
+    "nombre": "Varonil 49 y más",
+    "dia_regular": "Domingo",
+    "orden": 3
+  }
+]
