@@ -1,7 +1,7 @@
 {
   "juegos": [
     {
-      "mvp_nombre": "Ana Gutierreza, 14 puntos.",
+      "mvp_nombre": "Ana Gutierrez, 14 puntos.",
       "sede_id": "gimnasio",
       "marcador_visita": 21,
       "local": "LARAF40",
@@ -10,6 +10,18 @@
       "estatus": "jugado",
       "marcador_local": 36,
       "id": "fem1",
+      "fecha": "2026-07-25"
+    },
+    {
+      "mvp_nombre": "Helena Garcia 25 puntos, 3 triples",
+      "sede_id": "gimnasio",
+      "marcador_visita": 22,
+      "local": "DIAMONDS40",
+      "visita": "SALDOSF40",
+      "hora": "19:00",
+      "estatus": "jugado",
+      "marcador_local": 44,
+      "id": "fe2",
       "fecha": "2026-07-25"
     }
   ]
