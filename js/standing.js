@@ -71,7 +71,7 @@ function renderStanding() {
             <td class="rank">${i + 1}</td>
             <td>
               <div class="equipo-cell">
-                <img src="${f.equipo.logo}" alt="${f.equipo.nombre}" loading="lazy">
+                <img src="${RUTA_IMG}${f.equipo.logo}" alt="${f.equipo.nombre}" loading="lazy">
                 <span>${f.equipo.nombre}</span>
               </div>
             </td>

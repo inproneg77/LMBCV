@@ -1,5 +1,10 @@
 // Carga los archivos de datos del sitio. Equipos y juegos viven separados
 // por categoría (así el panel /admin solo ofrece equipos de esa categoría).
+// RUTA_IMG: prefijo relativo hacia la raíz del sitio. La página principal
+// no necesita nada (''), pero standing/index.html está una carpeta adentro
+// y necesita '../' para que las imágenes de equipo/patrocinador carguen bien.
+const RUTA_IMG = window.RUTA_IMG || '';
+
 async function cargarDatos() {
   const CATS = ['var40', 'fem40', 'var49'];
 
@@ -40,7 +45,7 @@ function renderPatrocinadores(patrocinadores) {
     <div class="patrocinadores__grid">
       ${patrocinadores.map(p => `
         <a href="${p.url || '#'}" target="_blank" rel="noopener">
-          <img src="${p.logo}" alt="${p.nombre}" loading="lazy">
+          <img src="${RUTA_IMG}${p.logo}" alt="${p.nombre}" loading="lazy">
         </a>
       `).join('')}
     </div>

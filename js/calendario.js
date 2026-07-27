@@ -85,7 +85,7 @@ function renderJuego(j) {
   return `
     <div class="juego ${jugado ? 'is-jugado' : ''}">
       <div class="equipo equipo--local">
-        <img src="${local?.logo ?? 'img/equipos/placeholder.svg'}" alt="${local?.nombre ?? ''}" loading="lazy">
+        <img src="${RUTA_IMG}${local?.logo ?? 'img/equipos/placeholder.svg'}" alt="${local?.nombre ?? ''}" loading="lazy">
         <span class="equipo__nombre">${local?.nombre ?? 'Por definir'}</span>
       </div>
       <div class="marcador">
@@ -93,7 +93,7 @@ function renderJuego(j) {
         <div class="marcador__info mono" style="margin-top:6px;">${sede}</div>
       </div>
       <div class="equipo equipo--visita">
-        <img src="${visita?.logo ?? 'img/equipos/placeholder.svg'}" alt="${visita?.nombre ?? ''}" loading="lazy">
+        <img src="${RUTA_IMG}${visita?.logo ?? 'img/equipos/placeholder.svg'}" alt="${visita?.nombre ?? ''}" loading="lazy">
         <span class="equipo__nombre">${visita?.nombre ?? 'Por definir'}</span>
       </div>
       ${mvpHTML}
