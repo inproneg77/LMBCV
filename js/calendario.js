@@ -46,7 +46,7 @@ function render() {
   const hoyMesKey = new Date().toISOString().slice(0, 7);
 
   cont.innerHTML = mesesOrdenados.map(mesKey => {
-    const fechas = Object.keys(porMes[mesKey]).sort();
+    const fechas = Object.keys(porMes[mesKey]).sort().reverse();
     const nombreMes = nombreDeMes(mesKey);
     const abierto = mesKey >= hoyMesKey ? 'open' : ''; // meses pasados quedan colapsados
 
