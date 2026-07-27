@@ -47,8 +47,8 @@
   </footer>
 
   <script>
-    // Las rutas de fetch en datos.js son relativas a esta página, así que
-    // ajustamos con un pequeño shim antes de cargar los scripts compartidos.
+    // Esta página vive en /standing/, una carpeta adentro de la raíz.
+    window.RUTA_IMG = '../';
     const _fetch = window.fetch;
     window.fetch = (url, opts) => _fetch(url.startsWith('data/') ? '../' + url : url, opts);
   </script>
