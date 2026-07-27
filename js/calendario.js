@@ -35,27 +35,51 @@ function render() {
     return;
   }
 
-  // Agrupar por fecha y ordenar cronológicamente
-  const porFecha = {};
-  juegos.forEach(j => { (porFecha[j.fecha] ??= []).push(j); });
-  const fechasOrdenadas = Object.keys(porFecha).sort();
+  // Agrupar primero por mes, luego por fecha exacta dentro de cada mes
+  const porMes = {};
+  juegos.forEach(j => {
+    const mesKey = j.fecha.slice(0, 7); // "2026-08"
+    (porMes[mesKey] ??= {})[j.fecha] ??= [];
+    porMes[mesKey][j.fecha].push(j);
+  });
 
-  cont.innerHTML = fechasOrdenadas.map(fecha => {
-    const { diaSemana, texto } = formatearFecha(fecha);
-    const filas = porFecha[fecha]
-      .sort((a,b) => a.hora.localeCompare(b.hora))
-      .map(renderJuego).join('');
+  const mesesOrdenados = Object.keys(porMes).sort();
+  const hoyMesKey = new Date().toISOString().slice(0, 7);
+
+  cont.innerHTML = mesesOrdenados.map(mesKey => {
+    const fechas = Object.keys(porMes[mesKey]).sort();
+    const nombreMes = nombreDeMes(mesKey);
+    const abierto = mesKey >= hoyMesKey ? 'open' : ''; // meses pasados quedan colapsados
+
+    const jornadasHTML = fechas.map(fecha => {
+      const { diaSemana, texto } = formatearFecha(fecha);
+      const filas = porMes[mesKey][fecha]
+        .sort((a,b) => a.hora.localeCompare(b.hora))
+        .map(renderJuego).join('');
+
+      return `
+        <div class="jornada">
+          <div class="jornada__head">
+            <div class="jornada__fecha display">${texto}</div>
+            <div class="jornada__dia">${diaSemana}</div>
+          </div>
+          ${filas}
+        </div>
+      `;
+    }).join('');
 
     return `
-      <div class="jornada">
-        <div class="jornada__head">
-          <div class="jornada__fecha display">${texto}</div>
-          <div class="jornada__dia">${diaSemana}</div>
-        </div>
-        ${filas}
-      </div>
+      <details class="mes" ${abierto}>
+        <summary class="mes__titulo display">${nombreMes}</summary>
+        <div class="mes__contenido">${jornadasHTML}</div>
+      </details>
     `;
   }).join('');
+}
+
+function nombreDeMes(mesKey) {
+  const [y, m] = mesKey.split('-').map(Number);
+  return `${MESES[m - 1].charAt(0).toUpperCase() + MESES[m - 1].slice(1)} ${y}`;
 }
 
 function renderJuego(j) {
