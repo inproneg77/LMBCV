@@ -19,6 +19,11 @@
       "logo": "img/equipos/lara-tire.png",
       "id": "LARAF40",
       "nombre": "LARA TIRES"
+    },
+    {
+      "logo": "img/equipos/placeholder.svg",
+      "id": "DIAMONDS40",
+      "nombre": "DIAMONDS"
     }
   ]
 }
