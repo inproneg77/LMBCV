@@ -1,12 +1,17 @@
 // Carga los archivos de datos del sitio. Todo es JSON estático editable
 // desde el panel /admin (Decap CMS) o directamente en el repositorio.
 async function cargarDatos() {
-  const [categorias, sedes, equipos, juegos] = await Promise.all([
+  const [categorias, sedesData, equiposData, juegosData] = await Promise.all([
     fetch('data/categorias.json').then(r => r.json()),
     fetch('data/sedes.json').then(r => r.json()),
     fetch('data/equipos.json').then(r => r.json()),
     fetch('data/juegos.json').then(r => r.json()),
   ]);
+
+  // Decap CMS guarda cada colección envuelta en un objeto: {"equipos":[...]}
+  const sedes = sedesData.sedes ?? sedesData;
+  const equipos = equiposData.equipos ?? equiposData;
+  const juegos = juegosData.juegos ?? juegosData;
 
   const equiposPorId = Object.fromEntries(equipos.map(e => [e.id, e]));
   const sedesPorId = Object.fromEntries(sedes.map(s => [s.id, s]));
