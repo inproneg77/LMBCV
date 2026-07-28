@@ -41,6 +41,22 @@
       "estatus": "programado",
       "id": "final2026",
       "fecha": "2026-08-01"
+    },
+    {
+      "mvp_nombre": "Richard Lopez",
+      "temporada": "2026-2",
+      "sede_id": "gimnasio",
+      "marcador_visita": 48,
+      "local": "VIKINGOSV40",
+      "fase": "regular",
+      "estadisticas": [],
+      "forfeit": "ninguno",
+      "visita": "NARANJOV40",
+      "hora": "15:00",
+      "estatus": "jugado",
+      "marcador_local": 42,
+      "id": "V7",
+      "fecha": "2026-07-25"
     }
   ]
 }
