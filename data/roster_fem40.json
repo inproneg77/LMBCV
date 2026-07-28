@@ -359,6 +359,38 @@
       "equipo_nombre": "TEA LONG",
       "temporada": "2026-2",
       "numero": "41"
+    },
+    {
+      "id": "AUZO",
+      "nombre": "AURORA ZOZAYA",
+      "equipo_id": "MAESTRASF40",
+      "equipo_nombre": "LAS MAESTRAS",
+      "temporada": "2026-2",
+      "numero": "1"
+    },
+    {
+      "id": "LIZMEZA",
+      "nombre": "LIZ MEZA",
+      "equipo_id": "MAESTRASF40",
+      "equipo_nombre": "LAS MAESTRAS",
+      "temporada": "2026-2",
+      "numero": "2"
+    },
+    {
+      "id": "EMANN",
+      "nombre": "ERIKA MANN",
+      "equipo_id": "MAESTRASF40",
+      "equipo_nombre": "LAS MAESTRAS",
+      "temporada": "2026-2",
+      "numero": "3"
+    },
+    {
+      "id": "ALIZMOR",
+      "nombre": "ANNA LIZETH MORENO",
+      "equipo_id": "MAESTRASF40",
+      "equipo_nombre": "LAS MAESTRAS",
+      "temporada": "2026-2",
+      "numero": "4"
     }
   ]
 }
