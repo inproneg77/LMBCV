@@ -5,301 +5,360 @@
       "nombre": "BRENDA SOTELO",
       "equipo_id": "LARAF40",
       "numero": "05",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "LARA TIRES"
     },
     {
       "id": "CGUT",
       "nombre": "CLAUDIA GUTIERREZ",
       "equipo_id": "LARAF40",
       "numero": "13",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "LARA TIRES"
     },
     {
       "id": "AGUT",
       "nombre": "ANA GUTIERREZ",
       "equipo_id": "LARAF40",
       "numero": "14",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "LARA TIRES"
     },
     {
       "id": "GCRUZ",
       "nombre": "GEORGINA CRUZ",
       "equipo_id": "LARAF40",
       "numero": "17",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "LARA TIRES"
     },
     {
       "id": "MGUTI",
       "nombre": "MIREYA GUTIERREZ",
       "equipo_id": "LARAF40",
       "numero": "12",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "LARA TIRES"
     },
     {
       "id": "ARGRIJ",
       "nombre": "ARGELIA GRIJALVA",
       "equipo_id": "LARAF40",
       "numero": "11",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "LARA TIRES"
     },
     {
       "id": "IURIAS",
       "nombre": "ISABEL URIAS",
       "equipo_id": "LARAF40",
       "numero": "23",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "LARA TIRES"
     },
     {
       "id": "MGARCIA",
       "nombre": "MARCIA GARCIA",
       "equipo_id": "TEALONGF40",
       "numero": "23",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "TEA LONG"
     },
     {
       "id": "GPECEL",
       "nombre": "GUADALUPE CELAYA",
       "equipo_id": "TEALONGF40",
       "numero": "13",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "TEA LONG"
     },
     {
       "id": "LBRACA",
       "nombre": "LUISA BRACAMONTES",
       "equipo_id": "TEALONGF40",
       "numero": "5",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "TEA LONG"
     },
     {
       "id": "JANLAB",
       "nombre": "JANETH LABORIN",
       "equipo_id": "TEALONGF40",
       "numero": "20",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "TEA LONG"
     },
     {
       "id": "AMFRA",
       "nombre": "AMERICA FRANCO",
       "equipo_id": "TEALONGF40",
       "numero": "18",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "TEA LONG"
     },
     {
       "id": "YULILEY",
       "nombre": "YULI LEYVA",
       "equipo_id": "TEALONGF40",
       "numero": "22",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "TEA LONG"
     },
     {
       "id": "CYES",
       "nombre": "CARMEN YESCAS",
       "equipo_id": "DIAMONDS40",
       "numero": "11",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "DIAMONDS"
     },
     {
       "id": "ELSAGON",
       "nombre": "ELSA GONZALEZ",
       "equipo_id": "DIAMONDS40",
       "numero": "8",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "DIAMONDS"
     },
     {
       "id": "RSUA",
       "nombre": "ROSY SUAREZ",
       "equipo_id": "DIAMONDS40",
       "numero": "7",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "DIAMONDS"
     },
     {
       "id": "ANABUSTA",
       "nombre": "ANA BUSTAMANTE",
       "equipo_id": "DIAMONDS40",
       "numero": "16",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "DIAMONDS"
     },
     {
       "id": "HELGAR",
       "nombre": "HELENA GARCIA",
       "equipo_id": "DIAMONDS40",
       "numero": "24",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "DIAMONDS"
     },
     {
       "id": "ROXTA",
       "nombre": "ROXANA TACHIQUIN",
       "equipo_id": "DIAMONDS40",
       "numero": "19",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "DIAMONDS"
     },
     {
       "id": "ENNER",
       "nombre": "ENNER TRUJILLO",
       "equipo_id": "DIAMONDS40",
       "numero": "6",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "DIAMONDS"
     },
     {
       "id": "ROCFLO",
       "nombre": "ROCIO FLORES",
       "equipo_id": "SALDOSF40",
       "numero": "6",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "SALDOS LA ORTIZ"
     },
     {
       "id": "NERSANT",
       "nombre": "NEREYDA SANTIAGO",
       "equipo_id": "SALDOSF40",
       "numero": "24",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "SALDOS LA ORTIZ"
     },
     {
       "id": "ANGVAN",
       "nombre": "ANGELICA VANEGAS",
       "equipo_id": "SALDOSF40",
       "numero": "3",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "SALDOS LA ORTIZ"
     },
     {
       "id": "ADRIHERR",
       "nombre": "ADRIANA HERRERA",
       "equipo_id": "SALDOSF40",
       "numero": "2",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "SALDOS LA ORTIZ"
     },
     {
       "id": "LUCGAR",
       "nombre": "LUCRECIA GARCIA",
       "equipo_id": "SALDOSF40",
       "numero": "11",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "SALDOS LA ORTIZ"
     },
     {
       "id": "VILMTOR",
       "nombre": "VILMA TORRES",
       "equipo_id": "SALDOSF40",
       "numero": "89",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "SALDOS LA ORTIZ"
     },
     {
       "id": "PAQMEN",
       "nombre": "PAQUITA MENDEZ",
       "equipo_id": "SALDOSF40",
       "numero": "42",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "SALDOS LA ORTIZ"
     },
     {
       "id": "ESCCRIST",
       "nombre": "CRISTINA ESCOBAR",
       "equipo_id": "SALDOSF40",
       "numero": "13",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "SALDOS LA ORTIZ"
     },
     {
       "id": "PATSAN",
       "nombre": "PATRICIA SANDOVAL",
       "equipo_id": "SALDOSF40",
       "numero": "17",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "SALDOS LA ORTIZ"
     },
     {
       "id": "KENQUI",
       "nombre": "KENIA QUIROZ",
       "equipo_id": "LARAF40",
       "numero": "7",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "LARA TIRES"
     },
     {
       "id": "ADRIMART",
       "nombre": "ADRIANA MARTINEZ",
       "equipo_id": "MAESTRASF40",
       "numero": "10",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "LAS MAESTRAS"
     },
     {
       "id": "FERGAST",
       "nombre": "FERNANDA GASTELUM",
       "equipo_id": "MAESTRASF40",
       "numero": "6",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "LAS MAESTRAS"
     },
     {
       "id": "PATROB",
       "nombre": "PATRICIA ROBLES",
       "equipo_id": "MAESTRASF40",
       "numero": "7",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "LAS MAESTRAS"
     },
     {
       "id": "MERCACAR",
       "nombre": "CAROLINA MERCADANTE",
       "equipo_id": "MAESTRASF40",
       "numero": "79",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "LAS MAESTRAS"
     },
     {
       "id": "PAOARA",
       "nombre": "PAOLA ARAIZA",
       "equipo_id": "MAESTRASF40",
       "numero": "8",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "LAS MAESTRAS"
     },
     {
       "id": "CORAORD",
       "nombre": "CORAZON ORDOÑEZ",
       "equipo_id": "MAESTRASF40",
       "numero": "2",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "LAS MAESTRAS"
     },
     {
       "id": "KARSALC",
       "nombre": "KARINA SALCEDO",
       "equipo_id": "MAESTRASF40",
       "numero": "5",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "LAS MAESTRAS"
     },
     {
       "id": "LIZETHROM",
       "nombre": "LIZETH ROMERO",
       "equipo_id": "MAESTRASF40",
       "numero": "77",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "LAS MAESTRAS"
     },
     {
       "id": "MAYBDUL",
       "nombre": "DULCE MAYBOCA",
       "equipo_id": "MAESTRASF40",
       "numero": "14",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "LAS MAESTRAS"
     },
     {
       "id": "REYMOR",
       "nombre": "REYNA MORENO",
       "equipo_id": "MAESTRASF40",
       "numero": "0",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "LAS MAESTRAS"
     },
     {
       "id": "kasilva",
       "nombre": "KARINA SILVA",
       "equipo_id": "TEALONGF40",
       "temporada": "2026-2",
-      "numero": "10"
+      "numero": "10",
+      "equipo_nombre": "TEA LONG"
     },
     {
       "id": "AGARCIA",
       "nombre": "ANA GARCIA",
       "equipo_id": "LARAF40",
       "temporada": "2026-2",
-      "numero": "44"
+      "numero": "44",
+      "equipo_nombre": "LARA TIRES"
     },
     {
       "id": "MARISANTA",
       "nombre": "MARICRUZ MORALES",
       "equipo_id": "LARAF40",
       "temporada": "2026-2",
-      "numero": "0"
+      "numero": "0",
+      "equipo_nombre": "LARA TIRES"
+    },
+    {
+      "id": "IVANEGAS",
+      "nombre": "IRLANDA VANEGAS",
+      "equipo_id": "TEALONGF40",
+      "equipo_nombre": "TEA LONG",
+      "temporada": "2026-2",
+      "numero": "8"
+    },
+    {
+      "id": "AZUCENA",
+      "nombre": "AZUCENA GARCIA",
+      "equipo_id": "TEALONGF40",
+      "equipo_nombre": "TEA LONG",
+      "temporada": "2026-2",
+      "numero": "41"
     }
   ]
 }
