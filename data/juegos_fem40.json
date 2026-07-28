@@ -249,6 +249,127 @@
       "mvp_jugador": "KENQUI",
       "local": "LARAF40",
       "fase": "regular",
+      "estadisticas": [
+        {
+          "asistio": "true",
+          "puntos": 1,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "CGUT"
+        },
+        {
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "KENQUI"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "AGUT"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "MGUTI"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "GCRUZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ARGRIJ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "IURIAS"
+        },
+        {
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ADRIMART"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "FERGAST"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "PATROB"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "MERCACAR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 2,
+          "jugador": "PAOARA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "CORAORD"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "KARSALC"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "LIZETHROM"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "MAYBDUL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "REYMOR"
+        }
+      ],
       "vuelta": 1,
       "forfeit": "ninguno",
       "visita": "MAESTRASF40",
