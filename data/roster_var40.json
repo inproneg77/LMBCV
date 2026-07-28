@@ -1,3 +1,154 @@
 {
-    "jugadores": []
+  "jugadores": [
+    {
+      "id": "HMACIEL",
+      "nombre": "HECTOR MACIEL",
+      "equipo_id": "ICATSONV40",
+      "numero": "88"
+    },
+    {
+      "id": "RPIMIENTA",
+      "nombre": "RAMON PIMIENTA",
+      "equipo_id": "ICATSONV40",
+      "numero": "26"
+    },
+    {
+      "id": "IMORALES",
+      "nombre": "ISIDRO MORALES",
+      "equipo_id": "ICATSONV40",
+      "numero": "91"
+    },
+    {
+      "id": "JCABALLERO",
+      "nombre": "JULIO CABALLERO",
+      "equipo_id": "ICATSONV40",
+      "numero": "15"
+    },
+    {
+      "id": "SGONZA",
+      "nombre": "SERVANDO GONZALEZ",
+      "equipo_id": "ICATSONV40",
+      "numero": "11"
+    },
+    {
+      "id": "GPALA",
+      "nombre": "GUILLERMO PALAFOX",
+      "equipo_id": "OSV40",
+      "numero": "12"
+    },
+    {
+      "id": "DMAZ",
+      "nombre": "DARIO MAZON",
+      "equipo_id": "OSV40",
+      "numero": "5"
+    },
+    {
+      "id": "DNEB",
+      "nombre": "DANIEL NEBLINA",
+      "equipo_id": "OSV40",
+      "numero": "77"
+    },
+    {
+      "id": "ANARAIZA",
+      "nombre": "ANIBAL ARAIZA",
+      "equipo_id": "OSV40",
+      "numero": "8"
+    },
+    {
+      "id": "GARYFEL",
+      "nombre": "GARY FELIX",
+      "equipo_id": "OSV40",
+      "numero": "4"
+    },
+    {
+      "id": "CYESK",
+      "nombre": "CARLOS YESCAS",
+      "equipo_id": "OSV40",
+      "numero": "0"
+    },
+    {
+      "id": "CHOCOLEM",
+      "nombre": "FERNANDO LEMAS",
+      "equipo_id": "CUERVOSV40",
+      "numero": "33"
+    },
+    {
+      "id": "FAVELATOLON",
+      "nombre": "PABLO FAVELA",
+      "equipo_id": "CUERVOSV40",
+      "numero": "8"
+    },
+    {
+      "id": "CHARROD",
+      "nombre": "ENRIQUE MARTINEZ",
+      "equipo_id": "CUERVOSV40",
+      "numero": "91"
+    },
+    {
+      "id": "TITOMEN",
+      "nombre": "ARIEL MENA",
+      "equipo_id": "CUERVOSV40",
+      "numero": "3"
+    },
+    {
+      "id": "ANGELFIE",
+      "nombre": "ANGEL FIERROS",
+      "equipo_id": "CUERVOSV40",
+      "numero": "17"
+    },
+    {
+      "id": "FDOBRA",
+      "nombre": "FERNANDO BRASIL",
+      "equipo_id": "CUERVOSV40",
+      "numero": "32"
+    },
+    {
+      "id": "FONSECAR",
+      "nombre": "RUBEN FONSECA",
+      "equipo_id": "CUERVOSV40",
+      "numero": "13"
+    },
+    {
+      "id": "MPENUE",
+      "nombre": "MIGUEL PEÑUELAS",
+      "equipo_id": "BURROSV40",
+      "numero": "12"
+    },
+    {
+      "id": "JDIAZ",
+      "nombre": "JESUS DIAZ",
+      "equipo_id": "BURROSV40",
+      "numero": "13"
+    },
+    {
+      "id": "LPENUE",
+      "nombre": "LEONARDO PEÑUELAS",
+      "equipo_id": "BURROSV40",
+      "numero": "10"
+    },
+    {
+      "id": "SCHAVA",
+      "nombre": "SALVADOR PRECIADO",
+      "equipo_id": "BURROSV40",
+      "numero": "11"
+    },
+    {
+      "id": "CABALLOOZ",
+      "nombre": "LUIS OZUNA",
+      "equipo_id": "BURROSV40",
+      "numero": "21"
+    },
+    {
+      "id": "CNUN",
+      "nombre": "CESAR NUÑEZ",
+      "equipo_id": "BURROSV40",
+      "numero": "31"
+    },
+    {
+      "id": "APENUE",
+      "nombre": "ABRAHAM PEÑUELAS",
+      "equipo_id": "BURROSV40",
+      "numero": "15"
+    }
+  ]
 }
