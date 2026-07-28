@@ -391,6 +391,30 @@
       "equipo_nombre": "LAS MAESTRAS",
       "temporada": "2026-2",
       "numero": "4"
+    },
+    {
+      "id": "PATBERNAL",
+      "nombre": "PATRICIA BERNAL",
+      "equipo_id": "SALDOSF40",
+      "equipo_nombre": "SALDOS LA ORTIZ",
+      "temporada": "2026-2",
+      "numero": "42"
+    },
+    {
+      "id": "AAAVIL",
+      "nombre": "ALEJANDRA AVILA",
+      "equipo_id": "SALDOSF40",
+      "equipo_nombre": "SALDOS LA ORTIZ",
+      "temporada": "2026-2",
+      "numero": "41"
+    },
+    {
+      "id": "TERMIR",
+      "nombre": "TERESA MIRAMONTES",
+      "equipo_id": "SALDOSF40",
+      "equipo_nombre": "SALDOS LA ORTIZ",
+      "temporada": "2026-2",
+      "numero": "38"
     }
   ]
 }
