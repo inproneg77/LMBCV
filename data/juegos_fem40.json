@@ -1,7 +1,7 @@
 {
   "juegos": [
     {
-      "mvp_nombre": "Ana Gutierrez, 14 puntos.",
+      "mvp_nombre": "Ana Gutierrez",
       "temporada": "2026-2",
       "sede_id": "gimnasio",
       "marcador_visita": 21,
@@ -16,7 +16,7 @@
       "fecha": "2026-07-25"
     },
     {
-      "mvp_nombre": "Helena Garcia 25 puntos, 3 triples",
+      "mvp_nombre": "Helena Garcia",
       "temporada": "2026-2",
       "sede_id": "gimnasio",
       "marcador_visita": 22,
@@ -31,7 +31,7 @@
       "fecha": "2026-07-25"
     },
     {
-      "mvp_nombre": "Kenia Quiroz, 12 puntos",
+      "mvp_nombre": "Kenia Quiroz",
       "temporada": "2026-2",
       "sede_id": "gimnasio",
       "marcador_visita": 16,
@@ -46,7 +46,7 @@
       "fecha": "2026-07-04"
     },
     {
-      "mvp_nombre": "Karina Silva, 8 puntos",
+      "mvp_nombre": "Karina Silva",
       "temporada": "2026-2",
       "sede_id": "gimnasio",
       "marcador_visita": 21,
@@ -61,7 +61,7 @@
       "fecha": "2026-07-04"
     },
     {
-      "mvp_nombre": "Nereyda Santiago, 21 puntos",
+      "mvp_nombre": "Nereyda Santiago",
       "temporada": "2026-2",
       "sede_id": "duela",
       "marcador_visita": 17,
@@ -76,7 +76,7 @@
       "fecha": "2026-07-11"
     },
     {
-      "mvp_nombre": "Kenia Quiroz, 8 puntos",
+      "mvp_nombre": "Kenia Quiroz",
       "temporada": "2026-2",
       "sede_id": "duela",
       "marcador_visita": 13,
