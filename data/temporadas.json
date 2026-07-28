@@ -1,0 +1,6 @@
+{
+  "temporadas": [
+    { "id": "2026-1", "nombre": "Temporada 2026-1", "activa": false },
+    { "id": "2026-2", "nombre": "Temporada 2026-2", "activa": true }
+  ]
+}

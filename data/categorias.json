@@ -3,18 +3,21 @@
     "id": "var40",
     "nombre": "Varonil 40 y más",
     "dia_regular": "Sábado",
+    "etiqueta_mvp": "Jugador Más Valioso",
     "orden": 1
   },
   {
     "id": "fem40",
     "nombre": "Femenil 40 y más",
     "dia_regular": "Sábado",
+    "etiqueta_mvp": "Jugadora Más Valiosa",
     "orden": 2
   },
   {
     "id": "var49",
     "nombre": "Varonil 49 y más",
     "dia_regular": "Domingo",
+    "etiqueta_mvp": "Jugador Más Valioso",
     "orden": 3
   }
 ]
