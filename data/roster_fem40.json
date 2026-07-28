@@ -415,6 +415,42 @@
       "equipo_nombre": "SALDOS LA ORTIZ",
       "temporada": "2026-2",
       "numero": "38"
+    },
+    {
+      "id": "LOREMEN",
+      "nombre": "LORENA MENDEZ",
+      "equipo_id": "DIAMONDS40",
+      "equipo_nombre": "DIAMONDS",
+      "temporada": "2026-2",
+      "numero": "5"
+    },
+    {
+      "id": "DIAROM",
+      "nombre": "DIANA ROMO",
+      "equipo_id": "DIAMONDS40",
+      "equipo_nombre": "DIAMONDS",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "MIVAL",
+      "nombre": "MILY VALENTI",
+      "equipo_id": "DIAMONDS40",
+      "equipo_nombre": "DIAMONDS",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "PERLMENDE",
+      "nombre": "PERLA MENDEZ",
+      "equipo_id": "DIAMONDS40",
+      "equipo_nombre": "DIAMONDS",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "FRECIACUE",
+      "nombre": "FRECIA CUEVAS",
+      "equipo_id": "DIAMONDS40",
+      "equipo_nombre": "DIAMONDS",
+      "temporada": "2026-2"
     }
   ]
 }
