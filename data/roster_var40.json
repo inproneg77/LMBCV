@@ -149,6 +149,96 @@
       "nombre": "ABRAHAM PEÑUELAS",
       "equipo_id": "BURROSV40",
       "numero": "15"
+    },
+    {
+      "id": "CHABELOH",
+      "nombre": "JORGE HERNANDEZ",
+      "equipo_id": "VIKINGOSV40",
+      "numero": "1"
+    },
+    {
+      "id": "ABDELCO",
+      "nombre": "ABDEL CONTRERAS",
+      "equipo_id": "VIKINGOSV40",
+      "numero": "12"
+    },
+    {
+      "id": "TECOLIZ",
+      "nombre": "CESAR LIZARRAGA",
+      "equipo_id": "VIKINGOSV40",
+      "numero": "13"
+    },
+    {
+      "id": "ALEXVEGA",
+      "nombre": "ALEJANDRO VEGA",
+      "equipo_id": "VIKINGOSV40",
+      "numero": "9"
+    },
+    {
+      "id": "JSAL",
+      "nombre": "JORGE SALAZAR",
+      "equipo_id": "VIKINGOSV40",
+      "numero": "23"
+    },
+    {
+      "id": "JAREDROM",
+      "nombre": "JARED ROMERO",
+      "equipo_id": "VIKINGOSV40",
+      "numero": "19"
+    },
+    {
+      "id": "JURIAS",
+      "nombre": "JORGE URIAS",
+      "equipo_id": "VIKINGOSV40",
+      "numero": "31"
+    },
+    {
+      "id": "RLOPEZ4",
+      "nombre": "RICHARD LOPEZ",
+      "equipo_id": "NARANJOV40",
+      "numero": "4"
+    },
+    {
+      "id": "MARIONB",
+      "nombre": "MARIO BRACAMONTES",
+      "equipo_id": "NARANJOV40",
+      "numero": "19"
+    },
+    {
+      "id": "ALDUKA",
+      "nombre": "ALDO MENDOZA",
+      "equipo_id": "NARANJOV40",
+      "numero": "23"
+    },
+    {
+      "id": "IVANMEND",
+      "nombre": "IVAN MENDOZA",
+      "equipo_id": "NARANJOV40",
+      "numero": "13"
+    },
+    {
+      "id": "PATOSO",
+      "nombre": "PATRICIO SOQUI",
+      "equipo_id": "NARANJOV40",
+      "numero": "10"
+    },
+    {
+      "id": "MEDEH",
+      "nombre": "FRANCISCO MEDEHUARI",
+      "equipo_id": "NARANJOV40",
+      "numero": "11"
+    },
+    {
+      "id": "BARRYMEN",
+      "nombre": "JOAQUIN MENDEZ",
+      "equipo_id": "NARANJOV40",
+      "numero": "9"
+    },
+    {
+      "id": "CHUCOGA",
+      "nombre": "MARTIN GALLLEGOS",
+      "equipo_id": "NARANJOV40",
+      "numero": "7"
     }
   ]
 }
