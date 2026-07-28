@@ -1,7 +1,7 @@
 {
   "juegos": [
     {
-      "mvp_nombre": "Daniel Neblina, 12 Puntos. Gerardo Feliz, 12 puntos",
+      "mvp_nombre": "Daniel Neblina",
       "temporada": "2026-2",
       "sede_id": "gimnasio",
       "marcador_visita": 63,
@@ -16,7 +16,7 @@
       "fecha": "2026-07-25"
     },
     {
-      "mvp_nombre": "Angel Fierros, 17 puntos",
+      "mvp_nombre": "Angel Fierros",
       "temporada": "2026-2",
       "sede_id": "gimnasio",
       "marcador_visita": 50,
