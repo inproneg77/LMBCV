@@ -46,7 +46,7 @@ function renderValiosos() {
   }
 
   cont.innerHTML = `
-    <table class="standing-table">
+    <div class="table-scroll"><table class="standing-table">
       <thead>
         <tr><th>#</th><th>${etiqueta}</th><th>Veces reconocido</th></tr>
       </thead>
@@ -59,7 +59,7 @@ function renderValiosos() {
           </tr>
         `).join('')}
       </tbody>
-    </table>
+    </table></div>
     <p style="color:var(--text-dim); font-size:12px; margin-top:14px;">
       Se cuenta cada vez que un jugador fue reconocido como ${etiqueta.toLowerCase()} en un juego capturado.
       Para que cuente bien, en el panel escribe solo el nombre en "Jugador destacado" (los puntos o detalles van en "Observaciones").

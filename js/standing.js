@@ -127,7 +127,7 @@ function renderStanding() {
   }
 
   cont.innerHTML = `
-    <table class="standing-table">
+    <div class="table-scroll"><table class="standing-table">
       <thead>
         <tr>
           <th>#</th><th>Equipo</th><th>JJ</th><th>JG</th><th>JP</th><th>PF</th><th>PC</th><th>Dif</th><th>Pts</th>
@@ -153,7 +153,7 @@ function renderStanding() {
           </tr>
         `).join('')}
       </tbody>
-    </table>
+    </table></div>
     <p style="color:var(--text-dim); font-size:12px; margin-top:14px;">
       Victoria = 2 pts · Derrota = 1 pt · Derrota por forfeit = 0 pts.
       En caso de empate en puntos: entre 2 equipos decide el resultado entre ellos;

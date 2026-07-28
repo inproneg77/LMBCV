@@ -18,13 +18,15 @@ async function cargarDatos() {
     ...CATS.map(c => fetch(`data/equipos_${c}.json`).then(r => r.json())),
     ...CATS.map(c => fetch(`data/juegos_${c}.json`).then(r => r.json())),
     ...CATS.map(c => fetch(`data/playoffs_${c}.json`).then(r => r.json()).catch(() => ({ series: [] }))),
+    ...CATS.map(c => fetch(`data/roster_${c}.json`).then(r => r.json()).catch(() => ({ jugadores: [] }))),
   ]);
 
   const temporadas = temporadasData.temporadas ?? [];
 
   const equiposPorCat = resto.slice(0, CATS.length);
   const juegosPorCat = resto.slice(CATS.length, CATS.length * 2);
-  const playoffsPorCat = resto.slice(CATS.length * 2);
+  const playoffsPorCat = resto.slice(CATS.length * 2, CATS.length * 3);
+  const rosterPorCat = resto.slice(CATS.length * 3);
 
   const sedes = sedesData.sedes ?? sedesData;
   const patrocinadores = patrociniosData.patrocinadores ?? patrociniosData ?? [];
@@ -40,11 +42,15 @@ async function cargarDatos() {
   const playoffs = CATS.flatMap((cat, i) =>
     (playoffsPorCat[i].series ?? []).map(s => ({ ...s, categoria_id: cat }))
   );
+  const jugadores = CATS.flatMap((cat, i) =>
+    (rosterPorCat[i].jugadores ?? []).map(j => ({ ...j, categoria_id: cat }))
+  );
 
   const equiposPorId = Object.fromEntries(equipos.map(e => [e.id, e]));
   const sedesPorId = Object.fromEntries(sedes.map(s => [s.id, s]));
+  const jugadoresPorId = Object.fromEntries(jugadores.map(j => [j.id, j]));
 
-  return { categorias, sedes, equipos, juegos, playoffs, temporadas, patrocinadores, equiposPorId, sedesPorId };
+  return { categorias, sedes, equipos, juegos, playoffs, jugadores, temporadas, patrocinadores, equiposPorId, sedesPorId, jugadoresPorId };
 }
 
 // Genera un selector de temporada (<select>) dentro de #temporada-selector.
