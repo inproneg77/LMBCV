@@ -141,6 +141,30 @@ collections:
                 widget: "string"
                 required: false
                 hint: "Escribe SOLO el nombre (sin puntos ni detalles), para que cuente bien en el ranking de jugadores más valiosos."
+              - name: "estadisticas"
+                label: "Estadísticas individuales del partido"
+                widget: "list"
+                required: false
+                summary: "{{fields.jugador}}: {{fields.puntos}} pts"
+                fields:
+                  - name: "jugador"
+                    label: "Jugador"
+                    widget: "relation"
+                    collection: "roster_var40"
+                    file: "roster_var40"
+                    search_fields: ["jugadores.*.nombre"]
+                    display_fields: ["jugadores.*.nombre"]
+                    value_field: "jugadores.*.id"
+                  - name: "asistio"
+                    label: "¿Asistió al juego?"
+                    widget: "select"
+                    options:
+                      - { label: "Sí asistió", value: "true" }
+                      - { label: "No asistió", value: "false" }
+                    default: "true"
+                  - { name: "puntos", label: "Puntos anotados", widget: "number", value_type: "int", default: 0 }
+                  - { name: "triples", label: "Triples anotados", widget: "number", value_type: "int", default: 0 }
+                  - { name: "faltas", label: "Faltas cometidas", widget: "number", value_type: "int", default: 0 }
               - { name: "observaciones", label: "Observaciones (puntos del MVP, incidencias, forfeit, etc.)", widget: "text", required: false }
 
   - name: "equipos_fem40"
@@ -238,6 +262,30 @@ collections:
                 widget: "string"
                 required: false
                 hint: "Escribe SOLO el nombre (sin puntos ni detalles), para que cuente bien en el ranking de jugadores más valiosos."
+              - name: "estadisticas"
+                label: "Estadísticas individuales del partido"
+                widget: "list"
+                required: false
+                summary: "{{fields.jugador}}: {{fields.puntos}} pts"
+                fields:
+                  - name: "jugador"
+                    label: "Jugador"
+                    widget: "relation"
+                    collection: "roster_fem40"
+                    file: "roster_fem40"
+                    search_fields: ["jugadores.*.nombre"]
+                    display_fields: ["jugadores.*.nombre"]
+                    value_field: "jugadores.*.id"
+                  - name: "asistio"
+                    label: "¿Asistió al juego?"
+                    widget: "select"
+                    options:
+                      - { label: "Sí asistió", value: "true" }
+                      - { label: "No asistió", value: "false" }
+                    default: "true"
+                  - { name: "puntos", label: "Puntos anotados", widget: "number", value_type: "int", default: 0 }
+                  - { name: "triples", label: "Triples anotados", widget: "number", value_type: "int", default: 0 }
+                  - { name: "faltas", label: "Faltas cometidas", widget: "number", value_type: "int", default: 0 }
               - { name: "observaciones", label: "Observaciones (puntos del MVP, incidencias, forfeit, etc.)", widget: "text", required: false }
 
   - name: "equipos_var49"
@@ -335,6 +383,30 @@ collections:
                 widget: "string"
                 required: false
                 hint: "Escribe SOLO el nombre (sin puntos ni detalles), para que cuente bien en el ranking de jugadores más valiosos."
+              - name: "estadisticas"
+                label: "Estadísticas individuales del partido"
+                widget: "list"
+                required: false
+                summary: "{{fields.jugador}}: {{fields.puntos}} pts"
+                fields:
+                  - name: "jugador"
+                    label: "Jugador"
+                    widget: "relation"
+                    collection: "roster_var49"
+                    file: "roster_var49"
+                    search_fields: ["jugadores.*.nombre"]
+                    display_fields: ["jugadores.*.nombre"]
+                    value_field: "jugadores.*.id"
+                  - name: "asistio"
+                    label: "¿Asistió al juego?"
+                    widget: "select"
+                    options:
+                      - { label: "Sí asistió", value: "true" }
+                      - { label: "No asistió", value: "false" }
+                    default: "true"
+                  - { name: "puntos", label: "Puntos anotados", widget: "number", value_type: "int", default: 0 }
+                  - { name: "triples", label: "Triples anotados", widget: "number", value_type: "int", default: 0 }
+                  - { name: "faltas", label: "Faltas cometidas", widget: "number", value_type: "int", default: 0 }
               - { name: "observaciones", label: "Observaciones (puntos del MVP, incidencias, forfeit, etc.)", widget: "text", required: false }
 
   - name: "playoffs_var40"
@@ -531,6 +603,78 @@ collections:
                     default: "false"
                   - { name: "marcador_a", label: "Marcador Equipo A", widget: "number", required: false, value_type: "int" }
                   - { name: "marcador_b", label: "Marcador Equipo B", widget: "number", required: false, value_type: "int" }
+
+  - name: "roster_var40"
+    label: "👤 Varonil 40+ · Jugadores"
+    files:
+      - name: "roster_var40"
+        label: "Jugadores Varonil 40+"
+        file: "data/roster_var40.json"
+        fields:
+          - name: "jugadores"
+            label: "Jugadores"
+            widget: "list"
+            summary: "{{fields.nombre}}"
+            fields:
+              - { name: "id", label: "ID único (ej. jugador-01)", widget: "string" }
+              - { name: "nombre", label: "Nombre completo", widget: "string" }
+              - name: "equipo_id"
+                label: "Equipo"
+                widget: "relation"
+                collection: "equipos_var40"
+                file: "equipos_var40"
+                search_fields: ["equipos.*.nombre"]
+                display_fields: ["equipos.*.nombre"]
+                value_field: "equipos.*.id"
+              - { name: "numero", label: "Número de dorsal (opcional)", widget: "string", required: false }
+
+  - name: "roster_fem40"
+    label: "👤 Femenil 40+ · Jugadores"
+    files:
+      - name: "roster_fem40"
+        label: "Jugadores Femenil 40+"
+        file: "data/roster_fem40.json"
+        fields:
+          - name: "jugadores"
+            label: "Jugadores"
+            widget: "list"
+            summary: "{{fields.nombre}}"
+            fields:
+              - { name: "id", label: "ID único (ej. jugador-01)", widget: "string" }
+              - { name: "nombre", label: "Nombre completo", widget: "string" }
+              - name: "equipo_id"
+                label: "Equipo"
+                widget: "relation"
+                collection: "equipos_fem40"
+                file: "equipos_fem40"
+                search_fields: ["equipos.*.nombre"]
+                display_fields: ["equipos.*.nombre"]
+                value_field: "equipos.*.id"
+              - { name: "numero", label: "Número de dorsal (opcional)", widget: "string", required: false }
+
+  - name: "roster_var49"
+    label: "👤 Varonil 49+ · Jugadores"
+    files:
+      - name: "roster_var49"
+        label: "Jugadores Varonil 49+"
+        file: "data/roster_var49.json"
+        fields:
+          - name: "jugadores"
+            label: "Jugadores"
+            widget: "list"
+            summary: "{{fields.nombre}}"
+            fields:
+              - { name: "id", label: "ID único (ej. jugador-01)", widget: "string" }
+              - { name: "nombre", label: "Nombre completo", widget: "string" }
+              - name: "equipo_id"
+                label: "Equipo"
+                widget: "relation"
+                collection: "equipos_var49"
+                file: "equipos_var49"
+                search_fields: ["equipos.*.nombre"]
+                display_fields: ["equipos.*.nombre"]
+                value_field: "equipos.*.id"
+              - { name: "numero", label: "Número de dorsal (opcional)", widget: "string", required: false }
 
   # ===== SEDES Y PATROCINADORES =====
   - name: "sedes"
