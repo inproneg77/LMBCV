@@ -147,11 +147,12 @@ collections:
                 widget: "relation"
                 collection: "roster_var40"
                 file: "roster_var40"
-                search_fields: ["jugadores.*.nombre"]
-                display_fields: ["jugadores.*.nombre"]
+                search_fields: ["jugadores.*.nombre", "jugadores.*.equipo_nombre"]
+                display_fields: ["jugadores.*.nombre", "jugadores.*.equipo_nombre"]
                 value_field: "jugadores.*.id"
+                options_length: 100
                 required: false
-                hint: "Búscalo por nombre. Nota: el buscador muestra jugadores de ambos equipos (Decap CMS no permite filtrar solo al equipo ganador); revisa que elijas al del equipo correcto."
+                hint: "Búscalo por nombre o equipo. El buscador muestra jugadores de TODOS los equipos de la categoría (Decap CMS no permite filtrar solo a los 2 equipos del partido) — ahora aparece el equipo junto al nombre para que no te equivoques."
               - name: "mvp_nombre"
                 label: "Detalle del MVP (opcional, ej. \"17 puntos, 5 rebotes\")"
                 widget: "string"
@@ -168,9 +169,10 @@ collections:
                     widget: "relation"
                     collection: "roster_var40"
                     file: "roster_var40"
-                    search_fields: ["jugadores.*.nombre"]
-                    display_fields: ["jugadores.*.nombre"]
+                    search_fields: ["jugadores.*.nombre", "jugadores.*.equipo_nombre"]
+                    display_fields: ["jugadores.*.nombre", "jugadores.*.equipo_nombre"]
                     value_field: "jugadores.*.id"
+                    options_length: 100
                   - name: "asistio"
                     label: "¿Asistió al juego?"
                     widget: "select"
@@ -284,11 +286,12 @@ collections:
                 widget: "relation"
                 collection: "roster_fem40"
                 file: "roster_fem40"
-                search_fields: ["jugadores.*.nombre"]
-                display_fields: ["jugadores.*.nombre"]
+                search_fields: ["jugadores.*.nombre", "jugadores.*.equipo_nombre"]
+                display_fields: ["jugadores.*.nombre", "jugadores.*.equipo_nombre"]
                 value_field: "jugadores.*.id"
+                options_length: 100
                 required: false
-                hint: "Búscalo por nombre. Nota: el buscador muestra jugadores de ambos equipos (Decap CMS no permite filtrar solo al equipo ganador); revisa que elijas al del equipo correcto."
+                hint: "Búscalo por nombre o equipo. El buscador muestra jugadores de TODOS los equipos de la categoría (Decap CMS no permite filtrar solo a los 2 equipos del partido) — ahora aparece el equipo junto al nombre para que no te equivoques."
               - name: "mvp_nombre"
                 label: "Detalle del MVP (opcional, ej. \"17 puntos, 5 rebotes\")"
                 widget: "string"
@@ -305,9 +308,10 @@ collections:
                     widget: "relation"
                     collection: "roster_fem40"
                     file: "roster_fem40"
-                    search_fields: ["jugadores.*.nombre"]
-                    display_fields: ["jugadores.*.nombre"]
+                    search_fields: ["jugadores.*.nombre", "jugadores.*.equipo_nombre"]
+                    display_fields: ["jugadores.*.nombre", "jugadores.*.equipo_nombre"]
                     value_field: "jugadores.*.id"
+                    options_length: 100
                   - name: "asistio"
                     label: "¿Asistió al juego?"
                     widget: "select"
@@ -421,11 +425,12 @@ collections:
                 widget: "relation"
                 collection: "roster_var49"
                 file: "roster_var49"
-                search_fields: ["jugadores.*.nombre"]
-                display_fields: ["jugadores.*.nombre"]
+                search_fields: ["jugadores.*.nombre", "jugadores.*.equipo_nombre"]
+                display_fields: ["jugadores.*.nombre", "jugadores.*.equipo_nombre"]
                 value_field: "jugadores.*.id"
+                options_length: 100
                 required: false
-                hint: "Búscalo por nombre. Nota: el buscador muestra jugadores de ambos equipos (Decap CMS no permite filtrar solo al equipo ganador); revisa que elijas al del equipo correcto."
+                hint: "Búscalo por nombre o equipo. El buscador muestra jugadores de TODOS los equipos de la categoría (Decap CMS no permite filtrar solo a los 2 equipos del partido) — ahora aparece el equipo junto al nombre para que no te equivoques."
               - name: "mvp_nombre"
                 label: "Detalle del MVP (opcional, ej. \"17 puntos, 5 rebotes\")"
                 widget: "string"
@@ -442,9 +447,10 @@ collections:
                     widget: "relation"
                     collection: "roster_var49"
                     file: "roster_var49"
-                    search_fields: ["jugadores.*.nombre"]
-                    display_fields: ["jugadores.*.nombre"]
+                    search_fields: ["jugadores.*.nombre", "jugadores.*.equipo_nombre"]
+                    display_fields: ["jugadores.*.nombre", "jugadores.*.equipo_nombre"]
                     value_field: "jugadores.*.id"
+                    options_length: 100
                   - name: "asistio"
                     label: "¿Asistió al juego?"
                     widget: "select"
@@ -674,6 +680,10 @@ collections:
                 search_fields: ["equipos.*.nombre"]
                 display_fields: ["equipos.*.nombre"]
                 value_field: "equipos.*.id"
+              - name: "equipo_nombre"
+                label: "Nombre del equipo (escríbelo igual que arriba)"
+                widget: "string"
+                hint: "Se repite a propósito: sirve para que el buscador de MVP muestre junto al nombre del jugador a qué equipo pertenece, ya que Decap CMS no puede filtrar automáticamente."
               - name: "temporada"
                 label: "Temporada"
                 widget: "relation"
@@ -707,6 +717,10 @@ collections:
                 search_fields: ["equipos.*.nombre"]
                 display_fields: ["equipos.*.nombre"]
                 value_field: "equipos.*.id"
+              - name: "equipo_nombre"
+                label: "Nombre del equipo (escríbelo igual que arriba)"
+                widget: "string"
+                hint: "Se repite a propósito: sirve para que el buscador de MVP muestre junto al nombre del jugador a qué equipo pertenece, ya que Decap CMS no puede filtrar automáticamente."
               - name: "temporada"
                 label: "Temporada"
                 widget: "relation"
@@ -740,6 +754,10 @@ collections:
                 search_fields: ["equipos.*.nombre"]
                 display_fields: ["equipos.*.nombre"]
                 value_field: "equipos.*.id"
+              - name: "equipo_nombre"
+                label: "Nombre del equipo (escríbelo igual que arriba)"
+                widget: "string"
+                hint: "Se repite a propósito: sirve para que el buscador de MVP muestre junto al nombre del jugador a qué equipo pertenece, ya que Decap CMS no puede filtrar automáticamente."
               - name: "temporada"
                 label: "Temporada"
                 widget: "relation"
