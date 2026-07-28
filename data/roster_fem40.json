@@ -286,6 +286,20 @@
       "equipo_id": "TEALONGF40",
       "temporada": "2026-2",
       "numero": "10"
+    },
+    {
+      "id": "AGARCIA",
+      "nombre": "ANA GARCIA",
+      "equipo_id": "LARAF40",
+      "temporada": "2026-2",
+      "numero": "44"
+    },
+    {
+      "id": "MARISANTA",
+      "nombre": "MARICRUZ MORALES",
+      "equipo_id": "LARAF40",
+      "temporada": "2026-2",
+      "numero": "0"
     }
   ]
 }
