@@ -55,7 +55,113 @@
       "mvp_jugador": "RLOPEZ4",
       "local": "VIKINGOSV40",
       "fase": "regular",
-      "estadisticas": [],
+      "estadisticas": [
+        {
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "CHABELOH"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 4,
+          "jugador": "ABDELCO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 1,
+          "faltas": 1,
+          "jugador": "TECOLIZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 2,
+          "faltas": 1,
+          "jugador": "ALEXVEGA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 3,
+          "jugador": "JSAL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "JAREDROM"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "JURIAS"
+        },
+        {
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 2,
+          "faltas": 0,
+          "jugador": "RLOPEZ4"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "MARIONB"
+        },
+        {
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "ALDUKA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 1,
+          "jugador": "IVANMEND"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "PATOSO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 1,
+          "faltas": 1,
+          "jugador": "MEDEH"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "BARRYMEN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "CHUCOGA"
+        }
+      ],
       "vuelta": 1,
       "forfeit": "ninguno",
       "visita": "NARANJOV40",
