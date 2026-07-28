@@ -413,10 +413,124 @@
       "mvp_nombre": "",
       "temporada": "2026-2",
       "sede_id": "duela",
-      "marcador_visita": 17,
+      "marcador_visita": 18,
       "mvp_jugador": "NERSANT",
       "local": "SALDOSF40",
       "fase": "regular",
+      "estadisticas": [
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "TERMIR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "PAQMEN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 21,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "NERSANT"
+        },
+        {
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 1,
+          "faltas": 0,
+          "jugador": "ANGVAN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "ESCCRIST"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "PATSAN"
+        },
+        {
+          "asistio": "true",
+          "puntos": -1,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "PATBERNAL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "DALIAFELI"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": -1,
+          "faltas": 0,
+          "jugador": "IVANEGAS"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "kasilva"
+        },
+        {
+          "asistio": "true",
+          "puntos": -1,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "MGARCIA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "AMFRA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "LBRACA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ANAHISFEL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "AZUCENA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "YULILEY"
+        }
+      ],
       "vuelta": 1,
       "forfeit": "ninguno",
       "visita": "TEALONGF40",
