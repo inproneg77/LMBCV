@@ -541,13 +541,141 @@
       "fecha": "2026-07-11"
     },
     {
-      "mvp_nombre": "Kenia Quiroz",
+      "mvp_nombre": "",
       "temporada": "2026-2",
       "sede_id": "duela",
       "marcador_visita": 13,
       "mvp_jugador": "KENQUI",
       "local": "LARAF40",
       "fase": "regular",
+      "estadisticas": [
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "IURIAS"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "GCRUZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "MGUTI"
+        },
+        {
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "CGUT"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "AGUT"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "KENQUI"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "ARGRIJ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "MARISANTA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "BSOTELO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "ANABUSTA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "FRECIACUE"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "CYES"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "PERLMENDE"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "ELSAGON"
+        },
+        {
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "RSUA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 1,
+          "jugador": "ENNER"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "ROXTA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "MIVAL"
+        }
+      ],
       "vuelta": 1,
       "forfeit": "ninguno",
       "visita": "DIAMONDS40",
