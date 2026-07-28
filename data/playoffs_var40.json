@@ -1,3 +1,29 @@
 {
-    "series": []
+  "series": [
+    {
+      "id": "final2026-1miercfe",
+      "temporada": "2026-1",
+      "ronda": "Final",
+      "equipoA": "CFEV40",
+      "equipoB": "SMV40",
+      "juegos": [
+        {
+          "jugado": "true",
+          "numero": 1,
+          "fecha": "2026-07-15",
+          "marcador_a": 43,
+          "marcador_b": 48
+        },
+        {
+          "jugado": "false",
+          "fecha": "2026-08-01",
+          "numero": 1
+        },
+        {
+          "jugado": "false",
+          "numero": 3
+        }
+      ]
+    }
+  ]
 }
