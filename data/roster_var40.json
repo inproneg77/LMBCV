@@ -5,280 +5,320 @@
       "nombre": "HECTOR MACIEL",
       "equipo_id": "ICATSONV40",
       "numero": "88",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "ICATSON"
     },
     {
       "id": "RPIMIENTA",
       "nombre": "RAMON PIMIENTA",
       "equipo_id": "ICATSONV40",
       "numero": "26",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "ICATSON"
     },
     {
       "id": "IMORALES",
       "nombre": "ISIDRO MORALES",
       "equipo_id": "ICATSONV40",
       "numero": "91",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "ICATSON"
     },
     {
       "id": "JCABALLERO",
       "nombre": "JULIO CABALLERO",
       "equipo_id": "ICATSONV40",
       "numero": "15",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "ICATSON"
     },
     {
       "id": "SGONZA",
       "nombre": "SERVANDO GONZALEZ",
       "equipo_id": "ICATSONV40",
       "numero": "11",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "ICATSON"
     },
     {
       "id": "GPALA",
       "nombre": "GUILLERMO PALAFOX",
       "equipo_id": "OSV40",
       "numero": "12",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "OLD SCHOOL"
     },
     {
       "id": "DMAZ",
       "nombre": "DARIO MAZON",
       "equipo_id": "OSV40",
       "numero": "5",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "OLD SCHOOL"
     },
     {
       "id": "DNEB",
       "nombre": "DANIEL NEBLINA",
       "equipo_id": "OSV40",
       "numero": "77",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "OLD SCHOOL"
     },
     {
       "id": "ANARAIZA",
       "nombre": "ANIBAL ARAIZA",
       "equipo_id": "OSV40",
       "numero": "8",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "OLD SCHOOL"
     },
     {
       "id": "GARYFEL",
       "nombre": "GERARDO  FELIX",
       "equipo_id": "OSV40",
       "numero": "4",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "OLD SCHOOL"
     },
     {
       "id": "CYESK",
       "nombre": "CARLOS YESCAS",
       "equipo_id": "OSV40",
       "numero": "0",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "OLD SCHOOL"
     },
     {
       "id": "CHOCOLEM",
       "nombre": "FERNANDO LEMAS",
       "equipo_id": "CUERVOSV40",
       "numero": "33",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "CUERVOS"
     },
     {
       "id": "FAVELATOLON",
       "nombre": "PABLO FAVELA",
       "equipo_id": "CUERVOSV40",
       "numero": "8",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "CUERVOS"
     },
     {
       "id": "CHARROD",
       "nombre": "ENRIQUE MARTINEZ",
       "equipo_id": "CUERVOSV40",
       "numero": "91",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "CUERVOS"
     },
     {
       "id": "TITOMEN",
       "nombre": "ARIEL MENA",
       "equipo_id": "CUERVOSV40",
       "numero": "3",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "CUERVOS"
     },
     {
       "id": "ANGELFIE",
       "nombre": "ANGEL FIERROS",
       "equipo_id": "CUERVOSV40",
       "numero": "17",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "CUERVOS"
     },
     {
       "id": "FDOBRA",
       "nombre": "FERNANDO BRASIL",
       "equipo_id": "CUERVOSV40",
       "numero": "32",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "CUERVOS"
     },
     {
       "id": "FONSECAR",
       "nombre": "RUBEN FONSECA",
       "equipo_id": "CUERVOSV40",
       "numero": "13",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "CUERVOS"
     },
     {
       "id": "MPENUE",
       "nombre": "MIGUEL PEÑUELAS",
       "equipo_id": "BURROSV40",
       "numero": "12",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "BURROS SONORA"
     },
     {
       "id": "JDIAZ",
       "nombre": "JESUS DIAZ",
       "equipo_id": "BURROSV40",
       "numero": "13",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "BURROS SONORA"
     },
     {
       "id": "LPENUE",
       "nombre": "LEONARDO PEÑUELAS",
       "equipo_id": "BURROSV40",
       "numero": "10",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "BURROS SONORA"
     },
     {
       "id": "SCHAVA",
       "nombre": "SALVADOR PRECIADO",
       "equipo_id": "BURROSV40",
       "numero": "11",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "BURROS SONORA"
     },
     {
       "id": "CABALLOOZ",
       "nombre": "LUIS OZUNA",
       "equipo_id": "BURROSV40",
       "numero": "21",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "BURROS SONORA"
     },
     {
       "id": "CNUN",
       "nombre": "CESAR NUÑEZ",
       "equipo_id": "BURROSV40",
       "numero": "31",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "BURROS SONORA"
     },
     {
       "id": "APENUE",
       "nombre": "ABRAHAM PEÑUELAS",
       "equipo_id": "BURROSV40",
       "numero": "15",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "BURROS SONORA"
     },
     {
       "id": "CHABELOH",
       "nombre": "JORGE HERNANDEZ",
       "equipo_id": "VIKINGOSV40",
       "numero": "1",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "VIKINGOS"
     },
     {
       "id": "ABDELCO",
       "nombre": "ABDEL CONTRERAS",
       "equipo_id": "VIKINGOSV40",
       "numero": "12",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "VIKINGOS"
     },
     {
       "id": "TECOLIZ",
       "nombre": "CESAR LIZARRAGA",
       "equipo_id": "VIKINGOSV40",
       "numero": "13",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "VIKINGOS"
     },
     {
       "id": "ALEXVEGA",
       "nombre": "ALEJANDRO VEGA",
       "equipo_id": "VIKINGOSV40",
       "numero": "9",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "VIKINGOS"
     },
     {
       "id": "JSAL",
       "nombre": "JORGE SALAZAR",
       "equipo_id": "VIKINGOSV40",
       "numero": "23",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "VIKINGOS"
     },
     {
       "id": "JAREDROM",
       "nombre": "JARED ROMERO",
       "equipo_id": "VIKINGOSV40",
       "numero": "19",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "VIKINGOS"
     },
     {
       "id": "JURIAS",
       "nombre": "JORGE URIAS",
       "equipo_id": "VIKINGOSV40",
       "numero": "31",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "VIKINGOS"
     },
     {
       "id": "RLOPEZ4",
       "nombre": "RICHARD LOPEZ",
       "equipo_id": "NARANJOV40",
       "numero": "4",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "EL NARANJO"
     },
     {
       "id": "MARIONB",
       "nombre": "MARIO BRACAMONTES",
       "equipo_id": "NARANJOV40",
       "numero": "19",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "EL NARANJO"
     },
     {
       "id": "ALDUKA",
       "nombre": "ALDO MENDOZA",
       "equipo_id": "NARANJOV40",
       "numero": "23",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "EL NARANJO"
     },
     {
       "id": "IVANMEND",
       "nombre": "IVAN MENDOZA",
       "equipo_id": "NARANJOV40",
       "numero": "13",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "EL NARANJO"
     },
     {
       "id": "PATOSO",
       "nombre": "PATRICIO SOQUI",
       "equipo_id": "NARANJOV40",
       "numero": "10",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "EL NARANJO"
     },
     {
       "id": "MEDEH",
       "nombre": "FRANCISCO MEDEHUARI",
       "equipo_id": "NARANJOV40",
       "numero": "11",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "EL NARANJO"
     },
     {
       "id": "BARRYMEN",
       "nombre": "JOAQUIN MENDEZ",
       "equipo_id": "NARANJOV40",
       "numero": "9",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "EL NARANJO"
     },
     {
       "id": "CHUCOGA",
       "nombre": "MARTIN GALLEGOS",
       "equipo_id": "NARANJOV40",
       "numero": "7",
-      "temporada": "2026-2"
+      "temporada": "2026-2",
+      "equipo_nombre": "EL NARANJO"
     }
   ]
 }
