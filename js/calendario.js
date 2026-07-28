@@ -102,12 +102,14 @@ function renderJuego(j) {
        <div class="marcador__info mono">${j.hora} hrs</div>`;
 
   const fase = j.fase ?? 'regular';
-  const faseHTML = fase !== 'regular'
-    ? `<div class="fase-tag">${ETIQUETAS_FASE[fase] ?? fase}</div>`
-    : '';
+  const etiquetaFase = fase !== 'regular'
+    ? (ETIQUETAS_FASE[fase] ?? fase)
+    : (j.vuelta && j.vuelta > 1 ? `Vuelta ${j.vuelta}` : '');
+  const faseHTML = etiquetaFase ? `<div class="fase-tag">${etiquetaFase}</div>` : '';
 
-  const mvpHTML = jugado && j.mvp_nombre
-    ? `<div class="mvp"><span class="mvp__icon">★</span> ${ESTADO.categorias.find(c=>c.id===j.categoria_id)?.etiqueta_mvp ?? 'Jugador destacado'}: <b>${j.mvp_nombre}</b></div>`
+  const mvp = nombreMVP(j, ESTADO.jugadoresPorId);
+  const mvpHTML = jugado && mvp
+    ? `<div class="mvp"><span class="mvp__icon">★</span> ${ESTADO.categorias.find(c=>c.id===j.categoria_id)?.etiqueta_mvp ?? 'Jugador destacado'}: <b>${mvp}</b>${j.mvp_nombre && j.mvp_jugador ? ` — ${j.mvp_nombre}` : ''}</div>`
     : '';
 
   const forfeitHTML = jugado && forfeit !== 'ninguno'
@@ -118,7 +120,9 @@ function renderJuego(j) {
     ? `<div class="observacion">${j.observaciones}</div>`
     : '';
 
-  return `
+  const tieneEstadisticas = jugado && (j.estadisticas ?? []).length > 0;
+
+  const tarjeta = `
     <div class="juego ${jugado ? 'is-jugado' : ''}">
       ${faseHTML}
       <div class="equipo equipo--local">
@@ -136,7 +140,17 @@ function renderJuego(j) {
       ${mvpHTML}
       ${forfeitHTML}
       ${observacionHTML}
+      ${tieneEstadisticas ? '<div class="juego-toggle__hint">Ver hoja de estadísticas ▾</div>' : ''}
     </div>
+  `;
+
+  if (!tieneEstadisticas) return tarjeta;
+
+  return `
+    <details class="juego-toggle">
+      <summary>${tarjeta}</summary>
+      <div class="juego-detalle">${renderHojaEstadistica(j, ESTADO)}</div>
+    </details>
   `;
 }
 

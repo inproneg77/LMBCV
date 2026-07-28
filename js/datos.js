@@ -56,6 +56,97 @@ async function cargarDatos() {
 // Genera un selector de temporada (<select>) dentro de #temporada-selector.
 // callback(temporadaId) se llama al iniciar (con la temporada marcada como
 // activa, o la más reciente si ninguna lo está) y cada vez que cambie.
+// Resuelve el nombre a mostrar como MVP: prioriza el jugador seleccionado por
+// relación (mvp_jugador); si el juego es viejo y solo tiene texto libre
+// (mvp_nombre), usa eso como respaldo.
+function nombreMVP(juego, jugadoresPorId) {
+  if (juego.mvp_jugador && jugadoresPorId[juego.mvp_jugador]) {
+    return jugadoresPorId[juego.mvp_jugador].nombre;
+  }
+  return juego.mvp_nombre || null;
+}
+
+// Hoja de estadísticas completa de un juego: marcador, colectivos por
+// equipo, individuales de cada jugador, y líderes del encuentro.
+// Se usa tanto en Calendario (al expandir un juego) como en Equipos.
+function renderHojaEstadistica(juego, ESTADO) {
+  const local = ESTADO.equiposPorId[juego.local];
+  const visita = ESTADO.equiposPorId[juego.visita];
+  const stats = juego.estadisticas ?? [];
+
+  const statsLocal = stats.filter(e => ESTADO.jugadoresPorId[e.jugador]?.equipo_id === juego.local);
+  const statsVisita = stats.filter(e => ESTADO.jugadoresPorId[e.jugador]?.equipo_id === juego.visita);
+
+  const totales = (lista) => lista.reduce((acc, e) => ({
+    puntos: acc.puntos + Number(e.puntos ?? 0),
+    triples: acc.triples + Number(e.triples ?? 0),
+    faltas: acc.faltas + Number(e.faltas ?? 0),
+  }), { puntos: 0, triples: 0, faltas: 0 });
+
+  const totLocal = totales(statsLocal);
+  const totVisita = totales(statsVisita);
+
+  const tablaEquipo = (nombreEquipo, lista, totales) => `
+    <div class="hoja__equipo">
+      <h4 class="hoja__equipo-nombre">${nombreEquipo}</h4>
+      ${lista.length === 0 ? '<div class="empty" style="padding:16px;">Sin estadísticas capturadas.</div>' : `
+        <div class="table-scroll">
+          <table class="standing-table">
+            <thead><tr><th style="text-align:left;">Jugador</th><th>Pts</th><th>3pt</th><th>Faltas</th></tr></thead>
+            <tbody>
+              ${lista.map(e => `
+                <tr>
+                  <td style="text-align:left;">${ESTADO.jugadoresPorId[e.jugador]?.nombre ?? '—'}</td>
+                  <td class="mono">${e.puntos ?? 0}</td>
+                  <td class="mono">${e.triples ?? 0}</td>
+                  <td class="mono">${e.faltas ?? 0}</td>
+                </tr>
+              `).join('')}
+              <tr style="font-weight:700; background:var(--baby-soft);">
+                <td style="text-align:left;">Total</td>
+                <td class="mono">${totales.puntos}</td>
+                <td class="mono">${totales.triples}</td>
+                <td class="mono">${totales.faltas}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      `}
+    </div>
+  `;
+
+  // Líderes del encuentro (entre ambos equipos)
+  const todos = stats.map(e => ({ ...e, nombre: ESTADO.jugadoresPorId[e.jugador]?.nombre ?? '—' }));
+  const lider = (campo) => todos.length ? [...todos].sort((a,b) => (b[campo]??0) - (a[campo]??0))[0] : null;
+  const liderPts = lider('puntos');
+  const liderTrip = lider('triples');
+  const liderFaltas = lider('faltas');
+
+  return `
+    <div class="hoja">
+      <div class="hoja__marcador">
+        <span>${local?.nombre ?? ''}</span>
+        <span class="mono" style="font-family:'Teko',sans-serif; font-size:26px;">${juego.marcador_local} – ${juego.marcador_visita}</span>
+        <span>${visita?.nombre ?? ''}</span>
+      </div>
+      <div class="hoja__equipos">
+        ${tablaEquipo(local?.nombre ?? 'Local', statsLocal, totLocal)}
+        ${tablaEquipo(visita?.nombre ?? 'Visita', statsVisita, totVisita)}
+      </div>
+      ${todos.length > 0 ? `
+        <div class="hoja__lideres">
+          ${liderPts ? `<div>🏀 Más puntos: <b>${liderPts.nombre}</b> (${liderPts.puntos ?? 0})</div>` : ''}
+          ${liderTrip && liderTrip.triples > 0 ? `<div>🎯 Más triples: <b>${liderTrip.nombre}</b> (${liderTrip.triples})</div>` : ''}
+          ${liderFaltas && liderFaltas.faltas > 0 ? `<div>🟨 Más faltas: <b>${liderFaltas.nombre}</b> (${liderFaltas.faltas})</div>` : ''}
+        </div>
+      ` : ''}
+    </div>
+  `;
+}
+
+// Genera un selector de temporada (<select>) dentro de #temporada-selector.
+// callback(temporadaId) se llama al iniciar (con la temporada marcada como
+// activa, o la más reciente si ninguna lo está) y cada vez que cambie.
 function iniciarSelectorTemporada(temporadas, callback) {
   const cont = document.getElementById('temporada-selector');
   if (!cont) return () => null;

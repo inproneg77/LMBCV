@@ -24,13 +24,13 @@ function renderValiosos() {
   const juegos = ESTADO_V.juegos.filter(j =>
     j.categoria_id === categoriaActivaV &&
     j.estatus === 'jugado' &&
-    j.mvp_nombre && j.mvp_nombre.trim() !== '' &&
     (!temporadaActivaV || j.temporada === temporadaActivaV)
   );
 
   const conteo = {};
   juegos.forEach(j => {
-    const nombre = j.mvp_nombre.trim();
+    const nombre = nombreMVP(j, ESTADO_V.jugadoresPorId);
+    if (!nombre) return;
     conteo[nombre] = (conteo[nombre] ?? 0) + 1;
   });
 
@@ -61,8 +61,8 @@ function renderValiosos() {
       </tbody>
     </table></div>
     <p style="color:var(--text-dim); font-size:12px; margin-top:14px;">
-      Se cuenta cada vez que un jugador fue reconocido como ${etiqueta.toLowerCase()} en un juego capturado.
-      Para que cuente bien, en el panel escribe solo el nombre en "Jugador destacado" (los puntos o detalles van en "Observaciones").
+      Se cuenta cada vez que un jugador fue reconocido como ${etiqueta.toLowerCase()} en un juego capturado
+      (usando el selector "Jugador Destacado" del panel).
     </p>
   `;
 }
