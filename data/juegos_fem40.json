@@ -7,6 +7,22 @@
       "marcador_visita": 21,
       "local": "LARAF40",
       "fase": "regular",
+      "estadisticas": [
+        {
+          "asistio": "true",
+          "puntos": 36,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "AGUT"
+        },
+        {
+          "asistio": "true",
+          "puntos": 31,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "ENNER"
+        }
+      ],
       "forfeit": "ninguno",
       "visita": "TEALONGF40",
       "hora": "18:00",
