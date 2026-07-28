@@ -1,12 +1,14 @@
 {
   "juegos": [
     {
-      "mvp_nombre": "Daniel Neblina",
+      "mvp_nombre": "",
       "temporada": "2026-2",
       "sede_id": "gimnasio",
       "marcador_visita": 63,
+      "mvp_jugador": "DNEB",
       "local": "ICATSONV40",
       "fase": "regular",
+      "vuelta": 1,
       "forfeit": "ninguno",
       "visita": "OSV40",
       "hora": "16:00",
@@ -16,12 +18,14 @@
       "fecha": "2026-07-25"
     },
     {
-      "mvp_nombre": "Angel Fierros",
+      "mvp_nombre": "",
       "temporada": "2026-2",
       "sede_id": "gimnasio",
       "marcador_visita": 50,
+      "mvp_jugador": "ANGELFIE",
       "local": "CUERVOSV40",
       "fase": "regular",
+      "vuelta": 1,
       "forfeit": "ninguno",
       "visita": "BURROSV40",
       "hora": "17:00",
@@ -35,6 +39,7 @@
       "sede_id": "gimnasio",
       "local": "CFEV40",
       "fase": "final",
+      "vuelta": 1,
       "forfeit": "ninguno",
       "visita": "SMV40",
       "hora": "19:00",
@@ -43,13 +48,15 @@
       "fecha": "2026-08-01"
     },
     {
-      "mvp_nombre": "Richard Lopez",
+      "mvp_nombre": "",
       "temporada": "2026-2",
       "sede_id": "gimnasio",
       "marcador_visita": 48,
+      "mvp_jugador": "RLOPEZ4",
       "local": "VIKINGOSV40",
       "fase": "regular",
       "estadisticas": [],
+      "vuelta": 1,
       "forfeit": "ninguno",
       "visita": "NARANJOV40",
       "hora": "15:00",
