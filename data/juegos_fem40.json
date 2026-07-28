@@ -368,6 +368,20 @@
           "triples": 0,
           "faltas": 1,
           "jugador": "REYMOR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 1,
+          "jugador": "AGARCIA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "MARISANTA"
         }
       ],
       "vuelta": 1,
