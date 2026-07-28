@@ -111,13 +111,127 @@
       "fecha": "2026-07-25"
     },
     {
-      "mvp_nombre": "Helena Garcia",
+      "mvp_nombre": "",
       "temporada": "2026-2",
       "sede_id": "gimnasio",
       "marcador_visita": 22,
       "mvp_jugador": "HELGAR",
       "local": "DIAMONDS40",
       "fase": "regular",
+      "estadisticas": [
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "CYES"
+        },
+        {
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "ELSAGON"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "RSUA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "ANABUSTA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 3,
+          "faltas": 2,
+          "jugador": "HELGAR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 2,
+          "jugador": "ROXTA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "ENNER"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ROCFLO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 16,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "NERSANT"
+        },
+        {
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 0,
+          "jugador": "ANGVAN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "ADRIHERR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "LUCGAR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 1,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "VILMTOR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "PAQMEN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "ESCCRIST"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "PATSAN"
+        }
+      ],
       "vuelta": 1,
       "forfeit": "ninguno",
       "visita": "SALDOSF40",
