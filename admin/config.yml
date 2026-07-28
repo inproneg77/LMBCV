@@ -42,9 +42,9 @@ collections:
                 widget: "select"
                 hint: "Solo debería haber UNA temporada marcada como activa a la vez."
                 options:
-                  - { label: "Sí, es la activa", value: true }
-                  - { label: "No", value: false }
-                default: false
+                  - { label: "Sí, es la activa", value: "true" }
+                  - { label: "No", value: "false" }
+                default: "false"
 
   - name: "equipos_var40"
     label: "🏀 Varonil 40+ · Equipos"
@@ -396,9 +396,9 @@ collections:
                     label: "¿Ya se jugó?"
                     widget: "select"
                     options:
-                      - { label: "Sí, ya se jugó", value: true }
-                      - { label: "Todavía no", value: false }
-                    default: false
+                      - { label: "Sí, ya se jugó", value: "true" }
+                      - { label: "Todavía no", value: "false" }
+                    default: "false"
                   - { name: "marcador_a", label: "Marcador Equipo A", widget: "number", required: false, value_type: "int" }
                   - { name: "marcador_b", label: "Marcador Equipo B", widget: "number", required: false, value_type: "int" }
 
@@ -461,9 +461,9 @@ collections:
                     label: "¿Ya se jugó?"
                     widget: "select"
                     options:
-                      - { label: "Sí, ya se jugó", value: true }
-                      - { label: "Todavía no", value: false }
-                    default: false
+                      - { label: "Sí, ya se jugó", value: "true" }
+                      - { label: "Todavía no", value: "false" }
+                    default: "false"
                   - { name: "marcador_a", label: "Marcador Equipo A", widget: "number", required: false, value_type: "int" }
                   - { name: "marcador_b", label: "Marcador Equipo B", widget: "number", required: false, value_type: "int" }
 
@@ -526,9 +526,9 @@ collections:
                     label: "¿Ya se jugó?"
                     widget: "select"
                     options:
-                      - { label: "Sí, ya se jugó", value: true }
-                      - { label: "Todavía no", value: false }
-                    default: false
+                      - { label: "Sí, ya se jugó", value: "true" }
+                      - { label: "Todavía no", value: "false" }
+                    default: "false"
                   - { name: "marcador_a", label: "Marcador Equipo A", widget: "number", required: false, value_type: "int" }
                   - { name: "marcador_b", label: "Marcador Equipo B", widget: "number", required: false, value_type: "int" }
 
