@@ -11,17 +11,94 @@
       "estadisticas": [
         {
           "asistio": "true",
-          "puntos": 36,
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "BSOTELO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "CGUT"
+        },
+        {
+          "asistio": "true",
+          "puntos": 15,
           "triples": 0,
           "faltas": 2,
           "jugador": "AGUT"
         },
         {
           "asistio": "true",
-          "puntos": 31,
+          "puntos": 2,
           "triples": 0,
           "faltas": 0,
-          "jugador": "ENNER"
+          "jugador": "GCRUZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "MGUTI"
+        },
+        {
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ARGRIJ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "IURIAS"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "MGARCIA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "GPECEL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 2,
+          "jugador": "LBRACA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "JANLAB"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "AMFRA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "YULILEY"
         }
       ],
       "vuelta": 1,
