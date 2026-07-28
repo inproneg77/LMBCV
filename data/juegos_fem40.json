@@ -1,10 +1,11 @@
 {
   "juegos": [
     {
-      "mvp_nombre": "Ana Gutierrez",
+      "mvp_nombre": "",
       "temporada": "2026-2",
       "sede_id": "gimnasio",
       "marcador_visita": 21,
+      "mvp_jugador": "AGUT",
       "local": "LARAF40",
       "fase": "regular",
       "estadisticas": [
@@ -23,6 +24,7 @@
           "jugador": "ENNER"
         }
       ],
+      "vuelta": 1,
       "forfeit": "ninguno",
       "visita": "TEALONGF40",
       "hora": "18:00",
@@ -36,8 +38,10 @@
       "temporada": "2026-2",
       "sede_id": "gimnasio",
       "marcador_visita": 22,
+      "mvp_jugador": "HELGAR",
       "local": "DIAMONDS40",
       "fase": "regular",
+      "vuelta": 1,
       "forfeit": "ninguno",
       "visita": "SALDOSF40",
       "hora": "19:00",
@@ -47,12 +51,14 @@
       "fecha": "2026-07-25"
     },
     {
-      "mvp_nombre": "Kenia Quiroz",
+      "mvp_nombre": "",
       "temporada": "2026-2",
       "sede_id": "gimnasio",
       "marcador_visita": 16,
+      "mvp_jugador": "KENQUI",
       "local": "LARAF40",
       "fase": "regular",
+      "vuelta": 1,
       "forfeit": "ninguno",
       "visita": "MAESTRASF40",
       "hora": "16:00",
@@ -68,6 +74,7 @@
       "marcador_visita": 21,
       "local": "TEALONGF40",
       "fase": "regular",
+      "vuelta": 1,
       "forfeit": "ninguno",
       "visita": "DIAMONDS40",
       "hora": "17:00",
@@ -77,12 +84,14 @@
       "fecha": "2026-07-04"
     },
     {
-      "mvp_nombre": "Nereyda Santiago",
+      "mvp_nombre": "",
       "temporada": "2026-2",
       "sede_id": "duela",
       "marcador_visita": 17,
+      "mvp_jugador": "NERSANT",
       "local": "SALDOSF40",
       "fase": "regular",
+      "vuelta": 1,
       "forfeit": "ninguno",
       "visita": "TEALONGF40",
       "hora": "16:00",
@@ -96,8 +105,10 @@
       "temporada": "2026-2",
       "sede_id": "duela",
       "marcador_visita": 13,
+      "mvp_jugador": "KENQUI",
       "local": "LARAF40",
       "fase": "regular",
+      "vuelta": 1,
       "forfeit": "ninguno",
       "visita": "DIAMONDS40",
       "hora": "17:00",
