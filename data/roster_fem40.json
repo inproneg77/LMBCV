@@ -451,6 +451,14 @@
       "equipo_id": "DIAMONDS40",
       "equipo_nombre": "DIAMONDS",
       "temporada": "2026-2"
+    },
+    {
+      "id": "CLAESPI",
+      "nombre": "CLARIZA ESPINOZA",
+      "equipo_id": "LARAF40",
+      "equipo_nombre": "LARA TIRES",
+      "temporada": "2026-2",
+      "numero": "27"
     }
   ]
 }
