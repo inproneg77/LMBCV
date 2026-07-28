@@ -491,6 +491,14 @@
       "equipo_nombre": "TEA LONG",
       "temporada": "2026-2",
       "numero": "15"
+    },
+    {
+      "id": "CYNALV",
+      "nombre": "CYNTHIA ALVAREZ",
+      "equipo_id": "TEALONGF40",
+      "equipo_nombre": "TEA LONG",
+      "temporada": "2026-2",
+      "numero": "15"
     }
   ]
 }
