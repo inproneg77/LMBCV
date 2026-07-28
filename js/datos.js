@@ -61,7 +61,7 @@ function iniciarSelectorTemporada(temporadas, callback) {
   }
 
   const ordenadas = [...temporadas].sort((a,b) => b.id.localeCompare(a.id));
-  const porDefecto = ordenadas.find(t => t.activa)?.id ?? ordenadas[0].id;
+  const porDefecto = ordenadas.find(t => String(t.activa) === 'true')?.id ?? ordenadas[0].id;
 
   cont.innerHTML = `
     <select id="temporada-select" class="temporada-select">

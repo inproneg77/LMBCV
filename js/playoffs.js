@@ -23,7 +23,7 @@ async function iniciarPlayoffs() {
 function calcularSerie(serie) {
   let victoriasA = 0, victoriasB = 0;
   (serie.juegos ?? []).forEach(j => {
-    if (!j.jugado) return;
+    if (String(j.jugado) !== 'true') return;
     if (j.marcador_a > j.marcador_b) victoriasA++;
     else if (j.marcador_b > j.marcador_a) victoriasB++;
   });
@@ -73,7 +73,7 @@ function renderSerie(serie) {
   const decidida = ganador !== null;
 
   const juegosHTML = (serie.juegos ?? []).map((j, i) => {
-    if (!j.jugado) {
+    if (String(j.jugado) !== 'true') {
       return `<div class="serie__juego serie__juego--pendiente">Juego ${j.numero ?? i+1}: por jugarse</div>`;
     }
     return `<div class="serie__juego">

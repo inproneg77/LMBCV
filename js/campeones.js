@@ -8,7 +8,7 @@ async function iniciarCampeones() {
 
 // Fecha del último juego jugado dentro de la serie (la que definió al campeón)
 function fechaDeCoronacion(serie) {
-  const jugados = (serie.juegos ?? []).filter(j => j.jugado && j.fecha);
+  const jugados = (serie.juegos ?? []).filter(j => String(j.jugado) === 'true' && j.fecha);
   if (jugados.length === 0) return null;
   return jugados.map(j => j.fecha).sort().at(-1);
 }
@@ -21,7 +21,7 @@ function renderCampeones() {
   const campeones = finales.map(serie => {
     let victoriasA = 0, victoriasB = 0;
     (serie.juegos ?? []).forEach(j => {
-      if (!j.jugado) return;
+      if (String(j.jugado) !== 'true') return;
       if (j.marcador_a > j.marcador_b) victoriasA++;
       else if (j.marcador_b > j.marcador_a) victoriasB++;
     });
