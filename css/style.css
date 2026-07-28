@@ -344,6 +344,76 @@ a{ color: inherit; text-decoration: none; }
 }
 .patrocinadores__grid img:hover{ transform: translateY(-2px); box-shadow: var(--shadow); }
 
+/* ===== Sección Equipos ===== */
+.equipos-grid{
+  display:grid; gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+}
+.equipo-card{
+  display:flex; flex-direction:column; align-items:center; gap: 10px;
+  background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 20px 12px; cursor: pointer; box-shadow: var(--shadow);
+  transition: transform .15s ease, box-shadow .15s ease;
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight:700; color: var(--navy);
+  text-align:center;
+}
+.equipo-card:hover{ transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.equipo-card img{ width: 56px; height: 56px; border-radius: 50%; border: 1px solid var(--line); }
+
+.volver-btn{
+  background: none; border: none; color: var(--navy); font-weight:700; font-size: 13px;
+  cursor: pointer; padding: 0; margin-bottom: 18px;
+}
+.volver-btn:hover{ text-decoration: underline; }
+
+.equipo-detalle-header{ display:flex; align-items:center; gap: 16px; margin-bottom: 6px; }
+.equipo-detalle-header img{ width: 64px; height: 64px; border-radius: 50%; border: 1px solid var(--line); }
+
+.historial-item{
+  display:grid; grid-template-columns: auto 1fr auto auto auto; align-items:center; gap: 12px;
+  background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-sm);
+  padding: 10px 16px; margin-bottom: 8px; font-size: 13px;
+}
+.historial-item__resultado{
+  width: 22px; height: 22px; border-radius: 50%; display:flex; align-items:center; justify-content:center;
+  font-size: 11px; font-weight:700; color: var(--white);
+}
+.historial-item__resultado.gano{ background: var(--win); }
+.historial-item__resultado.perdio{ background: var(--text-dim); }
+.historial-item__rival{ font-weight:600; color: var(--navy); }
+.historial-item__fecha{ color: var(--text-dim); font-size:11px; }
+.historial-item__ver{ font-size: 11px; color: var(--navy); background: var(--baby-soft); border-radius:999px; padding: 3px 10px; }
+
+/* ===== Hoja de estadísticas del partido ===== */
+.hoja{ padding: 4px 0; }
+.hoja__marcador{
+  display:flex; align-items:center; justify-content:center; gap: 16px;
+  font-weight: 700; color: var(--navy); margin-bottom: 16px; text-align:center;
+}
+.hoja__equipos{ display:grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.hoja__equipo-nombre{ font-size: 18px; color: var(--navy); margin-bottom: 8px; }
+.hoja__lideres{
+  margin-top: 18px; padding-top: 14px; border-top: 1px dashed var(--line);
+  display:flex; flex-wrap:wrap; gap: 10px 24px;
+  font-size: 13px; color: var(--text-dim);
+}
+.hoja__lideres b{ color: var(--navy); }
+
+.juego-toggle{ cursor: pointer; list-style: none; }
+.juego-toggle::-webkit-details-marker{ display:none; }
+.juego-toggle__hint{
+  grid-column: 1 / -1;
+  text-align:center; font-size: 11px; color: var(--baby); background: var(--navy);
+  border-radius: 999px; padding: 3px 10px; margin-top: 8px; display:inline-block;
+  justify-self: center;
+}
+.juego-detalle{
+  background: var(--baby-soft);
+  border-top: 1px dashed var(--line);
+  margin: 12px -20px -16px;
+  padding: 18px 20px;
+}
+
 /* ===== Líderes / Top 10 ===== */
 .lideres-grid{
   display:grid; gap: 30px;
