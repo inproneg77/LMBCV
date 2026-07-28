@@ -459,6 +459,38 @@
       "equipo_nombre": "LARA TIRES",
       "temporada": "2026-2",
       "numero": "27"
+    },
+    {
+      "id": "ANAHISFEL",
+      "nombre": "ANAHIS FELIX",
+      "equipo_id": "TEALONGF40",
+      "equipo_nombre": "TEA LONG",
+      "temporada": "2026-2",
+      "numero": "24"
+    },
+    {
+      "id": "BLANGARC",
+      "nombre": "BLANCA GARCIA",
+      "equipo_id": "TEALONGF40",
+      "equipo_nombre": "TEA LONG",
+      "temporada": "2026-2",
+      "numero": "41"
+    },
+    {
+      "id": "DALIAFELI",
+      "nombre": "DALILA FELIX",
+      "equipo_id": "TEALONGF40",
+      "equipo_nombre": "TEA LONG",
+      "temporada": "2026-2",
+      "numero": "34"
+    },
+    {
+      "id": "CTNTGUT",
+      "nombre": "CYNTHIA GUTIERREZ",
+      "equipo_id": "TEALONGF40",
+      "equipo_nombre": "TEA LONG",
+      "temporada": "2026-2",
+      "numero": "15"
     }
   ]
 }
