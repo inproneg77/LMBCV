@@ -5,9 +5,88 @@
       "temporada": "2026-2",
       "sede_id": "gimnasio",
       "marcador_visita": 63,
-      "mvp_jugador": "DNEB",
+      "mvp_jugador": "GARYFEL",
       "local": "ICATSONV40",
       "fase": "regular",
+      "estadisticas": [
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 2,
+          "jugador": "HMACIEL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "RPIMIENTA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "IMORALES"
+        },
+        {
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "JCABALLERO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 2,
+          "jugador": "SGONZA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "GPALA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "DMAZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "DNEB"
+        },
+        {
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 1,
+          "faltas": 0,
+          "jugador": "ANARAIZA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "GARYFEL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "CYESK"
+        }
+      ],
       "vuelta": 1,
       "forfeit": "ninguno",
       "visita": "OSV40",
