@@ -118,6 +118,12 @@ collections:
                   - { label: "Final", value: "final" }
                   - { label: "Amistoso", value: "amistoso" }
                 default: "regular"
+              - name: "vuelta"
+                label: "Vuelta (si la categoría juega 2 o 3 vueltas)"
+                widget: "number"
+                value_type: "int"
+                default: 1
+                hint: "1 = primera vuelta, 2 = segunda vuelta, etc. Solo aplica a temporada regular."
               - name: "estatus"
                 label: "Estatus"
                 widget: "select"
@@ -136,11 +142,21 @@ collections:
                 default: "ninguno"
               - { name: "marcador_local", label: "Marcador local", widget: "number", required: false, value_type: "int" }
               - { name: "marcador_visita", label: "Marcador visita", widget: "number", required: false, value_type: "int" }
+              - name: "mvp_jugador"
+                label: "Jugador(a) Destacado(a) del partido"
+                widget: "relation"
+                collection: "roster_var40"
+                file: "roster_var40"
+                search_fields: ["jugadores.*.nombre"]
+                display_fields: ["jugadores.*.nombre"]
+                value_field: "jugadores.*.id"
+                required: false
+                hint: "Búscalo por nombre. Nota: el buscador muestra jugadores de ambos equipos (Decap CMS no permite filtrar solo al equipo ganador); revisa que elijas al del equipo correcto."
               - name: "mvp_nombre"
-                label: "Jugador destacado del partido (opcional)"
+                label: "Detalle del MVP (opcional, ej. \"17 puntos, 5 rebotes\")"
                 widget: "string"
                 required: false
-                hint: "Escribe SOLO el nombre (sin puntos ni detalles), para que cuente bien en el ranking de jugadores más valiosos."
+                hint: "Ya no se usa para el nombre (usa el campo de arriba). Aquí solo van detalles extra si quieres."
               - name: "estadisticas"
                 label: "Estadísticas individuales del partido"
                 widget: "list"
@@ -239,6 +255,12 @@ collections:
                   - { label: "Final", value: "final" }
                   - { label: "Amistoso", value: "amistoso" }
                 default: "regular"
+              - name: "vuelta"
+                label: "Vuelta (si la categoría juega 2 o 3 vueltas)"
+                widget: "number"
+                value_type: "int"
+                default: 1
+                hint: "1 = primera vuelta, 2 = segunda vuelta, etc. Solo aplica a temporada regular."
               - name: "estatus"
                 label: "Estatus"
                 widget: "select"
@@ -257,11 +279,21 @@ collections:
                 default: "ninguno"
               - { name: "marcador_local", label: "Marcador local", widget: "number", required: false, value_type: "int" }
               - { name: "marcador_visita", label: "Marcador visita", widget: "number", required: false, value_type: "int" }
+              - name: "mvp_jugador"
+                label: "Jugador(a) Destacado(a) del partido"
+                widget: "relation"
+                collection: "roster_fem40"
+                file: "roster_fem40"
+                search_fields: ["jugadores.*.nombre"]
+                display_fields: ["jugadores.*.nombre"]
+                value_field: "jugadores.*.id"
+                required: false
+                hint: "Búscalo por nombre. Nota: el buscador muestra jugadores de ambos equipos (Decap CMS no permite filtrar solo al equipo ganador); revisa que elijas al del equipo correcto."
               - name: "mvp_nombre"
-                label: "Jugador destacado del partido (opcional)"
+                label: "Detalle del MVP (opcional, ej. \"17 puntos, 5 rebotes\")"
                 widget: "string"
                 required: false
-                hint: "Escribe SOLO el nombre (sin puntos ni detalles), para que cuente bien en el ranking de jugadores más valiosos."
+                hint: "Ya no se usa para el nombre (usa el campo de arriba). Aquí solo van detalles extra si quieres."
               - name: "estadisticas"
                 label: "Estadísticas individuales del partido"
                 widget: "list"
@@ -360,6 +392,12 @@ collections:
                   - { label: "Final", value: "final" }
                   - { label: "Amistoso", value: "amistoso" }
                 default: "regular"
+              - name: "vuelta"
+                label: "Vuelta (si la categoría juega 2 o 3 vueltas)"
+                widget: "number"
+                value_type: "int"
+                default: 1
+                hint: "1 = primera vuelta, 2 = segunda vuelta, etc. Solo aplica a temporada regular."
               - name: "estatus"
                 label: "Estatus"
                 widget: "select"
@@ -378,11 +416,21 @@ collections:
                 default: "ninguno"
               - { name: "marcador_local", label: "Marcador local", widget: "number", required: false, value_type: "int" }
               - { name: "marcador_visita", label: "Marcador visita", widget: "number", required: false, value_type: "int" }
+              - name: "mvp_jugador"
+                label: "Jugador(a) Destacado(a) del partido"
+                widget: "relation"
+                collection: "roster_var49"
+                file: "roster_var49"
+                search_fields: ["jugadores.*.nombre"]
+                display_fields: ["jugadores.*.nombre"]
+                value_field: "jugadores.*.id"
+                required: false
+                hint: "Búscalo por nombre. Nota: el buscador muestra jugadores de ambos equipos (Decap CMS no permite filtrar solo al equipo ganador); revisa que elijas al del equipo correcto."
               - name: "mvp_nombre"
-                label: "Jugador destacado del partido (opcional)"
+                label: "Detalle del MVP (opcional, ej. \"17 puntos, 5 rebotes\")"
                 widget: "string"
                 required: false
-                hint: "Escribe SOLO el nombre (sin puntos ni detalles), para que cuente bien en el ranking de jugadores más valiosos."
+                hint: "Ya no se usa para el nombre (usa el campo de arriba). Aquí solo van detalles extra si quieres."
               - name: "estadisticas"
                 label: "Estadísticas individuales del partido"
                 widget: "list"
@@ -626,6 +674,15 @@ collections:
                 search_fields: ["equipos.*.nombre"]
                 display_fields: ["equipos.*.nombre"]
                 value_field: "equipos.*.id"
+              - name: "temporada"
+                label: "Temporada"
+                widget: "relation"
+                collection: "temporadas"
+                file: "temporadas"
+                search_fields: ["temporadas.*.nombre"]
+                display_fields: ["temporadas.*.nombre"]
+                value_field: "temporadas.*.id"
+                hint: "A qué temporada pertenece este jugador en este equipo (si cambia de equipo o de temporada, agrégalo como una fila nueva)."
               - { name: "numero", label: "Número de dorsal (opcional)", widget: "string", required: false }
 
   - name: "roster_fem40"
@@ -650,6 +707,15 @@ collections:
                 search_fields: ["equipos.*.nombre"]
                 display_fields: ["equipos.*.nombre"]
                 value_field: "equipos.*.id"
+              - name: "temporada"
+                label: "Temporada"
+                widget: "relation"
+                collection: "temporadas"
+                file: "temporadas"
+                search_fields: ["temporadas.*.nombre"]
+                display_fields: ["temporadas.*.nombre"]
+                value_field: "temporadas.*.id"
+                hint: "A qué temporada pertenece este jugador en este equipo (si cambia de equipo o de temporada, agrégalo como una fila nueva)."
               - { name: "numero", label: "Número de dorsal (opcional)", widget: "string", required: false }
 
   - name: "roster_var49"
@@ -674,6 +740,15 @@ collections:
                 search_fields: ["equipos.*.nombre"]
                 display_fields: ["equipos.*.nombre"]
                 value_field: "equipos.*.id"
+              - name: "temporada"
+                label: "Temporada"
+                widget: "relation"
+                collection: "temporadas"
+                file: "temporadas"
+                search_fields: ["temporadas.*.nombre"]
+                display_fields: ["temporadas.*.nombre"]
+                value_field: "temporadas.*.id"
+                hint: "A qué temporada pertenece este jugador en este equipo (si cambia de equipo o de temporada, agrégalo como una fila nueva)."
               - { name: "numero", label: "Número de dorsal (opcional)", widget: "string", required: false }
 
   # ===== SEDES Y PATROCINADORES =====
