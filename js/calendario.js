@@ -1,36 +1,33 @@
 let ESTADO = null;
 let categoriaActiva = null;
+let temporadaActiva = null;
 
 async function iniciar() {
   ESTADO = await cargarDatos();
-  const cats = [...ESTADO.categorias].sort((a,b) => a.orden - b.orden);
-  categoriaActiva = cats[0]?.id;
   renderPatrocinadores(ESTADO.patrocinadores);
 
-  const tabs = document.getElementById('tabs');
-  tabs.innerHTML = cats.map(c => `
-    <button class="tab ${c.id === categoriaActiva ? 'is-active' : ''}" data-cat="${c.id}">
-      ${c.nombre}
-    </button>
-  `).join('');
-
-  tabs.querySelectorAll('.tab').forEach(btn => {
-    btn.addEventListener('click', () => {
-      categoriaActiva = btn.dataset.cat;
-      tabs.querySelectorAll('.tab').forEach(b => b.classList.toggle('is-active', b === btn));
-      render();
-    });
+  iniciarSelectorTemporada(ESTADO.temporadas, (temp) => {
+    temporadaActiva = temp;
+    render();
   });
 
-  render();
+  iniciarTabs(ESTADO.categorias, (cat) => {
+    categoriaActiva = cat;
+    render();
+  });
 }
 
 function render() {
   const cont = document.getElementById('contenido');
-  const juegos = ESTADO.juegos.filter(j => j.categoria_id === categoriaActiva);
+  if (!categoriaActiva) return;
+
+  const juegos = ESTADO.juegos.filter(j =>
+    j.categoria_id === categoriaActiva &&
+    (!temporadaActiva || j.temporada === temporadaActiva)
+  );
 
   if (juegos.length === 0) {
-    cont.innerHTML = `<div class="empty">Todavía no hay juegos capturados para esta categoría.</div>`;
+    cont.innerHTML = `<div class="empty">Todavía no hay juegos capturados para esta categoría/temporada.</div>`;
     return;
   }
 
@@ -81,11 +78,18 @@ function nombreDeMes(mesKey) {
   return `${MESES[m - 1].charAt(0).toUpperCase() + MESES[m - 1].slice(1)} ${y}`;
 }
 
+const ETIQUETAS_FASE = {
+  playoffs: 'Playoffs',
+  final: '🏆 Gran Final',
+  amistoso: 'Amistoso',
+};
+
 function renderJuego(j) {
   const local = ESTADO.equiposPorId[j.local];
   const visita = ESTADO.equiposPorId[j.visita];
   const sede = ESTADO.sedesPorId[j.sede_id]?.nombre ?? '';
   const jugado = j.estatus === 'jugado';
+  const forfeit = j.forfeit ?? 'ninguno';
 
   const marcadorHTML = jugado
     ? `<div class="marcador__score">
@@ -93,17 +97,21 @@ function renderJuego(j) {
          <span class="mono" style="color:var(--text-dim); font-size:16px;">–</span>
          <span class="${j.marcador_visita >= j.marcador_local ? 'gano' : 'perdio'}">${j.marcador_visita}</span>
        </div>
-       <div class="marcador__badge">Terminado</div>`
+       <div class="marcador__badge">${forfeit !== 'ninguno' ? 'Forfeit' : 'Terminado'}</div>`
     : `<div class="marcador__vs">VS</div>
        <div class="marcador__info mono">${j.hora} hrs</div>`;
 
   const fase = j.fase ?? 'regular';
   const faseHTML = fase !== 'regular'
-    ? `<div class="fase-tag">${fase === 'final' ? '🏆 Gran Final' : 'Playoffs'}</div>`
+    ? `<div class="fase-tag">${ETIQUETAS_FASE[fase] ?? fase}</div>`
     : '';
 
   const mvpHTML = jugado && j.mvp_nombre
-    ? `<div class="mvp"><span class="mvp__icon">★</span> Jugador destacado: <b>${j.mvp_nombre}</b></div>`
+    ? `<div class="mvp"><span class="mvp__icon">★</span> ${ESTADO.categorias.find(c=>c.id===j.categoria_id)?.etiqueta_mvp ?? 'Jugador destacado'}: <b>${j.mvp_nombre}</b></div>`
+    : '';
+
+  const forfeitHTML = jugado && forfeit !== 'ninguno'
+    ? `<div class="observacion">⚠ Forfeit: ${forfeit === 'local' ? (local?.nombre ?? 'Local') : (visita?.nombre ?? 'Visita')} no se presentó.</div>`
     : '';
 
   const observacionHTML = jugado && j.observaciones
@@ -126,6 +134,7 @@ function renderJuego(j) {
         <span class="equipo__nombre">${visita?.nombre ?? 'Por definir'}</span>
       </div>
       ${mvpHTML}
+      ${forfeitHTML}
       ${observacionHTML}
     </div>
   `;
