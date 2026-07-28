@@ -25,6 +25,106 @@
       "mvp_jugador": "ANGELFIE",
       "local": "CUERVOSV40",
       "fase": "regular",
+      "estadisticas": [
+        {
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "CHOCOLEM"
+        },
+        {
+          "asistio": "true",
+          "puntos": 1,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "FAVELATOLON"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "CHARROD"
+        },
+        {
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "TITOMEN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 17,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "ANGELFIE"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "FDOBRA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "FONSECAR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 1,
+          "faltas": 1,
+          "jugador": "MPENUE"
+        },
+        {
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 1,
+          "jugador": "JDIAZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 2,
+          "jugador": "LPENUE"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "SCHAVA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "CABALLOOZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "CNUN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 20,
+          "triples": 3,
+          "faltas": 5,
+          "jugador": "APENUE"
+        }
+      ],
       "vuelta": 1,
       "forfeit": "ninguno",
       "visita": "BURROSV40",
