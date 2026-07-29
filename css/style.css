@@ -417,7 +417,15 @@ a{ color: inherit; text-decoration: none; }
   table, tr{ page-break-inside: avoid; }
 
   .historial-item{ box-shadow: none !important; border: 1px solid #ddd !important; page-break-inside: avoid; }
-  .juego-toggle .juego-detalle{ display: none !important; } /* box scores no se imprimen, solo el resumen */
+
+  /* Los <details> colapsados normalmente ocultan su contenido; al imprimir
+     forzamos que se muestre igual, aunque no se hayan abierto en pantalla. */
+  .juego-toggle{ break-inside: avoid; margin-bottom: 10px; }
+  .juego-toggle:not([open]) > *:not(summary){ display: block !important; }
+  .juego-toggle summary::marker, .juego-toggle summary::-webkit-details-marker{ display: none !important; }
+  .juego-toggle summary .historial-item__ver{ display: none !important; }
+  .juego-detalle{ page-break-inside: avoid; background: var(--white) !important; margin: 8px 0 0 !important; border: 1px solid #eee !important; }
+  .hoja__equipos{ page-break-inside: avoid; }
 
   .equipo-detalle-header, h2, h3{ page-break-after: avoid; }
 
