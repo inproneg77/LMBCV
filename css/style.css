@@ -345,12 +345,8 @@ a{ color: inherit; text-decoration: none; }
 .patrocinadores__grid img:hover{ transform: translateY(-2px); box-shadow: var(--shadow); }
 
 /* ===== Rankings de Equipos ===== */
+.ranking-subtabs{ margin: 0 0 20px; }
 .ranking-seccion{ margin-bottom: 34px; }
-.ranking-seccion__titulo{
-  font-size: 24px; color: var(--navy);
-  display:flex; align-items:center; gap: 10px;
-  margin-bottom: 12px;
-}
 
 /* ===== Sección Equipos ===== */
 .equipos-grid{
