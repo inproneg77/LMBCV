@@ -481,6 +481,14 @@
       "equipo_id": "SMV40",
       "equipo_nombre": "SPORT MIER",
       "temporada": "2026-1"
+    },
+    {
+      "id": "javlopez",
+      "nombre": "JAVIER LOPEZ",
+      "equipo_id": "NARANJOV40",
+      "equipo_nombre": "EL NARANJO",
+      "temporada": "2026-2",
+      "numero": "013"
     }
   ]
 }
