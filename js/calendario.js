@@ -5,10 +5,10 @@ let temporadaActiva = null;
 async function iniciar() {
   ESTADO = await cargarDatos();
   renderPatrocinadores(ESTADO.patrocinadores);
+  renderProximoJuego();
 
   iniciarSelectorTemporada(ESTADO.temporadas, (temp) => {
     temporadaActiva = temp;
-    renderProximoJuego();
     render();
   });
 
@@ -18,27 +18,27 @@ async function iniciar() {
   });
 }
 
-// Encuentra el juego "programado" más próximo en el tiempo (hoy en adelante)
-// de TODAS las categorías dentro de la temporada activa — no depende de qué
-// pestaña de categoría estés viendo, para que un juego importante (ej. una
-// Final pendiente) siempre se note sin importar dónde esté programado.
+// Encuentra qué juego mostrar en el banner de arriba:
+// 1) si algún juego (de cualquier categoría/temporada) está marcado como
+//    "Juego Destacado" y sigue programado, se usa ese;
+// 2) si no, se usa el juego programado más próximo en el tiempo, de
+//    cualquier categoría y CUALQUIER temporada (para que el banner siempre
+//    tenga algo útil que mostrar, sin depender de qué temporada estés
+//    viendo en el selector de la página).
 function renderProximoJuego() {
   const cont = document.getElementById('proximo-juego');
   if (!cont) return;
 
   const hoyISO = new Date().toISOString().slice(0, 10);
+  const programados = ESTADO.juegos.filter(j => j.estatus === 'programado');
 
-  const candidatos = ESTADO.juegos.filter(j =>
-    j.estatus === 'programado' &&
-    j.fecha >= hoyISO &&
-    (!temporadaActiva || j.temporada === temporadaActiva)
-  );
+  const destacado = programados.find(j => String(j.destacado) === 'true');
 
-  if (candidatos.length === 0) { cont.innerHTML = ''; return; }
+  const proximo = destacado ?? [...programados]
+    .filter(j => j.fecha >= hoyISO)
+    .sort((a, b) => a.fecha === b.fecha ? a.hora.localeCompare(b.hora) : a.fecha.localeCompare(b.fecha))[0];
 
-  const proximo = candidatos.sort((a, b) =>
-    a.fecha === b.fecha ? a.hora.localeCompare(b.hora) : a.fecha.localeCompare(b.fecha)
-  )[0];
+  if (!proximo) { cont.innerHTML = ''; return; }
 
   const local = ESTADO.equiposPorId[proximo.local];
   const visita = ESTADO.equiposPorId[proximo.visita];
@@ -46,8 +46,8 @@ function renderProximoJuego() {
   const sede = ESTADO.sedesPorId[proximo.sede_id]?.nombre ?? '';
   const { diaSemana, texto } = formatearFecha(proximo.fecha);
 
-  const esImportante = proximo.fase === 'final' || proximo.fase === 'playoffs';
-  const etiqueta = proximo.fase === 'final' ? '🏆 Gran Final' : proximo.fase === 'playoffs' ? 'Playoffs' : 'Próximo juego';
+  const esImportante = proximo.fase === 'final' || proximo.fase === 'playoffs' || String(proximo.destacado) === 'true';
+  const etiqueta = proximo.fase === 'final' ? '🏆 Gran Final' : proximo.fase === 'playoffs' ? 'Playoffs' : String(proximo.destacado) === 'true' ? '⭐ Juego Destacado' : 'Próximo juego';
 
   cont.innerHTML = `
     <div class="proximo-juego ${esImportante ? 'is-importante' : ''}">
