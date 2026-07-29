@@ -8,6 +8,7 @@ async function iniciar() {
 
   iniciarSelectorTemporada(ESTADO.temporadas, (temp) => {
     temporadaActiva = temp;
+    renderProximoJuego();
     render();
   });
 
@@ -15,6 +16,56 @@ async function iniciar() {
     categoriaActiva = cat;
     render();
   });
+}
+
+// Encuentra el juego "programado" más próximo en el tiempo (hoy en adelante)
+// de TODAS las categorías dentro de la temporada activa — no depende de qué
+// pestaña de categoría estés viendo, para que un juego importante (ej. una
+// Final pendiente) siempre se note sin importar dónde esté programado.
+function renderProximoJuego() {
+  const cont = document.getElementById('proximo-juego');
+  if (!cont) return;
+
+  const hoyISO = new Date().toISOString().slice(0, 10);
+
+  const candidatos = ESTADO.juegos.filter(j =>
+    j.estatus === 'programado' &&
+    j.fecha >= hoyISO &&
+    (!temporadaActiva || j.temporada === temporadaActiva)
+  );
+
+  if (candidatos.length === 0) { cont.innerHTML = ''; return; }
+
+  const proximo = candidatos.sort((a, b) =>
+    a.fecha === b.fecha ? a.hora.localeCompare(b.hora) : a.fecha.localeCompare(b.fecha)
+  )[0];
+
+  const local = ESTADO.equiposPorId[proximo.local];
+  const visita = ESTADO.equiposPorId[proximo.visita];
+  const categoria = ESTADO.categorias.find(c => c.id === proximo.categoria_id);
+  const sede = ESTADO.sedesPorId[proximo.sede_id]?.nombre ?? '';
+  const { diaSemana, texto } = formatearFecha(proximo.fecha);
+
+  const esImportante = proximo.fase === 'final' || proximo.fase === 'playoffs';
+  const etiqueta = proximo.fase === 'final' ? '🏆 Gran Final' : proximo.fase === 'playoffs' ? 'Playoffs' : 'Próximo juego';
+
+  cont.innerHTML = `
+    <div class="proximo-juego ${esImportante ? 'is-importante' : ''}">
+      <div class="proximo-juego__etiqueta">${etiqueta} · ${categoria?.nombre ?? ''}</div>
+      <div class="proximo-juego__equipos">
+        <div class="proximo-juego__equipo">
+          <img src="${RUTA_IMG}${local?.logo ?? 'img/equipos/placeholder.svg'}" alt="${local?.nombre ?? ''}">
+          <span>${local?.nombre ?? 'Por definir'}</span>
+        </div>
+        <div class="proximo-juego__vs">VS</div>
+        <div class="proximo-juego__equipo">
+          <img src="${RUTA_IMG}${visita?.logo ?? 'img/equipos/placeholder.svg'}" alt="${visita?.nombre ?? ''}">
+          <span>${visita?.nombre ?? 'Por definir'}</span>
+        </div>
+      </div>
+      <div class="proximo-juego__info mono">${diaSemana} ${texto} · ${proximo.hora} hrs · ${sede}</div>
+    </div>
+  `;
 }
 
 function render() {
