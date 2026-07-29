@@ -1,10 +1,12 @@
 let ESTADO_R = null;
 let categoriaActivaR = null;
 let temporadaActivaR = null;
+let tipoActivoR = null;
 
 async function iniciarRankings() {
   ESTADO_R = await cargarDatos();
   renderPatrocinadores(ESTADO_R.patrocinadores);
+  tipoActivoR = RANKINGS[0].id;
 
   iniciarSelectorTemporada(ESTADO_R.temporadas, (temp) => {
     temporadaActivaR = temp;
@@ -80,12 +82,27 @@ function renderRankings() {
 
   const filas = calcularEstadisticasEquipos();
 
+  const subtabsHTML = `
+    <div class="tabs ranking-subtabs">
+      ${RANKINGS.map(r => `
+        <button class="tab ${r.id === tipoActivoR ? 'is-active' : ''}" data-tipo="${r.id}">${r.icono} ${r.titulo}</button>
+      `).join('')}
+    </div>
+  `;
+
   if (filas.length === 0) {
-    cont.innerHTML = `<div class="empty">Todavía no hay juegos jugados con estadísticas para calcular rankings en esta categoría/temporada.</div>`;
-    return;
+    cont.innerHTML = subtabsHTML + `<div class="empty">Todavía no hay juegos jugados con estadísticas para calcular rankings en esta categoría/temporada.</div>`;
+  } else {
+    const seleccionado = RANKINGS.find(r => r.id === tipoActivoR) ?? RANKINGS[0];
+    cont.innerHTML = subtabsHTML + renderSeccionRanking(seleccionado, filas);
   }
 
-  cont.innerHTML = RANKINGS.map(r => renderSeccionRanking(r, filas)).join('');
+  cont.querySelectorAll('.ranking-subtabs .tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      tipoActivoR = btn.dataset.tipo;
+      renderRankings();
+    });
+  });
 }
 
 function renderSeccionRanking(r, filas) {
@@ -95,7 +112,6 @@ function renderSeccionRanking(r, filas) {
 
   return `
     <section class="ranking-seccion">
-      <h3 class="ranking-seccion__titulo display"><span>${r.icono}</span> ${r.titulo}</h3>
       <div class="table-scroll">
         <table class="standing-table">
           <thead>
