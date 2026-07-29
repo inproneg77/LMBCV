@@ -123,6 +123,7 @@ function renderDetalleEquipo(equipoId) {
 
   cont.innerHTML = `
     <button class="volver-btn" id="volver-equipos">← Todos los equipos</button>
+    <button class="pdf-btn no-print" id="exportar-pdf">🖨️ Exportar a PDF</button>
 
     <div class="equipo-detalle-header">
       <img src="${RUTA_IMG}${equipo.logo}" alt="${equipo.nombre}">
@@ -161,6 +162,12 @@ function renderDetalleEquipo(equipoId) {
   document.getElementById('volver-equipos').addEventListener('click', () => {
     equipoActivoE = null;
     renderListaEquipos();
+  });
+
+  document.getElementById('exportar-pdf').addEventListener('click', () => {
+    const hoy = new Date().toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
+    document.body.dataset.fechaImpresion = hoy;
+    window.print();
   });
 }
 
