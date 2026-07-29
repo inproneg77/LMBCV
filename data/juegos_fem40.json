@@ -999,6 +999,172 @@
       "marcador_local": 22,
       "id": "J11",
       "fecha": "2026-06-27"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "duela",
+      "destacado": "false",
+      "marcador_visita": 13,
+      "mvp_jugador": "EMANN",
+      "local": "MAESTRASF40",
+      "fase": "regular",
+      "estadisticas": [
+        {
+          "asistio": "true",
+          "puntos": 1,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "PATROB"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "CORAORD"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "FERGAST"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 0,
+          "jugador": "PAOARA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 1,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "LIZMEZA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "ADRIMART"
+        },
+        {
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "EMANN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "MERCACAR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "MAYBDUL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "DALIAFELI"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "MGARCIA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "GPECEL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "AMFRA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 0,
+          "jugador": "IVANEGAS"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "BLANGARC"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "ANAHISFEL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "kasilva"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "JANLAB"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "LBRACA"
+        },
+        {
+          "asistio": "false",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "CTNTGUT"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "YULILEY"
+        }
+      ],
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "TEALONGF40",
+      "hora": "16:00",
+      "estatus": "jugado",
+      "marcador_local": 29,
+      "id": "J11",
+      "fecha": "2026-06-27"
     }
   ]
 }
