@@ -861,6 +861,144 @@
       "estatus": "programado",
       "id": "J10",
       "fecha": "2026-08-01"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "duela",
+      "destacado": "false",
+      "marcador_visita": 41,
+      "mvp_jugador": "RSUA",
+      "local": "SALDOSF40",
+      "fase": "regular",
+      "estadisticas": [
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "ROCFLO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "LUCGAR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "ADRIHERR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "TERMIR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "VILMTOR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "NERSANT"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "ESCCRIST"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "PATBERNAL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ANGVAN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "PAQMEN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "PATSAN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "PERLMENDE"
+        },
+        {
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ENNER"
+        },
+        {
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "CYES"
+        },
+        {
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "RSUA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ANABUSTA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "DIAROM"
+        }
+      ],
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "DIAMONDS40",
+      "hora": "17:00",
+      "estatus": "jugado",
+      "marcador_local": 22,
+      "id": "J11",
+      "fecha": "2026-06-27"
     }
   ]
 }
