@@ -489,6 +489,34 @@
       "equipo_nombre": "EL NARANJO",
       "temporada": "2026-2",
       "numero": "013"
+    },
+    {
+      "id": "COCHOMON",
+      "nombre": "JOSE LUIS LEON MONTIJO",
+      "equipo_id": "BURROSV40",
+      "equipo_nombre": "BURROS SONORA",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "PIRATAGRA",
+      "nombre": "JOSE GRACIANO",
+      "equipo_id": "BURROSV40",
+      "equipo_nombre": "BURROS SONORA",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "PROFEALON",
+      "nombre": "LUIS ANTONIO ALONSO",
+      "equipo_id": "BURROSV40",
+      "equipo_nombre": "BURROS SONORA",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "MANOLOLIZ",
+      "nombre": "MANUEL LIZARRAGA",
+      "equipo_id": "BURROSV40",
+      "equipo_nombre": "BURROS SONORA",
+      "temporada": "2026-2"
     }
   ]
 }
