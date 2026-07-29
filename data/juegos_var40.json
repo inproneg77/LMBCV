@@ -416,6 +416,20 @@
       "estatus": "programado",
       "id": "j8",
       "fecha": "2026-08-01"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "gimnasio",
+      "destacado": "true",
+      "local": "CFEV40",
+      "fase": "final",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "SMV40",
+      "hora": "18:00",
+      "estatus": "programado",
+      "id": "FINALBORRAR",
+      "fecha": "2026-08-01"
     }
   ]
 }
