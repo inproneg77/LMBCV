@@ -124,6 +124,14 @@ collections:
                 value_type: "int"
                 default: 1
                 hint: "1 = primera vuelta, 2 = segunda vuelta, etc. Solo aplica a temporada regular."
+              - name: "destacado"
+                label: "¿Marcar como Juego Destacado (banner de Próximo Juego)?"
+                widget: "select"
+                hint: "Si lo activas, este juego aparece en el banner de arriba del Calendario mientras siga 'Programado'. Si no marcas ninguno, el sitio muestra automáticamente el juego programado más próximo en fecha."
+                options:
+                  - { label: "No", value: "false" }
+                  - { label: "Sí, destacarlo", value: "true" }
+                default: "false"
               - name: "estatus"
                 label: "Estatus"
                 widget: "select"
@@ -263,6 +271,14 @@ collections:
                 value_type: "int"
                 default: 1
                 hint: "1 = primera vuelta, 2 = segunda vuelta, etc. Solo aplica a temporada regular."
+              - name: "destacado"
+                label: "¿Marcar como Juego Destacado (banner de Próximo Juego)?"
+                widget: "select"
+                hint: "Si lo activas, este juego aparece en el banner de arriba del Calendario mientras siga 'Programado'. Si no marcas ninguno, el sitio muestra automáticamente el juego programado más próximo en fecha."
+                options:
+                  - { label: "No", value: "false" }
+                  - { label: "Sí, destacarlo", value: "true" }
+                default: "false"
               - name: "estatus"
                 label: "Estatus"
                 widget: "select"
@@ -402,6 +418,14 @@ collections:
                 value_type: "int"
                 default: 1
                 hint: "1 = primera vuelta, 2 = segunda vuelta, etc. Solo aplica a temporada regular."
+              - name: "destacado"
+                label: "¿Marcar como Juego Destacado (banner de Próximo Juego)?"
+                widget: "select"
+                hint: "Si lo activas, este juego aparece en el banner de arriba del Calendario mientras siga 'Programado'. Si no marcas ninguno, el sitio muestra automáticamente el juego programado más próximo en fecha."
+                options:
+                  - { label: "No", value: "false" }
+                  - { label: "Sí, destacarlo", value: "true" }
+                default: "false"
               - name: "estatus"
                 label: "Estatus"
                 widget: "select"
