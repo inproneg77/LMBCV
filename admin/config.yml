@@ -785,6 +785,23 @@ collections:
               - { name: "id", label: "ID único (ej. gimnasio)", widget: "string" }
               - { name: "nombre", label: "Nombre de la sede", widget: "string" }
 
+  - name: "noticias"
+    label: "📰 Noticias / Avisos"
+    files:
+      - name: "noticias"
+        label: "Noticias"
+        file: "data/noticias.json"
+        fields:
+          - name: "avisos"
+            label: "Avisos"
+            widget: "list"
+            summary: "{{fields.fecha}} — {{fields.titulo}}"
+            fields:
+              - { name: "titulo", label: "Título", widget: "string" }
+              - { name: "fecha", label: "Fecha", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+              - { name: "cuerpo", label: "Contenido del aviso", widget: "text" }
+              - { name: "imagen", label: "Imagen (opcional)", widget: "image", required: false }
+
   - name: "patrocinadores"
     label: "🤝 Patrocinadores"
     files:
