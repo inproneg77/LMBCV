@@ -218,7 +218,7 @@
     {
       "temporada": "2026-1",
       "sede_id": "gimnasio",
-      "destacado": "true",
+      "destacado": "false",
       "local": "CFEV40",
       "fase": "final",
       "vuelta": 1,
