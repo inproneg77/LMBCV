@@ -59,6 +59,11 @@
       "logo": "img/equipos/placeholder.svg",
       "id": "ALTOV40",
       "nombre": "EL ALTO"
+    },
+    {
+      "logo": "img/equipos/28.png",
+      "id": "mineros4",
+      "nombre": "MINEROS"
     }
   ]
 }
