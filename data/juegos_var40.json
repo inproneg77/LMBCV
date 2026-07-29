@@ -307,7 +307,7 @@
         },
         {
           "asistio": "true",
-          "puntos": 10,
+          "puntos": 7,
           "triples": 2,
           "faltas": 1,
           "jugador": "IVANMEND"
@@ -339,6 +339,13 @@
           "triples": 0,
           "faltas": 1,
           "jugador": "CHUCOGA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 0,
+          "jugador": "javlopez"
         }
       ],
       "vuelta": 1,
