@@ -22,6 +22,11 @@
     {
       "nombre": "JK77",
       "logo": "img/equipos/jk77.png"
+    },
+    {
+      "nombre": "EL NARANJO",
+      "logo": "img/equipos/14.png",
+      "url": "https://www.facebook.com/elnaranjo.de.caborca"
     }
   ]
 }
