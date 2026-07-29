@@ -96,16 +96,27 @@ function renderSeccionRanking(r, filas) {
   return `
     <section class="ranking-seccion">
       <h3 class="ranking-seccion__titulo display"><span>${r.icono}</span> ${r.titulo}</h3>
-      <div class="ranking-grid">
-        ${ordenadas.map((f, i) => `
-          <div class="ranking-card ${i === 0 ? 'is-lider' : ''}">
-            ${i === 0 ? '<div class="ranking-card__corona">👑 Líder</div>' : `<div class="ranking-card__pos">#${i + 1}</div>`}
-            <img src="${RUTA_IMG}${f.equipo.logo}" alt="${f.equipo.nombre}" class="ranking-card__logo" loading="lazy">
-            <div class="ranking-card__nombre">${f.equipo.nombre}</div>
-            <div class="ranking-card__valor">${f[r.campo].toFixed(1)}<span>${r.sufijo}</span></div>
-            <div class="ranking-card__detalle mono">${r.detalle(f)}</div>
-          </div>
-        `).join('')}
+      <div class="table-scroll">
+        <table class="standing-table">
+          <thead>
+            <tr><th>#</th><th>Equipo</th><th>${r.sufijo}</th><th>Detalle</th></tr>
+          </thead>
+          <tbody>
+            ${ordenadas.map((f, i) => `
+              <tr>
+                <td class="rank">${i + 1}</td>
+                <td>
+                  <div class="equipo-cell">
+                    <img src="${RUTA_IMG}${f.equipo.logo}" alt="${f.equipo.nombre}" loading="lazy">
+                    <span>${f.equipo.nombre}</span>
+                  </div>
+                </td>
+                <td class="mono" style="font-weight:700;">${f[r.campo].toFixed(1)}</td>
+                <td class="mono" style="font-size:11px; color:var(--text-dim);">${r.detalle(f)}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
       </div>
     </section>
   `;
