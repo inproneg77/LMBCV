@@ -366,6 +366,69 @@ a{ color: inherit; text-decoration: none; }
 }
 .volver-btn:hover{ text-decoration: underline; }
 
+.pdf-btn{
+  float: right;
+  display: inline-flex; align-items:center; gap: 7px;
+  background: var(--navy); color: var(--white);
+  border: none; border-radius: 999px;
+  padding: 8px 18px; font-size: 12.5px; font-weight: 700;
+  letter-spacing: .03em; cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: background .15s ease, transform .15s ease;
+}
+.pdf-btn:hover{ background: var(--navy-2); transform: translateY(-1px); }
+.pdf-btn:active{ transform: translateY(0); }
+
+/* ===== Impresión / Exportar a PDF (solo detalle de equipo) ===== */
+@media print{
+  .no-print, .site-header, .hero, .controles, .patrocinadores, .site-footer, .volver-btn{
+    display: none !important;
+  }
+  html, body{ background: var(--white) !important; overflow: visible !important; }
+  .page{ max-width: 100%; padding: 0; margin: 0; }
+
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  .equipo-detalle-header{
+    border-bottom: 3px solid var(--gold);
+    padding-bottom: 14px;
+    margin-bottom: 18px;
+  }
+  .equipo-detalle-header::before{
+    content: "REPORTE DE ESTADÍSTICAS — LMBC";
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--text-dim); margin-bottom: 10px;
+  }
+  .equipo-detalle-header img{ width: 54px; height: 54px; }
+
+  .lideres__titulo{
+    color: var(--navy) !important;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 4px;
+    page-break-after: avoid;
+  }
+
+  .standing-table{ box-shadow: none !important; border: 1px solid #ccc !important; }
+  .standing-table thead{ background: var(--navy) !important; }
+  .standing-table th{ background: var(--navy) !important; color: var(--white) !important; }
+  .table-scroll{ overflow: visible !important; }
+  table, tr{ page-break-inside: avoid; }
+
+  .historial-item{ box-shadow: none !important; border: 1px solid #ddd !important; page-break-inside: avoid; }
+  .juego-toggle .juego-detalle{ display: none !important; } /* box scores no se imprimen, solo el resumen */
+
+  .equipo-detalle-header, h2, h3{ page-break-after: avoid; }
+
+  a[href]::after{ content: ""; } /* no imprimir URLs de links */
+
+  body::after{
+    content: "Generado desde el sitio de la liga · " attr(data-fecha-impresion);
+    display: block; margin-top: 24px; font-size: 9px; color: #999; text-align: center;
+  }
+}
+
 .equipo-detalle-header{ display:flex; align-items:center; gap: 16px; margin-bottom: 6px; }
 .equipo-detalle-header img{ width: 64px; height: 64px; border-radius: 50%; border: 1px solid var(--line); }
 
