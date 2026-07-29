@@ -360,6 +360,62 @@
       "marcador_local": 42,
       "id": "V7",
       "fecha": "2026-07-25"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "gimnasio",
+      "destacado": "false",
+      "local": "BURROSV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "VIKINGOSV40",
+      "hora": "16:00",
+      "estatus": "programado",
+      "id": "j5",
+      "fecha": "2026-08-01"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "gimnasio",
+      "destacado": "false",
+      "local": "CUERVOSV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "OSV40",
+      "hora": "17:00",
+      "estatus": "programado",
+      "id": "j6",
+      "fecha": "2026-08-01"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "duela",
+      "destacado": "false",
+      "local": "CONEXIONV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "ICATSONV40",
+      "hora": "16:00",
+      "estatus": "programado",
+      "id": "j8",
+      "fecha": "2026-08-01"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "duela",
+      "destacado": "false",
+      "local": "NARANJOV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "MADERASV40",
+      "hora": "17:00",
+      "estatus": "programado",
+      "id": "j8",
+      "fecha": "2026-08-01"
     }
   ]
 }
