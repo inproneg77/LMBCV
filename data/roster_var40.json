@@ -319,6 +319,168 @@
       "numero": "7",
       "temporada": "2026-2",
       "equipo_nombre": "EL NARANJO"
+    },
+    {
+      "id": "JK77",
+      "nombre": "JAWD KATAWRA",
+      "equipo_id": "CFEV40",
+      "temporada": "2026-1",
+      "equipo_nombre": "CFE SUTERM",
+      "numero": "77"
+    },
+    {
+      "id": "JAVVALD",
+      "nombre": "JAVIER VALDOVINOS",
+      "equipo_id": "CFEV40",
+      "equipo_nombre": "CFE SUTERM",
+      "temporada": "2026-1",
+      "numero": "10"
+    },
+    {
+      "id": "MEMOSAL",
+      "nombre": "GUILLERMO SALCEDO",
+      "equipo_id": "CFEV40",
+      "equipo_nombre": "CFE SUTERM",
+      "temporada": "2026-1",
+      "numero": "6"
+    },
+    {
+      "id": "ANDGUZ",
+      "nombre": "ANDRES GUZMAN",
+      "equipo_id": "CFEV40",
+      "equipo_nombre": "CFE SUTERM",
+      "temporada": "2026-1",
+      "numero": "18"
+    },
+    {
+      "id": "ISAAOLA",
+      "nombre": "ISAAC OLAIZ",
+      "equipo_id": "CFEV40",
+      "equipo_nombre": "CFE SUTERM",
+      "temporada": "2026-1",
+      "numero": "11"
+    },
+    {
+      "id": "MCUEN",
+      "nombre": "MARTIN CUEN",
+      "equipo_id": "CFEV40",
+      "equipo_nombre": "CFE SUTERM",
+      "temporada": "2026-1",
+      "numero": "69"
+    },
+    {
+      "id": "MIGPALAF",
+      "nombre": "MIGUEL PALAFOX",
+      "equipo_id": "CFEV40",
+      "equipo_nombre": "CFE SUTERM",
+      "temporada": "2026-1",
+      "numero": "8"
+    },
+    {
+      "id": "NEGROURQ",
+      "nombre": "EDGAR URQUIDEZ",
+      "equipo_id": "CFEV40",
+      "temporada": "2026-1",
+      "equipo_nombre": "CFE SUTERM"
+    },
+    {
+      "id": "JOELGRIJ",
+      "nombre": "JOEL GRIJALVA",
+      "equipo_id": "CFEV40",
+      "equipo_nombre": "CFE SUTERM",
+      "temporada": "2026-1"
+    },
+    {
+      "id": "JCVILL",
+      "nombre": "JUAN CARLOS VILLANUEVA",
+      "equipo_id": "CFEV40",
+      "equipo_nombre": "CFE SUTERM",
+      "temporada": "2026-1"
+    },
+    {
+      "id": "LALOCEL",
+      "nombre": "EDUARDO CELAYA",
+      "equipo_id": "CFEV40",
+      "equipo_nombre": "CFE SUTERM",
+      "temporada": "2026-1",
+      "numero": "23"
+    },
+    {
+      "id": "ALISANC",
+      "nombre": "ALIS SANCHEZ",
+      "equipo_id": "CFEV40",
+      "temporada": "2026-1",
+      "equipo_nombre": "CFE SUTERM"
+    },
+    {
+      "id": "POLLOALEJ",
+      "nombre": "ALEJANDRO POLLO",
+      "equipo_id": "CFEV40",
+      "equipo_nombre": "CFE SUTERM",
+      "temporada": "2026-1"
+    },
+    {
+      "id": "CUBANO",
+      "nombre": "ABRAHAM MIER",
+      "equipo_id": "SMV40",
+      "equipo_nombre": "SPORT MIER",
+      "temporada": "2026-1"
+    },
+    {
+      "id": "WEROSOTO",
+      "nombre": "ALBERTO SOTO",
+      "equipo_id": "SMV40",
+      "equipo_nombre": "SPORT MIER",
+      "temporada": "2026-1"
+    },
+    {
+      "id": "CHULOVILL",
+      "nombre": "MANUEL VILLANUEVA",
+      "equipo_id": "SMV40",
+      "equipo_nombre": "SPORT MIER",
+      "temporada": "2026-1"
+    },
+    {
+      "id": "TREVOR3",
+      "nombre": "JORGE TREVOR",
+      "equipo_id": "SMV40",
+      "equipo_nombre": "SPORT MIER",
+      "temporada": "2026-1"
+    },
+    {
+      "id": "GERA5",
+      "nombre": "GERARDO DORAME",
+      "equipo_id": "SMV40",
+      "equipo_nombre": "SPORT MIER",
+      "temporada": "2026-1"
+    },
+    {
+      "id": "TONODIAZ",
+      "nombre": "ANTONIO DIAZ",
+      "equipo_id": "SMV40",
+      "equipo_nombre": "SPORT MIER",
+      "temporada": "2026-1"
+    },
+    {
+      "id": "HUEVOMOR",
+      "nombre": "EDGAR MORALES",
+      "equipo_id": "SMV40",
+      "equipo_nombre": "SPORT MIER",
+      "temporada": "2026-1"
+    },
+    {
+      "id": "MAPLASC",
+      "nombre": "MARCOS PLASCENCIA",
+      "equipo_id": "SMV40",
+      "equipo_nombre": "SPORT MIER",
+      "temporada": "2026-1"
+    },
+    {
+      "id": "DRIVERA",
+      "nombre": "DARIO RIVERA",
+      "equipo_id": "SMV40",
+      "equipo_nombre": "SPORT MIER",
+      "temporada": "2026-1"
     }
   ]
 }
