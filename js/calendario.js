@@ -1,6 +1,7 @@
 let ESTADO = null;
 let categoriaActiva = null;
 let temporadaActiva = null;
+let tabsListas = false;
 
 async function iniciar() {
   ESTADO = await cargarDatos();
@@ -14,8 +15,9 @@ async function iniciar() {
 
   iniciarTabs(ESTADO.categorias, (cat) => {
     categoriaActiva = cat;
+    tabsListas = true;
     render();
-  });
+  }, { incluirTodos: true });
 }
 
 // Encuentra qué juego mostrar en el banner de arriba:
@@ -70,15 +72,15 @@ function renderProximoJuego() {
 
 function render() {
   const cont = document.getElementById('contenido');
-  if (!categoriaActiva) return;
+  if (!tabsListas) return;
 
   const juegos = ESTADO.juegos.filter(j =>
-    j.categoria_id === categoriaActiva &&
+    (categoriaActiva === null || j.categoria_id === categoriaActiva) &&
     (!temporadaActiva || j.temporada === temporadaActiva)
   );
 
   if (juegos.length === 0) {
-    cont.innerHTML = `<div class="empty">Todavía no hay juegos capturados para esta categoría/temporada.</div>`;
+    cont.innerHTML = `<div class="empty">Todavía no hay juegos capturados para esta ${categoriaActiva === null ? 'temporada' : 'categoría/temporada'}.</div>`;
     return;
   }
 
@@ -153,9 +155,16 @@ function renderJuego(j) {
        <div class="marcador__info mono">${j.hora} hrs</div>`;
 
   const fase = j.fase ?? 'regular';
-  const etiquetaFase = fase !== 'regular'
-    ? (ETIQUETAS_FASE[fase] ?? fase)
-    : (j.vuelta && j.vuelta > 1 ? `Vuelta ${j.vuelta}` : '');
+  const partesEtiqueta = [];
+  if (categoriaActiva === null) {
+    partesEtiqueta.push(ESTADO.categorias.find(c => c.id === j.categoria_id)?.nombre ?? '');
+  }
+  if (fase !== 'regular') {
+    partesEtiqueta.push(ETIQUETAS_FASE[fase] ?? fase);
+  } else if (j.vuelta && j.vuelta > 1) {
+    partesEtiqueta.push(`Vuelta ${j.vuelta}`);
+  }
+  const etiquetaFase = partesEtiqueta.filter(Boolean).join(' · ');
   const faseHTML = etiquetaFase ? `<div class="fase-tag">${etiquetaFase}</div>` : '';
 
   const mvp = nombreMVP(j, ESTADO.jugadoresPorId);
