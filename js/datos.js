@@ -7,19 +7,49 @@
 // playoffs/, valiosos/) necesitan '../' para que las imágenes carguen bien.
 const RUTA_IMG = window.RUTA_IMG || '';
 
+// fetch con tiempo límite y reintento. En datos móviles (a diferencia de
+// wifi) una petición se puede quedar "colgada" sin fallar ni responder
+// nunca — como antes usábamos Promise.all sin límite de tiempo, bastaba con
+// que UNA de las ~16 peticiones se trabara para que el sitio completo se
+// quedara cargando para siempre. Con esto, cada una tiene máximo 9s por
+// intento (2 intentos), y si de plano falla, se sigue con datos vacíos en
+// vez de tronar toda la carga.
+async function fetchJSON(url, valorPorDefecto = {}, intentos = 2) {
+  for (let i = 0; i < intentos; i++) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 9000);
+    try {
+      const res = await fetch(url, { signal: controller.signal });
+      clearTimeout(timeoutId);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return await res.json();
+    } catch (err) {
+      clearTimeout(timeoutId);
+      if (i === intentos - 1) {
+        console.warn('No se pudo cargar', url, err);
+        return valorPorDefecto;
+      }
+      await new Promise(r => setTimeout(r, 500)); // pequeña pausa antes de reintentar
+    }
+  }
+  return valorPorDefecto;
+}
+
 async function cargarDatos() {
   const CATS = ['var40', 'fem40', 'var49'];
 
-  const [categorias, sedesData, patrociniosData, temporadasData, ...resto] = await Promise.all([
-    fetch('data/categorias.json').then(r => r.json()),
-    fetch('data/sedes.json').then(r => r.json()),
-    fetch('data/patrocinadores.json').then(r => r.json()).catch(() => ({ patrocinadores: [] })),
-    fetch('data/temporadas.json').then(r => r.json()).catch(() => ({ temporadas: [] })),
-    ...CATS.map(c => fetch(`data/equipos_${c}.json`).then(r => r.json())),
-    ...CATS.map(c => fetch(`data/juegos_${c}.json`).then(r => r.json())),
-    ...CATS.map(c => fetch(`data/playoffs_${c}.json`).then(r => r.json()).catch(() => ({ series: [] }))),
-    ...CATS.map(c => fetch(`data/roster_${c}.json`).then(r => r.json()).catch(() => ({ jugadores: [] }))),
+  const [categoriasRaw, sedesData, patrociniosData, temporadasData, ...resto] = await Promise.all([
+    fetchJSON('data/categorias.json', []),
+    fetchJSON('data/sedes.json', { sedes: [] }),
+    fetchJSON('data/patrocinadores.json', { patrocinadores: [] }),
+    fetchJSON('data/temporadas.json', { temporadas: [] }),
+    ...CATS.map(c => fetchJSON(`data/equipos_${c}.json`, { equipos: [] })),
+    ...CATS.map(c => fetchJSON(`data/juegos_${c}.json`, { juegos: [] })),
+    ...CATS.map(c => fetchJSON(`data/playoffs_${c}.json`, { series: [] })),
+    ...CATS.map(c => fetchJSON(`data/roster_${c}.json`, { jugadores: [] })),
   ]);
+
+  const categorias = Array.isArray(categoriasRaw) ? categoriasRaw : [];
 
   const temporadas = temporadasData.temporadas ?? [];
 
@@ -189,18 +219,26 @@ function renderPatrocinadores(patrocinadores) {
 
 // Genera las pestañas de categoría y engancha el cambio de pestaña activa.
 // callback(categoriaId) se llama al iniciar y cada vez que cambian de pestaña.
-function iniciarTabs(categorias, callback) {
+// opciones.incluirTodos: si es true, agrega una pestaña "Todos" al inicio
+// (callback recibe null) y esa queda seleccionada por default. Si se omite
+// (como en el resto del sitio), el comportamiento es exactamente el de antes:
+// arranca en la primera categoría.
+function iniciarTabs(categorias, callback, opciones = {}) {
   const cats = [...categorias].sort((a,b) => a.orden - b.orden);
-  let activa = cats[0]?.id;
+  let activa = opciones.incluirTodos ? null : cats[0]?.id;
 
   const tabs = document.getElementById('tabs');
-  tabs.innerHTML = cats.map(c => `
+  const botonTodos = opciones.incluirTodos
+    ? `<button class="tab ${activa === null ? 'is-active' : ''}" data-cat="">Todos</button>`
+    : '';
+
+  tabs.innerHTML = botonTodos + cats.map(c => `
     <button class="tab ${c.id === activa ? 'is-active' : ''}" data-cat="${c.id}">${c.nombre}</button>
   `).join('');
 
   tabs.querySelectorAll('.tab').forEach(btn => {
     btn.addEventListener('click', () => {
-      activa = btn.dataset.cat;
+      activa = btn.dataset.cat || null;
       tabs.querySelectorAll('.tab').forEach(b => b.classList.toggle('is-active', b === btn));
       callback(activa);
     });
