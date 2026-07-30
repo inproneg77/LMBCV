@@ -531,6 +531,62 @@
       "equipo_id": "BURROSV40",
       "equipo_nombre": "BURROS SONORA",
       "temporada": "2026-2"
+    },
+    {
+      "id": "GORTEGA",
+      "nombre": "GERARDO ORTEGA",
+      "equipo_id": "MADERASV40",
+      "equipo_nombre": "MADERAS QUIÑONES",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "AMENDO",
+      "nombre": "ANDRES MENDOZA",
+      "equipo_id": "MADERASV40",
+      "equipo_nombre": "MADERAS QUIÑONES",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "SANTQUIN",
+      "nombre": "SANTOS QUIÑONES",
+      "equipo_id": "MADERASV40",
+      "equipo_nombre": "MADERAS QUIÑONES",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "PEMEND",
+      "nombre": "PEDRO MENDEZ",
+      "equipo_id": "MADERASV40",
+      "equipo_nombre": "MADERAS QUIÑONES",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "ELPONCE",
+      "nombre": "ELIAS PONCE",
+      "equipo_id": "MADERASV40",
+      "temporada": "2026-2",
+      "equipo_nombre": "MADERAS QUIÑONES"
+    },
+    {
+      "id": "TADMART",
+      "nombre": "TADEO MARTINEZ",
+      "equipo_id": "MADERASV40",
+      "equipo_nombre": "MADERAS QUIÑONES",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "BOBPER",
+      "nombre": "BOBBY PEREZ",
+      "equipo_id": "MADERASV40",
+      "equipo_nombre": "MADERAS QUIÑONES",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "VICFRAN",
+      "nombre": "VICTOR FRANCO",
+      "equipo_id": "MADERASV40",
+      "temporada": "2026-2",
+      "equipo_nombre": "MADERAS QUIÑONES"
     }
   ]
 }
