@@ -741,6 +741,13 @@
       "equipo_id": "OSV40",
       "equipo_nombre": "OLD SCHOOL",
       "temporada": "2026-2"
+    },
+    {
+      "id": "NEGRORUIZ",
+      "nombre": "MANUEL RUIZ",
+      "equipo_id": "BURROSV40",
+      "equipo_nombre": "BURROS SONORA",
+      "temporada": "2026-2"
     }
   ]
 }
