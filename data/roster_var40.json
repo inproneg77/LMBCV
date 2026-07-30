@@ -699,6 +699,48 @@
       "equipo_id": "mineros4",
       "equipo_nombre": "MINEROS",
       "temporada": "2026-2"
+    },
+    {
+      "id": "CARLOSPEREZ",
+      "nombre": "CARLOS PEREZ",
+      "equipo_id": "OSV40",
+      "equipo_nombre": "OLD SCHOOL",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "CARLOSALVAREZ",
+      "nombre": "CARLOS ALVAREZ",
+      "equipo_id": "OSV40",
+      "equipo_nombre": "OLD SCHOOL",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "JOSERABAGO",
+      "nombre": "JOSE LUIS RABAGO",
+      "equipo_id": "OSV40",
+      "equipo_nombre": "OLD SCHOOL",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "HORAIOVARELA",
+      "nombre": "HORACIO VARELA",
+      "equipo_id": "OSV40",
+      "equipo_nombre": "OLD SCHOOL",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "CRISMENDEZ",
+      "nombre": "CRISTIAN MENDEZ",
+      "equipo_id": "OSV40",
+      "equipo_nombre": "OLD SCHOOL",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "ELIASTRUJ",
+      "nombre": "ELIAS TRUJILLO",
+      "equipo_id": "OSV40",
+      "equipo_nombre": "OLD SCHOOL",
+      "temporada": "2026-2"
     }
   ]
 }
