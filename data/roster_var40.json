@@ -587,6 +587,118 @@
       "equipo_id": "MADERASV40",
       "temporada": "2026-2",
       "equipo_nombre": "MADERAS QUIÑONES"
+    },
+    {
+      "id": "MONLOP",
+      "nombre": "RAMON EDUARDO DOMINGUEZ",
+      "equipo_id": "mineros4",
+      "equipo_nombre": "MINEROS",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "CESDOMIN",
+      "nombre": "CESAR DOMINGUEZ",
+      "equipo_id": "mineros4",
+      "equipo_nombre": "MINEROS",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "GILMACIAS",
+      "nombre": "GILBERTO MACIAS ALVIDREZ",
+      "equipo_id": "mineros4",
+      "equipo_nombre": "MINEROS",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "GABRARG",
+      "nombre": "GABRIEL ARGENIZ NORIEGA GRACIANO",
+      "equipo_id": "mineros4",
+      "equipo_nombre": "MINEROS",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "MAANMONT",
+      "nombre": "MANUEL RODRIGUEZ MONTES",
+      "equipo_id": "mineros4",
+      "equipo_nombre": "MINEROS",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "IVRANG",
+      "nombre": "IVAN ALBERTO RANGEL SAUCEDO",
+      "equipo_id": "mineros4",
+      "equipo_nombre": "MINEROS",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "LUISCASTRG",
+      "nombre": "LUIS GERARDO CASTRO GASTELUM",
+      "equipo_id": "mineros4",
+      "temporada": "2026-2",
+      "equipo_nombre": "MINEROS"
+    },
+    {
+      "id": "CARTORRE",
+      "nombre": "CARLOS ALBERTO TORRES GAMEZ",
+      "equipo_id": "mineros4",
+      "temporada": "2026-2",
+      "equipo_nombre": "MINEROS"
+    },
+    {
+      "id": "CARDURAN",
+      "nombre": "CARLOS DURAN",
+      "equipo_id": "mineros4",
+      "equipo_nombre": "MINEROS",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "FRANMENDSS",
+      "nombre": "FRANCISCO GERARDO MENDOZA BAEZ",
+      "equipo_id": "mineros4",
+      "equipo_nombre": "MINEROS",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "JOSEISAB",
+      "nombre": "JOSE ISABEL DOMINGUEZ SIMENTAL",
+      "equipo_id": "mineros4",
+      "equipo_nombre": "MINEROS",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "MULLERFRAN",
+      "nombre": "MULLER FRANCISCO GUERRA GARCIA",
+      "equipo_id": "mineros4",
+      "equipo_nombre": "MINEROS",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "LUIDAVISLA",
+      "nombre": "LUIS MANUEL DAVILA GALAZ",
+      "equipo_id": "mineros4",
+      "equipo_nombre": "MINEROS",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "JOSEROJAS",
+      "nombre": "JOSE ALFREDO ROJAS NORIEGA",
+      "equipo_id": "mineros4",
+      "equipo_nombre": "MINEROS",
+      "temporada": "2026-2"
+    },
+    {
+      "id": "RACIELREYES",
+      "nombre": "RACIEL ALBERTO REYES CASAS",
+      "equipo_id": "mineros4",
+      "temporada": "2026-2",
+      "equipo_nombre": "MINEROS"
+    },
+    {
+      "id": "ABELOMAR",
+      "nombre": "ABEL OMAR FIERRO DOMINGUEZ",
+      "equipo_id": "mineros4",
+      "equipo_nombre": "MINEROS",
+      "temporada": "2026-2"
     }
   ]
 }
