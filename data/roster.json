@@ -1955,6 +1955,83 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {},
+    {
+      "id": "IVADRIAN",
+      "nombre": "IVAN ADRIAN REYNA",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ICATSONV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "ENRVALEN",
+      "nombre": "ENRIQUE VALENZUELA",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ICATSONV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "RICVINDIOLA",
+      "nombre": "RICARDO ANTONIO VINDIOLA",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ICATSONV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "HUMBERREYNA",
+      "nombre": "HUMBERTO ISAAC REYNA",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ICATSONV40"
+        }
+      ]
+    },
+    {
+      "id": "martramirez",
+      "nombre": "MARTIN RAMIREZ",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ICATSONV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "JUANCARRILLO",
+      "nombre": "JUAN CARRILLO",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ICATSONV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "JESUSLEON",
+      "nombre": "JESUS LEON",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ICATSONV40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
