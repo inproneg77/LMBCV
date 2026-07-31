@@ -2293,6 +2293,55 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "RULOBON",
+      "nombre": "RAUL ALVAREZ BON",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CUERVOSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "SOROSJJ",
+      "nombre": "SERGIO OROS",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CUERVOSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "MARPARRA",
+      "nombre": "MARTIN PARRA",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CUERVOSV40",
+          "temporada": "2026-2"
+        },
+        {
+          "categoria_id": "var49",
+          "equipo_id": "VIKINGOSV40",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "PANSIBRIAN",
+      "nombre": "FRANCISCO SIBRIAN",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CUERVOSV40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
