@@ -514,11 +514,6 @@
           "categoria_id": "var40",
           "equipo_id": "CFEV40",
           "temporada": "2026-1"
-        },
-        {
-          "categoria_id": "var49",
-          "equipo_id": "VIKINGOSV40",
-          "temporada": "2026-1"
         }
       ]
     },
@@ -590,11 +585,6 @@
         {
           "categoria_id": "var40",
           "equipo_id": "CFEV40",
-          "temporada": "2026-1"
-        },
-        {
-          "categoria_id": "var49",
-          "equipo_id": "OSV40",
           "temporada": "2026-1"
         }
       ]
@@ -788,11 +778,6 @@
           "categoria_id": "var40",
           "equipo_id": "NARANJOV40",
           "temporada": "2026-2"
-        },
-        {
-          "categoria_id": "var49",
-          "equipo_id": "VIKINGOSV40",
-          "temporada": "2026-1"
         }
       ]
     },
@@ -841,11 +826,6 @@
           "categoria_id": "var40",
           "equipo_id": "BURROSV40",
           "temporada": "2026-2"
-        },
-        {
-          "categoria_id": "var49",
-          "equipo_id": "VIKINGOSV40",
-          "temporada": "2026-1"
         }
       ]
     },
@@ -2305,11 +2285,6 @@
           "categoria_id": "var40",
           "equipo_id": "CUERVOSV40",
           "temporada": "2026-2"
-        },
-        {
-          "categoria_id": "var49",
-          "equipo_id": "VIKINGOSV40",
-          "temporada": "2026-1"
         }
       ]
     },
