@@ -1,0 +1,196 @@
+{
+  "equipos": [
+    {
+      "id": "CFEV40",
+      "nombre": "CFE SUTERM",
+      "logo": "img/equipos/2.png",
+      "categorias": [
+        "var40"
+      ]
+    },
+    {
+      "id": "SMV40",
+      "nombre": "SPORT MIER",
+      "logo": "img/equipos/29.png",
+      "categorias": [
+        "var40"
+      ]
+    },
+    {
+      "id": "NARANJOV40",
+      "nombre": "EL NARANJO",
+      "logo": "img/equipos/3.png",
+      "categorias": [
+        "var40"
+      ]
+    },
+    {
+      "id": "OSV40",
+      "nombre": "OLD SCHOOL",
+      "logo": "img/equipos/15.png",
+      "categorias": [
+        "var40"
+      ]
+    },
+    {
+      "id": "VIKINGOSV40",
+      "nombre": "VIKINGOS",
+      "logo": "img/equipos/35.png",
+      "categorias": [
+        "var40"
+      ]
+    },
+    {
+      "id": "CHUYV40",
+      "nombre": "PRODUCTOS DEL CHUY",
+      "logo": "img/equipos/30.png",
+      "categorias": [
+        "var40"
+      ]
+    },
+    {
+      "id": "MADERASV40",
+      "nombre": "MADERAS QUIÑONES",
+      "logo": "img/equipos/31.png",
+      "categorias": [
+        "var40"
+      ]
+    },
+    {
+      "id": "CUERVOSV40",
+      "nombre": "CUERVOS",
+      "logo": "img/equipos/cuervos-dos.jpeg",
+      "categorias": [
+        "var40"
+      ]
+    },
+    {
+      "id": "CONEXIONV40",
+      "nombre": "CONEXION PC",
+      "logo": "img/equipos/39.png",
+      "categorias": [
+        "var40"
+      ]
+    },
+    {
+      "id": "ICATSONV40",
+      "nombre": "ICATSON",
+      "logo": "img/equipos/icatson.png",
+      "categorias": [
+        "var40"
+      ]
+    },
+    {
+      "id": "BURROSV40",
+      "nombre": "BURROS SONORA",
+      "logo": "img/equipos/40.png",
+      "categorias": [
+        "var40"
+      ]
+    },
+    {
+      "id": "ALTOV40",
+      "nombre": "EL ALTO",
+      "logo": "img/equipos/alto.png",
+      "categorias": [
+        "var40"
+      ]
+    },
+    {
+      "id": "mineros4",
+      "nombre": "MINEROS",
+      "logo": "img/equipos/28.png",
+      "categorias": [
+        "var40"
+      ]
+    },
+    {
+      "id": "MAESTRASF40",
+      "nombre": "LAS MAESTRAS",
+      "logo": "img/equipos/las-maestras-n.png",
+      "categorias": [
+        "fem40"
+      ]
+    },
+    {
+      "id": "SALDOSF40",
+      "nombre": "SALDOS LA ORTIZ",
+      "logo": "img/equipos/saldos-laortiz.png",
+      "categorias": [
+        "fem40"
+      ]
+    },
+    {
+      "id": "TEALONGF40",
+      "nombre": "TEA LONG",
+      "logo": "img/equipos/tea-long2.png",
+      "categorias": [
+        "fem40"
+      ]
+    },
+    {
+      "id": "LARAF40",
+      "nombre": "LARA TIRES",
+      "logo": "img/equipos/lara-tire.png",
+      "categorias": [
+        "fem40"
+      ]
+    },
+    {
+      "id": "DIAMONDS40",
+      "nombre": "DIAMONDS",
+      "logo": "img/equipos/diamonds.png",
+      "categorias": [
+        "fem40"
+      ]
+    },
+    {
+      "id": "sm49",
+      "nombre": "SPORT MIER 49+",
+      "logo": "img/equipos/48.png",
+      "categorias": [
+        "var49"
+      ]
+    },
+    {
+      "id": "VK49",
+      "nombre": "VIKINGOS 49+",
+      "logo": "img/equipos/35.png",
+      "categorias": [
+        "var49"
+      ]
+    },
+    {
+      "id": "MADERAS49",
+      "nombre": "MADERAS QUIÑONES 49+",
+      "logo": "img/equipos/31.png",
+      "categorias": [
+        "var49"
+      ]
+    },
+    {
+      "id": "RETRO49",
+      "nombre": "RETRACTIVOS ",
+      "logo": "img/equipos/retroactivos.png",
+      "categorias": [
+        "var49"
+      ]
+    },
+    {
+      "id": "OS49",
+      "nombre": "OLD SCHOOL 49+",
+      "logo": "img/equipos/15.png",
+      "categorias": [
+        "var49"
+      ]
+    },
+    {
+      "id": "FEDE49",
+      "nombre": "FEDELATOS",
+      "logo": "img/equipos/4.png",
+      "categorias": [
+        "var49"
+      ]
+    }
+  ]
+}

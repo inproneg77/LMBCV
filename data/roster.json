@@ -1,0 +1,1960 @@
+{
+  "jugadores": [
+    {
+      "id": "HMACIEL",
+      "nombre": "HECTOR MACIEL",
+      "numero": "88",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ICATSONV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "RPIMIENTA",
+      "nombre": "RAMON PIMIENTA",
+      "numero": "26",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ICATSONV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "IMORALES",
+      "nombre": "ISIDRO MORALES",
+      "numero": "91",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ICATSONV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "JCABALLERO",
+      "nombre": "JULIO CABALLERO",
+      "numero": "15",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ICATSONV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "SGONZA",
+      "nombre": "SERVANDO GONZALEZ",
+      "numero": "11",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ICATSONV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "GPALA",
+      "nombre": "GUILLERMO PALAFOX",
+      "numero": "12",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "OSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "DMAZ",
+      "nombre": "DARIO MAZON",
+      "numero": "5",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "OSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "DNEB",
+      "nombre": "DANIEL NEBLINA",
+      "numero": "77",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "OSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "ANARAIZA",
+      "nombre": "ANIBAL ARAIZA",
+      "numero": "8",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "OSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "GARYFEL",
+      "nombre": "GERARDO  FELIX",
+      "numero": "4",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "OSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "CYESK",
+      "nombre": "CARLOS YESCAS",
+      "numero": "0",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "OSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "CHOCOLEM",
+      "nombre": "FERNANDO LEMAS",
+      "numero": "33",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CUERVOSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "FAVELATOLON",
+      "nombre": "PABLO FAVELA",
+      "numero": "8",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CUERVOSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "CHARROD",
+      "nombre": "ENRIQUE MARTINEZ",
+      "numero": "91",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CUERVOSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "TITOMEN",
+      "nombre": "ARIEL MENA",
+      "numero": "3",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CUERVOSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "ANGELFIE",
+      "nombre": "ANGEL FIERROS",
+      "numero": "17",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CUERVOSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "FDOBRA",
+      "nombre": "FERNANDO BRASIL",
+      "numero": "32",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CUERVOSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "FONSECAR",
+      "nombre": "RUBEN FONSECA",
+      "numero": "13",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CUERVOSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "MPENUE",
+      "nombre": "MIGUEL PEÑUELAS",
+      "numero": "12",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "BURROSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "JDIAZ",
+      "nombre": "JESUS DIAZ",
+      "numero": "13",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "BURROSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "LPENUE",
+      "nombre": "LEONARDO PEÑUELAS",
+      "numero": "10",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "BURROSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "SCHAVA",
+      "nombre": "SALVADOR PRECIADO",
+      "numero": "11",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "BURROSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "CABALLOOZ",
+      "nombre": "LUIS OZUNA",
+      "numero": "21",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "BURROSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "CNUN",
+      "nombre": "CESAR NUÑEZ",
+      "numero": "31",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "BURROSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "APENUE",
+      "nombre": "ABRAHAM PEÑUELAS",
+      "numero": "15",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "BURROSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "CHABELOH",
+      "nombre": "JORGE HERNANDEZ",
+      "numero": "1",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "VIKINGOSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "ABDELCO",
+      "nombre": "ABDEL CONTRERAS",
+      "numero": "12",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "VIKINGOSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "TECOLIZ",
+      "nombre": "CESAR LIZARRAGA",
+      "numero": "13",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "VIKINGOSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "ALEXVEGA",
+      "nombre": "ALEJANDRO VEGA",
+      "numero": "9",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "VIKINGOSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "JSAL",
+      "nombre": "JORGE SALAZAR",
+      "numero": "23",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "VIKINGOSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "JAREDROM",
+      "nombre": "JARED ROMERO",
+      "numero": "19",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "VIKINGOSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "JURIAS",
+      "nombre": "JORGE URIAS",
+      "numero": "31",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "VIKINGOSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "RLOPEZ4",
+      "nombre": "RICHARD LOPEZ",
+      "numero": "4",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "NARANJOV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "MARIONB",
+      "nombre": "MARIO BRACAMONTES",
+      "numero": "19",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "NARANJOV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "ALDUKA",
+      "nombre": "ALDO MENDOZA",
+      "numero": "23",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "NARANJOV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "IVANMEND",
+      "nombre": "IVAN MENDOZA",
+      "numero": "13",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "NARANJOV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "PATOSO",
+      "nombre": "PATRICIO SOQUI",
+      "numero": "10",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "NARANJOV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "MEDEH",
+      "nombre": "FRANCISCO MEDEHUARI",
+      "numero": "11",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "NARANJOV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "BARRYMEN",
+      "nombre": "JOAQUIN MENDEZ",
+      "numero": "9",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "NARANJOV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "CHUCOGA",
+      "nombre": "MARTIN GALLEGOS",
+      "numero": "7",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "NARANJOV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "JK77",
+      "nombre": "JAWD KATAWRA",
+      "numero": "77",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CFEV40",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "JAVVALD",
+      "nombre": "JAVIER VALDOVINOS",
+      "numero": "10",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CFEV40",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "MEMOSAL",
+      "nombre": "GUILLERMO SALCEDO",
+      "numero": "6",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CFEV40",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "ANDGUZ",
+      "nombre": "ANDRES GUZMAN",
+      "numero": "18",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CFEV40",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "ISAAOLA",
+      "nombre": "ISAAC OLAIZ",
+      "numero": "11",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CFEV40",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "MCUEN",
+      "nombre": "MARTIN CUEN",
+      "numero": "69",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CFEV40",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "MIGPALAF",
+      "nombre": "MIGUEL PALAFOX",
+      "numero": "8",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CFEV40",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "NEGROURQ",
+      "nombre": "EDGAR URQUIDEZ",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CFEV40",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "JOELGRIJ",
+      "nombre": "JOEL GRIJALVA",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CFEV40",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "JCVILL",
+      "nombre": "JUAN CARLOS VILLANUEVA",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CFEV40",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "LALOCEL",
+      "nombre": "EDUARDO CELAYA",
+      "numero": "23",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CFEV40",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "ALISANC",
+      "nombre": "ALIS SANCHEZ",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CFEV40",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "POLLOALEJ",
+      "nombre": "ALEJANDRO FLORES",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CFEV40",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "CUBANO",
+      "nombre": "ABRAHAM MIER",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "SMV40",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "WEROSOTO",
+      "nombre": "ALBERTO SOTO",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "SMV40",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "CHULOVILL",
+      "nombre": "MANUEL VILLANUEVA",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "SMV40",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "TREVOR3",
+      "nombre": "JORGE TREVOR",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "SMV40",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "GERA5",
+      "nombre": "GERARDO DORAME",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "SMV40",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "TONODIAZ",
+      "nombre": "ANTONIO DIAZ",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "SMV40",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "HUEVOMOR",
+      "nombre": "EDGAR MORALES",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "SMV40",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "MAPLASC",
+      "nombre": "MARCOS PLASCENCIA",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "SMV40",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "DRIVERA",
+      "nombre": "DARIO RIVERA",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "SMV40",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "javlopez",
+      "nombre": "JAVIER LOPEZ",
+      "numero": "013",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "NARANJOV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "COCHOMON",
+      "nombre": "JOSE LUIS LEON MONTIJO",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "BURROSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "PIRATAGRA",
+      "nombre": "JOSE GRACIANO",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "BURROSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "PROFEALON",
+      "nombre": "LUIS ANTONIO ALONSO",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "BURROSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "MANOLOLIZ",
+      "nombre": "MANUEL LIZARRAGA",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "BURROSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "EMMAAGUIRR",
+      "nombre": "EMMANUEL AGUIRRE VALENCIA",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "BURROSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "Manchas",
+      "nombre": "JESUS ESPINOZA",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "BURROSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "GORTEGA",
+      "nombre": "GERARDO ORTEGA",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "MADERASV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "AMENDO",
+      "nombre": "ANDRES MENDOZA",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "MADERASV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "SANTQUIN",
+      "nombre": "SANTOS QUIÑONES",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "MADERASV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "PEMEND",
+      "nombre": "PEDRO MENDEZ",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "MADERASV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "ELPONCE",
+      "nombre": "ELIAS PONCE",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "MADERASV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "TADMART",
+      "nombre": "TADEO MARTINEZ",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "MADERASV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "BOBPER",
+      "nombre": "BOBBY PEREZ",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "MADERASV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "VICFRAN",
+      "nombre": "VICTOR FRANCO",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "MADERASV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "MONLOP",
+      "nombre": "RAMON EDUARDO DOMINGUEZ",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "mineros4",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "CESDOMIN",
+      "nombre": "CESAR DOMINGUEZ",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "mineros4",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "GILMACIAS",
+      "nombre": "GILBERTO MACIAS ALVIDREZ",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "mineros4",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "GABRARG",
+      "nombre": "GABRIEL ARGENIZ NORIEGA GRACIANO",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "mineros4",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "MAANMONT",
+      "nombre": "MANUEL RODRIGUEZ MONTES",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "mineros4",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "IVRANG",
+      "nombre": "IVAN ALBERTO RANGEL SAUCEDO",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "mineros4",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "LUISCASTRG",
+      "nombre": "LUIS GERARDO CASTRO GASTELUM",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "mineros4",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "CARTORRE",
+      "nombre": "CARLOS ALBERTO TORRES GAMEZ",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "mineros4",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "CARDURAN",
+      "nombre": "CARLOS DURAN",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "mineros4",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "FRANMENDSS",
+      "nombre": "FRANCISCO GERARDO MENDOZA BAEZ",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "mineros4",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "JOSEISAB",
+      "nombre": "JOSE ISABEL DOMINGUEZ SIMENTAL",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "mineros4",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "MULLERFRAN",
+      "nombre": "MULLER FRANCISCO GUERRA GARCIA",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "mineros4",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "LUIDAVISLA",
+      "nombre": "LUIS MANUEL DAVILA GALAZ",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "mineros4",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "JOSEROJAS",
+      "nombre": "JOSE ALFREDO ROJAS NORIEGA",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "mineros4",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "RACIELREYES",
+      "nombre": "RACIEL ALBERTO REYES CASAS",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "mineros4",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "ABELOMAR",
+      "nombre": "ABEL OMAR FIERRO DOMINGUEZ",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "mineros4",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "CARLOSPEREZ",
+      "nombre": "CARLOS PEREZ",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "OSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "CARLOSALVAREZ",
+      "nombre": "CARLOS ALVAREZ",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "OSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "JOSERABAGO",
+      "nombre": "JOSE LUIS RABAGO",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "OSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "HORAIOVARELA",
+      "nombre": "HORACIO VARELA",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "OSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "CRISMENDEZ",
+      "nombre": "CRISTIAN MENDEZ",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "OSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "ELIASTRUJ",
+      "nombre": "ELIAS TRUJILLO",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "OSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "NEGRORUIZ",
+      "nombre": "MANUEL RUIZ",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "BURROSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "BSOTELO",
+      "nombre": "BRENDA SOTELO",
+      "numero": "05",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "LARAF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "CGUT",
+      "nombre": "CLAUDIA GUTIERREZ",
+      "numero": "13",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "LARAF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "AGUT",
+      "nombre": "ANA GUTIERREZ",
+      "numero": "14",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "LARAF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "GCRUZ",
+      "nombre": "GEORGINA CRUZ",
+      "numero": "17",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "LARAF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "MGUTI",
+      "nombre": "MIREYA GUTIERREZ",
+      "numero": "12",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "LARAF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "ARGRIJ",
+      "nombre": "ARGELIA GRIJALVA",
+      "numero": "11",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "LARAF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "IURIAS",
+      "nombre": "ISABEL URIAS",
+      "numero": "23",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "LARAF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "MGARCIA",
+      "nombre": "MARCIA GARCIA",
+      "numero": "23",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "TEALONGF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "GPECEL",
+      "nombre": "GUADALUPE CELAYA",
+      "numero": "13",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "TEALONGF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "LBRACA",
+      "nombre": "LUISA BRACAMONTES",
+      "numero": "5",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "TEALONGF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "JANLAB",
+      "nombre": "JANETH LABORIN",
+      "numero": "20",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "TEALONGF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "AMFRA",
+      "nombre": "AMERICA FRANCO",
+      "numero": "18",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "TEALONGF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "YULILEY",
+      "nombre": "YULI LEYVA",
+      "numero": "22",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "TEALONGF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "CYES",
+      "nombre": "CARMEN YESCAS",
+      "numero": "11",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "DIAMONDS40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "ELSAGON",
+      "nombre": "ELSA GONZALEZ",
+      "numero": "8",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "DIAMONDS40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "RSUA",
+      "nombre": "ROSY SUAREZ",
+      "numero": "7",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "DIAMONDS40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "ANABUSTA",
+      "nombre": "ANA BUSTAMANTE",
+      "numero": "16",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "DIAMONDS40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "HELGAR",
+      "nombre": "HELENA GARCIA",
+      "numero": "24",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "DIAMONDS40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "ROXTA",
+      "nombre": "ROXANA TACHIQUIN",
+      "numero": "19",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "DIAMONDS40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "ENNER",
+      "nombre": "ENNER TRUJILLO",
+      "numero": "6",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "DIAMONDS40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "ROCFLO",
+      "nombre": "ROCIO FLORES",
+      "numero": "6",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "SALDOSF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "NERSANT",
+      "nombre": "NEREYDA SANTIAGO",
+      "numero": "24",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "SALDOSF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "ANGVAN",
+      "nombre": "ANGELICA VANEGAS",
+      "numero": "3",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "SALDOSF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "ADRIHERR",
+      "nombre": "ADRIANA HERRERA",
+      "numero": "2",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "SALDOSF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "LUCGAR",
+      "nombre": "LUCRECIA GARCIA",
+      "numero": "11",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "SALDOSF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "VILMTOR",
+      "nombre": "VILMA TORRES",
+      "numero": "89",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "SALDOSF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "PAQMEN",
+      "nombre": "PAQUITA MENDEZ",
+      "numero": "42",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "SALDOSF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "ESCCRIST",
+      "nombre": "CRISTINA ESCOBAR",
+      "numero": "13",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "SALDOSF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "PATSAN",
+      "nombre": "PATRICIA SANDOVAL",
+      "numero": "17",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "SALDOSF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "KENQUI",
+      "nombre": "KENIA QUIROZ",
+      "numero": "7",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "LARAF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "ADRIMART",
+      "nombre": "ADRIANA MARTINEZ",
+      "numero": "10",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "MAESTRASF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "FERGAST",
+      "nombre": "FERNANDA GASTELUM",
+      "numero": "6",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "MAESTRASF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "PATROB",
+      "nombre": "PATRICIA ROBLES",
+      "numero": "7",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "MAESTRASF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "MERCACAR",
+      "nombre": "CAROLINA MERCADANTE",
+      "numero": "79",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "MAESTRASF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "PAOARA",
+      "nombre": "PAOLA ARAIZA",
+      "numero": "8",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "MAESTRASF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "CORAORD",
+      "nombre": "CORAZON ORDOÑEZ",
+      "numero": "2",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "MAESTRASF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "KARSALC",
+      "nombre": "KARINA SALCEDO",
+      "numero": "5",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "MAESTRASF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "LIZETHROM",
+      "nombre": "LIZETH ROMERO",
+      "numero": "77",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "MAESTRASF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "MAYBDUL",
+      "nombre": "DULCE MAYBOCA",
+      "numero": "14",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "MAESTRASF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "REYMOR",
+      "nombre": "REYNA MORENO",
+      "numero": "0",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "MAESTRASF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "kasilva",
+      "nombre": "KARINA SILVA",
+      "numero": "10",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "TEALONGF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "AGARCIA",
+      "nombre": "ANA GARCIA",
+      "numero": "44",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "LARAF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "MARISANTA",
+      "nombre": "MARICRUZ MORALES",
+      "numero": "0",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "LARAF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "IVANEGAS",
+      "nombre": "IRLANDA VANEGAS",
+      "numero": "8",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "TEALONGF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "AZUCENA",
+      "nombre": "AZUCENA GARCIA",
+      "numero": "41",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "TEALONGF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "AUZO",
+      "nombre": "AURORA ZOZAYA",
+      "numero": "1",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "MAESTRASF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "LIZMEZA",
+      "nombre": "LIZ MEZA",
+      "numero": "2",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "MAESTRASF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "EMANN",
+      "nombre": "ERIKA MANN",
+      "numero": "3",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "MAESTRASF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "ALIZMOR",
+      "nombre": "ANNA LIZETH MORENO",
+      "numero": "4",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "MAESTRASF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "PATBERNAL",
+      "nombre": "PATRICIA BERNAL",
+      "numero": "42",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "SALDOSF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "AAAVIL",
+      "nombre": "ALEJANDRA AVILA",
+      "numero": "41",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "SALDOSF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "TERMIR",
+      "nombre": "TERESA MIRAMONTES",
+      "numero": "38",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "SALDOSF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "LOREMEN",
+      "nombre": "LORENA MENDEZ",
+      "numero": "5",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "DIAMONDS40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "DIAROM",
+      "nombre": "DIANA ROMO",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "DIAMONDS40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "MIVAL",
+      "nombre": "MILY VALENTI",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "DIAMONDS40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "PERLMENDE",
+      "nombre": "PERLA MENDEZ",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "DIAMONDS40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "FRECIACUE",
+      "nombre": "FRECIA CUEVAS",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "DIAMONDS40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "CLAESPI",
+      "nombre": "CLARIZA ESPINOZA",
+      "numero": "27",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "LARAF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "ANAHISFEL",
+      "nombre": "ANAHIS FELIX",
+      "numero": "24",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "TEALONGF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "BLANGARC",
+      "nombre": "BLANCA GARCIA",
+      "numero": "41",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "TEALONGF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "DALIAFELI",
+      "nombre": "DALILA FELIX",
+      "numero": "34",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "TEALONGF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "CTNTGUT",
+      "nombre": "CYNTHIA GUTIERREZ",
+      "numero": "15",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "TEALONGF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "CYNALV",
+      "nombre": "CYNTHIA ALVAREZ",
+      "numero": "15",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "TEALONGF40",
+          "temporada": "2026-2"
+        }
+      ]
+    }
+  ]
+}
