@@ -2087,6 +2087,106 @@
           "temporada": "2026-2"
         }
       ]
-    }
+    },
+    {
+      "id": "ARIVWRA",
+      "nombre": "ALFREDO RIVRRA",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ALTOV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "SOCRATES",
+      "nombre": "SOCRATES LOPEZ",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ALTOV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "GERALOPEZ",
+      "nombre": "GERARDO LOPEZ",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ALTOV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "PACHJES",
+      "nombre": "JESUS PACHECO",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ALTOV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "JORGETAPIA",
+      "nombre": "JORGE TAPIA",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ALTOV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "LUISGARCIA",
+      "nombre": "LUIS GARCIA",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ALTOV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "JUANDUARTE",
+      "nombre": "JUAN DUARTE",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ALTOV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "MARIOFIERRO",
+      "nombre": "MARIO FIERRO",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ALTOV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "AFIGUEROA",
+      "nombre": "ALAN FIGUEROA",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ALTOV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {}
   ]
 }
