@@ -341,7 +341,13 @@
         },
         {
           "categoria_id": "var49",
-          "equipo_id": "VIKINGOSV40"
+          "equipo_id": "VIKINGOSV40",
+          "temporada": "2026-1"
+        },
+        {
+          "categoria_id": "var49",
+          "equipo_id": "VIKINGOSV40",
+          "temporada": "2026-2"
         }
       ]
     },
@@ -720,40 +726,6 @@
       ]
     },
     {
-      "id": "CHULOVILL",
-      "nombre": "MANUEL VILLANUEVA",
-      "numero": "",
-      "membresias": [
-        {
-          "categoria_id": "var40",
-          "equipo_id": "SMV40",
-          "temporada": "2026-1"
-        },
-        {
-          "categoria_id": "var40",
-          "equipo_id": "SMV40",
-          "temporada": "2026-2"
-        }
-      ]
-    },
-    {
-      "id": "TREVOR3",
-      "nombre": "JORGE TREVOR",
-      "numero": "",
-      "membresias": [
-        {
-          "categoria_id": "var40",
-          "equipo_id": "SMV40",
-          "temporada": "2026-1"
-        },
-        {
-          "categoria_id": "var40",
-          "equipo_id": "SMV40",
-          "temporada": "2026-2"
-        }
-      ]
-    },
-    {
       "id": "GERA5",
       "nombre": "GERARDO DORAME",
       "numero": "",
@@ -775,57 +747,6 @@
         },
         {
           "categoria_id": "var49",
-          "equipo_id": "SMV40",
-          "temporada": "2026-2"
-        }
-      ]
-    },
-    {
-      "id": "TONODIAZ",
-      "nombre": "ANTONIO DIAZ",
-      "numero": "",
-      "membresias": [
-        {
-          "categoria_id": "var40",
-          "equipo_id": "SMV40",
-          "temporada": "2026-1"
-        },
-        {
-          "categoria_id": "var40",
-          "equipo_id": "SMV40",
-          "temporada": "2026-2"
-        }
-      ]
-    },
-    {
-      "id": "HUEVOMOR",
-      "nombre": "EDGAR MORALES",
-      "numero": "",
-      "membresias": [
-        {
-          "categoria_id": "var40",
-          "equipo_id": "SMV40",
-          "temporada": "2026-1"
-        },
-        {
-          "categoria_id": "var40",
-          "equipo_id": "SMV40",
-          "temporada": "2026-2"
-        }
-      ]
-    },
-    {
-      "id": "MAPLASC",
-      "nombre": "MARCOS PLASCENCIA",
-      "numero": "",
-      "membresias": [
-        {
-          "categoria_id": "var40",
-          "equipo_id": "SMV40",
-          "temporada": "2026-1"
-        },
-        {
-          "categoria_id": "var40",
           "equipo_id": "SMV40",
           "temporada": "2026-2"
         }
@@ -2095,7 +2016,6 @@
         }
       ]
     },
-    {},
     {
       "id": "IVADRIAN",
       "nombre": "IVAN ADRIAN REYNA",
@@ -2135,7 +2055,8 @@
       "membresias": [
         {
           "categoria_id": "var40",
-          "equipo_id": "ICATSONV40"
+          "equipo_id": "ICATSONV40",
+          "temporada": "2026-2"
         }
       ]
     },
