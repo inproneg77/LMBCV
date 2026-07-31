@@ -2032,6 +2032,61 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "CFOX",
+      "nombre": "CRISTIAN FOX",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ALTOV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "TONGAR",
+      "nombre": "ANTONIO GARCIA",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ALTOV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "MAROVAR",
+      "nombre": "JORGE MARIO TOVAR",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ALTOV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "AAROBLES",
+      "nombre": "AARON ROBLES",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ALTOV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "GMOCORON",
+      "nombre": "GUILLERMO CORONADO",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ALTOV40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
