@@ -46,21 +46,79 @@ collections:
                   - { label: "No", value: "false" }
                 default: "false"
 
-  - name: "equipos_var40"
-    label: "🏀 Varonil 40+ · Equipos"
+  # ===== EQUIPOS (un solo registro por equipo, puede jugar varias categorías) =====
+  - name: "equipos"
+    label: "🏀 Equipos"
     files:
-      - name: "equipos_var40"
-        label: "Equipos Varonil 40+"
-        file: "data/equipos_var40.json"
+      - name: "equipos"
+        label: "Equipos"
+        file: "data/equipos.json"
         fields:
           - name: "equipos"
             label: "Equipos"
             widget: "list"
-            summary: "{{fields.nombre}}"
+            summary: "{{fields.nombre}} — {{fields.categorias}}"
             fields:
               - { name: "id", label: "ID único (ej. CFEV40)", widget: "string" }
               - { name: "nombre", label: "Nombre del equipo", widget: "string" }
               - { name: "logo", label: "Logo del equipo", widget: "image", default: "img/equipos/placeholder.svg" }
+              - name: "categorias"
+                label: "Categorías en las que participa"
+                widget: "select"
+                multiple: true
+                min: 1
+                hint: "Puede participar en más de una categoría al mismo tiempo — selecciona todas las que apliquen."
+                options:
+                  - { label: "Varonil 40+", value: "var40" }
+                  - { label: "Femenil 40+", value: "fem40" }
+                  - { label: "Varonil 49+", value: "var49" }
+
+  # ===== JUGADORES (un solo registro por persona, con una fila por cada categoría/equipo/temporada) =====
+  - name: "jugadores"
+    label: "👤 Jugadores"
+    files:
+      - name: "jugadores"
+        label: "Jugadores"
+        file: "data/roster.json"
+        fields:
+          - name: "jugadores"
+            label: "Jugadores"
+            widget: "list"
+            summary: "{{fields.nombre}}"
+            fields:
+              - { name: "id", label: "ID único (ej. jugador-01)", widget: "string" }
+              - { name: "nombre", label: "Nombre completo", widget: "string" }
+              - { name: "numero", label: "Número de dorsal (opcional)", widget: "string", required: false }
+              - name: "membresias"
+                label: "Categorías, equipos y temporadas en las que ha jugado"
+                widget: "list"
+                summary: "{{fields.categoria_id}} — {{fields.equipo_id}} ({{fields.temporada}})"
+                hint: "Agrega una fila por cada combinación de categoría + equipo + temporada. Si cambia de equipo o juega 2 categorías, agrega una fila nueva — no crees a la persona otra vez."
+                fields:
+                  - name: "categoria_id"
+                    label: "Categoría"
+                    widget: "select"
+                    options:
+                      - { label: "Varonil 40+", value: "var40" }
+                      - { label: "Femenil 40+", value: "fem40" }
+                      - { label: "Varonil 49+", value: "var49" }
+                  - name: "equipo_id"
+                    label: "Equipo"
+                    widget: "relation"
+                    collection: "equipos"
+                    file: "equipos"
+                    search_fields: ["equipos.*.nombre"]
+                    display_fields: ["equipos.*.nombre"]
+                    value_field: "equipos.*.id"
+                    hint: "El buscador muestra TODOS los equipos de la liga — escribe el nombre para encontrarlo rápido."
+                  - name: "temporada"
+                    label: "Temporada"
+                    widget: "relation"
+                    collection: "temporadas"
+                    file: "temporadas"
+                    search_fields: ["temporadas.*.nombre"]
+                    display_fields: ["temporadas.*.nombre"]
+                    value_field: "temporadas.*.id"
 
   - name: "juegos_var40"
     label: "🏀 Varonil 40+ · Rol de Juegos"
@@ -95,19 +153,21 @@ collections:
               - name: "local"
                 label: "Equipo local"
                 widget: "relation"
-                collection: "equipos_var40"
-                file: "equipos_var40"
+                collection: "equipos"
+                file: "equipos"
                 search_fields: ["equipos.*.nombre"]
                 display_fields: ["equipos.*.nombre"]
                 value_field: "equipos.*.id"
+                hint: "El buscador muestra TODOS los equipos de la liga (de cualquier categoría) — escribe el nombre para encontrarlo rápido."
               - name: "visita"
                 label: "Equipo visitante"
                 widget: "relation"
-                collection: "equipos_var40"
-                file: "equipos_var40"
+                collection: "equipos"
+                file: "equipos"
                 search_fields: ["equipos.*.nombre"]
                 display_fields: ["equipos.*.nombre"]
                 value_field: "equipos.*.id"
+                hint: "El buscador muestra TODOS los equipos de la liga (de cualquier categoría) — escribe el nombre para encontrarlo rápido."
               - name: "fase"
                 label: "Fase"
                 widget: "select"
@@ -153,21 +213,21 @@ collections:
               - name: "mvp_jugador"
                 label: "Jugador(a) Destacado(a) del partido"
                 widget: "relation"
-                collection: "roster_var40"
-                file: "roster_var40"
-                search_fields: ["jugadores.*.nombre", "jugadores.*.equipo_nombre"]
-                display_fields: ["jugadores.*.nombre", "jugadores.*.equipo_nombre"]
+                collection: "jugadores"
+                file: "jugadores"
+                search_fields: ["jugadores.*.nombre"]
+                display_fields: ["jugadores.*.nombre"]
                 value_field: "jugadores.*.id"
                 options_length: 100
                 required: false
-                hint: "Búscalo por nombre o equipo. El buscador muestra jugadores de TODOS los equipos de la categoría (Decap CMS no permite filtrar solo a los 2 equipos del partido) — ahora aparece el equipo junto al nombre para que no te equivoques."
+                hint: "Búscalo por nombre. El buscador muestra a TODOS los jugadores de la liga (Decap CMS no permite filtrar solo a los del equipo ganador de este partido) — revisa que elijas al correcto."
               - name: "mvp_nombre"
                 label: "Detalle del MVP (opcional, ej. \"17 puntos, 5 rebotes\")"
                 widget: "string"
                 required: false
                 hint: "Ya no se usa para el nombre (usa el campo de arriba). Aquí solo van detalles extra si quieres."
-              - name: "estadisticas"
-                label: "Estadísticas individuales del partido"
+              - name: "estadisticas_local"
+                label: "Estadísticas — Equipo LOCAL"
                 widget: "list"
                 required: false
                 summary: "{{fields.jugador}}: {{fields.puntos}} pts"
@@ -175,10 +235,35 @@ collections:
                   - name: "jugador"
                     label: "Jugador"
                     widget: "relation"
-                    collection: "roster_var40"
-                    file: "roster_var40"
-                    search_fields: ["jugadores.*.nombre", "jugadores.*.equipo_nombre"]
-                    display_fields: ["jugadores.*.nombre", "jugadores.*.equipo_nombre"]
+                    collection: "jugadores"
+                    file: "jugadores"
+                    search_fields: ["jugadores.*.nombre"]
+                    display_fields: ["jugadores.*.nombre"]
+                    value_field: "jugadores.*.id"
+                    options_length: 100
+                  - name: "asistio"
+                    label: "¿Asistió al juego?"
+                    widget: "select"
+                    options:
+                      - { label: "Sí asistió", value: "true" }
+                      - { label: "No asistió", value: "false" }
+                    default: "true"
+                  - { name: "puntos", label: "Puntos anotados", widget: "number", value_type: "int", default: 0 }
+                  - { name: "triples", label: "Triples anotados", widget: "number", value_type: "int", default: 0 }
+                  - { name: "faltas", label: "Faltas cometidas", widget: "number", value_type: "int", default: 0 }
+              - name: "estadisticas_visita"
+                label: "Estadísticas — Equipo VISITANTE"
+                widget: "list"
+                required: false
+                summary: "{{fields.jugador}}: {{fields.puntos}} pts"
+                fields:
+                  - name: "jugador"
+                    label: "Jugador"
+                    widget: "relation"
+                    collection: "jugadores"
+                    file: "jugadores"
+                    search_fields: ["jugadores.*.nombre"]
+                    display_fields: ["jugadores.*.nombre"]
                     value_field: "jugadores.*.id"
                     options_length: 100
                   - name: "asistio"
@@ -192,22 +277,6 @@ collections:
                   - { name: "triples", label: "Triples anotados", widget: "number", value_type: "int", default: 0 }
                   - { name: "faltas", label: "Faltas cometidas", widget: "number", value_type: "int", default: 0 }
               - { name: "observaciones", label: "Observaciones (puntos del MVP, incidencias, forfeit, etc.)", widget: "text", required: false }
-
-  - name: "equipos_fem40"
-    label: "🏀 Femenil 40+ · Equipos"
-    files:
-      - name: "equipos_fem40"
-        label: "Equipos Femenil 40+"
-        file: "data/equipos_fem40.json"
-        fields:
-          - name: "equipos"
-            label: "Equipos"
-            widget: "list"
-            summary: "{{fields.nombre}}"
-            fields:
-              - { name: "id", label: "ID único (ej. MAESTRASF40)", widget: "string" }
-              - { name: "nombre", label: "Nombre del equipo", widget: "string" }
-              - { name: "logo", label: "Logo del equipo", widget: "image", default: "img/equipos/placeholder.svg" }
 
   - name: "juegos_fem40"
     label: "🏀 Femenil 40+ · Rol de Juegos"
@@ -242,19 +311,21 @@ collections:
               - name: "local"
                 label: "Equipo local"
                 widget: "relation"
-                collection: "equipos_fem40"
-                file: "equipos_fem40"
+                collection: "equipos"
+                file: "equipos"
                 search_fields: ["equipos.*.nombre"]
                 display_fields: ["equipos.*.nombre"]
                 value_field: "equipos.*.id"
+                hint: "El buscador muestra TODOS los equipos de la liga (de cualquier categoría) — escribe el nombre para encontrarlo rápido."
               - name: "visita"
                 label: "Equipo visitante"
                 widget: "relation"
-                collection: "equipos_fem40"
-                file: "equipos_fem40"
+                collection: "equipos"
+                file: "equipos"
                 search_fields: ["equipos.*.nombre"]
                 display_fields: ["equipos.*.nombre"]
                 value_field: "equipos.*.id"
+                hint: "El buscador muestra TODOS los equipos de la liga (de cualquier categoría) — escribe el nombre para encontrarlo rápido."
               - name: "fase"
                 label: "Fase"
                 widget: "select"
@@ -300,21 +371,21 @@ collections:
               - name: "mvp_jugador"
                 label: "Jugador(a) Destacado(a) del partido"
                 widget: "relation"
-                collection: "roster_fem40"
-                file: "roster_fem40"
-                search_fields: ["jugadores.*.nombre", "jugadores.*.equipo_nombre"]
-                display_fields: ["jugadores.*.nombre", "jugadores.*.equipo_nombre"]
+                collection: "jugadores"
+                file: "jugadores"
+                search_fields: ["jugadores.*.nombre"]
+                display_fields: ["jugadores.*.nombre"]
                 value_field: "jugadores.*.id"
                 options_length: 100
                 required: false
-                hint: "Búscalo por nombre o equipo. El buscador muestra jugadores de TODOS los equipos de la categoría (Decap CMS no permite filtrar solo a los 2 equipos del partido) — ahora aparece el equipo junto al nombre para que no te equivoques."
+                hint: "Búscalo por nombre. El buscador muestra a TODOS los jugadores de la liga (Decap CMS no permite filtrar solo a los del equipo ganador de este partido) — revisa que elijas al correcto."
               - name: "mvp_nombre"
                 label: "Detalle del MVP (opcional, ej. \"17 puntos, 5 rebotes\")"
                 widget: "string"
                 required: false
                 hint: "Ya no se usa para el nombre (usa el campo de arriba). Aquí solo van detalles extra si quieres."
-              - name: "estadisticas"
-                label: "Estadísticas individuales del partido"
+              - name: "estadisticas_local"
+                label: "Estadísticas — Equipo LOCAL"
                 widget: "list"
                 required: false
                 summary: "{{fields.jugador}}: {{fields.puntos}} pts"
@@ -322,10 +393,35 @@ collections:
                   - name: "jugador"
                     label: "Jugador"
                     widget: "relation"
-                    collection: "roster_fem40"
-                    file: "roster_fem40"
-                    search_fields: ["jugadores.*.nombre", "jugadores.*.equipo_nombre"]
-                    display_fields: ["jugadores.*.nombre", "jugadores.*.equipo_nombre"]
+                    collection: "jugadores"
+                    file: "jugadores"
+                    search_fields: ["jugadores.*.nombre"]
+                    display_fields: ["jugadores.*.nombre"]
+                    value_field: "jugadores.*.id"
+                    options_length: 100
+                  - name: "asistio"
+                    label: "¿Asistió al juego?"
+                    widget: "select"
+                    options:
+                      - { label: "Sí asistió", value: "true" }
+                      - { label: "No asistió", value: "false" }
+                    default: "true"
+                  - { name: "puntos", label: "Puntos anotados", widget: "number", value_type: "int", default: 0 }
+                  - { name: "triples", label: "Triples anotados", widget: "number", value_type: "int", default: 0 }
+                  - { name: "faltas", label: "Faltas cometidas", widget: "number", value_type: "int", default: 0 }
+              - name: "estadisticas_visita"
+                label: "Estadísticas — Equipo VISITANTE"
+                widget: "list"
+                required: false
+                summary: "{{fields.jugador}}: {{fields.puntos}} pts"
+                fields:
+                  - name: "jugador"
+                    label: "Jugador"
+                    widget: "relation"
+                    collection: "jugadores"
+                    file: "jugadores"
+                    search_fields: ["jugadores.*.nombre"]
+                    display_fields: ["jugadores.*.nombre"]
                     value_field: "jugadores.*.id"
                     options_length: 100
                   - name: "asistio"
@@ -339,22 +435,6 @@ collections:
                   - { name: "triples", label: "Triples anotados", widget: "number", value_type: "int", default: 0 }
                   - { name: "faltas", label: "Faltas cometidas", widget: "number", value_type: "int", default: 0 }
               - { name: "observaciones", label: "Observaciones (puntos del MVP, incidencias, forfeit, etc.)", widget: "text", required: false }
-
-  - name: "equipos_var49"
-    label: "🏀 Varonil 49+ · Equipos"
-    files:
-      - name: "equipos_var49"
-        label: "Equipos Varonil 49+"
-        file: "data/equipos_var49.json"
-        fields:
-          - name: "equipos"
-            label: "Equipos"
-            widget: "list"
-            summary: "{{fields.nombre}}"
-            fields:
-              - { name: "id", label: "ID único (ej. AGUILASV49)", widget: "string" }
-              - { name: "nombre", label: "Nombre del equipo", widget: "string" }
-              - { name: "logo", label: "Logo del equipo", widget: "image", default: "img/equipos/placeholder.svg" }
 
   - name: "juegos_var49"
     label: "🏀 Varonil 49+ · Rol de Juegos"
@@ -389,19 +469,21 @@ collections:
               - name: "local"
                 label: "Equipo local"
                 widget: "relation"
-                collection: "equipos_var49"
-                file: "equipos_var49"
+                collection: "equipos"
+                file: "equipos"
                 search_fields: ["equipos.*.nombre"]
                 display_fields: ["equipos.*.nombre"]
                 value_field: "equipos.*.id"
+                hint: "El buscador muestra TODOS los equipos de la liga (de cualquier categoría) — escribe el nombre para encontrarlo rápido."
               - name: "visita"
                 label: "Equipo visitante"
                 widget: "relation"
-                collection: "equipos_var49"
-                file: "equipos_var49"
+                collection: "equipos"
+                file: "equipos"
                 search_fields: ["equipos.*.nombre"]
                 display_fields: ["equipos.*.nombre"]
                 value_field: "equipos.*.id"
+                hint: "El buscador muestra TODOS los equipos de la liga (de cualquier categoría) — escribe el nombre para encontrarlo rápido."
               - name: "fase"
                 label: "Fase"
                 widget: "select"
@@ -447,21 +529,21 @@ collections:
               - name: "mvp_jugador"
                 label: "Jugador(a) Destacado(a) del partido"
                 widget: "relation"
-                collection: "roster_var49"
-                file: "roster_var49"
-                search_fields: ["jugadores.*.nombre", "jugadores.*.equipo_nombre"]
-                display_fields: ["jugadores.*.nombre", "jugadores.*.equipo_nombre"]
+                collection: "jugadores"
+                file: "jugadores"
+                search_fields: ["jugadores.*.nombre"]
+                display_fields: ["jugadores.*.nombre"]
                 value_field: "jugadores.*.id"
                 options_length: 100
                 required: false
-                hint: "Búscalo por nombre o equipo. El buscador muestra jugadores de TODOS los equipos de la categoría (Decap CMS no permite filtrar solo a los 2 equipos del partido) — ahora aparece el equipo junto al nombre para que no te equivoques."
+                hint: "Búscalo por nombre. El buscador muestra a TODOS los jugadores de la liga (Decap CMS no permite filtrar solo a los del equipo ganador de este partido) — revisa que elijas al correcto."
               - name: "mvp_nombre"
                 label: "Detalle del MVP (opcional, ej. \"17 puntos, 5 rebotes\")"
                 widget: "string"
                 required: false
                 hint: "Ya no se usa para el nombre (usa el campo de arriba). Aquí solo van detalles extra si quieres."
-              - name: "estadisticas"
-                label: "Estadísticas individuales del partido"
+              - name: "estadisticas_local"
+                label: "Estadísticas — Equipo LOCAL"
                 widget: "list"
                 required: false
                 summary: "{{fields.jugador}}: {{fields.puntos}} pts"
@@ -469,10 +551,35 @@ collections:
                   - name: "jugador"
                     label: "Jugador"
                     widget: "relation"
-                    collection: "roster_var49"
-                    file: "roster_var49"
-                    search_fields: ["jugadores.*.nombre", "jugadores.*.equipo_nombre"]
-                    display_fields: ["jugadores.*.nombre", "jugadores.*.equipo_nombre"]
+                    collection: "jugadores"
+                    file: "jugadores"
+                    search_fields: ["jugadores.*.nombre"]
+                    display_fields: ["jugadores.*.nombre"]
+                    value_field: "jugadores.*.id"
+                    options_length: 100
+                  - name: "asistio"
+                    label: "¿Asistió al juego?"
+                    widget: "select"
+                    options:
+                      - { label: "Sí asistió", value: "true" }
+                      - { label: "No asistió", value: "false" }
+                    default: "true"
+                  - { name: "puntos", label: "Puntos anotados", widget: "number", value_type: "int", default: 0 }
+                  - { name: "triples", label: "Triples anotados", widget: "number", value_type: "int", default: 0 }
+                  - { name: "faltas", label: "Faltas cometidas", widget: "number", value_type: "int", default: 0 }
+              - name: "estadisticas_visita"
+                label: "Estadísticas — Equipo VISITANTE"
+                widget: "list"
+                required: false
+                summary: "{{fields.jugador}}: {{fields.puntos}} pts"
+                fields:
+                  - name: "jugador"
+                    label: "Jugador"
+                    widget: "relation"
+                    collection: "jugadores"
+                    file: "jugadores"
+                    search_fields: ["jugadores.*.nombre"]
+                    display_fields: ["jugadores.*.nombre"]
                     value_field: "jugadores.*.id"
                     options_length: 100
                   - name: "asistio"
@@ -518,16 +625,16 @@ collections:
               - name: "equipoA"
                 label: "Equipo A"
                 widget: "relation"
-                collection: "equipos_var40"
-                file: "equipos_var40"
+                collection: "equipos"
+                file: "equipos"
                 search_fields: ["equipos.*.nombre"]
                 display_fields: ["equipos.*.nombre"]
                 value_field: "equipos.*.id"
               - name: "equipoB"
                 label: "Equipo B"
                 widget: "relation"
-                collection: "equipos_var40"
-                file: "equipos_var40"
+                collection: "equipos"
+                file: "equipos"
                 search_fields: ["equipos.*.nombre"]
                 display_fields: ["equipos.*.nombre"]
                 value_field: "equipos.*.id"
@@ -583,16 +690,16 @@ collections:
               - name: "equipoA"
                 label: "Equipo A"
                 widget: "relation"
-                collection: "equipos_fem40"
-                file: "equipos_fem40"
+                collection: "equipos"
+                file: "equipos"
                 search_fields: ["equipos.*.nombre"]
                 display_fields: ["equipos.*.nombre"]
                 value_field: "equipos.*.id"
               - name: "equipoB"
                 label: "Equipo B"
                 widget: "relation"
-                collection: "equipos_fem40"
-                file: "equipos_fem40"
+                collection: "equipos"
+                file: "equipos"
                 search_fields: ["equipos.*.nombre"]
                 display_fields: ["equipos.*.nombre"]
                 value_field: "equipos.*.id"
@@ -648,16 +755,16 @@ collections:
               - name: "equipoA"
                 label: "Equipo A"
                 widget: "relation"
-                collection: "equipos_var49"
-                file: "equipos_var49"
+                collection: "equipos"
+                file: "equipos"
                 search_fields: ["equipos.*.nombre"]
                 display_fields: ["equipos.*.nombre"]
                 value_field: "equipos.*.id"
               - name: "equipoB"
                 label: "Equipo B"
                 widget: "relation"
-                collection: "equipos_var49"
-                file: "equipos_var49"
+                collection: "equipos"
+                file: "equipos"
                 search_fields: ["equipos.*.nombre"]
                 display_fields: ["equipos.*.nombre"]
                 value_field: "equipos.*.id"
@@ -682,118 +789,7 @@ collections:
                   - { name: "marcador_a", label: "Marcador Equipo A", widget: "number", required: false, value_type: "int" }
                   - { name: "marcador_b", label: "Marcador Equipo B", widget: "number", required: false, value_type: "int" }
 
-  - name: "roster_var40"
-    label: "👤 Varonil 40+ · Jugadores"
-    files:
-      - name: "roster_var40"
-        label: "Jugadores Varonil 40+"
-        file: "data/roster_var40.json"
-        fields:
-          - name: "jugadores"
-            label: "Jugadores"
-            widget: "list"
-            summary: "{{fields.nombre}}"
-            fields:
-              - { name: "id", label: "ID único (ej. jugador-01)", widget: "string" }
-              - { name: "nombre", label: "Nombre completo", widget: "string" }
-              - name: "equipo_id"
-                label: "Equipo"
-                widget: "relation"
-                collection: "equipos_var40"
-                file: "equipos_var40"
-                search_fields: ["equipos.*.nombre"]
-                display_fields: ["equipos.*.nombre"]
-                value_field: "equipos.*.id"
-              - name: "equipo_nombre"
-                label: "Nombre del equipo (escríbelo igual que arriba)"
-                widget: "string"
-                hint: "Se repite a propósito: sirve para que el buscador de MVP muestre junto al nombre del jugador a qué equipo pertenece, ya que Decap CMS no puede filtrar automáticamente."
-              - name: "temporada"
-                label: "Temporada"
-                widget: "relation"
-                collection: "temporadas"
-                file: "temporadas"
-                search_fields: ["temporadas.*.nombre"]
-                display_fields: ["temporadas.*.nombre"]
-                value_field: "temporadas.*.id"
-                hint: "A qué temporada pertenece este jugador en este equipo (si cambia de equipo o de temporada, agrégalo como una fila nueva)."
-              - { name: "numero", label: "Número de dorsal (opcional)", widget: "string", required: false }
-
-  - name: "roster_fem40"
-    label: "👤 Femenil 40+ · Jugadores"
-    files:
-      - name: "roster_fem40"
-        label: "Jugadores Femenil 40+"
-        file: "data/roster_fem40.json"
-        fields:
-          - name: "jugadores"
-            label: "Jugadores"
-            widget: "list"
-            summary: "{{fields.nombre}}"
-            fields:
-              - { name: "id", label: "ID único (ej. jugador-01)", widget: "string" }
-              - { name: "nombre", label: "Nombre completo", widget: "string" }
-              - name: "equipo_id"
-                label: "Equipo"
-                widget: "relation"
-                collection: "equipos_fem40"
-                file: "equipos_fem40"
-                search_fields: ["equipos.*.nombre"]
-                display_fields: ["equipos.*.nombre"]
-                value_field: "equipos.*.id"
-              - name: "equipo_nombre"
-                label: "Nombre del equipo (escríbelo igual que arriba)"
-                widget: "string"
-                hint: "Se repite a propósito: sirve para que el buscador de MVP muestre junto al nombre del jugador a qué equipo pertenece, ya que Decap CMS no puede filtrar automáticamente."
-              - name: "temporada"
-                label: "Temporada"
-                widget: "relation"
-                collection: "temporadas"
-                file: "temporadas"
-                search_fields: ["temporadas.*.nombre"]
-                display_fields: ["temporadas.*.nombre"]
-                value_field: "temporadas.*.id"
-                hint: "A qué temporada pertenece este jugador en este equipo (si cambia de equipo o de temporada, agrégalo como una fila nueva)."
-              - { name: "numero", label: "Número de dorsal (opcional)", widget: "string", required: false }
-
-  - name: "roster_var49"
-    label: "👤 Varonil 49+ · Jugadores"
-    files:
-      - name: "roster_var49"
-        label: "Jugadores Varonil 49+"
-        file: "data/roster_var49.json"
-        fields:
-          - name: "jugadores"
-            label: "Jugadores"
-            widget: "list"
-            summary: "{{fields.nombre}}"
-            fields:
-              - { name: "id", label: "ID único (ej. jugador-01)", widget: "string" }
-              - { name: "nombre", label: "Nombre completo", widget: "string" }
-              - name: "equipo_id"
-                label: "Equipo"
-                widget: "relation"
-                collection: "equipos_var49"
-                file: "equipos_var49"
-                search_fields: ["equipos.*.nombre"]
-                display_fields: ["equipos.*.nombre"]
-                value_field: "equipos.*.id"
-              - name: "equipo_nombre"
-                label: "Nombre del equipo (escríbelo igual que arriba)"
-                widget: "string"
-                hint: "Se repite a propósito: sirve para que el buscador de MVP muestre junto al nombre del jugador a qué equipo pertenece, ya que Decap CMS no puede filtrar automáticamente."
-              - name: "temporada"
-                label: "Temporada"
-                widget: "relation"
-                collection: "temporadas"
-                file: "temporadas"
-                search_fields: ["temporadas.*.nombre"]
-                display_fields: ["temporadas.*.nombre"]
-                value_field: "temporadas.*.id"
-                hint: "A qué temporada pertenece este jugador en este equipo (si cambia de equipo o de temporada, agrégalo como una fila nueva)."
-              - { name: "numero", label: "Número de dorsal (opcional)", widget: "string", required: false }
-
-  # ===== SEDES Y PATROCINADORES =====
+  # ===== SEDES, NOTICIAS Y PATROCINADORES =====
   - name: "sedes"
     label: "📍 Sedes"
     files:
