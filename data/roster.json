@@ -2187,6 +2187,33 @@
         }
       ]
     },
-    {}
+    {
+      "id": "ADAVALOS",
+      "nombre": "ARTURO DAVALOS",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ALTOV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "BARNWYB",
+      "nombre": "BARNEY BARRAGAN",
+      "numero": "21",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "NARANJOV40",
+          "temporada": "2026-1"
+        },
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CFEV40",
+          "temporada": "2026-2"
+        }
+      ]
+    }
   ]
 }
