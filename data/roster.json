@@ -2323,6 +2323,86 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "CHULOVILLA",
+      "nombre": "MANUEL VILLANUEVA",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "SMV40",
+          "temporada": "2026-1"
+        },
+        {
+          "categoria_id": "var40",
+          "equipo_id": "SMV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "JT3VOR",
+      "nombre": "JORGE TREVOR",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "SMV40",
+          "temporada": "2026-1"
+        },
+        {
+          "categoria_id": "var40",
+          "equipo_id": "SMV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "TONODIAZPAD",
+      "nombre": "ANTONIO DIAZ",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "SMV40",
+          "temporada": "2026-1"
+        },
+        {
+          "categoria_id": "var40",
+          "equipo_id": "SMV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "ESGAHUEVO",
+      "nombre": "EDGAR MORALES",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "SMV40",
+          "temporada": "2026-1"
+        },
+        {
+          "categoria_id": "var40",
+          "equipo_id": "SMV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "MARKOZPLA",
+      "nombre": "MARCOS PLASCENCIA",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "SMV40",
+          "temporada": "2026-1"
+        },
+        {
+          "categoria_id": "var40",
+          "equipo_id": "SMV40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
