@@ -1,3 +1,19 @@
 {
-    "series": []
+  "series": [
+    {
+      "id": "semifinalvets4920261",
+      "temporada": "2026-1",
+      "ronda": "Semifinal",
+      "equipoA": "SMV40",
+      "equipoB": "RETRO49",
+      "juegos": []
+    },
+    {
+      "id": "semi249mas20261",
+      "temporada": "2026-1",
+      "ronda": "Semifinal",
+      "equipoA": "VIKINGOSV40",
+      "equipoB": "OSV40"
+    }
+  ]
 }
