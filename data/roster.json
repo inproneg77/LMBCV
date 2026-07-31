@@ -2109,17 +2109,6 @@
       ]
     },
     {
-      "id": "ARIVWRA",
-      "nombre": "ALFREDO RIVRRA",
-      "membresias": [
-        {
-          "categoria_id": "var40",
-          "equipo_id": "ALTOV40",
-          "temporada": "2026-2"
-        }
-      ]
-    },
-    {
       "id": "SOCRATES",
       "nombre": "SOCRATES LOPEZ",
       "membresias": [
@@ -2231,6 +2220,17 @@
         {
           "categoria_id": "var40",
           "equipo_id": "CFEV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "ARIVERA2",
+      "nombre": "ALFREDO RIVERA",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ALTOV40",
           "temporada": "2026-2"
         }
       ]
