@@ -1,3 +1,46 @@
 {
-  "juegos": []
+  "juegos": [
+    {
+      "temporada": "2026-1",
+      "sede_id": "gimnasio",
+      "destacado": "false",
+      "local": "VIKINGOSV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "RETRO49",
+      "hora": "11:00",
+      "estatus": "programado",
+      "id": "49020820261",
+      "fecha": "2026-08-02"
+    },
+    {
+      "temporada": "2026-1",
+      "sede_id": "gimnasio",
+      "destacado": "false",
+      "local": "SMV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "OSV40",
+      "hora": "12:00",
+      "estatus": "programado",
+      "id": "490208262",
+      "fecha": "2026-08-02"
+    },
+    {
+      "temporada": "2026-1",
+      "sede_id": "gimnasio",
+      "destacado": "false",
+      "local": "MADERASV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "FEDE49",
+      "hora": "13:00",
+      "estatus": "programado",
+      "id": "490208263",
+      "fecha": "2026-08-02"
+    }
+  ]
 }
