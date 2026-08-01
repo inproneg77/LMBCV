@@ -95,7 +95,88 @@
       "estatus": "jugado",
       "marcador_local": 27,
       "id": "v1",
-      "fecha": "2026-07-25"
+      "fecha": "2026-07-25",
+      "estadisticas_local": [
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 2,
+          "jugador": "HMACIEL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "RPIMIENTA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "IMORALES"
+        },
+        {
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "JCABALLERO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 2,
+          "jugador": "SGONZA"
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "GPALA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "DMAZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "DNEB"
+        },
+        {
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 1,
+          "faltas": 0,
+          "jugador": "ANARAIZA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "GARYFEL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "CYESK"
+        }
+      ]
     },
     {
       "mvp_nombre": "",
@@ -213,7 +294,109 @@
       "estatus": "jugado",
       "marcador_local": 53,
       "id": "v2",
-      "fecha": "2026-07-25"
+      "fecha": "2026-07-25",
+      "estadisticas_local": [
+        {
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "CHOCOLEM"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "FAVELATOLON"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "CHARROD"
+        },
+        {
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "TITOMEN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 17,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "ANGELFIE"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "FDOBRA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "FONSECAR"
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 1,
+          "faltas": 1,
+          "jugador": "MPENUE"
+        },
+        {
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 1,
+          "jugador": "JDIAZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 2,
+          "jugador": "LPENUE"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "SCHAVA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "CABALLOOZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "CNUN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 20,
+          "triples": 3,
+          "faltas": 5,
+          "jugador": "APENUE"
+        }
+      ]
     },
     {
       "temporada": "2026-1",
@@ -359,7 +542,123 @@
       "estatus": "jugado",
       "marcador_local": 42,
       "id": "V7",
-      "fecha": "2026-07-25"
+      "fecha": "2026-07-25",
+      "estadisticas_local": [
+        {
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "CHABELOH"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 4,
+          "jugador": "ABDELCO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 1,
+          "jugador": "TECOLIZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 2,
+          "faltas": 1,
+          "jugador": "ALEXVEGA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 3,
+          "jugador": "JSAL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "JAREDROM"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "JURIAS"
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 2,
+          "faltas": 0,
+          "jugador": "RLOPEZ4"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "MARIONB"
+        },
+        {
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "ALDUKA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 2,
+          "faltas": 1,
+          "jugador": "IVANMEND"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "PATOSO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 1,
+          "faltas": 1,
+          "jugador": "MEDEH"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "BARRYMEN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "CHUCOGA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 0,
+          "jugador": "javlopez"
+        }
+      ]
     },
     {
       "temporada": "2026-2",

@@ -109,7 +109,102 @@
       "estatus": "jugado",
       "marcador_local": 36,
       "id": "fem1",
-      "fecha": "2026-07-25"
+      "fecha": "2026-07-25",
+      "estadisticas_local": [
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "BSOTELO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "CGUT"
+        },
+        {
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "AGUT"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "GCRUZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "MGUTI"
+        },
+        {
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ARGRIJ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "IURIAS"
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "MGARCIA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "GPECEL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 2,
+          "jugador": "LBRACA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "JANLAB"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "AMFRA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "YULILEY"
+        }
+      ]
     },
     {
       "mvp_nombre": "",
@@ -241,7 +336,123 @@
       "estatus": "jugado",
       "marcador_local": 44,
       "id": "fe2",
-      "fecha": "2026-07-25"
+      "fecha": "2026-07-25",
+      "estadisticas_local": [
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "CYES"
+        },
+        {
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "ELSAGON"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "RSUA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "ANABUSTA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 3,
+          "faltas": 2,
+          "jugador": "HELGAR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 2,
+          "jugador": "ROXTA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "ENNER"
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ROCFLO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 16,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "NERSANT"
+        },
+        {
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 0,
+          "jugador": "ANGVAN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "ADRIHERR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "LUCGAR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 1,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "VILMTOR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "PAQMEN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "ESCCRIST"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "PATSAN"
+        }
+      ]
     },
     {
       "mvp_nombre": "",
@@ -394,7 +605,144 @@
       "estatus": "jugado",
       "marcador_local": 33,
       "id": "f3",
-      "fecha": "2026-07-04"
+      "fecha": "2026-07-04",
+      "estadisticas_local": [
+        {
+          "asistio": "true",
+          "puntos": 1,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "CGUT"
+        },
+        {
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "KENQUI"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "AGUT"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "MGUTI"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "GCRUZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ARGRIJ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "IURIAS"
+        },
+        {
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 1,
+          "jugador": "AGARCIA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "MARISANTA"
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ADRIMART"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "FERGAST"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "PATROB"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "MERCACAR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 2,
+          "jugador": "PAOARA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "CORAORD"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "KARSALC"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "LIZETHROM"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "MAYBDUL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "REYMOR"
+        }
+      ]
     },
     {
       "mvp_nombre": "",
@@ -554,7 +902,151 @@
       "estatus": "jugado",
       "marcador_local": 28,
       "id": "f4",
-      "fecha": "2026-07-04"
+      "fecha": "2026-07-04",
+      "estadisticas_local": [
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "IVANEGAS"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "GPECEL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "AZUCENA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "LBRACA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "kasilva"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "MGARCIA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "DALIAFELI"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "YULILEY"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ANAHISFEL"
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "DIAROM"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "HELGAR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "RSUA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "CYES"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "MIVAL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "ELSAGON"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "PERLMENDE"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "FRECIACUE"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ANABUSTA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "LOREMEN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ENNER"
+        }
+      ]
     },
     {
       "mvp_nombre": "",
@@ -686,7 +1178,123 @@
       "estatus": "jugado",
       "marcador_local": 36,
       "id": "f5",
-      "fecha": "2026-07-11"
+      "fecha": "2026-07-11",
+      "estadisticas_local": [
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "TERMIR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "PAQMEN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 21,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "NERSANT"
+        },
+        {
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 1,
+          "faltas": 0,
+          "jugador": "ANGVAN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "ESCCRIST"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "PATSAN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "PATBERNAL"
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "DALIAFELI"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": -1,
+          "faltas": 0,
+          "jugador": "IVANEGAS"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "kasilva"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "MGARCIA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "AMFRA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "LBRACA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ANAHISFEL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "AZUCENA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "YULILEY"
+        }
+      ]
     },
     {
       "mvp_nombre": "",
@@ -832,7 +1440,137 @@
       "estatus": "jugado",
       "marcador_local": 25,
       "id": "f6",
-      "fecha": "2026-07-11"
+      "fecha": "2026-07-11",
+      "estadisticas_local": [
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "IURIAS"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "GCRUZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "MGUTI"
+        },
+        {
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "CGUT"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "AGUT"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "KENQUI"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "ARGRIJ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "MARISANTA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "BSOTELO"
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "ANABUSTA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "FRECIACUE"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "CYES"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "PERLMENDE"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "ELSAGON"
+        },
+        {
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "RSUA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 1,
+          "jugador": "ENNER"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "ROXTA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "MIVAL"
+        }
+      ]
     },
     {
       "temporada": "2026-2",
@@ -998,7 +1736,130 @@
       "estatus": "jugado",
       "marcador_local": 22,
       "id": "J11",
-      "fecha": "2026-06-27"
+      "fecha": "2026-06-27",
+      "estadisticas_local": [
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "ROCFLO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "LUCGAR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "ADRIHERR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "TERMIR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "VILMTOR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "NERSANT"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "ESCCRIST"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "PATBERNAL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ANGVAN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "PAQMEN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "PATSAN"
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "PERLMENDE"
+        },
+        {
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ENNER"
+        },
+        {
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "CYES"
+        },
+        {
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "RSUA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ANABUSTA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "DIAROM"
+        }
+      ]
     },
     {
       "temporada": "2026-2",
@@ -1164,7 +2025,158 @@
       "estatus": "jugado",
       "marcador_local": 29,
       "id": "J11",
-      "fecha": "2026-06-27"
+      "fecha": "2026-06-27",
+      "estadisticas_local": [
+        {
+          "asistio": "true",
+          "puntos": 1,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "PATROB"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "CORAORD"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "FERGAST"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 0,
+          "jugador": "PAOARA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 1,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "LIZMEZA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "ADRIMART"
+        },
+        {
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "EMANN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "MERCACAR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "MAYBDUL"
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "DALIAFELI"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "MGARCIA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "GPECEL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "AMFRA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 0,
+          "jugador": "IVANEGAS"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "BLANGARC"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "ANAHISFEL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "kasilva"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "JANLAB"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "LBRACA"
+        },
+        {
+          "asistio": "false",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "CTNTGUT"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "YULILEY"
+        }
+      ]
     }
   ]
 }
