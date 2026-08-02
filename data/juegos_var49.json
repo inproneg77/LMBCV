@@ -3,7 +3,22 @@
     {
       "temporada": "2026-1",
       "sede_id": "gimnasio",
-      "estadisticas_visita": [],
+      "estadisticas_visita": [
+        {
+          "asistio": "true",
+          "puntos": -1,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "LCASTILO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 4,
+          "jugador": "RMONTES"
+        }
+      ],
       "destacado": "false",
       "marcador_visita": 28,
       "mvp_jugador": "ALEXVEGA",
@@ -18,7 +33,7 @@
       "estadisticas_local": [
         {
           "asistio": "true",
-          "puntos": 16,
+          "puntos": 14,
           "triples": 2,
           "faltas": 1,
           "jugador": "JK7749"
@@ -53,7 +68,7 @@
         },
         {
           "asistio": "true",
-          "puntos": 2,
+          "puntos": 4,
           "triples": 0,
           "faltas": 0,
           "jugador": "TECOLIZ"
