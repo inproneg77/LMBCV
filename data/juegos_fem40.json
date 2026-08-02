@@ -1591,8 +1591,53 @@
     {
       "temporada": "2026-2",
       "sede_id": "duela",
+      "estadisticas_visita": [
+        {
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "ANAHISFEL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "MGARCIA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 2,
+          "jugador": "DALIAFELI"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "YULILEY"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "kasilva"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "BLANGARC"
+        }
+      ],
       "destacado": "false",
       "marcador_visita": 15,
+      "mvp_jugador": "CORAORD",
       "local": "MAESTRASF40",
       "fase": "regular",
       "vuelta": 1,
@@ -1601,6 +1646,71 @@
       "hora": "19:00",
       "estatus": "jugado",
       "marcador_local": 16,
+      "estadisticas_local": [
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "EMANN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "ADRIMART"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "LIZMEZA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "PATROB"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "KARSALC"
+        },
+        {
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "FERGAST"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "LIZETHROM"
+        },
+        {
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 0,
+          "jugador": "CORAORD"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "MAYBDUL"
+        }
+      ],
       "id": "J10",
       "fecha": "2026-08-01"
     },
