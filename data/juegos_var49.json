@@ -3,7 +3,10 @@
     {
       "temporada": "2026-1",
       "sede_id": "gimnasio",
+      "estadisticas_visita": [],
       "destacado": "true",
+      "marcador_visita": 28,
+      "mvp_jugador": "ALEXVEGA",
       "local": "VIKINGOSV40",
       "fase": "playoffs",
       "vuelta": 1,
@@ -11,6 +14,51 @@
       "visita": "RETRO49",
       "hora": "11:00",
       "estatus": "programado",
+      "marcador_local": 56,
+      "estadisticas_local": [
+        {
+          "asistio": "true",
+          "puntos": 16,
+          "triples": 2,
+          "faltas": 1,
+          "jugador": "JK7749"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 4,
+          "jugador": "ABDELCO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "JURIAS"
+        },
+        {
+          "asistio": "true",
+          "puntos": 18,
+          "triples": 1,
+          "faltas": 1,
+          "jugador": "ALEXVEGA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 1,
+          "jugador": "javlopez"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "TECOLIZ"
+        }
+      ],
       "id": "49020820261",
       "fecha": "2026-08-02"
     },
