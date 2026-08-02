@@ -401,7 +401,66 @@
     {
       "temporada": "2026-1",
       "sede_id": "gimnasio",
+      "estadisticas_visita": [
+        {
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "WEROSOTO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 3,
+          "faltas": 3,
+          "jugador": "CUBANO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 18,
+          "triples": 5,
+          "faltas": 2,
+          "jugador": "JT3VOR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 3,
+          "faltas": 1,
+          "jugador": "GERA5"
+        },
+        {
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 1,
+          "faltas": 3,
+          "jugador": "CHULOVILLA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "DRIVERA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "TONODIAZPAD"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "ESGAHUEVO"
+        }
+      ],
       "destacado": "false",
+      "marcador_visita": 66,
       "local": "CFEV40",
       "fase": "final",
       "vuelta": 1,
@@ -409,6 +468,44 @@
       "visita": "SMV40",
       "hora": "18:00",
       "estatus": "programado",
+      "marcador_local": 59,
+      "estadisticas_local": [
+        {
+          "asistio": "true",
+          "puntos": 20,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ISAAOLA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 0,
+          "faltas": 5,
+          "jugador": "JK77"
+        },
+        {
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ANDGUZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 1,
+          "faltas": 3,
+          "jugador": "JAVVALD"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 0,
+          "jugador": "NEGROURQ"
+        }
+      ],
       "id": "final2026",
       "fecha": "2026-08-01"
     },
