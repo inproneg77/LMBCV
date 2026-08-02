@@ -2395,6 +2395,30 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "LCASTILO",
+      "nombre": "LUIS CASTILLO",
+      "numero": "11",
+      "membresias": [
+        {
+          "categoria_id": "var49",
+          "equipo_id": "RETRO49",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "RMONTES",
+      "nombre": "RENE MONTES",
+      "numero": "25",
+      "membresias": [
+        {
+          "categoria_id": "var49",
+          "equipo_id": "RETRO49",
+          "temporada": "2026-1"
+        }
+      ]
     }
   ]
 }
