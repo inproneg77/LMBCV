@@ -1672,6 +1672,13 @@
           "triples": 0,
           "faltas": 1,
           "jugador": "MARISANTA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 3,
+          "jugador": "ELENAQUIROZ"
         }
       ],
       "id": "J9",
