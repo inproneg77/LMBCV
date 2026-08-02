@@ -1575,6 +1575,43 @@
     {
       "temporada": "2026-2",
       "sede_id": "gimnasio",
+      "estadisticas_visita": [
+        {
+          "asistio": "true",
+          "puntos": 1,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "ROXTA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "HELGAR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "PERLMENDE"
+        },
+        {
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 2,
+          "faltas": 3,
+          "jugador": "ENNER"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "ANABUSTA"
+        }
+      ],
       "destacado": "false",
       "marcador_visita": 27,
       "mvp_jugador": "ARGRIJ",
