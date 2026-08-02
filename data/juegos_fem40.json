@@ -1583,7 +1583,7 @@
       "forfeit": "ninguno",
       "visita": "DIAMONDS40",
       "hora": "19:00",
-      "estatus": "programado",
+      "estatus": "jugado",
       "marcador_local": 30,
       "id": "J9",
       "fecha": "2026-08-01"
@@ -1599,7 +1599,7 @@
       "forfeit": "ninguno",
       "visita": "TEALONGF40",
       "hora": "19:00",
-      "estatus": "programado",
+      "estatus": "jugado",
       "marcador_local": 16,
       "id": "J10",
       "fecha": "2026-08-01"
