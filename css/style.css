@@ -4,23 +4,23 @@
    Body: Inter | Datos/horas: JetBrains Mono
 */
 :root{
-  --navy: #0b2545;
-  --navy-2: #123a6b;
-  --navy-3: #1a4a85;
-  --baby: #8ecae6;
-  --baby-soft: #eaf5fc;
-  --gold: #d4af37;
-  --gold-bright: #f0c94a;
+  --navy: #1c1712;
+  --navy-2: #2e2620;
+  --navy-3: #453a2e;
+  --baby: #d9d2ac;
+  --baby-soft: #f6f1e2;
+  --gold: #b8923f;
+  --gold-bright: #dcb85f;
   --white: #ffffff;
-  --bg: #f4f8fc;
-  --ink: #0f2038;
-  --text-dim: #5c7291;
-  --line: #dde7f2;
-  --win: #b8860b;
+  --bg: #faf7ef;
+  --ink: #211b14;
+  --text-dim: #83786c;
+  --line: #e8ddc8;
+  --win: #96771f;
   --radius: 14px;
   --radius-sm: 8px;
-  --shadow: 0 6px 18px -8px rgba(11,37,69,0.18);
-  --shadow-lg: 0 20px 40px -14px rgba(11,37,69,0.28);
+  --shadow: 0 6px 18px -8px rgba(28,23,18,0.18);
+  --shadow-lg: 0 20px 40px -14px rgba(28,23,18,0.28);
 }
 
 *{ box-sizing: border-box; }
