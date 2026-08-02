@@ -2419,6 +2419,59 @@
           "temporada": "2026-1"
         }
       ]
+    },
+    {
+      "id": "FERMINZAVALA",
+      "nombre": "FERMIN ZAVALA",
+      "numero": "37",
+      "membresias": [
+        {
+          "categoria_id": "var49",
+          "equipo_id": "RETRO49",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "ESTEBANLOPEZ",
+      "nombre": "ESTEBAN LOPEZ",
+      "numero": "31",
+      "membresias": [
+        {
+          "categoria_id": "var49",
+          "equipo_id": "RETRO49",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "ALEXESPINOZA",
+      "nombre": "ALEJANDRO ESPINOZA",
+      "numero": "16",
+      "membresias": [
+        {
+          "categoria_id": "var49",
+          "equipo_id": "RETRO49",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "LUISBAUTISTA",
+      "nombre": "LUIS BAUTISTA",
+      "numero": "9"
+    },
+    {
+      "id": "MIKICASTRO",
+      "nombre": "MIGUEL CASTRO",
+      "numero": "4",
+      "membresias": [
+        {
+          "categoria_id": "var49",
+          "equipo_id": "RETRO49",
+          "temporada": "2026-1"
+        }
+      ]
     }
   ]
 }
