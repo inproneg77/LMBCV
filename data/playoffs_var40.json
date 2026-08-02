@@ -15,9 +15,11 @@
           "marcador_b": 48
         },
         {
-          "jugado": "false",
+          "jugado": "true",
           "fecha": "2026-08-01",
-          "numero": 2
+          "numero": 2,
+          "marcador_a": 59,
+          "marcador_b": 67
         },
         {
           "jugado": "false",
