@@ -4,7 +4,7 @@
       "temporada": "2026-1",
       "sede_id": "gimnasio",
       "estadisticas_visita": [],
-      "destacado": "true",
+      "destacado": "false",
       "marcador_visita": 28,
       "mvp_jugador": "ALEXVEGA",
       "local": "VIKINGOSV40",
@@ -13,7 +13,7 @@
       "forfeit": "ninguno",
       "visita": "RETRO49",
       "hora": "11:00",
-      "estatus": "programado",
+      "estatus": "jugado",
       "marcador_local": 56,
       "estadisticas_local": [
         {
