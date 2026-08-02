@@ -467,7 +467,7 @@
       "forfeit": "ninguno",
       "visita": "SMV40",
       "hora": "18:00",
-      "estatus": "programado",
+      "estatus": "jugado",
       "marcador_local": 59,
       "estadisticas_local": [
         {
@@ -768,7 +768,7 @@
       "forfeit": "ninguno",
       "visita": "BURROSV40",
       "hora": "16:00",
-      "estatus": "programado",
+      "estatus": "jugado",
       "marcador_local": 35,
       "id": "j5",
       "fecha": "2026-08-01"
@@ -784,7 +784,7 @@
       "forfeit": "ninguno",
       "visita": "OSV40",
       "hora": "17:00",
-      "estatus": "programado",
+      "estatus": "jugado",
       "marcador_local": 60,
       "id": "j6",
       "fecha": "2026-08-01"
@@ -800,7 +800,7 @@
       "forfeit": "ninguno",
       "visita": "ICATSONV40",
       "hora": "16:00",
-      "estatus": "programado",
+      "estatus": "jugado",
       "marcador_local": 25,
       "id": "j8",
       "fecha": "2026-08-01"
@@ -816,7 +816,7 @@
       "forfeit": "ninguno",
       "visita": "MADERASV40",
       "hora": "17:00",
-      "estatus": "programado",
+      "estatus": "jugado",
       "marcador_local": 67,
       "id": "j8",
       "fecha": "2026-08-01"
@@ -832,7 +832,7 @@
       "forfeit": "ninguno",
       "visita": "ALTOV40",
       "hora": "18:00",
-      "estatus": "programado",
+      "estatus": "jugado",
       "marcador_local": 31,
       "id": "J12",
       "fecha": "2026-08-01"
