@@ -2472,6 +2472,18 @@
           "temporada": "2026-1"
         }
       ]
+    },
+    {
+      "id": "ELENAQUIROZ",
+      "nombre": "ELENA QUIROZ",
+      "numero": "7",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "LARAF40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
