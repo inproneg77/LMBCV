@@ -17,6 +17,41 @@
           "triples": 0,
           "faltas": 4,
           "jugador": "RMONTES"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "FERMINZAVALA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ESTEBANLOPEZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 0,
+          "jugador": "ALEXESPINOZA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "LUISBAUTISTA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "MIKICASTRO"
         }
       ],
       "destacado": "false",
