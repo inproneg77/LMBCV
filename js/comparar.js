@@ -66,10 +66,8 @@ function estadisticasTemporada(equipoId) {
 
   const r = { jj: 0, jg: 0, jp: 0, pf: 0, pc: 0, triples: 0, triplesRival: 0, faltas: 0 };
 
-  const sumaCampo = (estadisticas, elEquipoId, campo) =>
-    (estadisticas ?? [])
-      .filter(e => ESTADO_CMP.jugadoresPorId[e.jugador]?.equipo_id === elEquipoId)
-      .reduce((acc, e) => acc + Number(e[campo] ?? 0), 0);
+  const sumaCampo = (lista, campo) =>
+    (lista ?? []).reduce((acc, e) => acc + Number(e[campo] ?? 0), 0);
 
   juegos.forEach(j => {
     const esLocal = j.local === equipoId;
@@ -80,9 +78,12 @@ function estadisticasTemporada(equipoId) {
     r.jj++; r.pf += propio; r.pc += rival;
     if (propio > rival) r.jg++; else if (rival > propio) r.jp++;
 
-    r.triples += sumaCampo(j.estadisticas, equipoId, 'triples');
-    r.triplesRival += sumaCampo(j.estadisticas, rivalId, 'triples');
-    r.faltas += sumaCampo(j.estadisticas, equipoId, 'faltas');
+    const listaPropia = esLocal ? (j.estadisticas_local ?? j.estadisticas) : j.estadisticas_visita;
+    const listaRival = esLocal ? j.estadisticas_visita : (j.estadisticas_local ?? j.estadisticas);
+
+    r.triples += sumaCampo(listaPropia, 'triples');
+    r.triplesRival += sumaCampo(listaRival, 'triples');
+    r.faltas += sumaCampo(listaPropia, 'faltas');
   });
 
   return r;
@@ -194,7 +195,7 @@ function renderEnfrentamiento(j, equipoA, equipoB) {
   const { texto } = formatearFecha(j.fecha);
   const sede = ESTADO_CMP.sedesPorId[j.sede_id]?.nombre ?? '';
   const temporada = ESTADO_CMP.temporadas.find(t => t.id === j.temporada)?.nombre ?? j.temporada ?? '';
-  const tieneStats = (j.estadisticas ?? []).length > 0;
+  const tieneStats = ((j.estadisticas_local ?? j.estadisticas ?? []).length + (j.estadisticas_visita ?? []).length) > 0;
 
   const resumen = `
     <div class="historial-item">

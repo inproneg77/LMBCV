@@ -35,21 +35,27 @@ function acumularEstadisticas() {
   );
 
   const acumulado = {};
-  juegos.forEach(j => {
-    (j.estadisticas ?? []).forEach(e => {
+  const procesar = (lista, equipoId) => {
+    (lista ?? []).forEach(e => {
       if (String(e.asistio) === 'false') return; // no jugó, no cuenta
       const jugador = ESTADO_L.jugadoresPorId[e.jugador];
       if (!jugador) return;
-      const equipo = ESTADO_L.equiposPorId[jugador.equipo_id];
+      const equipo = ESTADO_L.equiposPorId[equipoId];
 
       const acc = (acumulado[e.jugador] ??= {
         jugador, equipo, juegos: 0, puntos: 0, triples: 0, faltas: 0
       });
+      acc.equipo = equipo; // se queda con el equipo del juego más reciente procesado
       acc.juegos++;
       acc.puntos += Number(e.puntos ?? 0);
       acc.triples += Number(e.triples ?? 0);
       acc.faltas += Number(e.faltas ?? 0);
     });
+  };
+
+  juegos.forEach(j => {
+    procesar(j.estadisticas_local ?? j.estadisticas, j.local);
+    procesar(j.estadisticas_visita, j.visita);
   });
 
   return Object.values(acumulado);

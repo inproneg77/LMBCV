@@ -93,15 +93,22 @@ function resumenEquipo(equipoId) {
 
 function totalesJugadores(equipoId) {
   const juegos = juegosDelEquipo(equipoId);
-  const jugadoresEquipo = ESTADO_E.jugadores.filter(j => j.equipo_id === equipoId);
   const acumulado = {};
-  jugadoresEquipo.forEach(j => { acumulado[j.id] = { jugador: j, jj: 0, puntos: 0, triples: 0, faltas: 0 }; });
 
+  // Se recorre juego por juego, usando la lista de estadísticas que
+  // corresponde a ESTE equipo en ESE juego específico (local o visita).
+  // Así, si un jugador después cambia de equipo, su historial con este
+  // equipo se queda intacto — no depende de su roster actual.
   juegos.forEach(juego => {
-    (juego.estadisticas ?? []).forEach(e => {
+    const esLocal = juego.local === equipoId;
+    const lista = esLocal ? (juego.estadisticas_local ?? juego.estadisticas) : juego.estadisticas_visita;
+
+    (lista ?? []).forEach(e => {
       if (String(e.asistio) === 'false') return;
-      const acc = acumulado[e.jugador];
-      if (!acc) return;
+      const jugador = ESTADO_E.jugadoresPorId[e.jugador];
+      if (!jugador) return;
+
+      const acc = (acumulado[e.jugador] ??= { jugador, jj: 0, puntos: 0, triples: 0, faltas: 0 });
       acc.jj++;
       acc.puntos += Number(e.puntos ?? 0);
       acc.triples += Number(e.triples ?? 0);
@@ -181,7 +188,7 @@ function renderJuegoHistorial(j, equipoId) {
   const marcadorRival = esLocal ? j.marcador_visita : j.marcador_local;
   const gano = propio > marcadorRival;
   const { texto } = formatearFecha(j.fecha);
-  const tieneStats = (j.estadisticas ?? []).length > 0;
+  const tieneStats = ((j.estadisticas_local ?? j.estadisticas ?? []).length + (j.estadisticas_visita ?? []).length) > 0;
 
   const resumen = `
     <div class="historial-item">

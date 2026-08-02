@@ -180,7 +180,7 @@ function renderJuego(j) {
     ? `<div class="observacion">${j.observaciones}</div>`
     : '';
 
-  const tieneEstadisticas = jugado && (j.estadisticas ?? []).length > 0;
+  const tieneEstadisticas = jugado && ((j.estadisticas_local ?? j.estadisticas ?? []).length + (j.estadisticas_visita ?? []).length) > 0;
 
   const tarjeta = `
     <div class="juego ${jugado ? 'is-jugado' : ''}">

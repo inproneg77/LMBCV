@@ -34,10 +34,8 @@ function calcularEstadisticasEquipos() {
     (!temporadaActivaR || j.temporada === temporadaActivaR)
   );
 
-  const sumaCampo = (estadisticas, equipoId, campo) =>
-    (estadisticas ?? [])
-      .filter(e => ESTADO_R.jugadoresPorId[e.jugador]?.equipo_id === equipoId)
-      .reduce((acc, e) => acc + Number(e[campo] ?? 0), 0);
+  const sumaCampo = (lista, campo) =>
+    (lista ?? []).reduce((acc, e) => acc + Number(e[campo] ?? 0), 0);
 
   juegos.forEach(j => {
     const local = stats[j.local];
@@ -48,10 +46,13 @@ function calcularEstadisticasEquipos() {
     local.pf += j.marcador_local; local.pc += j.marcador_visita;
     visita.pf += j.marcador_visita; visita.pc += j.marcador_local;
 
-    const triplesLocal = sumaCampo(j.estadisticas, j.local, 'triples');
-    const triplesVisita = sumaCampo(j.estadisticas, j.visita, 'triples');
-    const faltasLocal = sumaCampo(j.estadisticas, j.local, 'faltas');
-    const faltasVisita = sumaCampo(j.estadisticas, j.visita, 'faltas');
+    const listaLocal = j.estadisticas_local ?? j.estadisticas;
+    const listaVisita = j.estadisticas_visita;
+
+    const triplesLocal = sumaCampo(listaLocal, 'triples');
+    const triplesVisita = sumaCampo(listaVisita, 'triples');
+    const faltasLocal = sumaCampo(listaLocal, 'faltas');
+    const faltasVisita = sumaCampo(listaVisita, 'faltas');
 
     local.triples += triplesLocal;       local.triplesRival += triplesVisita;  local.faltas += faltasLocal;
     visita.triples += triplesVisita;     visita.triplesRival += triplesLocal;  visita.faltas += faltasVisita;
