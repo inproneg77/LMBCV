@@ -1577,6 +1577,7 @@
       "sede_id": "gimnasio",
       "destacado": "false",
       "marcador_visita": 27,
+      "mvp_jugador": "ARGRIJ",
       "local": "LARAF40",
       "fase": "regular",
       "vuelta": 1,
@@ -1585,6 +1586,57 @@
       "hora": "19:00",
       "estatus": "jugado",
       "marcador_local": 30,
+      "estadisticas_local": [
+        {
+          "asistio": "true",
+          "puntos": 21,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "ARGRIJ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "AGUT"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "GCRUZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "AGARCIA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "CGUT"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "MGUTI"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "MARISANTA"
+        }
+      ],
       "id": "J9",
       "fecha": "2026-08-01"
     },
