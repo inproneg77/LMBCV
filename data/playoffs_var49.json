@@ -8,11 +8,18 @@
       "equipoB": "RETRO49",
       "juegos": [
         {
-          "jugado": "false",
+          "jugado": "true",
           "numero": 1,
-          "fecha": "2026-08-02"
+          "fecha": "2026-08-02",
+          "marcador_a": 56,
+          "marcador_b": 28
+        },
+        {
+          "jugado": "false",
+          "numero": 2
         }
-      ]
+      ],
+      "mvp_serie": ""
     },
     {
       "id": "semi249mas20261",
