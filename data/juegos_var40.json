@@ -778,8 +778,53 @@
     {
       "temporada": "2026-2",
       "sede_id": "gimnasio",
+      "estadisticas_visita": [
+        {
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 1,
+          "faltas": 4,
+          "jugador": "DNEB"
+        },
+        {
+          "asistio": "true",
+          "puntos": 1,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "DMAZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 2,
+          "jugador": "CYESK"
+        },
+        {
+          "asistio": "true",
+          "puntos": 32,
+          "triples": 6,
+          "faltas": 1,
+          "jugador": "ANARAIZA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 1,
+          "triples": 0,
+          "faltas": 4,
+          "jugador": "CARLOSALVAREZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 2,
+          "faltas": 1,
+          "jugador": "GPALA"
+        }
+      ],
       "destacado": "false",
       "marcador_visita": 52,
+      "mvp_jugador": "PANSIBRIAN",
       "local": "CUERVOSV40",
       "fase": "regular",
       "vuelta": 1,
@@ -788,6 +833,64 @@
       "hora": "17:00",
       "estatus": "jugado",
       "marcador_local": 60,
+      "estadisticas_local": [
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "FAVELATOLON"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "RULOBON"
+        },
+        {
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 1,
+          "faltas": 1,
+          "jugador": "CHOCOLEM"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "CHARROD"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "SOROSJJ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 5,
+          "jugador": "FONSECAR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 4,
+          "faltas": 1,
+          "jugador": "PANSIBRIAN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ANGELFIE"
+        }
+      ],
       "id": "j6",
       "fecha": "2026-08-01"
     },
