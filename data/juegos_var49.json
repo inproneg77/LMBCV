@@ -27,17 +27,17 @@
         },
         {
           "asistio": "true",
-          "puntos": 2,
-          "triples": 0,
-          "faltas": 1,
-          "jugador": "ESTEBANLOPEZ"
-        },
-        {
-          "asistio": "true",
           "puntos": 5,
           "triples": 1,
           "faltas": 0,
           "jugador": "ALEXESPINOZA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ESTEBANLOPEZ"
         },
         {
           "asistio": "true",
@@ -82,17 +82,17 @@
         },
         {
           "asistio": "true",
-          "puntos": 18,
-          "triples": 1,
-          "faltas": 1,
-          "jugador": "ALEXVEGA"
-        },
-        {
-          "asistio": "true",
           "puntos": 8,
           "triples": 0,
           "faltas": 1,
           "jugador": "JURIAS"
+        },
+        {
+          "asistio": "true",
+          "puntos": 18,
+          "triples": 1,
+          "faltas": 1,
+          "jugador": "ALEXVEGA"
         },
         {
           "asistio": "true",
