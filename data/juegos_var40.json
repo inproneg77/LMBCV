@@ -794,17 +794,68 @@
     {
       "temporada": "2026-2",
       "sede_id": "duela",
-      "estadisticas_visita": [],
+      "estadisticas_visita": [
+        {
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 3,
+          "faltas": 4,
+          "jugador": "GERMANVALENZUELA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "GABINORUIZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "RMONTES"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "PEDROSALCEDO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "GARCES"
+        },
+        {
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 0,
+          "jugador": "ESTEBANLOPEZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "LOLOMORENO"
+        }
+      ],
       "destacado": "false",
-      "marcador_visita": 14,
-      "local": "CONEXIONV40",
+      "marcador_visita": 25,
+      "mvp_jugador": "GERMANVALENZUELA",
+      "local": "ICATSONV40",
       "fase": "regular",
       "vuelta": 1,
       "forfeit": "ninguno",
-      "visita": "ICATSONV40",
+      "visita": "CONEXIONV40",
       "hora": "16:00",
       "estatus": "jugado",
-      "marcador_local": 25,
+      "marcador_local": 14,
       "estadisticas_local": [
         {
           "asistio": "true",
@@ -875,6 +926,13 @@
           "triples": 0,
           "faltas": 4,
           "jugador": "RPIMIENTA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 1,
+          "faltas": 0,
+          "jugador": "EDMOND"
         }
       ],
       "id": "j8",
