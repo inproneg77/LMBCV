@@ -1088,6 +1088,13 @@
           "triples": 0,
           "faltas": 0,
           "jugador": "MAROVAR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "HENRYCHAVEZ"
         }
       ],
       "destacado": "false",
