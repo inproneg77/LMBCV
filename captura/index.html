@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LMBC — Captura Rápida</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .cap-wrap{ max-width: 1000px; margin: 0 auto; padding: 30px 20px 60px; }
+  .cap-instrucciones{ background:var(--baby-soft); border-radius:var(--radius); padding:16px 20px; margin-bottom:20px; font-size:13px; line-height:1.6; }
+  .cap-token{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:20px; background:var(--white); border:1px solid var(--line); border-radius:var(--radius-sm); padding:14px 16px; }
+  .cap-token input{ flex:1; min-width:220px; padding:8px 12px; border-radius:8px; border:1px solid var(--line); font-family:monospace; font-size:12px; }
+  .cap-token .estado{ font-size:12px; font-weight:700; }
+  .cap-token .estado.ok{ color:var(--win); }
+  .cap-token .estado.falta{ color:var(--text-dim); }
+  .cap-selects{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom: 20px; }
+  .cap-selects select{ flex:1; min-width: 200px; padding: 10px 14px; border-radius: 999px; border: 2px solid var(--navy); font-size: 14px; }
+  .cap-marcador{ display:none; background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:18px 20px; margin-bottom:20px; }
+  .cap-marcador.visible{ display:block; }
+  .cap-marcador-fila{ display:flex; gap:16px; flex-wrap:wrap; align-items:flex-end; }
+  .cap-marcador-campo label{ display:block; font-size:11px; color:var(--text-dim); text-transform:uppercase; margin-bottom:4px; }
+  .cap-marcador-campo input, .cap-marcador-campo select{ padding:8px 10px; border-radius:8px; border:1px solid var(--line); font-size:14px; width:110px; }
+  .cap-aviso-forfeit{ display:none; background:#fff6e0; border-radius:var(--radius-sm); padding:12px 16px; font-size:13px; margin-bottom:16px; }
+  .cap-aviso-forfeit.visible{ display:block; }
+  .cap-cols{ display:grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .cap-cols.oculto{ display:none; }
+  @media (max-width:700px){ .cap-cols{ grid-template-columns: 1fr; } }
+  .cap-col h3{ font-size:20px; color:var(--navy); margin-bottom:10px; }
+  .cap-fila{
+    display:grid; grid-template-columns: auto 1fr auto auto auto; align-items:center; gap:8px;
+    background:var(--white); border:1px solid var(--line); border-radius:var(--radius-sm);
+    padding:8px 10px; margin-bottom:6px; font-size:13px;
+  }
+  .cap-fila input[type="number"]{ width:48px; padding:4px; border:1px solid var(--line); border-radius:6px; text-align:center; }
+  .cap-fila .campos{ display:none; gap:6px; grid-column: 3/6; }
+  .cap-fila.activo .campos{ display:flex; }
+  .cap-fila.activo{ background: var(--baby-soft); }
+  .cap-fila label.mini{ font-size:9px; color:var(--text-dim); text-transform:uppercase; display:block; }
+  .cap-btn{
+    margin-top:20px; background:var(--navy); color:var(--white); border:none; border-radius:999px;
+    padding:14px 28px; font-weight:700; cursor:pointer; font-size:15px;
+  }
+  .cap-btn:disabled{ opacity:.5; cursor:not-allowed; }
+  .cap-msg{ margin-top:14px; font-size:13px; font-weight:600; padding:10px 14px; border-radius:var(--radius-sm); display:none; }
+  .cap-msg.ok{ display:block; background:#eaf5ea; color:var(--win); }
+  .cap-msg.error{ display:block; background:#fdeaea; color:#a33; }
+</style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="../index.html" class="brand">
+        <img src="../img/equipos/logovets.png" alt="LMBC" class="brand__mark">
+        <div>
+          <div class="brand__name">LMBC</div>
+          <div class="brand__sub">Captura Rápida</div>
+        </div>
+      </a>
+      <nav class="site-nav"><a href="../index.html">← Volver al sitio</a></nav>
+    </div>
+  </header>
+
+  <div class="cap-wrap">
+    <h1 class="display" style="font-size:32px;color:var(--navy);margin:24px 0 6px;">Captura Rápida</h1>
+    <p style="color:var(--text-dim);font-size:14px;margin-bottom:16px;">
+      Elige el juego. Marcador y roster de ambos equipos se cargan solos — solo capturas asistencia, puntos, triples y faltas.
+    </p>
+
+    <div class="cap-instrucciones">
+      <b>Solo la primera vez:</b> pega un token de GitHub (Settings → Developer settings → Fine-grained tokens →
+      acceso a tu repo → permiso "Contents: Read and write"). Se guarda solo en este navegador.
+    </div>
+
+    <div class="cap-token">
+      <input type="password" id="token" placeholder="Pega aquí tu token de GitHub">
+      <span class="estado falta" id="token-estado">Falta el token</span>
+    </div>
+
+    <div class="cap-selects">
+      <select id="sel-cat"><option value="">Cargando categorías…</option></select>
+      <select id="sel-juego"><option value="">Elige categoría primero…</option></select>
+    </div>
+
+    <div class="cap-marcador" id="cap-marcador">
+      <div class="cap-marcador-fila">
+        <div class="cap-marcador-campo">
+          <label id="lbl-local">Marcador local</label>
+          <input type="number" id="marcador-local" min="0" value="0">
+        </div>
+        <div class="cap-marcador-campo">
+          <label id="lbl-visita">Marcador visita</label>
+          <input type="number" id="marcador-visita" min="0" value="0">
+        </div>
+        <div class="cap-marcador-campo">
+          <label>Estatus</label>
+          <select id="sel-estatus">
+            <option value="programado">Programado</option>
+            <option value="jugado">Jugado</option>
+          </select>
+        </div>
+        <div class="cap-marcador-campo">
+          <label>Forfeit</label>
+          <select id="sel-forfeit">
+            <option value="ninguno">No hubo</option>
+            <option value="local">Local no se presentó</option>
+            <option value="visita">Visita no se presentó</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="cap-aviso-forfeit" id="aviso-forfeit">
+      ⚠ Juego marcado como forfeit — no se capturan estadísticas individuales para este juego.
+    </div>
+
+    <div class="cap-cols" id="cap-cols">
+      <div class="cap-col">
+        <h3 id="titulo-local">Local</h3>
+        <div id="lista-local"></div>
+      </div>
+      <div class="cap-col">
+        <h3 id="titulo-visita">Visitante</h3>
+        <div id="lista-visita"></div>
+      </div>
+    </div>
+
+    <button class="cap-btn" id="btn-guardar" disabled>Guardar en GitHub</button>
+    <div class="cap-msg" id="msg"></div>
+  </div>
+
+<script>
+const OWNER = 'inproneg77';
+const REPO = 'LMBCV';
+const BRANCH = 'main';
+
+let EQUIPOS = [], JUGADORES = [], CATEGORIAS = [];
+let juegosCatActual = null;
+let categoriaActual = '';
+
+function token() { return localStorage.getItem('lmbc_gh_token') || ''; }
+
+function actualizarEstadoToken() {
+  const t = document.getElementById('token');
+  const estado = document.getElementById('token-estado');
+  if (token()) {
+    t.value = token();
+    estado.textContent = 'Token guardado ✓';
+    estado.className = 'estado ok';
+  }
+}
+document.getElementById('token').addEventListener('change', (e) => {
+  localStorage.setItem('lmbc_gh_token', e.target.value.trim());
+  actualizarEstadoToken();
+});
+
+async function ghFetch(path) {
+  const res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}?ref=${BRANCH}`, {
+    headers: { Authorization: `Bearer ${token()}` },
+  });
+  if (!res.ok) throw new Error(`No se pudo leer ${path} (${res.status})`);
+  const data = await res.json();
+  const contenido = JSON.parse(decodeURIComponent(escape(atob(data.content))));
+  return { sha: data.sha, contenido };
+}
+
+async function ghGuardar(path, sha, objeto, mensaje) {
+  const contenidoB64 = btoa(unescape(encodeURIComponent(JSON.stringify(objeto, null, 2))));
+  const res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}`, {
+    method: 'PUT',
+    headers: { Authorization: `Bearer ${token()}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: mensaje, content: contenidoB64, sha, branch: BRANCH }),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.message || `Error al guardar (${res.status})`);
+  }
+}
+
+async function cargarBase() {
+  const [eqRes, rosRes, catRes] = await Promise.all([
+    fetch('../data/equipos.json').then(r => r.json()),
+    fetch('../data/roster.json').then(r => r.json()),
+    fetch('../data/categorias.json').then(r => r.json()),
+  ]);
+  EQUIPOS = eqRes.equipos ?? [];
+  JUGADORES = rosRes.jugadores ?? [];
+  CATEGORIAS = Array.isArray(catRes) ? catRes : [];
+
+  const selCat = document.getElementById('sel-cat');
+  selCat.innerHTML = '<option value="">Elige categoría…</option>' +
+    CATEGORIAS.map(c => `<option value="${c.id}">${c.nombre}</option>`).join('');
+  selCat.addEventListener('change', cargarJuegosDeCategoria);
+  document.getElementById('sel-juego').addEventListener('change', mostrarJuegoElegido);
+  document.getElementById('sel-forfeit').addEventListener('change', actualizarVisibilidadRoster);
+  document.getElementById('btn-guardar').addEventListener('click', guardar);
+}
+
+async function cargarJuegosDeCategoria() {
+  categoriaActual = document.getElementById('sel-cat').value;
+  const selJuego = document.getElementById('sel-juego');
+  selJuego.innerHTML = '<option value="">Cargando juegos…</option>';
+  ocultarTodo();
+
+  if (!categoriaActual) { selJuego.innerHTML = '<option value="">Elige categoría primero…</option>'; return; }
+  if (!token()) { selJuego.innerHTML = '<option value="">Pega tu token de GitHub arriba primero</option>'; return; }
+
+  try {
+    juegosCatActual = await ghFetch(`data/juegos_${categoriaActual}.json`);
+    const juegos = juegosCatActual.contenido.juegos ?? [];
+    const nombreEquipo = (id) => EQUIPOS.find(e => e.id === id)?.nombre ?? id;
+
+    const ordenados = [...juegos].sort((a, b) => b.fecha.localeCompare(a.fecha));
+    if (ordenados.length === 0) {
+      selJuego.innerHTML = '<option value="">No hay juegos en esta categoría</option>';
+      return;
+    }
+    selJuego.innerHTML = '<option value="">Elige el juego…</option>' +
+      ordenados.map(j => {
+        const marcador = j.estatus === 'jugado' ? ` (${j.marcador_local}-${j.marcador_visita})` : ' — programado';
+        return `<option value="${j.id}">${j.fecha} — ${nombreEquipo(j.local)} vs ${nombreEquipo(j.visita)}${marcador}</option>`;
+      }).join('');
+  } catch (err) {
+    selJuego.innerHTML = '<option value="">Error al cargar (revisa tu token)</option>';
+    mostrarMsg(err.message, true);
+  }
+}
+
+function ocultarTodo() {
+  document.getElementById('cap-marcador').classList.remove('visible');
+  document.getElementById('aviso-forfeit').classList.remove('visible');
+  document.getElementById('cap-cols').classList.add('oculto');
+  document.getElementById('lista-local').innerHTML = '';
+  document.getElementById('lista-visita').innerHTML = '';
+  document.getElementById('btn-guardar').disabled = true;
+  ocultarMsg();
+}
+
+let juegoElegido = null;
+
+function mostrarJuegoElegido() {
+  const juegoId = document.getElementById('sel-juego').value;
+  ocultarTodo();
+  if (!juegoId || !juegosCatActual) return;
+
+  juegoElegido = juegosCatActual.contenido.juegos.find(j => j.id === juegoId);
+  if (!juegoElegido) return;
+
+  const nombreLocal = EQUIPOS.find(e => e.id === juegoElegido.local)?.nombre ?? juegoElegido.local;
+  const nombreVisita = EQUIPOS.find(e => e.id === juegoElegido.visita)?.nombre ?? juegoElegido.visita;
+
+  document.getElementById('lbl-local').textContent = `Marcador ${nombreLocal}`;
+  document.getElementById('lbl-visita').textContent = `Marcador ${nombreVisita}`;
+  document.getElementById('marcador-local').value = juegoElegido.marcador_local ?? 0;
+  document.getElementById('marcador-visita').value = juegoElegido.marcador_visita ?? 0;
+  document.getElementById('sel-estatus').value = juegoElegido.estatus ?? 'programado';
+  document.getElementById('sel-forfeit').value = juegoElegido.forfeit ?? 'ninguno';
+  document.getElementById('cap-marcador').classList.add('visible');
+
+  const existentesLocal = Object.fromEntries((juegoElegido.estadisticas_local ?? []).map(e => [e.jugador, e]));
+  const existentesVisita = Object.fromEntries((juegoElegido.estadisticas_visita ?? []).map(e => [e.jugador, e]));
+  pintarRoster('local', juegoElegido.local, existentesLocal);
+  pintarRoster('visita', juegoElegido.visita, existentesVisita);
+
+  actualizarVisibilidadRoster();
+  document.getElementById('btn-guardar').disabled = false;
+}
+
+function actualizarVisibilidadRoster() {
+  const esForfeit = document.getElementById('sel-forfeit').value !== 'ninguno';
+  document.getElementById('cap-cols').classList.toggle('oculto', esForfeit);
+  document.getElementById('aviso-forfeit').classList.toggle('visible', esForfeit);
+}
+
+function pintarRoster(lado, equipoId, existentes) {
+  const equipo = EQUIPOS.find(e => e.id === equipoId);
+  document.getElementById(`titulo-${lado}`).textContent = equipo ? equipo.nombre : (lado === 'local' ? 'Local' : 'Visitante');
+
+  const jugadoresEquipo = JUGADORES.filter(j =>
+    (j.membresias ?? []).some(m => m.categoria_id === categoriaActual && m.equipo_id === equipoId)
+  );
+
+  const cont = document.getElementById(`lista-${lado}`);
+  if (jugadoresEquipo.length === 0) {
+    cont.innerHTML = '<div class="empty" style="padding:14px;font-size:12px;">Sin jugadores en el roster de este equipo/categoría.</div>';
+    return;
+  }
+
+  cont.innerHTML = jugadoresEquipo.map(j => {
+    const prev = existentes[j.id];
+    const marcado = !!prev;
+    return `
+    <div class="cap-fila ${marcado ? 'activo' : ''}" data-jugador="${j.id}">
+      <input type="checkbox" class="chk-jugo" ${marcado ? 'checked' : ''}>
+      <span>${j.nombre}</span>
+      <div class="campos">
+        <div><label class="mini">Pts</label><input type="number" class="in-puntos" min="0" value="${prev?.puntos ?? 0}"></div>
+        <div><label class="mini">3pt</label><input type="number" class="in-triples" min="0" value="${prev?.triples ?? 0}"></div>
+        <div><label class="mini">Faltas</label><input type="number" class="in-faltas" min="0" value="${prev?.faltas ?? 0}"></div>
+      </div>
+    </div>`;
+  }).join('');
+
+  cont.querySelectorAll('.chk-jugo').forEach(chk => {
+    chk.addEventListener('change', (e) => {
+      e.target.closest('.cap-fila').classList.toggle('activo', e.target.checked);
+    });
+  });
+}
+
+function armarLista(lado) {
+  const filas = document.querySelectorAll(`#lista-${lado} .cap-fila`);
+  const resultado = [];
+  filas.forEach(fila => {
+    if (!fila.querySelector('.chk-jugo').checked) return;
+    resultado.push({
+      jugador: fila.dataset.jugador,
+      asistio: "true",
+      puntos: Number(fila.querySelector('.in-puntos').value || 0),
+      triples: Number(fila.querySelector('.in-triples').value || 0),
+      faltas: Number(fila.querySelector('.in-faltas').value || 0),
+    });
+  });
+  return resultado;
+}
+
+async function guardar() {
+  const juegoId = document.getElementById('sel-juego').value;
+  if (!juegoId || !juegosCatActual) return;
+
+  const btn = document.getElementById('btn-guardar');
+  btn.disabled = true;
+  btn.textContent = 'Guardando…';
+  ocultarMsg();
+
+  try {
+    const fresco = await ghFetch(`data/juegos_${categoriaActual}.json`);
+    const juego = fresco.contenido.juegos.find(j => j.id === juegoId);
+    if (!juego) throw new Error('El juego ya no existe en el archivo (¿lo borraron?)');
+
+    juego.marcador_local = Number(document.getElementById('marcador-local').value || 0);
+    juego.marcador_visita = Number(document.getElementById('marcador-visita').value || 0);
+    juego.estatus = document.getElementById('sel-estatus').value;
+    juego.forfeit = document.getElementById('sel-forfeit').value;
+
+    if (juego.forfeit !== 'ninguno') {
+      // Juego por default: no se guardan estadísticas individuales
+      juego.estadisticas_local = [];
+      juego.estadisticas_visita = [];
+    } else {
+      juego.estadisticas_local = armarLista('local');
+      juego.estadisticas_visita = armarLista('visita');
+    }
+
+    await ghGuardar(
+      `data/juegos_${categoriaActual}.json`,
+      fresco.sha,
+      fresco.contenido,
+      `Captura: ${juego.local} vs ${juego.visita} (${juego.fecha}) — vía Captura Rápida`
+    );
+
+    mostrarMsg('¡Guardado! Se publicará en el sitio en 1-2 minutos.', false);
+    juegosCatActual = fresco;
+  } catch (err) {
+    mostrarMsg('Error al guardar: ' + err.message, true);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Guardar en GitHub';
+  }
+}
+
+function mostrarMsg(texto, esError) {
+  const msg = document.getElementById('msg');
+  msg.textContent = texto;
+  msg.className = 'cap-msg ' + (esError ? 'error' : 'ok');
+}
+function ocultarMsg() {
+  const msg = document.getElementById('msg');
+  msg.className = 'cap-msg';
+  msg.textContent = '';
+}
+
+actualizarEstadoToken();
+cargarBase();
+</script>
+</body>
+</html>
