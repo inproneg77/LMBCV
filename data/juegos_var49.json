@@ -119,12 +119,16 @@
       "local": "MADERASV40",
       "fase": "amistoso",
       "vuelta": 1,
-      "forfeit": "local",
+      "forfeit": "visita",
       "visita": "FEDE49",
       "hora": "12:00",
       "estatus": "jugado",
       "id": "490208263",
-      "fecha": "2026-08-02"
+      "fecha": "2026-08-02",
+      "marcador_local": 0,
+      "marcador_visita": 0,
+      "estadisticas_local": [],
+      "estadisticas_visita": []
     }
   ]
 }
