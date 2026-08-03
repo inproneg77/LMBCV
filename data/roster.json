@@ -2578,6 +2578,66 @@
         }
       ],
       "numero": "0"
+    },
+    {
+      "id": "DANIELCONTRERAS",
+      "nombre": "DANIEL CONTRERAS",
+      "numero": "46",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "VIKINGOSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "CENTAVOSAENZ",
+      "nombre": "CESAR SAENZ",
+      "numero": "1",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "VIKINGOSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "CAINBELTRAN",
+      "nombre": "CAIN BELTRAN",
+      "numero": "10",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "VIKINGOSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "ODOACRO",
+      "nombre": "ODOACRO QUINTERO",
+      "numero": "0",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "VIKINGOSV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "DIRVING",
+      "nombre": "DIRVING AGUIRRE",
+      "numero": "23",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "BURROSV40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
