@@ -2417,6 +2417,11 @@
           "categoria_id": "var49",
           "equipo_id": "RETRO49",
           "temporada": "2026-1"
+        },
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CONEXIONV40",
+          "temporada": "2026-2"
         }
       ]
     },
@@ -2441,6 +2446,11 @@
           "categoria_id": "var49",
           "equipo_id": "RETRO49",
           "temporada": "2026-1"
+        },
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CONEXIONV40",
+          "temporada": "2026-2"
         }
       ]
     },
@@ -2481,6 +2491,78 @@
         {
           "categoria_id": "fem40",
           "equipo_id": "LARAF40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "LOLOMORENO",
+      "nombre": "DOLORES MORENO",
+      "numero": "0",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CONEXIONV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "EDMOND",
+      "nombre": "EDMOND ISLAS",
+      "numero": "9",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ICATSONV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "GERMANVALENZUELA",
+      "nombre": "GERMAN VALENZUELA",
+      "numero": "4",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CONEXIONV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "GABINORUIZ",
+      "nombre": "GABINO RUIZ",
+      "numero": "3",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CONEXIONV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "PEDROSALCEDO",
+      "nombre": "PEDRO SALCEDO",
+      "numero": "12",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CONEXIONV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "GARCES",
+      "nombre": "GARCES ENRIQUE CARRILLO DEL ANGEL",
+      "numero": "99",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CONEXIONV40",
           "temporada": "2026-2"
         }
       ]
