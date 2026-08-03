@@ -41,14 +41,6 @@
       ]
     },
     {
-      "id": "ALTAR40",
-      "nombre": "ALTAR",
-      "logo": "img/equipos/altar.png",
-      "categorias": [
-        "var40"
-      ]
-    },
-    {
       "id": "MADERASV40",
       "nombre": "MADERAS QUIÑONES",
       "logo": "img/equipos/31.png",
@@ -190,6 +182,14 @@
       "logo": "img/equipos/31.png",
       "categorias": [
         "var49"
+      ]
+    },
+    {
+      "logo": "img/equipos/altar.png",
+      "id": "ALTAR2026",
+      "nombre": "ALTAR",
+      "categorias": [
+        "var40"
       ]
     }
   ]
