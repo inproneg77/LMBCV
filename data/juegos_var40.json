@@ -941,8 +941,46 @@
     {
       "temporada": "2026-2",
       "sede_id": "duela",
+      "estadisticas_visita": [
+        {
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 2,
+          "faltas": 2,
+          "jugador": "PEMEND"
+        },
+        {
+          "asistio": "true",
+          "puntos": 21,
+          "triples": 1,
+          "faltas": 2,
+          "jugador": "SANTQUIN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 1,
+          "faltas": 0,
+          "jugador": "AMENDO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "TADMART"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 0,
+          "jugador": "ELPONCE"
+        }
+      ],
       "destacado": "false",
       "marcador_visita": 52,
+      "mvp_jugador": "IVANMEND",
       "local": "NARANJOV40",
       "fase": "regular",
       "vuelta": 1,
@@ -951,6 +989,50 @@
       "hora": "17:00",
       "estatus": "jugado",
       "marcador_local": 67,
+      "estadisticas_local": [
+        {
+          "asistio": "true",
+          "puntos": 19,
+          "triples": 3,
+          "faltas": 0,
+          "jugador": "IVANMEND"
+        },
+        {
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "PATOSO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 1,
+          "faltas": 0,
+          "jugador": "MEDEH"
+        },
+        {
+          "asistio": "true",
+          "puntos": 17,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "ALDUKA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "MARIONB"
+        },
+        {
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 5,
+          "faltas": 0,
+          "jugador": "javlopez"
+        }
+      ],
       "id": "j8",
       "fecha": "2026-08-01"
     },
