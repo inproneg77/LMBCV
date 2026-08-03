@@ -1815,46 +1815,46 @@
       "sede_id": "duela",
       "estadisticas_visita": [
         {
-          "asistio": "true",
-          "puntos": 8,
-          "triples": 0,
-          "faltas": 0,
-          "jugador": "PERLMENDE"
-        },
-        {
-          "asistio": "true",
-          "puntos": 9,
-          "triples": 0,
-          "faltas": 1,
-          "jugador": "ENNER"
-        },
-        {
+          "jugador": "CYES",
           "asistio": "true",
           "puntos": 6,
           "triples": 0,
-          "faltas": 2,
-          "jugador": "CYES"
+          "faltas": 2
         },
         {
+          "jugador": "RSUA",
           "asistio": "true",
           "puntos": 12,
           "triples": 0,
-          "faltas": 2,
-          "jugador": "RSUA"
+          "faltas": 2
         },
         {
+          "jugador": "ANABUSTA",
           "asistio": "true",
           "puntos": 2,
           "triples": 0,
-          "faltas": 1,
-          "jugador": "ANABUSTA"
+          "faltas": 1
         },
         {
+          "jugador": "ENNER",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "DIAROM",
           "asistio": "true",
           "puntos": 4,
           "triples": 0,
-          "faltas": 0,
-          "jugador": "DIAROM"
+          "faltas": 0
+        },
+        {
+          "jugador": "PERLMENDE",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 0
         }
       ],
       "destacado": "false",
@@ -1991,81 +1991,81 @@
       "marcador_local": 22,
       "estadisticas_local": [
         {
+          "jugador": "ROCFLO",
           "asistio": "true",
           "puntos": 0,
           "triples": 0,
-          "faltas": 0,
-          "jugador": "ROCFLO"
+          "faltas": 0
         },
         {
-          "asistio": "true",
-          "puntos": 4,
-          "triples": 0,
-          "faltas": 1,
-          "jugador": "LUCGAR"
-        },
-        {
-          "asistio": "true",
-          "puntos": 4,
-          "triples": 0,
-          "faltas": 3,
-          "jugador": "ADRIHERR"
-        },
-        {
-          "asistio": "true",
-          "puntos": 0,
-          "triples": 0,
-          "faltas": 0,
-          "jugador": "TERMIR"
-        },
-        {
-          "asistio": "true",
-          "puntos": 0,
-          "triples": 0,
-          "faltas": 0,
-          "jugador": "VILMTOR"
-        },
-        {
+          "jugador": "NERSANT",
           "asistio": "true",
           "puntos": 8,
           "triples": 0,
-          "faltas": 0,
-          "jugador": "NERSANT"
+          "faltas": 0
         },
         {
+          "jugador": "ANGVAN",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "ADRIHERR",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "LUCGAR",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "VILMTOR",
           "asistio": "true",
           "puntos": 0,
           "triples": 0,
-          "faltas": 2,
-          "jugador": "ESCCRIST"
+          "faltas": 0
         },
         {
-          "asistio": "true",
-          "puntos": 2,
-          "triples": 0,
-          "faltas": 2,
-          "jugador": "PATBERNAL"
-        },
-        {
-          "asistio": "true",
-          "puntos": 2,
-          "triples": 0,
-          "faltas": 1,
-          "jugador": "ANGVAN"
-        },
-        {
+          "jugador": "PAQMEN",
           "asistio": "true",
           "puntos": 0,
           "triples": 0,
-          "faltas": 0,
-          "jugador": "PAQMEN"
+          "faltas": 0
         },
         {
+          "jugador": "ESCCRIST",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "PATSAN",
           "asistio": "true",
           "puntos": 2,
           "triples": 0,
-          "faltas": 0,
-          "jugador": "PATSAN"
+          "faltas": 0
+        },
+        {
+          "jugador": "PATBERNAL",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "TERMIR",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
         }
       ],
       "id": "J11",
