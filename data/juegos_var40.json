@@ -957,8 +957,60 @@
     {
       "temporada": "2026-2",
       "sede_id": "duela",
+      "estadisticas_visita": [
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 3,
+          "jugador": "GMOCORON"
+        },
+        {
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "AFIGUEROA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "TONGAR"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "ADAVALOS"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "JUANDUARTE"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "ARIVERA2"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "MAROVAR"
+        }
+      ],
       "destacado": "false",
-      "marcador_visita": 26,
+      "marcador_visita": 25,
+      "mvp_jugador": "CARDURAN",
       "local": "mineros4",
       "fase": "regular",
       "vuelta": 1,
@@ -967,6 +1019,78 @@
       "hora": "18:00",
       "estatus": "jugado",
       "marcador_local": 31,
+      "estadisticas_local": [
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "RACIELREYES"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "LUIDAVISLA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "JOSEROJAS"
+        },
+        {
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "CARDURAN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "CARTORRE"
+        },
+        {
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 2,
+          "jugador": "JOSEISAB"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "CESDOMIN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "IVRANG"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "GILMACIAS"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "ABELOMAR"
+        }
+      ],
       "id": "J12",
       "fecha": "2026-08-01"
     }
