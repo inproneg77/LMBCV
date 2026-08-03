@@ -2566,6 +2566,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "HENRYCHAVEZ",
+      "nombre": "HENRY CHAVEZ",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ALTOV40",
+          "temporada": "2026-2"
+        }
+      ],
+      "numero": "0"
     }
   ]
 }
