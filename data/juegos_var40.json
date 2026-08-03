@@ -762,8 +762,95 @@
     {
       "temporada": "2026-2",
       "sede_id": "gimnasio",
+      "estadisticas_visita": [
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "LPENUE"
+        },
+        {
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 1,
+          "faltas": 1,
+          "jugador": "MPENUE"
+        },
+        {
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 1,
+          "faltas": 1,
+          "jugador": "APENUE"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "CABALLOOZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "PROFEALON"
+        },
+        {
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 1,
+          "jugador": "JDIAZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "Manchas"
+        },
+        {
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "CNUN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "NEGRORUIZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "SCHAVA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "MANOLOLIZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 4,
+          "jugador": "DIRVING"
+        }
+      ],
       "destacado": "false",
       "marcador_visita": 41,
+      "mvp_jugador": "MPENUE",
       "local": "VIKINGOSV40",
       "fase": "regular",
       "vuelta": 1,
@@ -772,6 +859,78 @@
       "hora": "16:00",
       "estatus": "jugado",
       "marcador_local": 35,
+      "estadisticas_local": [
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "DANIELCONTRERAS"
+        },
+        {
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "CENTAVOSAENZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "CHABELOH"
+        },
+        {
+          "asistio": "true",
+          "puntos": 1,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "ABDELCO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "TECOLIZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "JAREDROM"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "CAINBELTRAN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 2,
+          "faltas": 1,
+          "jugador": "ALEXVEGA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "ODOACRO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "JURIAS"
+        }
+      ],
       "id": "j5",
       "fecha": "2026-08-01"
     },
