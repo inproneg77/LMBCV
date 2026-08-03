@@ -279,7 +279,11 @@ function pintarRoster(lado, equipoId, existentes) {
   document.getElementById(`titulo-${lado}`).textContent = equipo ? equipo.nombre : (lado === 'local' ? 'Local' : 'Visitante');
 
   const jugadoresEquipo = JUGADORES.filter(j =>
-    (j.membresias ?? []).some(m => m.categoria_id === categoriaActual && m.equipo_id === equipoId)
+    (j.membresias ?? []).some(m =>
+      m.categoria_id === categoriaActual &&
+      m.equipo_id === equipoId &&
+      (!juegoElegido?.temporada || m.temporada === juegoElegido.temporada)
+    )
   );
 
   const cont = document.getElementById(`lista-${lado}`);
