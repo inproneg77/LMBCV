@@ -794,6 +794,7 @@
     {
       "temporada": "2026-2",
       "sede_id": "duela",
+      "estadisticas_visita": [],
       "destacado": "false",
       "marcador_visita": 14,
       "local": "CONEXIONV40",
@@ -804,6 +805,78 @@
       "hora": "16:00",
       "estatus": "jugado",
       "marcador_local": 25,
+      "estadisticas_local": [
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "SGONZA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "IMORALES"
+        },
+        {
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 0,
+          "jugador": "IVADRIAN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 0,
+          "jugador": "HMACIEL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "JCABALLERO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "HUMBERREYNA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "ENRVALEN"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "JESUSLEON"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "RICVINDIOLA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 4,
+          "jugador": "RPIMIENTA"
+        }
+      ],
       "id": "j8",
       "fecha": "2026-08-01"
     },
