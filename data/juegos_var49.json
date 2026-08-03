@@ -6,7 +6,7 @@
       "estadisticas_visita": [
         {
           "asistio": "true",
-          "puntos": -1,
+          "puntos": 0,
           "triples": 0,
           "faltas": 0,
           "jugador": "LCASTILO"
@@ -82,17 +82,17 @@
         },
         {
           "asistio": "true",
-          "puntos": 8,
-          "triples": 0,
-          "faltas": 1,
-          "jugador": "JURIAS"
-        },
-        {
-          "asistio": "true",
           "puntos": 18,
           "triples": 1,
           "faltas": 1,
           "jugador": "ALEXVEGA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "JURIAS"
         },
         {
           "asistio": "true",
