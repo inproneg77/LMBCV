@@ -13,7 +13,8 @@
       "nombre": "SPORT MIER",
       "logo": "img/equipos/29.png",
       "categorias": [
-        "var40"
+        "var40",
+        "var49"
       ]
     },
     {
@@ -29,7 +30,8 @@
       "nombre": "OLD SCHOOL",
       "logo": "img/equipos/15.png",
       "categorias": [
-        "var40"
+        "var40",
+        "var49"
       ]
     },
     {
@@ -37,7 +39,8 @@
       "nombre": "VIKINGOS",
       "logo": "img/equipos/35.png",
       "categorias": [
-        "var40"
+        "var40",
+        "var49"
       ]
     },
     {
@@ -45,7 +48,8 @@
       "nombre": "MADERAS QUIÑONES",
       "logo": "img/equipos/31.png",
       "categorias": [
-        "var40"
+        "var40",
+        "var49"
       ]
     },
     {
@@ -148,38 +152,6 @@
       "id": "FEDE49",
       "nombre": "FEDELATOS",
       "logo": "img/equipos/4.png",
-      "categorias": [
-        "var49"
-      ]
-    },
-    {
-      "id": "SMV49",
-      "nombre": "SPORT MIER",
-      "logo": "img/equipos/29.png",
-      "categorias": [
-        "var49"
-      ]
-    },
-    {
-      "id": "OSV49",
-      "nombre": "OLD SCHOOL",
-      "logo": "img/equipos/15.png",
-      "categorias": [
-        "var49"
-      ]
-    },
-    {
-      "id": "VIKINGOSV49",
-      "nombre": "VIKINGOS 49+",
-      "logo": "img/equipos/35.png",
-      "categorias": [
-        "var49"
-      ]
-    },
-    {
-      "id": "MADERASV49",
-      "nombre": "MADERAS QUIÑONES",
-      "logo": "img/equipos/31.png",
       "categorias": [
         "var49"
       ]
