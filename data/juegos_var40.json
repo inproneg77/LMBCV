@@ -7,184 +7,6 @@
       "estadisticas_visita": [
         {
           "asistio": "true",
-          "puntos": 12,
-          "triples": 0,
-          "faltas": 1,
-          "jugador": "GPALA"
-        },
-        {
-          "asistio": "true",
-          "puntos": 4,
-          "triples": 0,
-          "faltas": 0,
-          "jugador": "DMAZ"
-        },
-        {
-          "asistio": "true",
-          "puntos": 12,
-          "triples": 0,
-          "faltas": 2,
-          "jugador": "DNEB"
-        },
-        {
-          "asistio": "true",
-          "puntos": 11,
-          "triples": 1,
-          "faltas": 0,
-          "jugador": "ANARAIZA"
-        },
-        {
-          "asistio": "true",
-          "puntos": 14,
-          "triples": 0,
-          "faltas": 2,
-          "jugador": "GARYFEL"
-        },
-        {
-          "asistio": "true",
-          "puntos": 10,
-          "triples": 0,
-          "faltas": 0,
-          "jugador": "CYESK"
-        }
-      ],
-      "destacado": "false",
-      "marcador_visita": 63,
-      "mvp_jugador": "GARYFEL",
-      "local": "ICATSONV40",
-      "fase": "regular",
-      "estadisticas": [
-        {
-          "asistio": "true",
-          "puntos": 8,
-          "triples": 2,
-          "faltas": 2,
-          "jugador": "HMACIEL"
-        },
-        {
-          "asistio": "true",
-          "puntos": 8,
-          "triples": 0,
-          "faltas": 2,
-          "jugador": "RPIMIENTA"
-        },
-        {
-          "asistio": "true",
-          "puntos": 2,
-          "triples": 0,
-          "faltas": 3,
-          "jugador": "IMORALES"
-        },
-        {
-          "asistio": "true",
-          "puntos": 6,
-          "triples": 0,
-          "faltas": 1,
-          "jugador": "JCABALLERO"
-        },
-        {
-          "asistio": "true",
-          "puntos": 3,
-          "triples": 1,
-          "faltas": 2,
-          "jugador": "SGONZA"
-        },
-        {
-          "asistio": "true",
-          "puntos": 12,
-          "triples": 0,
-          "faltas": 1,
-          "jugador": "GPALA"
-        },
-        {
-          "asistio": "true",
-          "puntos": 4,
-          "triples": 0,
-          "faltas": 0,
-          "jugador": "DMAZ"
-        },
-        {
-          "asistio": "true",
-          "puntos": 12,
-          "triples": 0,
-          "faltas": 2,
-          "jugador": "DNEB"
-        },
-        {
-          "asistio": "true",
-          "puntos": 11,
-          "triples": 1,
-          "faltas": 0,
-          "jugador": "ANARAIZA"
-        },
-        {
-          "asistio": "true",
-          "puntos": 14,
-          "triples": 0,
-          "faltas": 2,
-          "jugador": "GARYFEL"
-        },
-        {
-          "asistio": "true",
-          "puntos": 10,
-          "triples": 0,
-          "faltas": 0,
-          "jugador": "CYESK"
-        }
-      ],
-      "vuelta": 1,
-      "forfeit": "ninguno",
-      "visita": "OSV40",
-      "hora": "16:00",
-      "estatus": "jugado",
-      "marcador_local": 27,
-      "estadisticas_local": [
-        {
-          "asistio": "true",
-          "puntos": 8,
-          "triples": 2,
-          "faltas": 2,
-          "jugador": "HMACIEL"
-        },
-        {
-          "asistio": "true",
-          "puntos": 8,
-          "triples": 0,
-          "faltas": 2,
-          "jugador": "RPIMIENTA"
-        },
-        {
-          "asistio": "true",
-          "puntos": 2,
-          "triples": 0,
-          "faltas": 3,
-          "jugador": "IMORALES"
-        },
-        {
-          "asistio": "true",
-          "puntos": 6,
-          "triples": 0,
-          "faltas": 1,
-          "jugador": "JCABALLERO"
-        },
-        {
-          "asistio": "true",
-          "puntos": 3,
-          "triples": 1,
-          "faltas": 2,
-          "jugador": "SGONZA"
-        }
-      ],
-      "id": "v1",
-      "fecha": "2026-07-25"
-    },
-    {
-      "mvp_nombre": "",
-      "temporada": "2026-2",
-      "sede_id": "gimnasio",
-      "estadisticas_visita": [
-        {
-          "asistio": "true",
           "puntos": 11,
           "triples": 1,
           "faltas": 1,
@@ -396,6 +218,184 @@
         }
       ],
       "id": "v2",
+      "fecha": "2026-07-25"
+    },
+    {
+      "mvp_nombre": "",
+      "temporada": "2026-2",
+      "sede_id": "gimnasio",
+      "estadisticas_visita": [
+        {
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "GPALA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "DMAZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "DNEB"
+        },
+        {
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 1,
+          "faltas": 0,
+          "jugador": "ANARAIZA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "GARYFEL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "CYESK"
+        }
+      ],
+      "destacado": "false",
+      "marcador_visita": 63,
+      "mvp_jugador": "GARYFEL",
+      "local": "ICATSONV40",
+      "fase": "regular",
+      "estadisticas": [
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 2,
+          "jugador": "HMACIEL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "RPIMIENTA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "IMORALES"
+        },
+        {
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "JCABALLERO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 2,
+          "jugador": "SGONZA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "GPALA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "DMAZ"
+        },
+        {
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "DNEB"
+        },
+        {
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 1,
+          "faltas": 0,
+          "jugador": "ANARAIZA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "GARYFEL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 0,
+          "jugador": "CYESK"
+        }
+      ],
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "OSV40",
+      "hora": "16:00",
+      "estatus": "jugado",
+      "marcador_local": 27,
+      "estadisticas_local": [
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 2,
+          "jugador": "HMACIEL"
+        },
+        {
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 2,
+          "jugador": "RPIMIENTA"
+        },
+        {
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 3,
+          "jugador": "IMORALES"
+        },
+        {
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1,
+          "jugador": "JCABALLERO"
+        },
+        {
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 2,
+          "jugador": "SGONZA"
+        }
+      ],
+      "id": "v1",
       "fecha": "2026-07-25"
     },
     {
@@ -1499,6 +1499,34 @@
       "hora": "19:00",
       "estatus": "programado",
       "id": "J17",
+      "fecha": "2026-08-08"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "duela",
+      "destacado": "false",
+      "local": "CONEXIONV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "CUERVOSV40",
+      "hora": "16:00",
+      "estatus": "programado",
+      "id": "V15",
+      "fecha": "2026-08-08"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "duela",
+      "destacado": "false",
+      "local": "SMV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "ALTAR2026",
+      "hora": "17:00",
+      "estatus": "programado",
+      "id": "V16",
       "fecha": "2026-08-08"
     }
   ]
