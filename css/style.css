@@ -421,6 +421,40 @@ a{ color: inherit; text-decoration: none; }
 .ranking-subtabs{ margin: 0 0 20px; }
 .ranking-seccion{ margin-bottom: 34px; }
 
+/* ===== Dashboard ===== */
+.dash-metricas{
+  display:grid; gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+.dash-metrica{
+  background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 20px 16px; text-align:center;
+}
+.dash-metrica__valor{ font-family:'Teko',sans-serif; font-size: 40px; color: var(--gold); line-height:1; }
+.dash-metrica__label{ font-size: 11px; color: var(--text-dim); text-transform:uppercase; letter-spacing:.06em; margin-top:4px; }
+
+.dash-proximos{ display:flex; flex-direction:column; gap:8px; }
+
+.dash-categorias{
+  display:grid; gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.dash-cat-card{
+  background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 18px 20px;
+}
+.dash-cat-card h4{ font-family:'Teko',sans-serif; font-size: 22px; color: var(--navy); margin: 0 0 10px; }
+.dash-top3{ list-style: none; margin: 0; padding: 0; display:flex; flex-direction:column; gap:6px; }
+.dash-top3 li{ display:flex; align-items:center; gap:8px; font-size: 13px; color: var(--ink); }
+.dash-top3 li img{ width:22px; height:22px; border-radius:50%; border:1px solid var(--line); }
+.dash-top3 li .mono{ margin-left:auto; color: var(--text-dim); font-size:11px; }
+.dash-lider{ margin-top:12px; padding-top:10px; border-top:1px dashed var(--line); font-size:12.5px; color:var(--text-dim); }
+.dash-lider b{ color: var(--navy); }
+
+/* ===== Links de jugador (Equipos, Líderes, Rankings, Dashboard, hojas) ===== */
+.jugador-link{ color: var(--navy); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 2px; }
+.jugador-link:hover{ color: var(--gold); text-decoration-color: var(--gold); }
+
 /* ===== Sección Equipos ===== */
 .equipos-grid{
   display:grid; gap: 16px;
