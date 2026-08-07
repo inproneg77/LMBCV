@@ -153,7 +153,7 @@ function renderDetalleEquipo(equipoId) {
           <tbody>
             ${jugadores.map(j => `
               <tr>
-                <td style="text-align:left; font-weight:600; color:var(--navy);">${j.jugador.nombre}${j.jugador.numero ? ` <span class="mono" style="color:var(--text-dim); font-weight:400;">#${j.jugador.numero}</span>` : ''}</td>
+                <td style="text-align:left; font-weight:600; color:var(--navy);">${linkJugador(j.jugador.id, j.jugador.nombre)}${j.jugador.numero ? ` <span class="mono" style="color:var(--text-dim); font-weight:400;">#${j.jugador.numero}</span>` : ''}</td>
                 <td>${j.jj}</td>
                 <td class="mono">${j.puntos}</td>
                 <td class="mono">${j.triples}</td>

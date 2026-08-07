@@ -74,7 +74,7 @@ function tablaTop10(filas, campo, titulo) {
           ${top.map((f,i) => `
             <tr>
               <td class="rank">${i+1}</td>
-              <td style="text-align:left; font-weight:600; color:var(--navy);">${f.jugador.nombre}</td>
+              <td style="text-align:left; font-weight:600; color:var(--navy);">${linkJugador(f.jugador.id, f.jugador.nombre)}</td>
               <td style="text-align:left; font-size:12px; color:var(--text-dim);">${f.equipo?.nombre ?? '—'}</td>
               <td>${f.juegos}</td>
               <td class="mono" style="font-weight:700;">${f[campo]}</td>

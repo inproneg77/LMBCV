@@ -100,6 +100,14 @@ async function cargarDatos() {
 // Genera un selector de temporada (<select>) dentro de #temporada-selector.
 // callback(temporadaId) se llama al iniciar (con la temporada marcada como
 // activa, o la más reciente si ninguna lo está) y cada vez que cambie.
+// Envuelve el nombre de un jugador en un link a su perfil (/jugador/?id=...).
+// Se usa en Equipos, Líderes, Rankings, Dashboard y la hoja de estadísticas
+// — un solo lugar para que el link sea consistente en todo el sitio.
+function linkJugador(id, nombre) {
+  if (!id) return nombre ?? '—';
+  return `<a href="${RUTA_IMG}jugador/?id=${encodeURIComponent(id)}" class="jugador-link">${nombre ?? '—'}</a>`;
+}
+
 // Resuelve el nombre a mostrar como MVP: prioriza el jugador seleccionado por
 // relación (mvp_jugador); si el juego es viejo y solo tiene texto libre
 // (mvp_nombre), usa eso como respaldo.
@@ -142,7 +150,7 @@ function renderHojaEstadistica(juego, ESTADO) {
             <tbody>
               ${lista.map(e => `
                 <tr>
-                  <td style="text-align:left;">${ESTADO.jugadoresPorId[e.jugador]?.nombre ?? '—'}</td>
+                  <td style="text-align:left;">${linkJugador(e.jugador, ESTADO.jugadoresPorId[e.jugador]?.nombre)}</td>
                   <td class="mono">${e.puntos ?? 0}</td>
                   <td class="mono">${e.triples ?? 0}</td>
                   <td class="mono">${e.faltas ?? 0}</td>

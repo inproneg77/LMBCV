@@ -167,11 +167,13 @@ function renderSeccionMVP() {
   juegos.forEach(j => {
     const nombre = nombreMVP(j, ESTADO_R.jugadoresPorId);
     if (!nombre) return;
-    conteo[nombre] = (conteo[nombre] ?? 0) + 1;
+    const id = j.mvp_jugador || null; // null si es un juego viejo con solo texto libre
+    const key = id || nombre;
+    const acc = (conteo[key] ??= { nombre, id, veces: 0 });
+    acc.veces++;
   });
 
-  const filas = Object.entries(conteo)
-    .map(([nombre, veces]) => ({ nombre, veces }))
+  const filas = Object.values(conteo)
     .sort((a,b) => b.veces - a.veces || a.nombre.localeCompare(b.nombre));
 
   const etiqueta = ESTADO_R.categorias.find(c => c.id === categoriaActivaR)?.etiqueta_mvp ?? 'Jugador Más Valioso';
@@ -189,7 +191,7 @@ function renderSeccionMVP() {
             ${filas.map((f,i) => `
               <tr>
                 <td class="rank">${i+1}</td>
-                <td style="text-align:left; font-weight:600; color:var(--navy);">${f.nombre}</td>
+                <td style="text-align:left; font-weight:600; color:var(--navy);">${linkJugador(f.id, f.nombre)}</td>
                 <td class="mono" style="font-weight:700;">${f.veces}</td>
               </tr>
             `).join('')}
