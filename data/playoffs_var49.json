@@ -16,7 +16,8 @@
         },
         {
           "jugado": "false",
-          "numero": 2
+          "numero": 2,
+          "fecha": "2026-08-09"
         }
       ],
       "mvp_serie": ""
@@ -31,7 +32,7 @@
         {
           "jugado": "false",
           "numero": 1,
-          "fecha": "2026-08-02"
+          "fecha": "2026-08-09"
         }
       ]
     }
