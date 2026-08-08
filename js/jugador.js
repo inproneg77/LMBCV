@@ -47,6 +47,28 @@ function contarMVP(jugadorId) {
   return ESTADO_J.juegos.filter(j => j.estatus === 'jugado' && j.mvp_jugador === jugadorId).length;
 }
 
+// Agrupa las filas de la bitácora por categoría + temporada + equipo — cada
+// combinación es un "capítulo" separado, con sus propios totales/promedios.
+function agruparPorTemporada(bitacora) {
+  const grupos = {};
+  bitacora.forEach(f => {
+    const clave = `${f.juego.categoria_id}|${f.juego.temporada}|${f.equipoId}`;
+    (grupos[clave] ??= { categoriaId: f.juego.categoria_id, temporadaId: f.juego.temporada, equipoId: f.equipoId, filas: [] }).filas.push(f);
+  });
+
+  return Object.values(grupos)
+    .map(g => {
+      const t = g.filas.reduce((acc, f) => ({
+        jj: acc.jj + 1,
+        puntos: acc.puntos + f.puntos,
+        triples: acc.triples + f.triples,
+        faltas: acc.faltas + f.faltas,
+      }), { jj: 0, puntos: 0, triples: 0, faltas: 0 });
+      return { ...g, totales: t };
+    })
+    .sort((a, b) => (b.temporadaId ?? '').localeCompare(a.temporadaId ?? ''));
+}
+
 function render(id) {
   const cont = document.getElementById('contenido');
   const tituloWrap = document.getElementById('jugador-header');
@@ -64,17 +86,16 @@ function render(id) {
     return;
   }
 
-  const totales = bitacora.reduce((acc, f) => ({
+  const totalCarrera = bitacora.reduce((acc, f) => ({
     jj: acc.jj + 1,
     puntos: acc.puntos + f.puntos,
     triples: acc.triples + f.triples,
     faltas: acc.faltas + f.faltas,
   }), { jj: 0, puntos: 0, triples: 0, faltas: 0 });
 
-  const prom = (v) => totales.jj ? (v / totales.jj).toFixed(1) : '0.0';
   const vecesMVP = contarMVP(id);
+  const grupos = agruparPorTemporada(bitacora);
 
-  // Membresías (categoría/equipo) para mostrar arriba
   const membresias = ESTADO_J.jugadores.filter(j => j.id === id);
   const equiposTexto = [...new Map(membresias.map(m => [m.equipo_id, m])).values()]
     .map(m => ESTADO_J.equiposPorId[m.equipo_id]?.nombre)
@@ -88,27 +109,58 @@ function render(id) {
   `;
 
   cont.innerHTML = `
+    <h3 class="lideres__titulo display">Total Acumulado (todas las temporadas y equipos)</h3>
     <div class="dash-metricas">
-      <div class="dash-metrica"><div class="dash-metrica__valor">${totales.jj}</div><div class="dash-metrica__label">Juegos jugados</div></div>
-      <div class="dash-metrica"><div class="dash-metrica__valor">${totales.puntos}</div><div class="dash-metrica__label">Puntos totales</div></div>
-      <div class="dash-metrica"><div class="dash-metrica__valor">${totales.triples}</div><div class="dash-metrica__label">Triples totales</div></div>
+      <div class="dash-metrica"><div class="dash-metrica__valor">${totalCarrera.jj}</div><div class="dash-metrica__label">Juegos jugados</div></div>
+      <div class="dash-metrica"><div class="dash-metrica__valor">${totalCarrera.puntos}</div><div class="dash-metrica__label">Puntos totales</div></div>
+      <div class="dash-metrica"><div class="dash-metrica__valor">${totalCarrera.triples}</div><div class="dash-metrica__label">Triples totales</div></div>
       <div class="dash-metrica"><div class="dash-metrica__valor">${vecesMVP}</div><div class="dash-metrica__label">Veces MVP</div></div>
     </div>
 
-    <h3 class="lideres__titulo display" style="margin-top:28px;">Promedios por Juego</h3>
-    <div class="table-scroll">
-      <table class="standing-table">
-        <thead><tr><th>Pts/Juego</th><th>3pt/Juego</th><th>Faltas/Juego</th></tr></thead>
-        <tbody><tr><td class="mono" style="font-weight:700;">${prom(totales.puntos)}</td><td class="mono" style="font-weight:700;">${prom(totales.triples)}</td><td class="mono" style="font-weight:700;">${prom(totales.faltas)}</td></tr></tbody>
-      </table>
-    </div>
-
-    <h3 class="lideres__titulo display" style="margin-top:28px;">Bitácora Juego por Juego</h3>
-    ${bitacora.length === 0 ? '<div class="empty">Todavía no tiene estadísticas capturadas.</div>' : bitacora.map(f => renderFilaBitacora(f)).join('')}
+    <h3 class="lideres__titulo display" style="margin-top:30px;">Desglose por Temporada, Categoría y Equipo</h3>
+    ${grupos.length === 0 ? '<div class="empty">Todavía no tiene estadísticas capturadas.</div>' : grupos.map(g => renderGrupo(g)).join('')}
   `;
 }
 
-function renderFilaBitacora(f) {
+function renderGrupo(g) {
+  const categoria = ESTADO_J.categorias.find(c => c.id === g.categoriaId);
+  const temporada = ESTADO_J.temporadas.find(t => t.id === g.temporadaId);
+  const equipo = ESTADO_J.equiposPorId[g.equipoId];
+  const prom = (v) => g.totales.jj ? (v / g.totales.jj).toFixed(1) : '0.0';
+
+  return `
+    <div class="jugador-grupo">
+      <div class="jugador-grupo__titulo">
+        <img src="${RUTA_IMG}${equipo?.logo ?? 'img/equipos/placeholder.svg'}" alt="">
+        <div>
+          <b>${equipo?.nombre ?? '—'}</b>
+          <span>${categoria?.nombre ?? g.categoriaId} · ${temporada?.nombre ?? g.temporadaId ?? 'Sin temporada'}</span>
+        </div>
+      </div>
+      <div class="table-scroll">
+        <table class="standing-table">
+          <thead><tr><th>JJ</th><th>Pts</th><th>3pt</th><th>Faltas</th><th>Pts/J</th><th>3pt/J</th><th>Faltas/J</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>${g.totales.jj}</td>
+              <td class="mono">${g.totales.puntos}</td>
+              <td class="mono">${g.totales.triples}</td>
+              <td class="mono">${g.totales.faltas}</td>
+              <td class="mono" style="font-weight:700;">${prom(g.totales.puntos)}</td>
+              <td class="mono" style="font-weight:700;">${prom(g.totales.triples)}</td>
+              <td class="mono" style="font-weight:700;">${prom(g.totales.faltas)}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="jugador-grupo__bitacora">
+        ${[...g.filas].sort((a,b) => b.juego.fecha.localeCompare(a.juego.fecha)).map(f => renderFilaBitacora(f, false)).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function renderFilaBitacora(f, mostrarTemporada = true) {
   const equipo = ESTADO_J.equiposPorId[f.equipoId];
   const rival = ESTADO_J.equiposPorId[f.rivalId];
   const { texto } = formatearFecha(f.juego.fecha);
@@ -121,7 +173,7 @@ function renderFilaBitacora(f) {
       <span class="mono">${f.marcadorPropio}-${f.marcadorRival}</span>
       <span class="mono" title="Puntos / Triples / Faltas">${f.puntos}p · ${f.triples}t · ${f.faltas}f</span>
       <span class="historial-item__fecha mono">${texto}</span>
-      <span class="historial-item__fecha mono">${temporada}</span>
+      ${mostrarTemporada ? `<span class="historial-item__fecha mono">${temporada}</span>` : ''}
     </div>
   `;
 }
