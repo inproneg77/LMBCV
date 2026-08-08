@@ -94,6 +94,8 @@ function render(id) {
   }), { jj: 0, puntos: 0, triples: 0, faltas: 0 });
 
   const vecesMVP = contarMVP(id);
+  const promPts = totalCarrera.jj ? (totalCarrera.puntos / totalCarrera.jj).toFixed(1) : '0.0';
+  const promTriples = totalCarrera.jj ? (totalCarrera.triples / totalCarrera.jj).toFixed(1) : '0.0';
   const grupos = agruparPorTemporada(bitacora);
 
   const membresias = ESTADO_J.jugadores.filter(j => j.id === id);
@@ -115,6 +117,8 @@ function render(id) {
       <div class="dash-metrica"><div class="dash-metrica__valor">${totalCarrera.puntos}</div><div class="dash-metrica__label">Puntos totales</div></div>
       <div class="dash-metrica"><div class="dash-metrica__valor">${totalCarrera.triples}</div><div class="dash-metrica__label">Triples totales</div></div>
       <div class="dash-metrica"><div class="dash-metrica__valor">${vecesMVP}</div><div class="dash-metrica__label">Veces MVP</div></div>
+      <div class="dash-metrica"><div class="dash-metrica__valor">${promPts}</div><div class="dash-metrica__label">Pts / Juego</div></div>
+      <div class="dash-metrica"><div class="dash-metrica__valor">${promTriples}</div><div class="dash-metrica__label">3pt / Juego</div></div>
     </div>
 
     <h3 class="lideres__titulo display" style="margin-top:30px;">Desglose por Temporada, Categoría y Equipo</h3>
