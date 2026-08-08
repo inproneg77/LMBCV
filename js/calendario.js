@@ -74,9 +74,13 @@ function render() {
   const cont = document.getElementById('contenido');
   if (!tabsListas) return;
 
+  // Los juegos "programado" se muestran siempre, sin importar la temporada
+  // seleccionada — un juego agendado es agenda vigente. Los "jugado" sí
+  // respetan el selector de temporada, para mantener el archivo histórico
+  // ordenado por temporada.
   const juegos = ESTADO.juegos.filter(j =>
     (categoriaActiva === null || j.categoria_id === categoriaActiva) &&
-    (!temporadaActiva || j.temporada === temporadaActiva)
+    (j.estatus === 'programado' || !temporadaActiva || j.temporada === temporadaActiva)
   );
 
   if (juegos.length === 0) {
@@ -144,6 +148,13 @@ function renderJuego(j) {
   const jugado = j.estatus === 'jugado';
   const forfeit = j.forfeit ?? 'ninguno';
 
+  // Etiqueta discreta de temporada — solo aparece cuando el juego es de una
+  // temporada distinta a la seleccionada en el dropdown (caso mixto de
+  // programados de otra temporada). En el caso normal no se muestra.
+  const otraTemporada = temporadaActiva && j.temporada !== temporadaActiva
+    ? ESTADO.temporadas.find(t => t.id === j.temporada)?.nombre ?? j.temporada
+    : null;
+
   const marcadorHTML = jugado
     ? `<div class="marcador__score">
          <span class="${j.marcador_local >= j.marcador_visita ? 'gano' : 'perdio'}">${j.marcador_local}</span>
@@ -191,7 +202,7 @@ function renderJuego(j) {
       </div>
       <div class="marcador">
         ${marcadorHTML}
-        <div class="marcador__info mono" style="margin-top:6px;">${sede}</div>
+        <div class="marcador__info mono" style="margin-top:6px;">${sede}${otraTemporada ? ` · ${otraTemporada}` : ''}</div>
       </div>
       <div class="equipo equipo--visita">
         <img src="${RUTA_IMG}${visita?.logo ?? 'img/equipos/placeholder.svg'}" alt="${visita?.nombre ?? ''}" loading="lazy">
