@@ -1523,7 +1523,71 @@
       "hora": "16:00",
       "estatus": "jugado",
       "marcador_local": 38,
-      "estadisticas_local": [],
+      "estadisticas_local": [
+        {
+          "jugador": "MPENUE",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 2,
+          "faltas": 4
+        },
+        {
+          "jugador": "JDIAZ",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "LPENUE",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 2
+        },
+        {
+          "jugador": "SCHAVA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "CABALLOOZ",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CNUN",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "APENUE",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "Manchas",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "DIRVING",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        }
+      ],
       "id": "J14",
       "fecha": "2026-08-08"
     },
