@@ -1531,7 +1531,88 @@
       "estatus": "jugado",
       "marcador_local": 32,
       "id": "V18",
-      "fecha": "2026-08-08"
+      "fecha": "2026-08-08",
+      "estadisticas_local": [
+        {
+          "jugador": "ESTEBANLOPEZ",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "LOLOMORENO",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "GERMANVALENZUELA",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 3,
+          "faltas": 2
+        },
+        {
+          "jugador": "GABINORUIZ",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "PEDROSALCEDO",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "GARCES",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "FAVELATOLON",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "CHARROD",
+          "asistio": "true",
+          "puntos": 21,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "ANGELFIE",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "SOROSJJ",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "PANSIBRIAN",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 2,
+          "faltas": 0
+        }
+      ]
     },
     {
       "temporada": "2026-2",
