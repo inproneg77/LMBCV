@@ -1530,12 +1530,16 @@
       "local": "SMV40",
       "fase": "regular",
       "vuelta": 1,
-      "forfeit": "ninguno",
+      "forfeit": "local",
       "visita": "ALTAR2026",
       "hora": "17:00",
       "estatus": "programado",
       "id": "V16",
-      "fecha": "2026-08-08"
+      "fecha": "2026-08-08",
+      "marcador_local": 0,
+      "marcador_visita": 0,
+      "estadisticas_local": [],
+      "estadisticas_visita": []
     }
   ]
 }
