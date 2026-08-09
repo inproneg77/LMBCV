@@ -1,20 +1,30 @@
 let ESTADO_D = null;
-let temporadaActivaD = null;
 
 async function iniciarDashboard() {
   ESTADO_D = await cargarDatos();
   renderPatrocinadores(ESTADO_D.patrocinadores);
+  render();
+}
 
-  iniciarSelectorTemporada(ESTADO_D.temporadas, (temp) => {
-    temporadaActivaD = temp;
-    render();
-  });
+// Ubica, para una categoría, la temporada con actividad "jugado" más
+// reciente. Dashboard no usa selector de temporada: cada categoría avanza a
+// su propio ritmo (una puede estar en playoffs de la temporada pasada
+// mientras otra ya arrancó la regular de la siguiente), así que forzar una
+// sola temporada global para todas rompe la foto del momento.
+function temporadaRecienteDe(categoriaId) {
+  const fechas = ESTADO_D.juegos
+    .filter(j => j.categoria_id === categoriaId && j.estatus === 'jugado' && j.fecha)
+    .map(j => j.fecha);
+  if (fechas.length === 0) return null;
+  const fechaMax = fechas.sort().at(-1);
+  return ESTADO_D.juegos.find(j => j.categoria_id === categoriaId && j.fecha === fechaMax)?.temporada ?? null;
 }
 
 function juegosVigentes(categoriaId) {
+  const temp = temporadaRecienteDe(categoriaId);
   return ESTADO_D.juegos.filter(j =>
     j.categoria_id === categoriaId &&
-    (!temporadaActivaD || j.temporada === temporadaActivaD)
+    (!temp || j.temporada === temp)
   );
 }
 
@@ -49,7 +59,7 @@ function liderPuntos(categoriaId) {
     const acc = (acumulado[e.jugador] ??= { id: e.jugador, puntos: 0 });
     acc.puntos += Number(e.puntos ?? 0);
   });
-  juegos.forEach(j => { sumar(j.estadisticas_local ?? j.estadisticas); sumar(j.estadisticas_visita); });
+  juegos.forEach(j => { sumar(j.estadisticas_local); sumar(j.estadisticas_visita); });
 
   const top = Object.values(acumulado).sort((a,b) => b.puntos - a.puntos)[0];
   if (!top) return null;
@@ -57,8 +67,8 @@ function liderPuntos(categoriaId) {
 }
 
 // ===== Playoffs: qué está pasando AHORA en cada categoría, sin importar
-// temporada — igual que datos.js hace con "programados": un playoff vigente
-// importa hoy, sin importar si quedó etiquetado a la temporada anterior. =====
+// temporada — mismo criterio que juegosVigentes: la temporada con actividad
+// más reciente de esa categoría, no una global. =====
 function calcularSerie(serie) {
   let victoriasA = 0, victoriasB = 0;
   (serie.juegos ?? []).forEach(j => {
@@ -104,6 +114,17 @@ function estadoPlayoffsCategoria(catId) {
     .sort((a,b) => ORDEN_RONDAS.indexOf(a.serie.ronda) - ORDEN_RONDAS.indexOf(b.serie.ronda));
 
   return enCurso.length > 0 ? { tipo: 'en_curso', items: enCurso } : null;
+}
+
+// Encuentra la serie de playoffs a la que pertenece un juego programado
+// (mismos dos equipos + misma categoría + misma temporada), para mostrar el
+// marcador de la serie junto al juego en "Próximos Juegos".
+function serieDeJuego(j) {
+  return ESTADO_D.playoffs.find(s =>
+    s.categoria_id === j.categoria_id &&
+    s.temporada === j.temporada &&
+    ((s.equipoA === j.local && s.equipoB === j.visita) || (s.equipoA === j.visita && s.equipoB === j.local))
+  );
 }
 
 function renderCampeon(cat, estado) {
@@ -155,16 +176,13 @@ function render() {
   const totalEquipos = new Set(ESTADO_D.equipos.map(e => e.id)).size;
   const totalJugadores = new Set(ESTADO_D.jugadores.map(j => j.id)).size;
 
-  // "Jugados" es acumulado de la temporada seleccionada (estadística
-  // histórica de esa temporada). "Programados" y "Próximos" son operativos:
-  // reflejan lo que sigue vigente en la agenda AHORA MISMO, sin importar a
-  // qué temporada quedó etiquetado el juego (playoffs de una temporada
-  // pueden seguir jugándose mientras ya arrancó la regular de la siguiente).
-  const jugadosDeTemporada = ESTADO_D.juegos.filter(j =>
-    j.estatus === 'jugado' && (!temporadaActivaD || j.temporada === temporadaActivaD)
-  );
+  // "Jugados" = suma de juegos jugados en la temporada vigente de cada
+  // categoría (una por una, no una temporada global). "Programados" y
+  // "Próximos" son operativos: reflejan la agenda vigente ahora mismo, sin
+  // importar a qué temporada quedó etiquetado el juego.
+  const totalJugados = categorias.reduce((acc, cat) =>
+    acc + juegosVigentes(cat.id).filter(j => j.estatus === 'jugado').length, 0);
   const programados = ESTADO_D.juegos.filter(j => j.estatus === 'programado');
-  const totalJugados = jugadosDeTemporada.length;
   const totalProgramados = programados.length;
 
   const hoyISO = new Date().toISOString().slice(0, 10);
@@ -217,8 +235,20 @@ function render() {
           const fase = j.fase ?? 'regular';
           const esImportante = fase === 'playoffs' || fase === 'final';
           const faseNombre = fase === 'playoffs' ? 'Playoffs' : fase === 'final' ? 'Final' : 'Amistoso';
+
+          // Si es playoffs y encontramos la serie a la que pertenece, mostramos
+          // el marcador de la serie (ej. "Semifinal · 1-0") en vez de solo el nombre de la fase.
+          const serie = esImportante ? serieDeJuego(j) : null;
+          const textoFase = serie
+            ? (() => {
+                const { victoriasA, victoriasB } = calcularSerie(serie);
+                const [vLocal, vVisita] = serie.equipoA === j.local ? [victoriasA, victoriasB] : [victoriasB, victoriasA];
+                return `${serie.ronda} · ${vLocal}-${vVisita}`;
+              })()
+            : faseNombre;
+
           const etiquetaFase = esImportante
-            ? `<span style="display:inline-block; margin-left:6px; padding:1px 8px; border-radius:999px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--navy); background:linear-gradient(135deg, var(--gold-bright), var(--gold));">${faseNombre}</span>`
+            ? `<span style="display:inline-block; margin-left:6px; padding:1px 8px; border-radius:999px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--navy); background:linear-gradient(135deg, var(--gold-bright), var(--gold));">${textoFase}</span>`
             : (fase === 'amistoso' ? ` · ${faseNombre}` : '');
           return `<div class="historial-item">
             <span class="historial-item__resultado" style="background:var(--gold);">${texto.split(' ')[0]}</span>
