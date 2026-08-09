@@ -1484,7 +1484,64 @@
     {
       "temporada": "2026-2",
       "sede_id": "gimnasio",
-      "estadisticas_visita": [],
+      "estadisticas_visita": [
+        {
+          "jugador": "JK77",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "JAVVALD",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 2,
+          "faltas": 0
+        },
+        {
+          "jugador": "ANDGUZ",
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "ISAAOLA",
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "JOELGRIJ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "NEGROURQ",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "LALOCEL",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ALISANC",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
       "destacado": "false",
       "marcador_visita": 56,
       "local": "mineros4",
@@ -1495,7 +1552,71 @@
       "hora": "18:00",
       "estatus": "jugado",
       "marcador_local": 43,
-      "estadisticas_local": [],
+      "estadisticas_local": [
+        {
+          "jugador": "CESDOMIN",
+          "asistio": "true",
+          "puntos": 19,
+          "triples": 2,
+          "faltas": 3
+        },
+        {
+          "jugador": "IVRANG",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "LUISCASTRG",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CARTORRE",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "CARDURAN",
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 3,
+          "faltas": 3
+        },
+        {
+          "jugador": "FRANMENDSS",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "MULLERFRAN",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "JOSEROJAS",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "RACIELREYES",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 4
+        }
+      ],
       "id": "J16",
       "fecha": "2026-08-08"
     },
