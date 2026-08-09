@@ -142,7 +142,76 @@
       "hora": "11:00",
       "estatus": "programado",
       "id": "J349",
-      "fecha": "2026-08-09"
+      "fecha": "2026-08-09",
+      "marcador_local": 49,
+      "marcador_visita": 38,
+      "estadisticas_local": [
+        {
+          "jugador": "ABDELCO",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 1,
+          "faltas": 3
+        },
+        {
+          "jugador": "JURIAS",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "javlopez",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 2,
+          "faltas": 1
+        },
+        {
+          "jugador": "MANOLOLIZ",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "MARPARRA",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 2
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "LCASTILO",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "FERMINZAVALA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "ALEXESPINOZA",
+          "asistio": "true",
+          "puntos": 19,
+          "triples": 2,
+          "faltas": 0
+        },
+        {
+          "jugador": "MIKICASTRO",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 0,
+          "faltas": 1
+        }
+      ]
     },
     {
       "temporada": "2026-1",
