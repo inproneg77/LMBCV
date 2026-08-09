@@ -56,21 +56,135 @@ function liderPuntos(categoriaId) {
   return { ...top, nombre: ESTADO_D.jugadoresPorId[top.id]?.nombre ?? '—' };
 }
 
+// ===== Playoffs: qué está pasando AHORA en cada categoría, sin importar
+// temporada — igual que datos.js hace con "programados": un playoff vigente
+// importa hoy, sin importar si quedó etiquetado a la temporada anterior. =====
+function calcularSerie(serie) {
+  let victoriasA = 0, victoriasB = 0;
+  (serie.juegos ?? []).forEach(j => {
+    if (String(j.jugado) !== 'true') return;
+    if (j.marcador_a > j.marcador_b) victoriasA++;
+    else if (j.marcador_b > j.marcador_a) victoriasB++;
+  });
+  const ganador = victoriasA >= 2 ? serie.equipoA : victoriasB >= 2 ? serie.equipoB : null;
+  return { victoriasA, victoriasB, ganador };
+}
+
+function fechaUltimoJuego(serie) {
+  const fechas = (serie.juegos ?? []).filter(j => String(j.jugado) === 'true' && j.fecha).map(j => j.fecha);
+  return fechas.length ? fechas.sort().at(-1) : null;
+}
+
+const ORDEN_RONDAS = ['Cuartos de Final', 'Semifinal', 'Final'];
+
+// Por categoría, ubica la temporada de playoffs con actividad más reciente
+// (por fecha del último juego jugado) y regresa: campeón ya coronado, o
+// las series todavía sin decidir de esa llave.
+function estadoPlayoffsCategoria(catId) {
+  const series = ESTADO_D.playoffs.filter(s => s.categoria_id === catId);
+  if (series.length === 0) return null;
+
+  let temporadaReciente = null, mejorFecha = null;
+  series.forEach(s => {
+    const f = fechaUltimoJuego(s);
+    if (f && (!mejorFecha || f > mejorFecha)) { mejorFecha = f; temporadaReciente = s.temporada; }
+  });
+  if (!temporadaReciente) temporadaReciente = series[series.length - 1].temporada;
+
+  const activas = series.filter(s => s.temporada === temporadaReciente);
+  const finalSerie = activas.find(s => s.ronda === 'Final');
+  if (finalSerie) {
+    const { ganador } = calcularSerie(finalSerie);
+    if (ganador) return { tipo: 'campeon', serie: finalSerie, ganadorId: ganador, fecha: fechaUltimoJuego(finalSerie) };
+  }
+
+  const enCurso = activas
+    .map(s => ({ serie: s, ...calcularSerie(s) }))
+    .filter(x => !x.ganador)
+    .sort((a,b) => ORDEN_RONDAS.indexOf(a.serie.ronda) - ORDEN_RONDAS.indexOf(b.serie.ronda));
+
+  return enCurso.length > 0 ? { tipo: 'en_curso', items: enCurso } : null;
+}
+
+function renderCampeon(cat, estado) {
+  const equipo = ESTADO_D.equiposPorId[estado.ganadorId];
+  const temporada = ESTADO_D.temporadas.find(t => t.id === estado.serie.temporada)?.nombre ?? estado.serie.temporada;
+  return `
+    <div class="campeon-card">
+      <div class="campeon-card__trofeo">🏆</div>
+      <img src="${RUTA_IMG}${equipo?.logo ?? 'img/equipos/placeholder.svg'}" alt="" class="campeon-card__logo">
+      <div class="campeon-card__nombre">${equipo?.nombre ?? 'Equipo'}</div>
+      <div class="campeon-card__cat">Campeón · ${cat.nombre}</div>
+      <div class="campeon-card__temp mono">${temporada}</div>
+      ${estado.fecha ? `<div class="campeon-card__fecha mono">${formatearFecha(estado.fecha).texto}</div>` : ''}
+      ${estado.serie.mvp_serie ? `<div class="campeon-card__mvp">★ ${cat.etiqueta_mvp ?? 'MVP'} de la Final: <b>${estado.serie.mvp_serie}</b></div>` : ''}
+    </div>
+  `;
+}
+
+function renderSerieEnCurso(cat, item) {
+  const { serie, victoriasA, victoriasB } = item;
+  const equipoA = ESTADO_D.equiposPorId[serie.equipoA];
+  const equipoB = ESTADO_D.equiposPorId[serie.equipoB];
+  return `
+    <div class="juego serie">
+      <div class="equipo equipo--local">
+        <img src="${RUTA_IMG}${equipoA?.logo ?? 'img/equipos/placeholder.svg'}" alt="" loading="lazy">
+        <span class="equipo__nombre">${equipoA?.nombre ?? 'Por definir'}</span>
+      </div>
+      <div class="marcador">
+        <div class="marcador__score">
+          <span class="${victoriasA > victoriasB ? 'gano' : 'perdio'}">${victoriasA}</span>
+          <span class="mono" style="color:var(--text-dim); font-size:16px;">–</span>
+          <span class="${victoriasB > victoriasA ? 'gano' : 'perdio'}">${victoriasB}</span>
+        </div>
+        <div class="marcador__info mono" style="margin-top:6px;">${cat.nombre} · ${serie.ronda}</div>
+      </div>
+      <div class="equipo equipo--visita">
+        <img src="${RUTA_IMG}${equipoB?.logo ?? 'img/equipos/placeholder.svg'}" alt="" loading="lazy">
+        <span class="equipo__nombre">${equipoB?.nombre ?? 'Por definir'}</span>
+      </div>
+    </div>
+  `;
+}
+
 function render() {
   const cont = document.getElementById('contenido');
   const categorias = [...ESTADO_D.categorias].sort((a,b) => a.orden - b.orden);
 
   const totalEquipos = new Set(ESTADO_D.equipos.map(e => e.id)).size;
   const totalJugadores = new Set(ESTADO_D.jugadores.map(j => j.id)).size;
-  const juegosDeTemporada = ESTADO_D.juegos.filter(j => !temporadaActivaD || j.temporada === temporadaActivaD);
-  const totalJugados = juegosDeTemporada.filter(j => j.estatus === 'jugado').length;
-  const totalProgramados = juegosDeTemporada.filter(j => j.estatus === 'programado').length;
+
+  // "Jugados" es acumulado de la temporada seleccionada (estadística
+  // histórica de esa temporada). "Programados" y "Próximos" son operativos:
+  // reflejan lo que sigue vigente en la agenda AHORA MISMO, sin importar a
+  // qué temporada quedó etiquetado el juego (playoffs de una temporada
+  // pueden seguir jugándose mientras ya arrancó la regular de la siguiente).
+  const jugadosDeTemporada = ESTADO_D.juegos.filter(j =>
+    j.estatus === 'jugado' && (!temporadaActivaD || j.temporada === temporadaActivaD)
+  );
+  const programados = ESTADO_D.juegos.filter(j => j.estatus === 'programado');
+  const totalJugados = jugadosDeTemporada.length;
+  const totalProgramados = programados.length;
 
   const hoyISO = new Date().toISOString().slice(0, 10);
-  const proximos = juegosDeTemporada
-    .filter(j => j.estatus === 'programado' && j.fecha >= hoyISO)
-    .sort((a,b) => a.fecha === b.fecha ? a.hora.localeCompare(b.hora) : a.fecha.localeCompare(b.fecha))
+  // Playoffs/Final primero (es lo más relevante para quien entra al
+  // Dashboard), luego regular, luego amistosos — dentro de cada grupo,
+  // por fecha más próxima.
+  const pesoFase = { playoffs: 0, final: 0, regular: 1, amistoso: 2 };
+  const proximos = programados
+    .filter(j => j.fecha >= hoyISO)
+    .sort((a,b) => {
+      const pa = pesoFase[a.fase ?? 'regular'] ?? 1;
+      const pb = pesoFase[b.fase ?? 'regular'] ?? 1;
+      if (pa !== pb) return pa - pb;
+      return a.fecha === b.fecha ? a.hora.localeCompare(b.hora) : a.fecha.localeCompare(b.fecha);
+    })
     .slice(0, 5);
+
+  const playoffsPorCat = categorias
+    .map(cat => ({ cat, estado: estadoPlayoffsCategoria(cat.id) }))
+    .filter(x => x.estado !== null);
 
   cont.innerHTML = `
     <div class="dash-metricas">
@@ -80,6 +194,18 @@ function render() {
       <div class="dash-metrica"><div class="dash-metrica__valor">${totalProgramados}</div><div class="dash-metrica__label">Juegos programados</div></div>
     </div>
 
+    ${playoffsPorCat.length > 0 ? `
+      <h3 class="lideres__titulo display" style="margin-top:30px;">Playoffs en Vivo</h3>
+      ${playoffsPorCat.filter(x => x.estado.tipo === 'campeon').length > 0 ? `
+        <div class="campeones-grid">
+          ${playoffsPorCat.filter(x => x.estado.tipo === 'campeon').map(x => renderCampeon(x.cat, x.estado)).join('')}
+        </div>
+      ` : ''}
+      ${playoffsPorCat.filter(x => x.estado.tipo === 'en_curso').map(x =>
+        x.estado.items.map(item => renderSerieEnCurso(x.cat, item)).join('')
+      ).join('')}
+    ` : ''}
+
     <h3 class="lideres__titulo display" style="margin-top:30px;">Próximos Juegos</h3>
     ${proximos.length === 0 ? '<div class="empty">No hay juegos programados próximamente.</div>' : `
       <div class="dash-proximos">
@@ -87,9 +213,18 @@ function render() {
           const local = ESTADO_D.equiposPorId[j.local];
           const visita = ESTADO_D.equiposPorId[j.visita];
           const { texto } = formatearFecha(j.fecha);
+          const cat = ESTADO_D.categorias.find(c => c.id === j.categoria_id);
+          const fase = j.fase ?? 'regular';
+          const esImportante = fase === 'playoffs' || fase === 'final';
+          const faseNombre = fase === 'playoffs' ? 'Playoffs' : fase === 'final' ? 'Final' : 'Amistoso';
+          const etiquetaFase = esImportante
+            ? `<span style="display:inline-block; margin-left:6px; padding:1px 8px; border-radius:999px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--navy); background:linear-gradient(135deg, var(--gold-bright), var(--gold));">${faseNombre}</span>`
+            : (fase === 'amistoso' ? ` · ${faseNombre}` : '');
           return `<div class="historial-item">
             <span class="historial-item__resultado" style="background:var(--gold);">${texto.split(' ')[0]}</span>
-            <span class="historial-item__rival">${local?.nombre ?? '—'} vs ${visita?.nombre ?? '—'}</span>
+            <span class="historial-item__rival">${local?.nombre ?? '—'} vs ${visita?.nombre ?? '—'}
+              <span class="mono" style="font-size:11px; color:var(--text-dim); font-weight:400;">${cat?.nombre ?? j.categoria_id}${fase === 'amistoso' ? etiquetaFase : ''}</span>${esImportante ? etiquetaFase : ''}
+            </span>
             <span class="mono">${j.hora} hrs</span>
             <span class="historial-item__fecha mono">${texto}</span>
           </div>`;
