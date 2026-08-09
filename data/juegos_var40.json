@@ -1921,7 +1921,7 @@
         {
           "jugador": "ESTEBANLOPEZ",
           "asistio": "true",
-          "puntos": 11,
+          "puntos": 9,
           "triples": 1,
           "faltas": 0
         },
@@ -1959,6 +1959,27 @@
           "puntos": 2,
           "triples": 0,
           "faltas": 2
+        },
+        {
+          "jugador": "ROBERTONUNEZ",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "FABIANBARRERA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "JOORGEBURRUEL",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
         }
       ],
       "estadisticas_visita": [
