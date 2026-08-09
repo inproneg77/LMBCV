@@ -15,9 +15,11 @@
           "marcador_b": 28
         },
         {
-          "jugado": "false",
+          "jugado": "true",
           "numero": 2,
-          "fecha": "2026-08-09"
+          "fecha": "2026-08-09",
+          "marcador_a": 49,
+          "marcador_b": 38
         }
       ],
       "mvp_serie": ""
@@ -30,9 +32,15 @@
       "equipoB": "OSV40",
       "juegos": [
         {
-          "jugado": "false",
+          "jugado": "true",
           "numero": 1,
-          "fecha": "2026-08-09"
+          "fecha": "2026-08-09",
+          "marcador_a": 0,
+          "marcador_b": 20
+        },
+        {
+          "jugado": "false",
+          "numero": 2
         }
       ]
     }
