@@ -1466,7 +1466,50 @@
     {
       "temporada": "2026-2",
       "sede_id": "gimnasio",
-      "estadisticas_visita": [],
+      "estadisticas_visita": [
+        {
+          "jugador": "CHABELOH",
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 1,
+          "faltas": 2
+        },
+        {
+          "jugador": "ABDELCO",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "TECOLIZ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "JSAL",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 3,
+          "faltas": 0
+        },
+        {
+          "jugador": "JURIAS",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "CAINBELTRAN",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 0
+        }
+      ],
       "destacado": "false",
       "marcador_visita": 36,
       "local": "OSV40",
@@ -1477,7 +1520,71 @@
       "hora": "17:00",
       "estatus": "jugado",
       "marcador_local": 63,
-      "estadisticas_local": [],
+      "estadisticas_local": [
+        {
+          "jugador": "GPALA",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 1,
+          "faltas": 2
+        },
+        {
+          "jugador": "DMAZ",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 0
+        },
+        {
+          "jugador": "ANARAIZA",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "GARYFEL",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "CYESK",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CARLOSPEREZ",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "CARLOSALVAREZ",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "CRISMENDEZ",
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "ELIASTRUJ",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 2
+        }
+      ],
       "id": "J15",
       "fecha": "2026-08-08"
     },
