@@ -2387,34 +2387,6 @@
       ],
       "id": "J11",
       "fecha": "2026-06-27"
-    },
-    {
-      "temporada": "2026-2",
-      "sede_id": "duela",
-      "destacado": "false",
-      "local": "LARAF40",
-      "fase": "regular",
-      "vuelta": 1,
-      "forfeit": "ninguno",
-      "visita": "SALDOSF40",
-      "hora": "18:00",
-      "estatus": "programado",
-      "id": "F10",
-      "fecha": "2026-08-08"
-    },
-    {
-      "temporada": "2026-2",
-      "sede_id": "duela",
-      "destacado": "false",
-      "local": "MAESTRASF40",
-      "fase": "regular",
-      "vuelta": 1,
-      "forfeit": "ninguno",
-      "visita": "DIAMONDS40",
-      "hora": "19:00",
-      "estatus": "programado",
-      "id": "F12",
-      "fecha": "2026-08-08"
     }
   ]
 }
