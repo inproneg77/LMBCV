@@ -2705,6 +2705,42 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "ROBERTONUNEZ",
+      "nombre": "ROBERTO NUÑEZ",
+      "numero": "21",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CONEXIONV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "FABIANBARRERA",
+      "nombre": "FABIAN BARRERA",
+      "numero": "24",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CONEXIONV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "JOORGEBURRUEL",
+      "nombre": "JORGE BURRUEL",
+      "numero": "9",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CONEXIONV40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
