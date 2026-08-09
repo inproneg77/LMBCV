@@ -1475,7 +1475,11 @@
       "hora": "17:00",
       "estatus": "programado",
       "id": "J15",
-      "fecha": "2026-08-08"
+      "fecha": "2026-08-08",
+      "marcador_local": 63,
+      "marcador_visita": 36,
+      "estadisticas_local": [],
+      "estadisticas_visita": []
     },
     {
       "temporada": "2026-2",
