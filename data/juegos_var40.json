@@ -1448,7 +1448,71 @@
     {
       "temporada": "2026-2",
       "sede_id": "gimnasio",
-      "estadisticas_visita": [],
+      "estadisticas_visita": [
+        {
+          "jugador": "TONGAR",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "MAROVAR",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "GMOCORON",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "PACHJES",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JORGETAPIA",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JUANDUARTE",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "AFIGUEROA",
+          "asistio": "true",
+          "puntos": 19,
+          "triples": 5,
+          "faltas": 0
+        },
+        {
+          "jugador": "ARIVERA2",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "HENRYCHAVEZ",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 0
+        }
+      ],
       "destacado": "false",
       "marcador_visita": 34,
       "local": "BURROSV40",
