@@ -239,7 +239,11 @@
       "hora": "13:00",
       "estatus": "programado",
       "id": "J649",
-      "fecha": "2026-08-09"
+      "fecha": "2026-08-09",
+      "marcador_local": 42,
+      "marcador_visita": 40,
+      "estadisticas_local": [],
+      "estadisticas_visita": []
     }
   ]
 }
