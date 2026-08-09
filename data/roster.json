@@ -309,6 +309,11 @@
           "categoria_id": "var40",
           "equipo_id": "VIKINGOSV40",
           "temporada": "2026-2"
+        },
+        {
+          "categoria_id": "var49",
+          "equipo_id": "VIKINGOSV40",
+          "temporada": "2026-1"
         }
       ]
     },
@@ -2739,6 +2744,35 @@
           "categoria_id": "var40",
           "equipo_id": "CONEXIONV40",
           "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "Alexhndez",
+      "nombre": "ALEJANDRO HERNANDEZ",
+      "numero": "15",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "VIKINGOSV40",
+          "temporada": "2026-2"
+        },
+        {
+          "categoria_id": "var49",
+          "equipo_id": "VIKINGOSV40",
+          "temporada": "2026-1"
+        }
+      ]
+    },
+    {
+      "id": "TITOLEON",
+      "nombre": "TITO LEON",
+      "numero": "32",
+      "membresias": [
+        {
+          "categoria_id": "var49",
+          "equipo_id": "RETRO49",
+          "temporada": "2026-1"
         }
       ]
     }
