@@ -1794,7 +1794,43 @@
     {
       "temporada": "2026-2",
       "sede_id": "gimnasio",
-      "estadisticas_visita": [],
+      "estadisticas_visita": [
+        {
+          "jugador": "GORTEGA",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "PEMEND",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "ELPONCE",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "TADMART",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "BOBPER",
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
       "destacado": "false",
       "marcador_visita": 52,
       "local": "ICATSONV40",
@@ -1805,7 +1841,64 @@
       "hora": "19:00",
       "estatus": "jugado",
       "marcador_local": 44,
-      "estadisticas_local": [],
+      "estadisticas_local": [
+        {
+          "jugador": "RPIMIENTA",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "IMORALES",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "JCABALLERO",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "SGONZA",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 2,
+          "faltas": 1
+        },
+        {
+          "jugador": "IVADRIAN",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 2,
+          "faltas": 3
+        },
+        {
+          "jugador": "ENRVALEN",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "JESUSLEON",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "EDMOND",
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 3,
+          "faltas": 0
+        }
+      ],
       "id": "J17",
       "fecha": "2026-08-08"
     },
