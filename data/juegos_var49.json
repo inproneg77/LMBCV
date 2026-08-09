@@ -161,6 +161,13 @@
           "puntos": 9,
           "triples": 0,
           "faltas": 1
+        },
+        {
+          "jugador": "TITOLEON",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 2
         }
       ],
       "destacado": "false",
@@ -176,18 +183,18 @@
       "marcador_local": 49,
       "estadisticas_local": [
         {
+          "jugador": "CHABELOH",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 2,
+          "faltas": 3
+        },
+        {
           "jugador": "ABDELCO",
           "asistio": "true",
           "puntos": 11,
           "triples": 1,
           "faltas": 3
-        },
-        {
-          "jugador": "MANOLOLIZ",
-          "asistio": "true",
-          "puntos": 6,
-          "triples": 0,
-          "faltas": 1
         },
         {
           "jugador": "JURIAS",
@@ -204,11 +211,25 @@
           "faltas": 1
         },
         {
+          "jugador": "MANOLOLIZ",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
           "jugador": "MARPARRA",
           "asistio": "true",
           "puntos": 12,
           "triples": 0,
           "faltas": 2
+        },
+        {
+          "jugador": "Alexhndez",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1
         }
       ],
       "id": "J349",
