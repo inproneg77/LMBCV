@@ -1521,6 +1521,7 @@
       "temporada": "2026-2",
       "sede_id": "duela",
       "destacado": "false",
+      "marcador_visita": 56,
       "local": "CONEXIONV40",
       "fase": "regular",
       "vuelta": 1,
@@ -1528,7 +1529,8 @@
       "visita": "CUERVOSV40",
       "hora": "16:00",
       "estatus": "jugado",
-      "id": "V15",
+      "marcador_local": 32,
+      "id": "V18",
       "fecha": "2026-08-08"
     },
     {
