@@ -1515,6 +1515,7 @@
       ],
       "destacado": "false",
       "marcador_visita": 34,
+      "mvp_jugador": "Manchas",
       "local": "BURROSV40",
       "fase": "regular",
       "vuelta": 1,
@@ -1610,17 +1611,17 @@
           "faltas": 0
         },
         {
-          "jugador": "TECOLIZ",
-          "asistio": "true",
-          "puntos": 0,
-          "triples": 0,
-          "faltas": 0
-        },
-        {
           "jugador": "JSAL",
           "asistio": "true",
           "puntos": 9,
           "triples": 3,
+          "faltas": 0
+        },
+        {
+          "jugador": "CAINBELTRAN",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
           "faltas": 0
         },
         {
@@ -1631,15 +1632,16 @@
           "faltas": 1
         },
         {
-          "jugador": "CAINBELTRAN",
+          "jugador": "TECOLIZ",
           "asistio": "true",
-          "puntos": 3,
-          "triples": 1,
+          "puntos": 0,
+          "triples": 0,
           "faltas": 0
         }
       ],
       "destacado": "false",
       "marcador_visita": 36,
+      "mvp_jugador": "CRISMENDEZ",
       "local": "OSV40",
       "fase": "regular",
       "vuelta": 1,
@@ -1779,6 +1781,7 @@
       ],
       "destacado": "false",
       "marcador_visita": 56,
+      "mvp_jugador": "ANDGUZ",
       "local": "mineros4",
       "fase": "regular",
       "vuelta": 1,
@@ -1897,6 +1900,7 @@
       ],
       "destacado": "false",
       "marcador_visita": 52,
+      "mvp_jugador": "BOBPER",
       "local": "ICATSONV40",
       "fase": "regular",
       "vuelta": 1,
@@ -1969,8 +1973,46 @@
     {
       "temporada": "2026-2",
       "sede_id": "duela",
+      "estadisticas_visita": [
+        {
+          "jugador": "FAVELATOLON",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "CHARROD",
+          "asistio": "true",
+          "puntos": 21,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "ANGELFIE",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "SOROSJJ",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "PANSIBRIAN",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 2,
+          "faltas": 0
+        }
+      ],
       "destacado": "false",
       "marcador_visita": 56,
+      "mvp_jugador": "CHARROD",
       "local": "CONEXIONV40",
       "fase": "regular",
       "vuelta": 1,
@@ -1979,8 +2021,6 @@
       "hora": "16:00",
       "estatus": "jugado",
       "marcador_local": 32,
-      "id": "V18",
-      "fecha": "2026-08-08",
       "estadisticas_local": [
         {
           "jugador": "ESTEBANLOPEZ",
@@ -2046,43 +2086,8 @@
           "faltas": 0
         }
       ],
-      "estadisticas_visita": [
-        {
-          "jugador": "FAVELATOLON",
-          "asistio": "true",
-          "puntos": 2,
-          "triples": 0,
-          "faltas": 2
-        },
-        {
-          "jugador": "CHARROD",
-          "asistio": "true",
-          "puntos": 21,
-          "triples": 1,
-          "faltas": 1
-        },
-        {
-          "jugador": "ANGELFIE",
-          "asistio": "true",
-          "puntos": 10,
-          "triples": 0,
-          "faltas": 1
-        },
-        {
-          "jugador": "SOROSJJ",
-          "asistio": "true",
-          "puntos": 8,
-          "triples": 0,
-          "faltas": 0
-        },
-        {
-          "jugador": "PANSIBRIAN",
-          "asistio": "true",
-          "puntos": 12,
-          "triples": 2,
-          "faltas": 0
-        }
-      ]
+      "id": "V18",
+      "fecha": "2026-08-08"
     },
     {
       "temporada": "2026-2",
