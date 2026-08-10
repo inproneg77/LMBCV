@@ -1,17 +1,11 @@
 let ESTADO = null;
 let categoriaActiva = null;
-let temporadaActiva = null;
 let tabsListas = false;
 
 async function iniciar() {
   ESTADO = await cargarDatos();
   renderPatrocinadores(ESTADO.patrocinadores);
   renderProximoJuego();
-
-  iniciarSelectorTemporada(ESTADO.temporadas, (temp) => {
-    temporadaActiva = temp;
-    render();
-  });
 
   iniciarTabs(ESTADO.categorias, (cat) => {
     categoriaActiva = cat;
@@ -74,17 +68,16 @@ function render() {
   const cont = document.getElementById('contenido');
   if (!tabsListas) return;
 
-  // Los juegos "programado" se muestran siempre, sin importar la temporada
-  // seleccionada — un juego agendado es agenda vigente. Los "jugado" sí
-  // respetan el selector de temporada, para mantener el archivo histórico
-  // ordenado por temporada.
+  // Calendario es un registro cronológico: se lee por fecha, no por
+  // temporada. Se muestra TODO lo que hay — jugado o programado — sin
+  // filtrar por temporada, para que playoffs/resultados de una temporada
+  // que sigue vigente no desaparezcan solo porque ya inició la siguiente.
   const juegos = ESTADO.juegos.filter(j =>
-    (categoriaActiva === null || j.categoria_id === categoriaActiva) &&
-    (j.estatus === 'programado' || !temporadaActiva || j.temporada === temporadaActiva)
+    categoriaActiva === null || j.categoria_id === categoriaActiva
   );
 
   if (juegos.length === 0) {
-    cont.innerHTML = `<div class="empty">Todavía no hay juegos capturados para esta ${categoriaActiva === null ? 'temporada' : 'categoría/temporada'}.</div>`;
+    cont.innerHTML = `<div class="empty">Todavía no hay juegos capturados para esta categoría.</div>`;
     return;
   }
 
@@ -148,12 +141,10 @@ function renderJuego(j) {
   const jugado = j.estatus === 'jugado';
   const forfeit = j.forfeit ?? 'ninguno';
 
-  // Etiqueta discreta de temporada — solo aparece cuando el juego es de una
-  // temporada distinta a la seleccionada en el dropdown (caso mixto de
-  // programados de otra temporada). En el caso normal no se muestra.
-  const otraTemporada = temporadaActiva && j.temporada !== temporadaActiva
-    ? ESTADO.temporadas.find(t => t.id === j.temporada)?.nombre ?? j.temporada
-    : null;
+  // Con el filtro de temporada eliminado, siempre mostramos a qué
+  // temporada pertenece el juego junto a la sede — antes solo aparecía si
+  // difería del selector; ahora no hay selector que dé ese contexto.
+  const nombreTemporada = ESTADO.temporadas.find(t => t.id === j.temporada)?.nombre ?? j.temporada;
 
   const marcadorHTML = jugado
     ? `<div class="marcador__score">
@@ -202,7 +193,7 @@ function renderJuego(j) {
       </div>
       <div class="marcador">
         ${marcadorHTML}
-        <div class="marcador__info mono" style="margin-top:6px;">${sede}${otraTemporada ? ` · ${otraTemporada}` : ''}</div>
+        <div class="marcador__info mono" style="margin-top:6px;">${sede} · ${nombreTemporada}</div>
       </div>
       <div class="equipo equipo--visita">
         <img src="${RUTA_IMG}${visita?.logo ?? 'img/equipos/placeholder.svg'}" alt="${visita?.nombre ?? ''}" loading="lazy">
