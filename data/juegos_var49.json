@@ -236,22 +236,6 @@
       "fecha": "2026-08-09"
     },
     {
-      "temporada": "2026-1",
-      "sede_id": "gimnasio",
-      "destacado": "false",
-      "marcador_visita": 20,
-      "local": "SMV40",
-      "fase": "playoffs",
-      "vuelta": 1,
-      "forfeit": "local",
-      "visita": "OSV40",
-      "hora": "12:00",
-      "estatus": "jugado",
-      "marcador_local": 0,
-      "id": "J449",
-      "fecha": "2026-08-09"
-    },
-    {
       "temporada": "2026-2",
       "sede_id": "gimnasio",
       "estadisticas_visita": [],
