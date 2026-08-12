@@ -6,7 +6,15 @@
     },
     {
       "id": "duela",
-      "nombre": "Duela del Polifuncional"
+      "nombre": "Duela Polifuncional"
+    },
+    {
+      "id": "cancha1",
+      "nombre": "Cancha 1"
+    },
+    {
+      "id": "cancha2",
+      "nombre": "Cancha 2"
     }
   ]
 }
