@@ -1813,6 +1813,76 @@
       "estadisticas_local": [],
       "id": "V16",
       "fecha": "2026-08-08"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "gimnasio",
+      "destacado": "false",
+      "local": "NARANJOV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "ALTOV40",
+      "hora": "16:00",
+      "estatus": "programado",
+      "id": "jv16",
+      "fecha": "2026-08-15"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "gimnasio",
+      "destacado": "false",
+      "local": "SMV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "VIKINGOSV40",
+      "hora": "17:00",
+      "estatus": "programado",
+      "id": "jv17",
+      "fecha": "2026-08-15"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "gimnasio",
+      "destacado": "false",
+      "local": "CFEV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "ALTAR2026",
+      "hora": "18:00",
+      "estatus": "programado",
+      "id": "jv18",
+      "fecha": "2026-08-15"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "duela",
+      "destacado": "false",
+      "local": "OSV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "MADERASV40",
+      "hora": "16:00",
+      "estatus": "programado",
+      "id": "JV20",
+      "fecha": "2026-08-15"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "duela",
+      "destacado": "false",
+      "local": "BURROSV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "mineros4",
+      "hora": "17:00",
+      "estatus": "programado",
+      "id": "JV201",
+      "fecha": "2026-08-15"
     }
   ]
 }
