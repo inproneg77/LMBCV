@@ -38,22 +38,34 @@ async function fetchJSON(url, valorPorDefecto = {}, intentos = 2) {
 async function cargarDatos() {
   const CATS = ['var40', 'fem40', 'var49'];
 
-  const [categoriasRaw, sedesData, patrociniosData, temporadasData, equiposData, rosterData, ...resto] = await Promise.all([
+  // Los juegos ya no viven en UN archivo por categoría que crece para
+  // siempre (eso era lo que hacía lenta la captura en /admin — Decap CMS
+  // re-renderiza la lista completa en cada tecla, y entre más juegos
+  // acumulados, más lento). Ahora es un archivo chico por categoría +
+  // temporada. Para saber qué archivos pedir necesitamos la lista de
+  // temporadas primero — por eso esta petición va aparte, antes del resto.
+  const temporadasData = await fetchJSON('data/temporadas.json', { temporadas: [] });
+  const temporadas = temporadasData.temporadas ?? [];
+  const idsTemporadas = temporadas.map(t => t.id);
+
+  const [categoriasRaw, sedesData, patrociniosData, equiposData, rosterData, ...resto] = await Promise.all([
     fetchJSON('data/categorias.json', []),
     fetchJSON('data/sedes.json', { sedes: [] }),
     fetchJSON('data/patrocinadores.json', { patrocinadores: [] }),
-    fetchJSON('data/temporadas.json', { temporadas: [] }),
     fetchJSON('data/equipos.json', { equipos: [] }),
     fetchJSON('data/roster.json', { jugadores: [] }),
-    ...CATS.map(c => fetchJSON(`data/juegos_${c}.json`, { juegos: [] })),
+    // Un archivo por cada combinación categoría × temporada. Si una
+    // combinación no tiene archivo todavía (temporada nueva sin juegos
+    // capturados en esa categoría), fetchJSON regresa vacío sin tronar.
+    ...CATS.flatMap(cat => idsTemporadas.map(temp => fetchJSON(`data/juegos_${cat}/${temp}.json`, { juegos: [] }))),
     ...CATS.map(c => fetchJSON(`data/playoffs_${c}.json`, { series: [] })),
   ]);
 
   const categorias = Array.isArray(categoriasRaw) ? categoriasRaw : [];
-  const temporadas = temporadasData.temporadas ?? [];
 
-  const juegosPorCat = resto.slice(0, CATS.length);
-  const playoffsPorCat = resto.slice(CATS.length);
+  const nCombos = CATS.length * idsTemporadas.length;
+  const juegosPorCombo = resto.slice(0, nCombos);
+  const playoffsPorCat = resto.slice(nCombos);
 
   const sedes = sedesData.sedes ?? sedesData;
   const patrocinadores = patrociniosData.patrocinadores ?? patrociniosData ?? [];
@@ -83,9 +95,18 @@ async function cargarDatos() {
     }))
   );
 
-  const juegos = CATS.flatMap((cat, i) =>
-    (juegosPorCat[i].juegos ?? []).map(j => ({ ...j, categoria_id: cat }))
-  );
+  // Reensamblar juegos: mismo resultado final que antes (un solo arreglo
+  // plano con categoria_id agregado a cada juego), solo que ahora viene de
+  // varios archivos chicos en vez de uno grande por categoría.
+  const juegos = [];
+  let idx = 0;
+  for (const cat of CATS) {
+    for (const temp of idsTemporadas) {
+      const datos = juegosPorCombo[idx++];
+      (datos.juegos ?? []).forEach(j => juegos.push({ ...j, categoria_id: cat }));
+    }
+  }
+
   const playoffs = CATS.flatMap((cat, i) =>
     (playoffsPorCat[i].series ?? []).map(s => ({ ...s, categoria_id: cat }))
   );
