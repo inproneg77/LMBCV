@@ -124,6 +124,8 @@ collections:
     label: "Juegos Varonil 40+"
     folder: "data/juegos_var40"
     create: true
+    extension: "json"
+    format: "json"
     slug: "{{fields.id_temporada}}"
     identifier_field: "id_temporada"
     summary: "Temporada {{fields.id_temporada}}"
@@ -151,10 +153,12 @@ collections:
           - { name: "hora", label: "Hora (24h, ej. 17:00)", widget: "string" }
           - name: "sede_id"
             label: "Sede"
-            widget: "select"
-            options:
-              - { label: "Gimnasio Municipal", value: "gimnasio" }
-              - { label: "Duela del Polifuncional", value: "duela" }
+            widget: "relation"
+            collection: "sedes"
+            file: "sedes"
+            search_fields: ["sedes.*.nombre"]
+            display_fields: ["sedes.*.nombre"]
+            value_field: "sedes.*.id"
           - name: "local"
             label: "Equipo local"
             widget: "relation"
@@ -288,6 +292,8 @@ collections:
     label: "Juegos Femenil 40+"
     folder: "data/juegos_fem40"
     create: true
+    extension: "json"
+    format: "json"
     slug: "{{fields.id_temporada}}"
     identifier_field: "id_temporada"
     summary: "Temporada {{fields.id_temporada}}"
@@ -315,10 +321,12 @@ collections:
           - { name: "hora", label: "Hora (24h, ej. 17:00)", widget: "string" }
           - name: "sede_id"
             label: "Sede"
-            widget: "select"
-            options:
-              - { label: "Gimnasio Municipal", value: "gimnasio" }
-              - { label: "Duela del Polifuncional", value: "duela" }
+            widget: "relation"
+            collection: "sedes"
+            file: "sedes"
+            search_fields: ["sedes.*.nombre"]
+            display_fields: ["sedes.*.nombre"]
+            value_field: "sedes.*.id"
           - name: "local"
             label: "Equipo local"
             widget: "relation"
@@ -452,6 +460,8 @@ collections:
     label: "Juegos Varonil 49+"
     folder: "data/juegos_var49"
     create: true
+    extension: "json"
+    format: "json"
     slug: "{{fields.id_temporada}}"
     identifier_field: "id_temporada"
     summary: "Temporada {{fields.id_temporada}}"
@@ -479,10 +489,12 @@ collections:
           - { name: "hora", label: "Hora (24h, ej. 17:00)", widget: "string" }
           - name: "sede_id"
             label: "Sede"
-            widget: "select"
-            options:
-              - { label: "Gimnasio Municipal", value: "gimnasio" }
-              - { label: "Duela del Polifuncional", value: "duela" }
+            widget: "relation"
+            collection: "sedes"
+            file: "sedes"
+            search_fields: ["sedes.*.nombre"]
+            display_fields: ["sedes.*.nombre"]
+            value_field: "sedes.*.id"
           - name: "local"
             label: "Equipo local"
             widget: "relation"
