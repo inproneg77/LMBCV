@@ -1,1 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LMBC — Nuevo Jugador</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .cap-wrap{ max-width: 720px; margin: 0 auto; padding: 30px 20px 60px; }
+  .cap-instrucciones{ background:var(--baby-soft); border-radius:var(--radius); padding:16px 20px; margin-bottom:20px; font-size:13px; line-height:1.6; }
+  .cap-token{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:20px; background:var(--white); border:1px solid var(--line); border-radius:var(--radius-sm); padding:14px 16px; }
+  .cap-token input{ flex:1; min-width:220px; padding:8px 12px; border-radius:8px; border:1px solid var(--line); font-family:monospace; font-size:12px; }
+  .cap-token .estado{ font-size:12px; font-weight:700; }
+  .cap-token .estado.ok{ color:var(--win); }
+  .cap-token .estado.falta{ color:var(--text-dim); }
 
+  .campo{ margin-bottom: 18px; }
+  .campo label{ display:block; font-size:12px; color:var(--text-dim); text-transform:uppercase; letter-spacing:.04em; margin-bottom:6px; font-weight:600; }
+  .campo input, .campo select{
+    width:100%; padding:10px 14px; border-radius:8px; border:1px solid var(--line);
+    font-size:15px; font-family:'Inter',sans-serif; background:var(--white);
+  }
+  .campo-fila{ display:flex; gap:14px; }
+  .campo-fila .campo{ flex:1; }
+  .campo .hint{ font-size:11px; color:var(--text-dim); margin-top:4px; text-transform:none; letter-spacing:0; font-weight:400; }
+
+  .aviso-duplicado{
+    display:none; background:#fff6e0; border:1px solid #e0c060; border-radius:var(--radius-sm);
+    padding:12px 16px; font-size:13px; margin-bottom:16px; line-height:1.5;
+  }
+  .aviso-duplicado.visible{ display:block; }
+  .aviso-duplicado b{ color:#8a6200; }
+
+  .cap-btn{
+    margin-top:10px; background:var(--navy); color:var(--white); border:none; border-radius:999px;
+    padding:14px 28px; font-weight:700; cursor:pointer; font-size:15px;
+  }
+  .cap-btn:disabled{ opacity:.5; cursor:not-allowed; }
+  .cap-msg{ margin-top:14px; font-size:13px; font-weight:600; padding:10px 14px; border-radius:var(--radius-sm); display:none; }
+  .cap-msg.ok{ display:block; background:#eaf5ea; color:var(--win); }
+  .cap-msg.error{ display:block; background:#fdeaea; color:#a33; }
+
+  .form-oculto{ display:none; }
+</style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="../index.html" class="brand">
+        <img src="../img/equipos/logovets.png" alt="LMBC" class="brand__mark">
+        <div>
+          <div class="brand__name">LMBC</div>
+          <div class="brand__sub">Nuevo Jugador</div>
+        </div>
+      </a>
+      <nav class="site-nav"><a href="../index.html">← Volver al sitio</a></nav>
+    </div>
+  </header>
+
+  <div class="cap-wrap">
+    <h1 class="display" style="font-size:32px;color:var(--navy);margin:24px 0 6px;">Alta de Jugador</h1>
+    <p style="color:var(--text-dim);font-size:14px;margin-bottom:16px;">
+      Da de alta un jugador nuevo directo en el roster. No pasa por el panel de administración —
+      es un formulario simple, no se pone lento sin importar cuántos jugadores ya haya.
+    </p>
+
+    <div class="cap-instrucciones">
+      <b>Solo la primera vez:</b> pega un token de GitHub (Settings → Developer settings → Fine-grained tokens →
+      acceso a tu repo → permiso "Contents: Read and write"). Es el mismo token que usas en Captura Rápida —
+      se guarda solo en este navegador.
+    </div>
+
+    <div class="cap-token">
+      <input type="password" id="token" placeholder="Pega aquí tu token de GitHub">
+      <span class="estado falta" id="token-estado">Falta el token</span>
+    </div>
+
+    <div id="form-jugador" class="form-oculto">
+
+      <div class="campo">
+        <label>Nombre completo</label>
+        <input type="text" id="in-nombre" placeholder="Ej. HECTOR MACIEL" autocomplete="off">
+      </div>
+
+      <div class="aviso-duplicado" id="aviso-duplicado"></div>
+
+      <div class="campo-fila">
+        <div class="campo">
+          <label>ID único</label>
+          <input type="text" id="in-id" placeholder="Se sugiere solo al escribir el nombre">
+          <div class="hint">Se genera solo, pero revísalo — no puede repetirse con ningún jugador existente.</div>
+        </div>
+        <div class="campo" style="max-width:140px;">
+          <label>Número (opcional)</label>
+          <input type="text" id="in-numero" placeholder="Ej. 88">
+        </div>
+      </div>
+
+      <div class="campo-fila">
+        <div class="campo">
+          <label>Categoría</label>
+          <select id="sel-categoria"><option value="">Elige categoría…</option></select>
+        </div>
+        <div class="campo">
+          <label>Temporada</label>
+          <select id="sel-temporada"><option value="">Elige temporada…</option></select>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label>Equipo</label>
+        <select id="sel-equipo"><option value="">Elige categoría primero…</option></select>
+      </div>
+
+      <button class="cap-btn" id="btn-guardar" disabled>Guardar en GitHub</button>
+      <div class="cap-msg" id="msg"></div>
+    </div>
+  </div>
+
+<script>
+const OWNER = 'inproneg77';
+const REPO = 'LMBCV';
+const BRANCH = 'main';
+
+let EQUIPOS = [], CATEGORIAS = [], TEMPORADAS = [], ROSTER_ACTUAL = null;
+
+function token() { return localStorage.getItem('lmbc_gh_token') || ''; }
+
+async function ghFetch(path) {
+  const res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}?ref=${BRANCH}`, {
+    headers: { Authorization: `token ${token()}` }
+  });
+  if (!res.ok) throw new Error(`No se pudo leer ${path} (${res.status})`);
+  const data = await res.json();
+  const contenido = JSON.parse(decodeURIComponent(escape(atob(data.content))));
+  return { sha: data.sha, contenido };
+}
+
+async function ghGuardar(path, sha, objeto, mensaje) {
+  const contenidoStr = JSON.stringify(objeto, null, 2) + '\n';
+  const b64 = btoa(unescape(encodeURIComponent(contenidoStr)));
+  const res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}`, {
+    method: 'PUT',
+    headers: { Authorization: `token ${token()}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: mensaje, content: b64, sha, branch: BRANCH })
+  });
+  if (!res.ok) throw new Error(`No se pudo guardar ${path} (${res.status})`);
+  return res.json();
+}
+
+function normalizar(txt) {
+  return (txt || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().trim();
+}
+
+function generarIdSugerido(nombre) {
+  const limpio = normalizar(nombre).replace(/[^A-Z\s]/g, '');
+  const partes = limpio.split(/\s+/).filter(Boolean);
+  if (partes.length === 0) return '';
+  let base;
+  if (partes.length === 1) {
+    base = partes[0].slice(0, 10);
+  } else {
+    // inicial del primer nombre + primer apellido (última palabra), igual
+    // al patrón que ya usa el roster (ej. "HECTOR MACIEL" -> "HMACIEL")
+    base = (partes[0][0] + partes[partes.length - 1]).slice(0, 10);
+  }
+  const idsExistentes = new Set(ROSTER_ACTUAL.contenido.jugadores.map(j => j.id));
+  let candidato = base;
+  let sufijo = 2;
+  while (idsExistentes.has(candidato)) {
+    candidato = base + sufijo;
+    sufijo++;
+  }
+  return candidato;
+}
+
+function revisarDuplicados() {
+  const nombreEscrito = normalizar(document.getElementById('in-nombre').value);
+  const aviso = document.getElementById('aviso-duplicado');
+  if (!nombreEscrito || !ROSTER_ACTUAL) { aviso.classList.remove('visible'); return; }
+
+  const posibles = ROSTER_ACTUAL.contenido.jugadores.filter(j => {
+    const n = normalizar(j.nombre);
+    return n.includes(nombreEscrito) || nombreEscrito.includes(n.split(' ')[0]);
+  }).slice(0, 5);
+
+  if (posibles.length > 0) {
+    aviso.innerHTML = `⚠ <b>Ya existe${posibles.length > 1 ? 'n' : ''} jugador${posibles.length > 1 ? 'es' : ''} con nombre parecido:</b><br>` +
+      posibles.map(j => `${j.nombre} (ID: ${j.id})`).join(' · ') +
+      `<br>Si es la misma persona, mejor agrégale la membresía nueva a su registro existente en vez de crear uno nuevo — evita duplicados.`;
+    aviso.classList.add('visible');
+  } else {
+    aviso.classList.remove('visible');
+  }
+}
+
+function actualizarEquiposDisponibles() {
+  const cat = document.getElementById('sel-categoria').value;
+  const selEquipo = document.getElementById('sel-equipo');
+  if (!cat) { selEquipo.innerHTML = '<option value="">Elige categoría primero…</option>'; return; }
+  const disponibles = EQUIPOS.filter(e => (e.categorias ?? []).includes(cat));
+  selEquipo.innerHTML = '<option value="">Elige equipo…</option>' +
+    disponibles.map(e => `<option value="${e.id}">${e.nombre}</option>`).join('');
+}
+
+function validarFormulario() {
+  const ok = document.getElementById('in-nombre').value.trim() &&
+             document.getElementById('in-id').value.trim() &&
+             document.getElementById('sel-categoria').value &&
+             document.getElementById('sel-equipo').value &&
+             document.getElementById('sel-temporada').value;
+  document.getElementById('btn-guardar').disabled = !ok;
+}
+
+async function iniciar() {
+  const tokenInput = document.getElementById('token');
+  tokenInput.value = token();
+  actualizarEstadoToken();
+  tokenInput.addEventListener('input', () => {
+    localStorage.setItem('lmbc_gh_token', tokenInput.value.trim());
+    actualizarEstadoToken();
+    if (tokenInput.value.trim()) cargarBase();
+  });
+
+  document.getElementById('in-nombre').addEventListener('input', () => {
+    const sugerido = generarIdSugerido(document.getElementById('in-nombre').value);
+    const campoId = document.getElementById('in-id');
+    if (!campoId.dataset.editadoManualmente) campoId.value = sugerido;
+    revisarDuplicados();
+    validarFormulario();
+  });
+  document.getElementById('in-id').addEventListener('input', (e) => {
+    e.target.dataset.editadoManualmente = 'true';
+    validarFormulario();
+  });
+  document.getElementById('sel-categoria').addEventListener('change', () => {
+    actualizarEquiposDisponibles();
+    validarFormulario();
+  });
+  document.getElementById('sel-equipo').addEventListener('change', validarFormulario);
+  document.getElementById('sel-temporada').addEventListener('change', validarFormulario);
+  document.getElementById('btn-guardar').addEventListener('click', guardar);
+
+  if (token()) await cargarBase();
+}
+
+function actualizarEstadoToken() {
+  const estado = document.getElementById('token-estado');
+  if (token()) { estado.textContent = 'Token guardado ✓'; estado.className = 'estado ok'; }
+  else { estado.textContent = 'Falta el token'; estado.className = 'estado falta'; }
+}
+
+async function cargarBase() {
+  document.getElementById('msg').className = 'cap-msg';
+  try {
+    const [eqRes, catRes, tempRes, rosterRes] = await Promise.all([
+      fetch('../data/equipos.json').then(r => r.json()),
+      fetch('../data/categorias.json').then(r => r.json()),
+      fetch('../data/temporadas.json').then(r => r.json()),
+      ghFetch('data/roster.json'),
+    ]);
+    EQUIPOS = eqRes.equipos ?? [];
+    CATEGORIAS = Array.isArray(catRes) ? catRes : [];
+    TEMPORADAS = tempRes.temporadas ?? [];
+    ROSTER_ACTUAL = rosterRes;
+
+    document.getElementById('sel-categoria').innerHTML = '<option value="">Elige categoría…</option>' +
+      CATEGORIAS.map(c => `<option value="${c.id}">${c.nombre}</option>`).join('');
+    document.getElementById('sel-temporada').innerHTML = '<option value="">Elige temporada…</option>' +
+      TEMPORADAS.map(t => `<option value="${t.id}">${t.nombre}${t.activa ? ' (activa)' : ''}</option>`).join('');
+
+    document.getElementById('form-jugador').classList.remove('form-oculto');
+  } catch (err) {
+    mostrarMsg('No se pudo cargar (revisa tu token): ' + err.message, true);
+  }
+}
+
+async function guardar() {
+  const btn = document.getElementById('btn-guardar');
+  btn.disabled = true;
+  btn.textContent = 'Guardando…';
+  ocultarMsg();
+
+  try {
+    // Releemos fresco justo antes de guardar, para no pisar a alguien más
+    // que haya dado de alta un jugador en los últimos minutos.
+    const fresco = await ghFetch('data/roster.json');
+    const id = document.getElementById('in-id').value.trim();
+
+    if (fresco.contenido.jugadores.some(j => j.id === id)) {
+      throw new Error(`El ID "${id}" ya existe. Cámbialo por otro antes de guardar.`);
+    }
+
+    const nuevoJugador = {
+      id,
+      nombre: document.getElementById('in-nombre').value.trim(),
+      numero: document.getElementById('in-numero').value.trim(),
+      membresias: [{
+        categoria_id: document.getElementById('sel-categoria').value,
+        equipo_id: document.getElementById('sel-equipo').value,
+        temporada: document.getElementById('sel-temporada').value,
+      }],
+    };
+
+    fresco.contenido.jugadores.push(nuevoJugador);
+
+    await ghGuardar(
+      'data/roster.json',
+      fresco.sha,
+      fresco.contenido,
+      `Alta de jugador: ${nuevoJugador.nombre} — vía Nuevo Jugador`
+    );
+
+    mostrarMsg(`¡Guardado! ${nuevoJugador.nombre} ya está en el roster. Se publicará en el sitio en 1-2 minutos.`, false);
+    ROSTER_ACTUAL = fresco;
+    ROSTER_ACTUAL.contenido.jugadores.push(nuevoJugador);
+
+    // limpiar formulario para dar de alta al siguiente
+    document.getElementById('in-nombre').value = '';
+    document.getElementById('in-id').value = '';
+    document.getElementById('in-id').dataset.editadoManualmente = '';
+    document.getElementById('in-numero').value = '';
+    document.getElementById('sel-categoria').value = '';
+    document.getElementById('sel-equipo').innerHTML = '<option value="">Elige categoría primero…</option>';
+    document.getElementById('sel-temporada').value = '';
+    document.getElementById('aviso-duplicado').classList.remove('visible');
+    validarFormulario();
+  } catch (err) {
+    mostrarMsg('Error al guardar: ' + err.message, true);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Guardar en GitHub';
+  }
+}
+
+function mostrarMsg(texto, esError) {
+  const msg = document.getElementById('msg');
+  msg.textContent = texto;
+  msg.className = 'cap-msg ' + (esError ? 'error' : 'ok');
+}
+function ocultarMsg() {
+  document.getElementById('msg').className = 'cap-msg';
+}
+
+iniciar();
+</script>
+</body>
+</html>
