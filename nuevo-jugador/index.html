@@ -81,23 +81,42 @@
     <div id="form-jugador" class="form-oculto">
 
       <div class="campo">
-        <label>Nombre completo</label>
-        <input type="text" id="in-nombre" placeholder="Ej. HECTOR MACIEL" autocomplete="off">
+        <label>¿Qué vas a hacer?</label>
+        <select id="sel-modo">
+          <option value="nuevo">Dar de alta un jugador nuevo</option>
+          <option value="existente">Agregarle otra categoría/temporada a un jugador que ya existe</option>
+        </select>
+        <div class="hint">Si el jugador ya está en el roster y solo va a jugar una categoría o temporada nueva, usa la segunda opción — así no se duplica.</div>
       </div>
 
-      <div class="aviso-duplicado" id="aviso-duplicado"></div>
+      <div class="campo" id="campo-buscar-existente" style="display:none;">
+        <label>Buscar jugador existente</label>
+        <input type="text" id="in-buscar" placeholder="Escribe el nombre…" autocomplete="off">
+        <div id="resultados-busqueda" style="margin-top:8px;"></div>
+        <div class="hint" id="jugador-elegido-hint"></div>
+      </div>
 
-      <div class="campo-fila">
+      <div id="campos-nombre-nuevo">
         <div class="campo">
-          <label>ID único</label>
-          <input type="text" id="in-id" placeholder="Se sugiere solo al escribir el nombre">
-          <div class="hint">Se genera solo, pero revísalo — no puede repetirse con ningún jugador existente.</div>
+          <label>Nombre completo</label>
+          <input type="text" id="in-nombre" placeholder="Ej. HECTOR MACIEL" autocomplete="off">
         </div>
-        <div class="campo" style="max-width:140px;">
-          <label>Número (opcional)</label>
-          <input type="text" id="in-numero" placeholder="Ej. 88">
+
+        <div class="aviso-duplicado" id="aviso-duplicado"></div>
+
+        <div class="campo-fila">
+          <div class="campo">
+            <label>ID único</label>
+            <input type="text" id="in-id" placeholder="Se sugiere solo al escribir el nombre">
+            <div class="hint">Se genera solo, pero revísalo — no puede repetirse con ningún jugador existente.</div>
+          </div>
+          <div class="campo" style="max-width:140px;">
+            <label>Número (opcional)</label>
+            <input type="text" id="in-numero" placeholder="Ej. 88">
+          </div>
         </div>
       </div>
+
 
       <div class="campo-fila">
         <div class="campo">
@@ -126,6 +145,7 @@ const REPO = 'LMBCV';
 const BRANCH = 'main';
 
 let EQUIPOS = [], CATEGORIAS = [], TEMPORADAS = [], ROSTER_ACTUAL = null;
+let jugadorExistenteElegido = null; // { id, nombre } cuando modo = "existente"
 
 function token() { return localStorage.getItem('lmbc_gh_token') || ''; }
 
@@ -153,6 +173,57 @@ async function ghGuardar(path, sha, objeto, mensaje) {
 
 function normalizar(txt) {
   return (txt || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().trim();
+}
+
+function actualizarModo() {
+  const modo = document.getElementById('sel-modo').value;
+  const esExistente = modo === 'existente';
+  document.getElementById('campo-buscar-existente').style.display = esExistente ? 'block' : 'none';
+  document.getElementById('campos-nombre-nuevo').style.display = esExistente ? 'none' : 'block';
+  if (!esExistente) {
+    jugadorExistenteElegido = null;
+    document.getElementById('in-buscar').value = '';
+    document.getElementById('resultados-busqueda').innerHTML = '';
+    document.getElementById('jugador-elegido-hint').textContent = '';
+  }
+  validarFormulario();
+}
+
+function buscarJugadorExistente() {
+  const texto = normalizar(document.getElementById('in-buscar').value);
+  const cont = document.getElementById('resultados-busqueda');
+  jugadorExistenteElegido = null;
+  if (!texto || texto.length < 2) { cont.innerHTML = ''; validarFormulario(); return; }
+
+  const resultados = ROSTER_ACTUAL.contenido.jugadores
+    .filter(j => normalizar(j.nombre).includes(texto))
+    .slice(0, 8);
+
+  if (resultados.length === 0) {
+    cont.innerHTML = '<div style="font-size:13px;color:var(--text-dim);">Sin resultados. Revisa que esté bien escrito, o usa "Dar de alta un jugador nuevo" si de verdad no existe.</div>';
+    validarFormulario();
+    return;
+  }
+
+  cont.innerHTML = resultados.map(j => {
+    const cats = (j.membresias ?? []).map(m => `${m.categoria_id} (${m.temporada})`).join(', ') || 'sin membresías';
+    return `<div class="resultado-jugador" data-id="${j.id}" style="padding:8px 12px; border:1px solid var(--line); border-radius:8px; margin-bottom:6px; cursor:pointer; font-size:13px;">
+      <b>${j.nombre}</b> <span style="color:var(--text-dim);">— ${cats}</span>
+    </div>`;
+  }).join('');
+
+  cont.querySelectorAll('.resultado-jugador').forEach(el => {
+    el.addEventListener('click', () => {
+      const id = el.dataset.id;
+      const jugador = ROSTER_ACTUAL.contenido.jugadores.find(j => j.id === id);
+      jugadorExistenteElegido = jugador;
+      cont.querySelectorAll('.resultado-jugador').forEach(x => x.style.background = '');
+      el.style.background = 'var(--baby-soft)';
+      document.getElementById('jugador-elegido-hint').textContent = `Elegido: ${jugador.nombre} (ID: ${jugador.id}) — se le va a agregar la nueva categoría/temporada, no se crea un jugador nuevo.`;
+      validarFormulario();
+    });
+  });
+  validarFormulario();
 }
 
 function generarIdSugerido(nombre) {
@@ -207,11 +278,13 @@ function actualizarEquiposDisponibles() {
 }
 
 function validarFormulario() {
-  const ok = document.getElementById('in-nombre').value.trim() &&
-             document.getElementById('in-id').value.trim() &&
-             document.getElementById('sel-categoria').value &&
-             document.getElementById('sel-equipo').value &&
-             document.getElementById('sel-temporada').value;
+  const modo = document.getElementById('sel-modo').value;
+  const camposComunes = document.getElementById('sel-categoria').value &&
+                         document.getElementById('sel-equipo').value &&
+                         document.getElementById('sel-temporada').value;
+  const ok = modo === 'existente'
+    ? (jugadorExistenteElegido && camposComunes)
+    : (document.getElementById('in-nombre').value.trim() && document.getElementById('in-id').value.trim() && camposComunes);
   document.getElementById('btn-guardar').disabled = !ok;
 }
 
@@ -225,6 +298,8 @@ async function iniciar() {
     if (tokenInput.value.trim()) cargarBase();
   });
 
+  document.getElementById('sel-modo').addEventListener('change', actualizarModo);
+  document.getElementById('in-buscar').addEventListener('input', buscarJugadorExistente);
   document.getElementById('in-nombre').addEventListener('input', () => {
     const sugerido = generarIdSugerido(document.getElementById('in-nombre').value);
     const campoId = document.getElementById('in-id');
@@ -288,41 +363,64 @@ async function guardar() {
     // Releemos fresco justo antes de guardar, para no pisar a alguien más
     // que haya dado de alta un jugador en los últimos minutos.
     const fresco = await ghFetch('data/roster.json');
-    const id = document.getElementById('in-id').value.trim();
-
-    if (fresco.contenido.jugadores.some(j => j.id === id)) {
-      throw new Error(`El ID "${id}" ya existe. Cámbialo por otro antes de guardar.`);
-    }
-
-    const nuevoJugador = {
-      id,
-      nombre: document.getElementById('in-nombre').value.trim(),
-      numero: document.getElementById('in-numero').value.trim(),
-      membresias: [{
-        categoria_id: document.getElementById('sel-categoria').value,
-        equipo_id: document.getElementById('sel-equipo').value,
-        temporada: document.getElementById('sel-temporada').value,
-      }],
+    const modo = document.getElementById('sel-modo').value;
+    const nuevaMembresia = {
+      categoria_id: document.getElementById('sel-categoria').value,
+      equipo_id: document.getElementById('sel-equipo').value,
+      temporada: document.getElementById('sel-temporada').value,
     };
 
-    fresco.contenido.jugadores.push(nuevoJugador);
+    let nombreParaMensaje;
+
+    if (modo === 'existente') {
+      const jugador = fresco.contenido.jugadores.find(j => j.id === jugadorExistenteElegido.id);
+      if (!jugador) throw new Error('Ese jugador ya no está en el roster (¿lo borraron?). Recarga la página.');
+
+      const yaLaTiene = (jugador.membresias ?? []).some(m =>
+        m.categoria_id === nuevaMembresia.categoria_id &&
+        m.equipo_id === nuevaMembresia.equipo_id &&
+        m.temporada === nuevaMembresia.temporada
+      );
+      if (yaLaTiene) throw new Error(`${jugador.nombre} ya tiene exactamente esa categoría/equipo/temporada — no hay nada que agregar.`);
+
+      jugador.membresias = [...(jugador.membresias ?? []), nuevaMembresia];
+      nombreParaMensaje = jugador.nombre;
+    } else {
+      const id = document.getElementById('in-id').value.trim();
+      if (fresco.contenido.jugadores.some(j => j.id === id)) {
+        throw new Error(`El ID "${id}" ya existe. Cámbialo por otro antes de guardar.`);
+      }
+      const nuevoJugador = {
+        id,
+        nombre: document.getElementById('in-nombre').value.trim(),
+        numero: document.getElementById('in-numero').value.trim(),
+        membresias: [nuevaMembresia],
+      };
+      fresco.contenido.jugadores.push(nuevoJugador);
+      nombreParaMensaje = nuevoJugador.nombre;
+    }
 
     await ghGuardar(
       'data/roster.json',
       fresco.sha,
       fresco.contenido,
-      `Alta de jugador: ${nuevoJugador.nombre} — vía Nuevo Jugador`
+      modo === 'existente'
+        ? `Membresía nueva: ${nombreParaMensaje} — vía Nuevo Jugador`
+        : `Alta de jugador: ${nombreParaMensaje} — vía Nuevo Jugador`
     );
 
-    mostrarMsg(`¡Guardado! ${nuevoJugador.nombre} ya está en el roster. Se publicará en el sitio en 1-2 minutos.`, false);
+    mostrarMsg(`¡Guardado! ${nombreParaMensaje} — se publicará en el sitio en 1-2 minutos.`, false);
     ROSTER_ACTUAL = fresco;
-    ROSTER_ACTUAL.contenido.jugadores.push(nuevoJugador);
 
-    // limpiar formulario para dar de alta al siguiente
+    // limpiar formulario para el siguiente registro
     document.getElementById('in-nombre').value = '';
     document.getElementById('in-id').value = '';
     document.getElementById('in-id').dataset.editadoManualmente = '';
     document.getElementById('in-numero').value = '';
+    document.getElementById('in-buscar').value = '';
+    document.getElementById('resultados-busqueda').innerHTML = '';
+    document.getElementById('jugador-elegido-hint').textContent = '';
+    jugadorExistenteElegido = null;
     document.getElementById('sel-categoria').value = '';
     document.getElementById('sel-equipo').innerHTML = '<option value="">Elige categoría primero…</option>';
     document.getElementById('sel-temporada').value = '';
