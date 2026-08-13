@@ -1,0 +1,24 @@
+{
+  "id_temporada": "2026-2",
+  "juegos": [
+    {
+      "temporada": "2026-2",
+      "sede_id": "gimnasio",
+      "estadisticas_visita": [],
+      "destacado": "false",
+      "marcador_visita": 40,
+      "mvp_jugador": "CAINBELTRAN",
+      "local": "MADERASV40",
+      "fase": "amistoso",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "FEDE49",
+      "hora": "13:00",
+      "estatus": "jugado",
+      "marcador_local": 42,
+      "estadisticas_local": [],
+      "id": "J649",
+      "fecha": "2026-08-09"
+    }
+  ]
+}
