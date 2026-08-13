@@ -136,8 +136,14 @@ const OWNER = 'inproneg77';
 const REPO = 'LMBCV';
 const BRANCH = 'main';
 
-let EQUIPOS = [], JUGADORES = [], CATEGORIAS = [];
-let juegosCatActual = null;
+let EQUIPOS = [], JUGADORES = [], CATEGORIAS = [], TEMPORADAS = [];
+// Los juegos ya no viven en un solo archivo por categoría — están
+// repartidos en un archivo por categoría + temporada (para que /admin no
+// se ponga lento con el archivo creciendo para siempre). Aquí guardamos,
+// por cada juego visible en el dropdown, en qué archivo específico vive
+// (ruta + sha), para poder leerlo/guardarlo en el lugar correcto.
+let archivosJuegos = [];       // [{ path, sha, contenido }, ...] — uno por temporada
+let origenPorJuegoId = {};     // { juegoId: indice dentro de archivosJuegos }
 let categoriaActual = '';
 
 function token() { return localStorage.getItem('lmbc_gh_token') || ''; }
@@ -180,14 +186,16 @@ async function ghGuardar(path, sha, objeto, mensaje) {
 }
 
 async function cargarBase() {
-  const [eqRes, rosRes, catRes] = await Promise.all([
+  const [eqRes, rosRes, catRes, tempRes] = await Promise.all([
     fetch('../data/equipos.json').then(r => r.json()),
     fetch('../data/roster.json').then(r => r.json()),
     fetch('../data/categorias.json').then(r => r.json()),
+    fetch('../data/temporadas.json').then(r => r.json()),
   ]);
   EQUIPOS = eqRes.equipos ?? [];
   JUGADORES = rosRes.jugadores ?? [];
   CATEGORIAS = Array.isArray(catRes) ? catRes : [];
+  TEMPORADAS = tempRes.temporadas ?? [];
 
   const selCat = document.getElementById('sel-cat');
   selCat.innerHTML = '<option value="">Elige categoría…</option>' +
@@ -206,13 +214,32 @@ async function cargarJuegosDeCategoria() {
 
   if (!categoriaActual) { selJuego.innerHTML = '<option value="">Elige categoría primero…</option>'; return; }
   if (!token()) { selJuego.innerHTML = '<option value="">Pega tu token de GitHub arriba primero</option>'; return; }
+  if (TEMPORADAS.length === 0) { selJuego.innerHTML = '<option value="">No se pudieron cargar las temporadas</option>'; return; }
 
   try {
-    juegosCatActual = await ghFetch(`data/juegos_${categoriaActual}.json`);
-    const juegos = juegosCatActual.contenido.juegos ?? [];
-    const nombreEquipo = (id) => EQUIPOS.find(e => e.id === id)?.nombre ?? id;
+    // Un archivo por temporada para esta categoría. Si una combinación
+    // todavía no tiene archivo (temporada nueva sin juegos capturados),
+    // ghFetch truena para ESA sola — se ignora y se sigue con las demás.
+    const resultados = await Promise.all(
+      TEMPORADAS.map(t =>
+        ghFetch(`data/juegos_${categoriaActual}/${t.id}.json`).catch(() => null)
+      )
+    );
+    archivosJuegos = resultados
+      .map((r, i) => r ? { path: `data/juegos_${categoriaActual}/${TEMPORADAS[i].id}.json`, sha: r.sha, contenido: r.contenido } : null)
+      .filter(Boolean);
 
-    const ordenados = [...juegos].sort((a, b) => b.fecha.localeCompare(a.fecha));
+    origenPorJuegoId = {};
+    const todosLosJuegos = [];
+    archivosJuegos.forEach((archivo, idx) => {
+      (archivo.contenido.juegos ?? []).forEach(j => {
+        origenPorJuegoId[j.id] = idx;
+        todosLosJuegos.push(j);
+      });
+    });
+
+    const nombreEquipo = (id) => EQUIPOS.find(e => e.id === id)?.nombre ?? id;
+    const ordenados = [...todosLosJuegos].sort((a, b) => b.fecha.localeCompare(a.fecha));
     if (ordenados.length === 0) {
       selJuego.innerHTML = '<option value="">No hay juegos en esta categoría</option>';
       return;
@@ -243,9 +270,9 @@ let juegoElegido = null;
 function mostrarJuegoElegido() {
   const juegoId = document.getElementById('sel-juego').value;
   ocultarTodo();
-  if (!juegoId || !juegosCatActual) return;
+  if (!juegoId || archivosJuegos.length === 0) return;
 
-  juegoElegido = juegosCatActual.contenido.juegos.find(j => j.id === juegoId);
+  juegoElegido = archivosJuegos[origenPorJuegoId[juegoId]]?.contenido.juegos.find(j => j.id === juegoId);
   if (!juegoElegido) return;
 
   const nombreLocal = EQUIPOS.find(e => e.id === juegoElegido.local)?.nombre ?? juegoElegido.local;
@@ -332,7 +359,7 @@ function armarLista(lado) {
 
 async function guardar() {
   const juegoId = document.getElementById('sel-juego').value;
-  if (!juegoId || !juegosCatActual) return;
+  if (!juegoId || archivosJuegos.length === 0) return;
 
   const btn = document.getElementById('btn-guardar');
   btn.disabled = true;
@@ -340,7 +367,13 @@ async function guardar() {
   ocultarMsg();
 
   try {
-    const fresco = await ghFetch(`data/juegos_${categoriaActual}.json`);
+    // El juego vive en UN archivo específico (categoría + su propia
+    // temporada) — lo volvemos a leer fresco (sha actualizado) para no
+    // pisar cambios de alguien más, y guardamos solo ESE archivo, no todos.
+    const path = archivosJuegos[origenPorJuegoId[juegoId]]?.path;
+    if (!path) throw new Error('No se encontró el archivo de origen de este juego.');
+
+    const fresco = await ghFetch(path);
     const juego = fresco.contenido.juegos.find(j => j.id === juegoId);
     if (!juego) throw new Error('El juego ya no existe en el archivo (¿lo borraron?)');
 
@@ -359,14 +392,14 @@ async function guardar() {
     }
 
     await ghGuardar(
-      `data/juegos_${categoriaActual}.json`,
+      path,
       fresco.sha,
       fresco.contenido,
       `Captura: ${juego.local} vs ${juego.visita} (${juego.fecha}) — vía Captura Rápida`
     );
 
     mostrarMsg('¡Guardado! Se publicará en el sitio en 1-2 minutos.', false);
-    juegosCatActual = fresco;
+    archivosJuegos[origenPorJuegoId[juegoId]] = { path, sha: fresco.sha, contenido: fresco.contenido };
   } catch (err) {
     mostrarMsg('Error al guardar: ' + err.message, true);
   } finally {
