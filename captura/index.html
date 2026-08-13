@@ -25,7 +25,7 @@
   .cap-aviso-forfeit{ display:none; background:#fff6e0; border-radius:var(--radius-sm); padding:12px 16px; font-size:13px; margin-bottom:16px; }
   .cap-aviso-forfeit.visible{ display:block; }
   .cap-cols{ display:grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .cap-cols.oculto{ display:none; }
+  .cap-cols.oculto, #cap-mvp.oculto{ display:none; }
   @media (max-width:700px){ .cap-cols{ grid-template-columns: 1fr; } }
   .cap-col h3{ font-size:20px; color:var(--navy); margin-bottom:10px; }
   .cap-fila{
@@ -124,6 +124,24 @@
       <div class="cap-col">
         <h3 id="titulo-visita">Visitante</h3>
         <div id="lista-visita"></div>
+      </div>
+    </div>
+
+    <div class="cap-marcador" id="cap-mvp">
+      <div class="cap-marcador-fila">
+        <div class="cap-marcador-campo" style="width:280px;">
+          <label>Jugador(a) Destacado(a) del partido (opcional)</label>
+          <select id="sel-mvp" style="width:100%;">
+            <option value="">Sin elegir</option>
+          </select>
+        </div>
+        <div class="cap-marcador-campo" style="flex:1; min-width:220px;">
+          <label>Detalle (opcional, ej. "17 puntos, 5 rebotes")</label>
+          <input type="text" id="in-mvp-detalle" style="width:100%;">
+        </div>
+      </div>
+      <div class="hint" style="margin-top:8px; font-size:11px; color:var(--text-dim);">
+        La lista se llena con los jugadores marcados como "asistió" en ambos equipos. Si no ves a alguien, primero márcalo con el check de arriba.
       </div>
     </div>
 
@@ -285,19 +303,45 @@ function mostrarJuegoElegido() {
   document.getElementById('sel-estatus').value = juegoElegido.estatus ?? 'programado';
   document.getElementById('sel-forfeit').value = juegoElegido.forfeit ?? 'ninguno';
   document.getElementById('cap-marcador').classList.add('visible');
+  document.getElementById('cap-mvp').classList.add('visible');
 
   const existentesLocal = Object.fromEntries((juegoElegido.estadisticas_local ?? []).map(e => [e.jugador, e]));
   const existentesVisita = Object.fromEntries((juegoElegido.estadisticas_visita ?? []).map(e => [e.jugador, e]));
   pintarRoster('local', juegoElegido.local, existentesLocal);
   pintarRoster('visita', juegoElegido.visita, existentesVisita);
 
+  actualizarOpcionesMVP(juegoElegido.mvp_jugador ?? '');
+  document.getElementById('in-mvp-detalle').value = juegoElegido.mvp_nombre ?? '';
+
   actualizarVisibilidadRoster();
   document.getElementById('btn-guardar').disabled = false;
+}
+
+// Junta a todos los jugadores marcados como "asistió" en ambas columnas
+// (local + visita) y llena el selector de MVP con ellos. Se vuelve a llamar
+// cada vez que alguien marca/desmarca un checkbox de asistencia.
+function actualizarOpcionesMVP(preseleccionar) {
+  const sel = document.getElementById('sel-mvp');
+  const valorPrevio = preseleccionar !== undefined ? preseleccionar : sel.value;
+
+  const filasActivas = document.querySelectorAll('#cap-cols .cap-fila.activo');
+  const jugadores = [...filasActivas].map(fila => ({
+    id: fila.dataset.jugador,
+    nombre: fila.querySelector('span').textContent,
+  }));
+
+  sel.innerHTML = '<option value="">Sin elegir</option>' +
+    jugadores.map(j => `<option value="${j.id}">${j.nombre}</option>`).join('');
+
+  if (jugadores.some(j => j.id === valorPrevio)) {
+    sel.value = valorPrevio;
+  }
 }
 
 function actualizarVisibilidadRoster() {
   const esForfeit = document.getElementById('sel-forfeit').value !== 'ninguno';
   document.getElementById('cap-cols').classList.toggle('oculto', esForfeit);
+  document.getElementById('cap-mvp').classList.toggle('oculto', esForfeit);
   document.getElementById('aviso-forfeit').classList.toggle('visible', esForfeit);
 }
 
@@ -337,6 +381,7 @@ function pintarRoster(lado, equipoId, existentes) {
   cont.querySelectorAll('.chk-jugo').forEach(chk => {
     chk.addEventListener('change', (e) => {
       e.target.closest('.cap-fila').classList.toggle('activo', e.target.checked);
+      actualizarOpcionesMVP();
     });
   });
 }
@@ -390,6 +435,9 @@ async function guardar() {
       juego.estadisticas_local = armarLista('local');
       juego.estadisticas_visita = armarLista('visita');
     }
+
+    juego.mvp_jugador = document.getElementById('sel-mvp').value || '';
+    juego.mvp_nombre = document.getElementById('in-mvp-detalle').value.trim();
 
     await ghGuardar(
       path,
