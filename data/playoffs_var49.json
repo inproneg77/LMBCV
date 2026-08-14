@@ -30,7 +30,13 @@
       "ronda": "Semifinal",
       "equipoA": "SMV40",
       "equipoB": "OSV40",
-      "juegos": []
+      "juegos": [
+        {
+          "jugado": "false",
+          "numero": 1,
+          "fecha": "2026-08-16"
+        }
+      ]
     }
   ]
 }
