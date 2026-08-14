@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /captura/
+Disallow: /nuevo-jugador/
+
+Sitemap: https://caborcavets.online/sitemap.xml

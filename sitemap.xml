@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://caborcavets.online/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://caborcavets.online/standing/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caborcavets.online/equipos/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://caborcavets.online/dashboard/</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caborcavets.online/rankings/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://caborcavets.online/comparar/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://caborcavets.online/playoffs/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://caborcavets.online/lideres/</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://caborcavets.online/noticias/</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+</urlset>
