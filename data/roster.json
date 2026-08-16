@@ -2835,6 +2835,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "GRAZO",
+      "nombre": "Gustavo Razo",
+      "numero": "0",
+      "membresias": [
+        {
+          "categoria_id": "var49",
+          "equipo_id": "SMV40",
+          "temporada": "2026-1"
+        }
+      ]
     }
   ]
 }
