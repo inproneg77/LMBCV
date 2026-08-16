@@ -1781,6 +1781,20 @@
           "puntos": 0,
           "triples": 0,
           "faltas": 0
+        },
+        {
+          "jugador": "KANGELES",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "JFRIAS2",
+          "asistio": "true",
+          "puntos": 16,
+          "triples": 1,
+          "faltas": 0
         }
       ],
       "mvp_jugador": "",
