@@ -237,57 +237,9 @@
       "fecha": "2026-08-09"
     },
     {
+      "mvp_nombre": "42 Puntos, 12 triples",
       "temporada": "2026-1",
       "sede_id": "gimnasio",
-      "destacado": "false",
-      "local": "SMV40",
-      "fase": "playoffs",
-      "vuelta": 1,
-      "forfeit": "ninguno",
-      "visita": "OSV40",
-      "hora": "11:00",
-      "estatus": "jugado",
-      "id": "V4901",
-      "fecha": "2026-08-16",
-      "marcador_local": 92,
-      "marcador_visita": 54,
-      "estadisticas_local": [
-        {
-          "jugador": "WEROSOTO",
-          "asistio": "true",
-          "puntos": 5,
-          "triples": 0,
-          "faltas": 0
-        },
-        {
-          "jugador": "GERA5",
-          "asistio": "true",
-          "puntos": 42,
-          "triples": 12,
-          "faltas": 0
-        },
-        {
-          "jugador": "DRIVERA",
-          "asistio": "true",
-          "puntos": 20,
-          "triples": 0,
-          "faltas": 1
-        },
-        {
-          "jugador": "GRAZO",
-          "asistio": "true",
-          "puntos": 0,
-          "triples": 0,
-          "faltas": 0
-        },
-        {
-          "jugador": "GORTIZ",
-          "asistio": "true",
-          "puntos": 25,
-          "triples": 3,
-          "faltas": 1
-        }
-      ],
       "estadisticas_visita": [
         {
           "jugador": "GPALA",
@@ -332,13 +284,65 @@
           "faltas": 0
         }
       ],
+      "destacado": "false",
+      "marcador_visita": 54,
       "mvp_jugador": "GERA5",
-      "mvp_nombre": "42 Puntos, 12 triples"
+      "local": "SMV40",
+      "fase": "playoffs",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "OSV40",
+      "hora": "11:00",
+      "estatus": "jugado",
+      "marcador_local": 92,
+      "estadisticas_local": [
+        {
+          "jugador": "WEROSOTO",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "GERA5",
+          "asistio": "true",
+          "puntos": 42,
+          "triples": 12,
+          "faltas": 0
+        },
+        {
+          "jugador": "DRIVERA",
+          "asistio": "true",
+          "puntos": 20,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "GRAZO",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "GORTIZ",
+          "asistio": "true",
+          "puntos": 25,
+          "triples": 3,
+          "faltas": 1
+        }
+      ],
+      "id": "V4901",
+      "fecha": "2026-08-16"
     },
     {
+      "mvp_nombre": "",
       "temporada": "2026-1",
       "sede_id": "gimnasio",
+      "estadisticas_visita": [],
       "destacado": "false",
+      "marcador_visita": 29,
+      "mvp_jugador": "CAINBELTRAN",
       "local": "MADERASV40",
       "fase": "amistoso",
       "vuelta": 1,
@@ -346,14 +350,10 @@
       "visita": "FEDE49",
       "hora": "12:00",
       "estatus": "jugado",
-      "id": "V4902",
-      "fecha": "2026-08-16",
       "marcador_local": 61,
-      "marcador_visita": 29,
       "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
-      "mvp_nombre": ""
+      "id": "V4902",
+      "fecha": "2026-08-16"
     }
   ]
 }
