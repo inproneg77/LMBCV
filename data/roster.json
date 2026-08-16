@@ -2799,6 +2799,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "JFRIAS2",
+      "nombre": "JOAQUIN FRIAS",
+      "numero": "13",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CONEXIONV40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
