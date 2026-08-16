@@ -2811,6 +2811,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "GDURAN",
+      "nombre": "GONZALO DURAN",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CONEXIONV40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
