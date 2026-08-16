@@ -2775,6 +2775,18 @@
           "temporada": "2026-1"
         }
       ]
+    },
+    {
+      "id": "KANGELES",
+      "nombre": "KRISTIAN ANGELES",
+      "numero": "42",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CONEXIONV40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
