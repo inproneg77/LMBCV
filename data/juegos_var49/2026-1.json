@@ -251,10 +251,89 @@
       "fecha": "2026-08-16",
       "marcador_local": 92,
       "marcador_visita": 54,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
-      "mvp_nombre": ""
+      "estadisticas_local": [
+        {
+          "jugador": "WEROSOTO",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "GERA5",
+          "asistio": "true",
+          "puntos": 42,
+          "triples": 12,
+          "faltas": 0
+        },
+        {
+          "jugador": "DRIVERA",
+          "asistio": "true",
+          "puntos": 20,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "GRAZO",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "GORTIZ",
+          "asistio": "true",
+          "puntos": 25,
+          "triples": 3,
+          "faltas": 1
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "GPALA",
+          "asistio": "true",
+          "puntos": 18,
+          "triples": 4,
+          "faltas": 0
+        },
+        {
+          "jugador": "CARLOSPEREZ",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "HORAIOVARELA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "GABINORUIZ",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ODOACRO",
+          "asistio": "true",
+          "puntos": 17,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "LCELAYA",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "GERA5",
+      "mvp_nombre": "42 Puntos, 12 triples"
     },
     {
       "temporada": "2026-1",
