@@ -1742,7 +1742,49 @@
       "hora": "18:00",
       "estatus": "programado",
       "id": "jv18",
-      "fecha": "2026-08-15"
+      "fecha": "2026-08-15",
+      "marcador_local": 0,
+      "marcador_visita": 0,
+      "estadisticas_local": [],
+      "estadisticas_visita": [
+        {
+          "jugador": "RMONTES",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "GERMANVALENZUELA",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 2,
+          "faltas": 2
+        },
+        {
+          "jugador": "GABINORUIZ",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "GARCES",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "FABIANBARRERA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
     },
     {
       "temporada": "2026-2",
