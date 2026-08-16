@@ -1740,12 +1740,62 @@
       "forfeit": "ninguno",
       "visita": "CONEXIONV40",
       "hora": "18:00",
-      "estatus": "programado",
+      "estatus": "jugado",
       "id": "jv18",
       "fecha": "2026-08-15",
-      "marcador_local": 0,
-      "marcador_visita": 0,
-      "estadisticas_local": [],
+      "marcador_local": 57,
+      "marcador_visita": 36,
+      "estadisticas_local": [
+        {
+          "jugador": "JK77",
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "MEMOSAL",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ANDGUZ",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ISAAOLA",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "NEGROURQ",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 0
+        },
+        {
+          "jugador": "LALOCEL",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 3,
+          "faltas": 0
+        },
+        {
+          "jugador": "POLLOALEJ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        }
+      ],
       "estadisticas_visita": [
         {
           "jugador": "RMONTES",
@@ -1778,8 +1828,8 @@
         {
           "jugador": "FABIANBARRERA",
           "asistio": "true",
-          "puntos": 0,
-          "triples": 0,
+          "puntos": 3,
+          "triples": 1,
           "faltas": 0
         },
         {
@@ -1790,14 +1840,28 @@
           "faltas": 2
         },
         {
+          "jugador": "IRODRIGUEZ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
           "jugador": "JFRIAS2",
           "asistio": "true",
           "puntos": 16,
           "triples": 1,
           "faltas": 0
+        },
+        {
+          "jugador": "GDURAN",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
         }
       ],
-      "mvp_jugador": "",
+      "mvp_jugador": "NEGROURQ",
       "mvp_nombre": ""
     },
     {
