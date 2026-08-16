@@ -1712,9 +1712,15 @@
       "forfeit": "ninguno",
       "visita": "ALTOV40",
       "hora": "16:00",
-      "estatus": "programado",
+      "estatus": "jugado",
       "id": "jv16",
-      "fecha": "2026-08-15"
+      "fecha": "2026-08-15",
+      "marcador_local": 50,
+      "marcador_visita": 42,
+      "estadisticas_local": [],
+      "estadisticas_visita": [],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
     },
     {
       "temporada": "2026-2",
