@@ -2126,9 +2126,109 @@
       "fecha": "2026-08-15",
       "marcador_local": 51,
       "marcador_visita": 43,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
+      "estadisticas_local": [
+        {
+          "jugador": "GPALA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "DMAZ",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "DNEB",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "ANARAIZA",
+          "asistio": "true",
+          "puntos": 18,
+          "triples": 3,
+          "faltas": 0
+        },
+        {
+          "jugador": "CYESK",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ELIASTRUJ",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 1
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "GORTEGA",
+          "asistio": "true",
+          "puntos": 1,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "AMENDO",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "SANTQUIN",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "PEMEND",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 3,
+          "faltas": 1
+        },
+        {
+          "jugador": "ELPONCE",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "TADMART",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "BOBPER",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "VICFRAN",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "ANARAIZA",
       "mvp_nombre": ""
     },
     {
