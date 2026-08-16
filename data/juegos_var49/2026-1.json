@@ -266,9 +266,15 @@
       "forfeit": "ninguno",
       "visita": "FEDE49",
       "hora": "12:00",
-      "estatus": "programado",
+      "estatus": "jugado",
       "id": "V4902",
-      "fecha": "2026-08-16"
+      "fecha": "2026-08-16",
+      "marcador_local": 61,
+      "marcador_visita": 29,
+      "estadisticas_local": [],
+      "estadisticas_visita": [],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
     }
   ]
 }
