@@ -1717,9 +1717,151 @@
       "fecha": "2026-08-15",
       "marcador_local": 50,
       "marcador_visita": 42,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
+      "estadisticas_local": [
+        {
+          "jugador": "RLOPEZ4",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 3,
+          "faltas": 0
+        },
+        {
+          "jugador": "MARIONB",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ALDUKA",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "IVANMEND",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "PATOSO",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "MEDEH",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 2,
+          "faltas": 1
+        },
+        {
+          "jugador": "BARRYMEN",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CHUCOGA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "javlopez",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "CFOX",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "MAROVAR",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "AAROBLES",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "SOCRATES",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "PACHJES",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "JORGETAPIA",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JUANDUARTE",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "MARIOFIERRO",
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 5,
+          "faltas": 1
+        },
+        {
+          "jugador": "ADAVALOS",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ARIVERA2",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "ACORONADO",
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 4,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "MEDEH",
       "mvp_nombre": ""
     },
     {
