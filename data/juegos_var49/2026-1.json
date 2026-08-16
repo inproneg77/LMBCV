@@ -246,9 +246,15 @@
       "forfeit": "ninguno",
       "visita": "OSV40",
       "hora": "11:00",
-      "estatus": "programado",
+      "estatus": "jugado",
       "id": "V4901",
-      "fecha": "2026-08-16"
+      "fecha": "2026-08-16",
+      "marcador_local": 92,
+      "marcador_visita": 54,
+      "estadisticas_local": [],
+      "estadisticas_visita": [],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
     },
     {
       "temporada": "2026-1",
