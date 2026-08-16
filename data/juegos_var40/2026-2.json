@@ -1906,9 +1906,15 @@
       "forfeit": "ninguno",
       "visita": "mineros4",
       "hora": "17:00",
-      "estatus": "programado",
+      "estatus": "jugado",
       "id": "JV201",
-      "fecha": "2026-08-15"
+      "fecha": "2026-08-15",
+      "marcador_local": 48,
+      "marcador_visita": 26,
+      "estadisticas_local": [],
+      "estadisticas_visita": [],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
     }
   ]
 }
