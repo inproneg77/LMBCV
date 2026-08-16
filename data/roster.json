@@ -1230,6 +1230,11 @@
           "categoria_id": "var40",
           "equipo_id": "OSV40",
           "temporada": "2026-2"
+        },
+        {
+          "categoria_id": "var49",
+          "equipo_id": "OSV40",
+          "temporada": "2026-1"
         }
       ]
     },
