@@ -45,6 +45,19 @@
           "marcador_a": ""
         }
       ]
+    },
+    {
+      "id": "Final20261-1",
+      "temporada": "2026-1",
+      "ronda": "Final",
+      "equipoA": "VIKINGOSV40",
+      "equipoB": "SMV40",
+      "juegos": [
+        {
+          "jugado": "false",
+          "numero": 1
+        }
+      ]
     }
   ]
 }
