@@ -1734,7 +1734,13 @@
       "hora": "17:00",
       "estatus": "programado",
       "id": "jv17",
-      "fecha": "2026-08-15"
+      "fecha": "2026-08-15",
+      "marcador_local": 72,
+      "marcador_visita": 46,
+      "estadisticas_local": [],
+      "estadisticas_visita": [],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
     },
     {
       "temporada": "2026-2",
