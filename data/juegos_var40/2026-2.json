@@ -1703,85 +1703,9 @@
       "fecha": "2026-08-08"
     },
     {
+      "mvp_nombre": "",
       "temporada": "2026-2",
       "sede_id": "gimnasio",
-      "destacado": "false",
-      "local": "NARANJOV40",
-      "fase": "regular",
-      "vuelta": 1,
-      "forfeit": "ninguno",
-      "visita": "ALTOV40",
-      "hora": "16:00",
-      "estatus": "jugado",
-      "id": "jv16",
-      "fecha": "2026-08-15",
-      "marcador_local": 50,
-      "marcador_visita": 42,
-      "estadisticas_local": [
-        {
-          "jugador": "RLOPEZ4",
-          "asistio": "true",
-          "puntos": 9,
-          "triples": 3,
-          "faltas": 0
-        },
-        {
-          "jugador": "MARIONB",
-          "asistio": "true",
-          "puntos": 2,
-          "triples": 0,
-          "faltas": 0
-        },
-        {
-          "jugador": "ALDUKA",
-          "asistio": "true",
-          "puntos": 6,
-          "triples": 0,
-          "faltas": 2
-        },
-        {
-          "jugador": "IVANMEND",
-          "asistio": "true",
-          "puntos": 9,
-          "triples": 1,
-          "faltas": 1
-        },
-        {
-          "jugador": "PATOSO",
-          "asistio": "true",
-          "puntos": 4,
-          "triples": 0,
-          "faltas": 0
-        },
-        {
-          "jugador": "MEDEH",
-          "asistio": "true",
-          "puntos": 12,
-          "triples": 2,
-          "faltas": 1
-        },
-        {
-          "jugador": "BARRYMEN",
-          "asistio": "true",
-          "puntos": 2,
-          "triples": 0,
-          "faltas": 0
-        },
-        {
-          "jugador": "CHUCOGA",
-          "asistio": "true",
-          "puntos": 0,
-          "triples": 0,
-          "faltas": 1
-        },
-        {
-          "jugador": "javlopez",
-          "asistio": "true",
-          "puntos": 8,
-          "triples": 2,
-          "faltas": 0
-        }
-      ],
       "estadisticas_visita": [
         {
           "jugador": "CFOX",
@@ -1861,13 +1785,129 @@
           "faltas": 0
         }
       ],
+      "destacado": "false",
+      "marcador_visita": 42,
       "mvp_jugador": "MEDEH",
-      "mvp_nombre": ""
+      "local": "NARANJOV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "ALTOV40",
+      "hora": "16:00",
+      "estatus": "jugado",
+      "marcador_local": 50,
+      "estadisticas_local": [
+        {
+          "jugador": "RLOPEZ4",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 3,
+          "faltas": 0
+        },
+        {
+          "jugador": "MARIONB",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ALDUKA",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "IVANMEND",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "PATOSO",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "MEDEH",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 2,
+          "faltas": 1
+        },
+        {
+          "jugador": "BARRYMEN",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CHUCOGA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "javlopez",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 0
+        }
+      ],
+      "id": "jv16",
+      "fecha": "2026-08-15"
     },
     {
+      "mvp_nombre": "",
       "temporada": "2026-2",
       "sede_id": "gimnasio",
+      "estadisticas_visita": [
+        {
+          "jugador": "CHABELOH",
+          "asistio": "true",
+          "puntos": 18,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "ABDELCO",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "ALEXVEGA",
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "JSAL",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "DANIELCONTRERAS",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1
+        }
+      ],
       "destacado": "false",
+      "marcador_visita": 46,
+      "mvp_jugador": "GERA5",
       "local": "SMV40",
       "fase": "regular",
       "vuelta": 1,
@@ -1875,10 +1915,7 @@
       "visita": "VIKINGOSV40",
       "hora": "17:00",
       "estatus": "jugado",
-      "id": "jv17",
-      "fecha": "2026-08-15",
       "marcador_local": 72,
-      "marcador_visita": 46,
       "estadisticas_local": [
         {
           "jugador": "WEROSOTO",
@@ -1937,112 +1974,13 @@
           "faltas": 0
         }
       ],
-      "estadisticas_visita": [
-        {
-          "jugador": "CHABELOH",
-          "asistio": "true",
-          "puntos": 18,
-          "triples": 0,
-          "faltas": 1
-        },
-        {
-          "jugador": "ABDELCO",
-          "asistio": "true",
-          "puntos": 3,
-          "triples": 1,
-          "faltas": 0
-        },
-        {
-          "jugador": "ALEXVEGA",
-          "asistio": "true",
-          "puntos": 13,
-          "triples": 1,
-          "faltas": 0
-        },
-        {
-          "jugador": "JSAL",
-          "asistio": "true",
-          "puntos": 6,
-          "triples": 0,
-          "faltas": 1
-        },
-        {
-          "jugador": "DANIELCONTRERAS",
-          "asistio": "true",
-          "puntos": 6,
-          "triples": 0,
-          "faltas": 1
-        }
-      ],
-      "mvp_jugador": "GERA5",
-      "mvp_nombre": ""
+      "id": "jv17",
+      "fecha": "2026-08-15"
     },
     {
+      "mvp_nombre": "",
       "temporada": "2026-2",
       "sede_id": "gimnasio",
-      "destacado": "false",
-      "local": "CFEV40",
-      "fase": "regular",
-      "vuelta": 1,
-      "forfeit": "ninguno",
-      "visita": "CONEXIONV40",
-      "hora": "18:00",
-      "estatus": "jugado",
-      "id": "jv18",
-      "fecha": "2026-08-15",
-      "marcador_local": 57,
-      "marcador_visita": 36,
-      "estadisticas_local": [
-        {
-          "jugador": "JK77",
-          "asistio": "true",
-          "puntos": 13,
-          "triples": 1,
-          "faltas": 0
-        },
-        {
-          "jugador": "MEMOSAL",
-          "asistio": "true",
-          "puntos": 2,
-          "triples": 0,
-          "faltas": 0
-        },
-        {
-          "jugador": "ANDGUZ",
-          "asistio": "true",
-          "puntos": 11,
-          "triples": 0,
-          "faltas": 0
-        },
-        {
-          "jugador": "ISAAOLA",
-          "asistio": "true",
-          "puntos": 12,
-          "triples": 0,
-          "faltas": 2
-        },
-        {
-          "jugador": "NEGROURQ",
-          "asistio": "true",
-          "puntos": 8,
-          "triples": 2,
-          "faltas": 0
-        },
-        {
-          "jugador": "LALOCEL",
-          "asistio": "true",
-          "puntos": 11,
-          "triples": 3,
-          "faltas": 0
-        },
-        {
-          "jugador": "POLLOALEJ",
-          "asistio": "true",
-          "puntos": 0,
-          "triples": 0,
-          "faltas": 2
-        }
-      ],
       "estadisticas_visita": [
         {
           "jugador": "RMONTES",
@@ -2108,68 +2046,75 @@
           "faltas": 1
         }
       ],
-      "mvp_jugador": "NEGROURQ",
-      "mvp_nombre": ""
-    },
-    {
-      "temporada": "2026-2",
-      "sede_id": "duela",
       "destacado": "false",
-      "local": "OSV40",
+      "marcador_visita": 36,
+      "mvp_jugador": "NEGROURQ",
+      "local": "CFEV40",
       "fase": "regular",
       "vuelta": 1,
       "forfeit": "ninguno",
-      "visita": "MADERASV40",
-      "hora": "16:00",
+      "visita": "CONEXIONV40",
+      "hora": "18:00",
       "estatus": "jugado",
-      "id": "JV20",
-      "fecha": "2026-08-15",
-      "marcador_local": 51,
-      "marcador_visita": 43,
+      "marcador_local": 57,
       "estadisticas_local": [
         {
-          "jugador": "GPALA",
+          "jugador": "JK77",
           "asistio": "true",
-          "puntos": 0,
+          "puntos": 13,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "MEMOSAL",
+          "asistio": "true",
+          "puntos": 2,
           "triples": 0,
           "faltas": 0
         },
         {
-          "jugador": "DMAZ",
+          "jugador": "ANDGUZ",
           "asistio": "true",
-          "puntos": 10,
+          "puntos": 11,
           "triples": 0,
-          "faltas": 1
+          "faltas": 0
         },
         {
-          "jugador": "DNEB",
+          "jugador": "ISAAOLA",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "NEGROURQ",
           "asistio": "true",
           "puntos": 8,
-          "triples": 0,
-          "faltas": 4
+          "triples": 2,
+          "faltas": 0
         },
         {
-          "jugador": "ANARAIZA",
+          "jugador": "LALOCEL",
           "asistio": "true",
-          "puntos": 18,
+          "puntos": 11,
           "triples": 3,
           "faltas": 0
         },
         {
-          "jugador": "CYESK",
+          "jugador": "POLLOALEJ",
           "asistio": "true",
-          "puntos": 5,
+          "puntos": 0,
           "triples": 0,
-          "faltas": 0
-        },
-        {
-          "jugador": "ELIASTRUJ",
-          "asistio": "true",
-          "puntos": 10,
-          "triples": 0,
-          "faltas": 1
+          "faltas": 2
         }
       ],
+      "id": "jv18",
+      "fecha": "2026-08-15"
+    },
+    {
+      "mvp_nombre": "",
+      "temporada": "2026-2",
+      "sede_id": "duela",
       "estadisticas_visita": [
         {
           "jugador": "GORTEGA",
@@ -2228,89 +2173,68 @@
           "faltas": 0
         }
       ],
-      "mvp_jugador": "ANARAIZA",
-      "mvp_nombre": ""
-    },
-    {
-      "temporada": "2026-2",
-      "sede_id": "duela",
       "destacado": "false",
-      "local": "BURROSV40",
+      "marcador_visita": 43,
+      "mvp_jugador": "ANARAIZA",
+      "local": "OSV40",
       "fase": "regular",
       "vuelta": 1,
       "forfeit": "ninguno",
-      "visita": "mineros4",
-      "hora": "17:00",
+      "visita": "MADERASV40",
+      "hora": "16:00",
       "estatus": "jugado",
-      "id": "JV201",
-      "fecha": "2026-08-15",
-      "marcador_local": 48,
-      "marcador_visita": 26,
+      "marcador_local": 51,
       "estadisticas_local": [
         {
-          "jugador": "JDIAZ",
-          "asistio": "true",
-          "puntos": 5,
-          "triples": 0,
-          "faltas": 1
-        },
-        {
-          "jugador": "LPENUE",
-          "asistio": "true",
-          "puntos": 5,
-          "triples": 1,
-          "faltas": 1
-        },
-        {
-          "jugador": "SCHAVA",
-          "asistio": "true",
-          "puntos": 2,
-          "triples": 0,
-          "faltas": 1
-        },
-        {
-          "jugador": "CABALLOOZ",
-          "asistio": "true",
-          "puntos": 3,
-          "triples": 0,
-          "faltas": 0
-        },
-        {
-          "jugador": "CNUN",
-          "asistio": "true",
-          "puntos": 11,
-          "triples": 1,
-          "faltas": 0
-        },
-        {
-          "jugador": "APENUE",
-          "asistio": "true",
-          "puntos": 5,
-          "triples": 1,
-          "faltas": 0
-        },
-        {
-          "jugador": "PROFEALON",
+          "jugador": "GPALA",
           "asistio": "true",
           "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "DMAZ",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "DNEB",
+          "asistio": "true",
+          "puntos": 8,
           "triples": 0,
           "faltas": 4
         },
         {
-          "jugador": "Manchas",
+          "jugador": "ANARAIZA",
           "asistio": "true",
-          "puntos": 13,
+          "puntos": 18,
+          "triples": 3,
+          "faltas": 0
+        },
+        {
+          "jugador": "CYESK",
+          "asistio": "true",
+          "puntos": 5,
           "triples": 0,
           "faltas": 0
         },
         {
-          "jugador": "DIRVING",
+          "jugador": "ELIASTRUJ",
           "asistio": "true",
-          "puntos": 4,
+          "puntos": 10,
           "triples": 0,
-          "faltas": 0
+          "faltas": 1
         }
       ],
+      "id": "JV20",
+      "fecha": "2026-08-15"
+    },
+    {
+      "mvp_nombre": "",
+      "temporada": "2026-2",
+      "sede_id": "duela",
       "estadisticas_visita": [
         {
           "jugador": "CESDOMIN",
@@ -2390,8 +2314,154 @@
           "faltas": 0
         }
       ],
+      "destacado": "false",
+      "marcador_visita": 26,
       "mvp_jugador": "CNUN",
-      "mvp_nombre": ""
+      "local": "BURROSV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "mineros4",
+      "hora": "17:00",
+      "estatus": "jugado",
+      "marcador_local": 48,
+      "estadisticas_local": [
+        {
+          "jugador": "JDIAZ",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "LPENUE",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "SCHAVA",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "CABALLOOZ",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CNUN",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "APENUE",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "PROFEALON",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "Manchas",
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "DIRVING",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "id": "JV201",
+      "fecha": "2026-08-15"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "gimnasio",
+      "destacado": "false",
+      "local": "CFEV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "CUERVOSV40",
+      "hora": "4:00 PM",
+      "estatus": "programado",
+      "id": "J30V49",
+      "fecha": "2026-08-29"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "duela",
+      "destacado": "false",
+      "local": "VIKINGOSV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "MADERASV40",
+      "hora": "4:00 PM",
+      "estatus": "programado",
+      "id": "J31V39",
+      "fecha": "2026-08-29"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "gimnasio",
+      "destacado": "false",
+      "local": "NARANJOV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "BURROSV40",
+      "hora": "5:00 PM",
+      "estatus": "programado",
+      "id": "J32V39",
+      "fecha": "2026-08-29"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "gimnasio",
+      "destacado": "false",
+      "local": "SMV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "OSV40",
+      "hora": "6:00 PM",
+      "estatus": "programado",
+      "id": "J33V39",
+      "fecha": "2026-08-29"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "gimnasio",
+      "destacado": "false",
+      "local": "ALTAR2026",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "mineros4",
+      "hora": "7:00 PM",
+      "estatus": "programado",
+      "id": "J34V39",
+      "fecha": "2026-08-29"
     }
   ]
 }
