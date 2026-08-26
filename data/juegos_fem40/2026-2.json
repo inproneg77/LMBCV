@@ -1406,6 +1406,20 @@
       "estatus": "programado",
       "id": "J20F39",
       "fecha": "2026-08-29"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "duela",
+      "destacado": "false",
+      "local": "TEALONGF40",
+      "fase": "regular",
+      "vuelta": 2,
+      "forfeit": "ninguno",
+      "visita": "DIAMONDS40",
+      "hora": "6:00 PM",
+      "estatus": "programado",
+      "id": "Jf2539",
+      "fecha": "2026-08-29"
     }
   ]
 }
