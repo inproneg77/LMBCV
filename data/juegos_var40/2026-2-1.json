@@ -1,0 +1,89 @@
+{
+  "juegos": [
+    {
+      "temporada": "2026-2",
+      "sede_id": "gimnasio",
+      "destacado": "false",
+      "local": "ALTOV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "CONEXIONV40",
+      "hora": "3:00 PM",
+      "estatus": "programado",
+      "id": "JUEGO30",
+      "fecha": "2026-08-29"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "gimnasio",
+      "destacado": "false",
+      "local": "CUERVOSV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "CFEV40",
+      "hora": "4:00 PM",
+      "estatus": "programado",
+      "id": "JUEGO31",
+      "fecha": "2026-08-29"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "gimnasio",
+      "destacado": "false",
+      "local": "NARANJOV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "BURROSV40",
+      "hora": "5:00 PM",
+      "estatus": "programado",
+      "id": "JUEGO32",
+      "fecha": "2026-08-29"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "gimnasio",
+      "destacado": "false",
+      "local": "SMV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "OSV40",
+      "hora": "6:00 PM",
+      "estatus": "programado",
+      "id": "JUEGO33",
+      "fecha": "2026-08-29"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "gimnasio",
+      "destacado": "false",
+      "local": "ALTAR2026",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "mineros4",
+      "hora": "7:00 PM",
+      "estatus": "programado",
+      "id": "JUEGO34",
+      "fecha": "2026-08-29"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "duela",
+      "destacado": "false",
+      "local": "VIKINGOSV40",
+      "fase": "regular",
+      "vuelta": 1,
+      "forfeit": "ninguno",
+      "visita": "MADERASV40",
+      "hora": "4:00 PM",
+      "estatus": "programado",
+      "id": "JUEGO35V",
+      "fecha": "2026-08-29"
+    }
+  ],
+  "id_temporada": "2026-2"
+}
