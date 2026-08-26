@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LMBC — Agregar Juego</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .cap-wrap{ max-width: 720px; margin: 0 auto; padding: 30px 20px 60px; }
+  .cap-instrucciones{ background:var(--baby-soft); border-radius:var(--radius); padding:16px 20px; margin-bottom:20px; font-size:13px; line-height:1.6; }
+  .cap-token{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:20px; background:var(--white); border:1px solid var(--line); border-radius:var(--radius-sm); padding:14px 16px; }
+  .cap-token input{ flex:1; min-width:220px; padding:8px 12px; border-radius:8px; border:1px solid var(--line); font-family:monospace; font-size:12px; }
+  .cap-token .estado{ font-size:12px; font-weight:700; }
+  .cap-token .estado.ok{ color:var(--win); }
+  .cap-token .estado.falta{ color:var(--text-dim); }
+
+  .campo{ margin-bottom: 18px; }
+  .campo label{ display:block; font-size:12px; color:var(--text-dim); text-transform:uppercase; letter-spacing:.04em; margin-bottom:6px; font-weight:600; }
+  .campo input, .campo select{
+    width:100%; padding:10px 14px; border-radius:8px; border:1px solid var(--line);
+    font-size:15px; font-family:'Inter',sans-serif; background:var(--white);
+  }
+  .campo-fila{ display:flex; gap:14px; }
+  .campo-fila .campo{ flex:1; }
+  .campo .hint{ font-size:11px; color:var(--text-dim); margin-top:4px; text-transform:none; letter-spacing:0; font-weight:400; }
+  .campo-check{ display:flex; align-items:center; gap:8px; margin-bottom:18px; }
+  .campo-check input{ width:auto; }
+  .campo-check label{ margin:0; text-transform:none; font-size:14px; font-weight:400; color:var(--ink); letter-spacing:0; }
+
+  .aviso-duplicado{
+    display:none; background:#fff6e0; border:1px solid #e0c060; border-radius:var(--radius-sm);
+    padding:12px 16px; font-size:13px; margin-bottom:16px; line-height:1.5;
+  }
+  .aviso-duplicado.visible{ display:block; }
+
+  .cap-btn{
+    margin-top:10px; background:var(--navy); color:var(--white); border:none; border-radius:999px;
+    padding:14px 28px; font-weight:700; cursor:pointer; font-size:15px;
+  }
+  .cap-btn:disabled{ opacity:.5; cursor:not-allowed; }
+  .cap-msg{ margin-top:14px; font-size:13px; font-weight:600; padding:10px 14px; border-radius:var(--radius-sm); display:none; }
+  .cap-msg.ok{ display:block; background:#eaf5ea; color:var(--win); }
+  .cap-msg.error{ display:block; background:#fdeaea; color:#a33; }
+
+  .form-oculto{ display:none; }
+</style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="../index.html" class="brand">
+        <img src="../img/equipos/logovets.png" alt="LMBC" class="brand__mark">
+        <div>
+          <div class="brand__name">LMBC</div>
+          <div class="brand__sub">Agregar Juego</div>
+        </div>
+      </a>
+      <nav class="site-nav"><a href="../index.html">← Volver al sitio</a></nav>
+    </div>
+  </header>
+
+  <div class="cap-wrap">
+    <h1 class="display" style="font-size:32px;color:var(--navy);margin:24px 0 6px;">Agendar Juego Nuevo</h1>
+    <p style="color:var(--text-dim);font-size:14px;margin-bottom:16px;">
+      Para agregar un juego al rol — sin abrir el archivo completo de la temporada en /admin, sin que se ponga lento.
+      Ya programado, entra a /captura para capturarle el resultado cuando se juegue.
+    </p>
+
+    <div class="cap-instrucciones">
+      <b>Solo la primera vez:</b> pega tu token de GitHub — es el mismo que ya usas en Captura Rápida y Nuevo Jugador,
+      se comparte solo en este navegador.
+    </div>
+
+    <div class="cap-token">
+      <input type="password" id="token" placeholder="Pega aquí tu token de GitHub">
+      <span class="estado falta" id="token-estado">Falta el token</span>
+    </div>
+
+    <div id="form-juego" class="form-oculto">
+
+      <div class="campo-fila">
+        <div class="campo">
+          <label>Categoría</label>
+          <select id="sel-categoria"><option value="">Elige categoría…</option></select>
+        </div>
+        <div class="campo">
+          <label>Temporada</label>
+          <select id="sel-temporada"><option value="">Elige temporada…</option></select>
+        </div>
+      </div>
+
+      <div class="campo-fila">
+        <div class="campo">
+          <label>Equipo local</label>
+          <select id="sel-local"><option value="">Elige categoría primero…</option></select>
+        </div>
+        <div class="campo">
+          <label>Equipo visitante</label>
+          <select id="sel-visita"><option value="">Elige categoría primero…</option></select>
+        </div>
+      </div>
+
+      <div class="aviso-duplicado" id="aviso-duplicado"></div>
+
+      <div class="campo-fila">
+        <div class="campo">
+          <label>Fecha</label>
+          <input type="date" id="in-fecha">
+        </div>
+        <div class="campo">
+          <label>Hora</label>
+          <input type="text" id="in-hora" placeholder="Ej. 4:00 PM">
+          <div class="hint">Como ya la escribes en el sitio — con AM/PM.</div>
+        </div>
+      </div>
+
+      <div class="campo-fila">
+        <div class="campo">
+          <label>Sede</label>
+          <select id="sel-sede"><option value="">Elige sede…</option></select>
+        </div>
+        <div class="campo">
+          <label>Fase</label>
+          <select id="sel-fase">
+            <option value="regular">Regular</option>
+            <option value="playoffs">Playoffs</option>
+            <option value="final">Final</option>
+            <option value="amistoso">Amistoso</option>
+          </select>
+        </div>
+        <div class="campo" style="max-width:100px;">
+          <label>Vuelta</label>
+          <input type="number" id="in-vuelta" value="1" min="1">
+        </div>
+      </div>
+
+      <div class="campo-check">
+        <input type="checkbox" id="chk-destacado">
+        <label for="chk-destacado">Marcar como juego destacado (aparece resaltado en Calendario)</label>
+      </div>
+
+      <button class="cap-btn" id="btn-guardar" disabled>Guardar en GitHub</button>
+      <div class="cap-msg" id="msg"></div>
+    </div>
+  </div>
+
+<script>
+const OWNER = 'inproneg77';
+const REPO = 'LMBCV';
+const BRANCH = 'main';
+
+let EQUIPOS = [], CATEGORIAS = [], TEMPORADAS = [], SEDES = [];
+let TODOS_LOS_JUEGOS = []; // { id, categoria, temporada, local, visita, fecha } de TODO el sitio, para checar duplicados/IDs
+
+function token() { return localStorage.getItem('lmbc_gh_token') || ''; }
+
+async function ghFetch(path) {
+  const res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}?ref=${BRANCH}`, {
+    headers: { Authorization: `token ${token()}` }
+  });
+  if (res.status === 404) return null;
+  if (!res.ok) throw new Error(`No se pudo leer ${path} (${res.status})`);
+  const data = await res.json();
+  const contenido = JSON.parse(decodeURIComponent(escape(atob(data.content))));
+  return { sha: data.sha, contenido };
+}
+
+async function ghGuardar(path, sha, objeto, mensaje) {
+  const contenidoStr = JSON.stringify(objeto, null, 2) + '\n';
+  const b64 = btoa(unescape(encodeURIComponent(contenidoStr)));
+  const body = { message: mensaje, content: b64, branch: BRANCH };
+  if (sha) body.sha = sha; // sin sha = crear archivo nuevo
+  const res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}`, {
+    method: 'PUT',
+    headers: { Authorization: `token ${token()}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  if (!res.ok) throw new Error(`No se pudo guardar ${path} (${res.status})`);
+  return res.json();
+}
+
+function actualizarEstadoToken() {
+  const estado = document.getElementById('token-estado');
+  if (token()) { estado.textContent = 'Token guardado ✓'; estado.className = 'estado ok'; }
+  else { estado.textContent = 'Falta el token'; estado.className = 'estado falta'; }
+}
+
+function actualizarEquipos() {
+  const cat = document.getElementById('sel-categoria').value;
+  const selLocal = document.getElementById('sel-local');
+  const selVisita = document.getElementById('sel-visita');
+  if (!cat) {
+    selLocal.innerHTML = selVisita.innerHTML = '<option value="">Elige categoría primero…</option>';
+    return;
+  }
+  const disponibles = EQUIPOS.filter(e => (e.categorias ?? []).includes(cat));
+  const opciones = '<option value="">Elige equipo…</option>' + disponibles.map(e => `<option value="${e.id}">${e.nombre}</option>`).join('');
+  selLocal.innerHTML = opciones;
+  selVisita.innerHTML = opciones;
+}
+
+function normalizar(txt) { return (txt || '').trim(); }
+
+function revisarDuplicado() {
+  const cat = document.getElementById('sel-categoria').value;
+  const temp = document.getElementById('sel-temporada').value;
+  const local = document.getElementById('sel-local').value;
+  const visita = document.getElementById('sel-visita').value;
+  const fecha = document.getElementById('in-fecha').value;
+  const aviso = document.getElementById('aviso-duplicado');
+
+  if (!cat || !temp || !local || !visita || !fecha) { aviso.classList.remove('visible'); return; }
+
+  const posible = TODOS_LOS_JUEGOS.find(j =>
+    j.categoria === cat && j.temporada === temp && j.fecha === fecha &&
+    ((j.local === local && j.visita === visita) || (j.local === visita && j.visita === local))
+  );
+
+  if (posible) {
+    const eqLocal = EQUIPOS.find(e => e.id === local)?.nombre ?? local;
+    const eqVisita = EQUIPOS.find(e => e.id === visita)?.nombre ?? visita;
+    aviso.innerHTML = `⚠ <b>Ya existe un juego con estos mismos equipos y fecha</b> (${eqLocal} vs ${eqVisita}, ${fecha}, ID: ${posible.id}). Si es correcto que se repitan, ignora esto — pero revisa que no sea un doble registro.`;
+    aviso.classList.add('visible');
+  } else {
+    aviso.classList.remove('visible');
+  }
+}
+
+function validarFormulario() {
+  const ok = document.getElementById('sel-categoria').value &&
+             document.getElementById('sel-temporada').value &&
+             document.getElementById('sel-local').value &&
+             document.getElementById('sel-visita').value &&
+             document.getElementById('sel-local').value !== document.getElementById('sel-visita').value &&
+             document.getElementById('in-fecha').value &&
+             document.getElementById('in-hora').value.trim() &&
+             document.getElementById('sel-sede').value;
+  document.getElementById('btn-guardar').disabled = !ok;
+}
+
+async function iniciar() {
+  const tokenInput = document.getElementById('token');
+  tokenInput.value = token();
+  actualizarEstadoToken();
+  tokenInput.addEventListener('input', () => {
+    localStorage.setItem('lmbc_gh_token', tokenInput.value.trim());
+    actualizarEstadoToken();
+    if (tokenInput.value.trim()) cargarBase();
+  });
+
+  ['sel-categoria'].forEach(id => document.getElementById(id).addEventListener('change', () => { actualizarEquipos(); validarFormulario(); revisarDuplicado(); }));
+  ['sel-temporada','sel-local','sel-visita','in-fecha'].forEach(id => document.getElementById(id).addEventListener('change', () => { validarFormulario(); revisarDuplicado(); }));
+  ['in-hora','sel-sede'].forEach(id => document.getElementById(id).addEventListener('input', validarFormulario));
+  document.getElementById('btn-guardar').addEventListener('click', guardar);
+
+  if (token()) await cargarBase();
+}
+
+async function cargarBase() {
+  document.getElementById('msg').className = 'cap-msg';
+  try {
+    const [eqRes, catRes, tempRes, sedeRes] = await Promise.all([
+      fetch('../data/equipos.json').then(r => r.json()),
+      fetch('../data/categorias.json').then(r => r.json()),
+      fetch('../data/temporadas.json').then(r => r.json()),
+      fetch('../data/sedes.json').then(r => r.json()),
+    ]);
+    EQUIPOS = eqRes.equipos ?? [];
+    CATEGORIAS = Array.isArray(catRes) ? catRes : [];
+    TEMPORADAS = tempRes.temporadas ?? [];
+    SEDES = sedeRes.sedes ?? [];
+
+    document.getElementById('sel-categoria').innerHTML = '<option value="">Elige categoría…</option>' +
+      CATEGORIAS.map(c => `<option value="${c.id}">${c.nombre}</option>`).join('');
+    document.getElementById('sel-temporada').innerHTML = '<option value="">Elige temporada…</option>' +
+      TEMPORADAS.map(t => `<option value="${t.id}">${t.nombre}${t.activa ? ' (activa)' : ''}</option>`).join('');
+    document.getElementById('sel-sede').innerHTML = '<option value="">Elige sede…</option>' +
+      SEDES.map(s => `<option value="${s.id}">${s.nombre}</option>`).join('');
+
+    // Traemos TODOS los archivos de juegos de todas las categorías/temporadas
+    // que existan — para poder generar un ID que nunca choque con ninguno
+    // (ya tuvimos ese bug una vez) y para avisar de posibles duplicados.
+    const combos = [];
+    CATEGORIAS.forEach(c => TEMPORADAS.forEach(t => combos.push({ cat: c.id, temp: t.id })));
+    const resultados = await Promise.all(combos.map(c => ghFetch(`data/juegos_${c.cat}/${c.temp}.json`).catch(() => null)));
+
+    TODOS_LOS_JUEGOS = [];
+    resultados.forEach((r, i) => {
+      if (!r) return;
+      (r.contenido.juegos ?? []).forEach(j => {
+        TODOS_LOS_JUEGOS.push({ id: j.id, categoria: combos[i].cat, temporada: combos[i].temp, local: j.local, visita: j.visita, fecha: j.fecha });
+      });
+    });
+
+    document.getElementById('form-juego').classList.remove('form-oculto');
+  } catch (err) {
+    mostrarMsg('No se pudo cargar (revisa tu token): ' + err.message, true);
+  }
+}
+
+function generarIdUnico(categoria, temporada) {
+  const idsExistentes = new Set(TODOS_LOS_JUEGOS.map(j => j.id));
+  const tempCorta = temporada.replace(/[^0-9]/g, ''); // "2026-2" -> "20262"
+  let n = TODOS_LOS_JUEGOS.filter(j => j.categoria === categoria && j.temporada === temporada).length + 1;
+  let candidato = `${categoria}${tempCorta}_${n}`;
+  while (idsExistentes.has(candidato)) {
+    n++;
+    candidato = `${categoria}${tempCorta}_${n}`;
+  }
+  return candidato;
+}
+
+async function guardar() {
+  const btn = document.getElementById('btn-guardar');
+  btn.disabled = true;
+  btn.textContent = 'Guardando…';
+  ocultarMsg();
+
+  try {
+    const categoria = document.getElementById('sel-categoria').value;
+    const temporada = document.getElementById('sel-temporada').value;
+    const path = `data/juegos_${categoria}/${temporada}.json`;
+
+    // Releemos fresco justo antes de guardar (evita pisar a alguien más que
+    // haya agregado un juego en los últimos minutos) y volvemos a checar
+    // que el ID que vamos a usar sigue libre.
+    const fresco = await ghFetch(path);
+    const contenido = fresco ? fresco.contenido : { id_temporada: temporada, juegos: [] };
+
+    // refrescar TODOS_LOS_JUEGOS con lo que acabamos de leer de este archivo,
+    // por si cambió desde que cargó la página
+    TODOS_LOS_JUEGOS = TODOS_LOS_JUEGOS.filter(j => !(j.categoria === categoria && j.temporada === temporada));
+    (contenido.juegos ?? []).forEach(j => TODOS_LOS_JUEGOS.push({ id: j.id, categoria, temporada, local: j.local, visita: j.visita, fecha: j.fecha }));
+
+    const id = generarIdUnico(categoria, temporada);
+
+    const nuevoJuego = {
+      id,
+      fecha: document.getElementById('in-fecha').value,
+      hora: document.getElementById('in-hora').value.trim(),
+      local: document.getElementById('sel-local').value,
+      visita: document.getElementById('sel-visita').value,
+      sede_id: document.getElementById('sel-sede').value,
+      temporada,
+      fase: document.getElementById('sel-fase').value,
+      vuelta: Number(document.getElementById('in-vuelta').value || 1),
+      estatus: 'programado',
+      forfeit: 'ninguno',
+      destacado: document.getElementById('chk-destacado').checked ? 'true' : 'false',
+    };
+
+    contenido.juegos = [...(contenido.juegos ?? []), nuevoJuego];
+    if (!contenido.id_temporada) contenido.id_temporada = temporada;
+
+    const eqLocal = EQUIPOS.find(e => e.id === nuevoJuego.local)?.nombre ?? nuevoJuego.local;
+    const eqVisita = EQUIPOS.find(e => e.id === nuevoJuego.visita)?.nombre ?? nuevoJuego.visita;
+
+    await ghGuardar(
+      path,
+      fresco ? fresco.sha : null,
+      contenido,
+      `Juego agendado: ${eqLocal} vs ${eqVisita} (${nuevoJuego.fecha}) — vía Agregar Juego`
+    );
+
+    mostrarMsg(`¡Guardado! ${eqLocal} vs ${eqVisita}, ${nuevoJuego.fecha} — se publicará en el sitio en 1-2 minutos.`, false);
+    TODOS_LOS_JUEGOS.push({ id, categoria, temporada, local: nuevoJuego.local, visita: nuevoJuego.visita, fecha: nuevoJuego.fecha });
+
+    // limpiar para el siguiente
+    document.getElementById('in-fecha').value = '';
+    document.getElementById('in-hora').value = '';
+    document.getElementById('sel-local').value = '';
+    document.getElementById('sel-visita').value = '';
+    document.getElementById('chk-destacado').checked = false;
+    document.getElementById('aviso-duplicado').classList.remove('visible');
+    validarFormulario();
+  } catch (err) {
+    mostrarMsg('Error al guardar: ' + err.message, true);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Guardar en GitHub';
+  }
+}
+
+function mostrarMsg(texto, esError) {
+  const msg = document.getElementById('msg');
+  msg.textContent = texto;
+  msg.className = 'cap-msg ' + (esError ? 'error' : 'ok');
+}
+function ocultarMsg() { document.getElementById('msg').className = 'cap-msg'; }
+
+iniciar();
+</script>
+</body>
+</html>
