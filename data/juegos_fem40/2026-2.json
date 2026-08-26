@@ -1392,6 +1392,20 @@
       ],
       "id": "J11b",
       "fecha": "2026-06-27"
+    },
+    {
+      "temporada": "2026-2",
+      "sede_id": "duela",
+      "destacado": "false",
+      "local": "LARAF40",
+      "fase": "regular",
+      "vuelta": 2,
+      "forfeit": "ninguno",
+      "visita": "MAESTRASF40",
+      "hora": "5:00 PM",
+      "estatus": "programado",
+      "id": "J20F39",
+      "fecha": "2026-08-29"
     }
   ]
 }
