@@ -354,6 +354,20 @@
       "estadisticas_local": [],
       "id": "V4902",
       "fecha": "2026-08-16"
+    },
+    {
+      "id": "var4920261_6",
+      "fecha": "2026-08-30",
+      "hora": "11:00 AM",
+      "local": "MADERASV40",
+      "visita": "RETRO49",
+      "sede_id": "gimnasio",
+      "temporada": "2026-1",
+      "fase": "amistoso",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
