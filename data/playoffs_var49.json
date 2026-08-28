@@ -9,7 +9,8 @@
       "juegos": [
         {
           "jugado": "false",
-          "numero": 1
+          "numero": 1,
+          "fecha": "2026-08-30"
         }
       ]
     }
