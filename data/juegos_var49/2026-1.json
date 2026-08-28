@@ -368,6 +368,20 @@
       "estatus": "programado",
       "forfeit": "ninguno",
       "destacado": "false"
+    },
+    {
+      "id": "var4920261_7",
+      "fecha": "2026-08-30",
+      "hora": "12:00 PM",
+      "local": "VIKINGOSV40",
+      "visita": "SMV40",
+      "sede_id": "gimnasio",
+      "temporada": "2026-1",
+      "fase": "final",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "true"
     }
   ]
 }
