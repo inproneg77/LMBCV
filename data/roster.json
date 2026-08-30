@@ -2896,6 +2896,18 @@
           "temporada": "2026-1"
         }
       ]
+    },
+    {
+      "id": "MLARA",
+      "nombre": "MARCELO LARA",
+      "numero": "24",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "CFEV40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
