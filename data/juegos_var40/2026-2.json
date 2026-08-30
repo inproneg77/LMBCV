@@ -2408,9 +2408,144 @@
       "fecha": "2026-08-29",
       "marcador_local": 53,
       "marcador_visita": 48,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
+      "estadisticas_local": [
+        {
+          "jugador": "JK77",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "JAVVALD",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 2,
+          "faltas": 1
+        },
+        {
+          "jugador": "MEMOSAL",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "ANDGUZ",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "ISAAOLA",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "MCUEN",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JOELGRIJ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "NEGROURQ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "JCVILL",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "BARNWYB",
+          "asistio": "true",
+          "puntos": 16,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "MLARA",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "CHOCOLEM",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "FAVELATOLON",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CHARROD",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 1,
+          "faltas": 3
+        },
+        {
+          "jugador": "ANGELFIE",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "FONSECAR",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "RULOBON",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "MARPARRA",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "PANSIBRIAN",
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 2,
+          "faltas": 1
+        }
+      ],
+      "mvp_jugador": "BARNWYB",
       "mvp_nombre": ""
     },
     {
