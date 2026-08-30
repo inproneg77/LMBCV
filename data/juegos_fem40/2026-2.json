@@ -1423,9 +1423,15 @@
       "forfeit": "ninguno",
       "visita": "DIAMONDS40",
       "hora": "6:00 PM",
-      "estatus": "programado",
+      "estatus": "jugado",
       "id": "Jf2539",
-      "fecha": "2026-08-29"
+      "fecha": "2026-08-29",
+      "marcador_local": 14,
+      "marcador_visita": 22,
+      "estadisticas_local": [],
+      "estadisticas_visita": [],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
     }
   ]
 }
