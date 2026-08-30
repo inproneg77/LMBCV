@@ -2920,6 +2920,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "JSAGARTE2",
+      "nombre": "JOSE SAGARTE",
+      "numero": "14",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ALTAR2026",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
