@@ -2968,6 +2968,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "RVARELA2",
+      "nombre": "RICARDO VARELA",
+      "numero": "25",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ALTAR2026",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
