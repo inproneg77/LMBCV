@@ -2980,6 +2980,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "RBURRUEL2",
+      "nombre": "RUBEN BURRUEL",
+      "numero": "23",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ALTAR2026",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
