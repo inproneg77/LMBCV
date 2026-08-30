@@ -2457,9 +2457,15 @@
       "forfeit": "ninguno",
       "visita": "OSV40",
       "hora": "6:00 PM",
-      "estatus": "programado",
+      "estatus": "jugado",
       "id": "J33V39",
-      "fecha": "2026-08-29"
+      "fecha": "2026-08-29",
+      "marcador_local": 37,
+      "marcador_visita": 59,
+      "estadisticas_local": [],
+      "estadisticas_visita": [],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
     },
     {
       "temporada": "2026-2",
