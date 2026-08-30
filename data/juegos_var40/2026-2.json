@@ -2477,9 +2477,15 @@
       "forfeit": "ninguno",
       "visita": "mineros4",
       "hora": "7:00 PM",
-      "estatus": "programado",
+      "estatus": "jugado",
       "id": "J34V39",
-      "fecha": "2026-08-29"
+      "fecha": "2026-08-29",
+      "marcador_local": 50,
+      "marcador_visita": 30,
+      "estadisticas_local": [],
+      "estadisticas_visita": [],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
     },
     {
       "temporada": "2026-2",
