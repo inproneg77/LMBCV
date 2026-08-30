@@ -1403,9 +1403,15 @@
       "forfeit": "ninguno",
       "visita": "MAESTRASF40",
       "hora": "5:00 PM",
-      "estatus": "programado",
+      "estatus": "jugado",
       "id": "J20F39",
-      "fecha": "2026-08-29"
+      "fecha": "2026-08-29",
+      "marcador_local": 26,
+      "marcador_visita": 22,
+      "estadisticas_local": [],
+      "estadisticas_visita": [],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
     },
     {
       "temporada": "2026-2",
