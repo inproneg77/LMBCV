@@ -2932,6 +2932,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "JLOPEZ2",
+      "nombre": "JOSE LOPEZ",
+      "numero": "13",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ALTAR2026",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
