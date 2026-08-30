@@ -2584,8 +2584,16 @@
       "marcador_local": 40,
       "marcador_visita": 44,
       "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
+      "estadisticas_visita": [
+        {
+          "jugador": "PIRATAGRA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "PIRATAGRA",
       "mvp_nombre": ""
     },
     {
