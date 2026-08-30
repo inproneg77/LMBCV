@@ -2908,6 +2908,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "RGARCIA",
+      "nombre": "RAFAEL GARCIA",
+      "numero": "09",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ALTAR2026",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
