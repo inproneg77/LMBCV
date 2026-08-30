@@ -2423,9 +2423,15 @@
       "forfeit": "ninguno",
       "visita": "MADERASV40",
       "hora": "4:00 PM",
-      "estatus": "programado",
+      "estatus": "jugado",
       "id": "J31V39",
-      "fecha": "2026-08-29"
+      "fecha": "2026-08-29",
+      "marcador_local": 43,
+      "marcador_visita": 39,
+      "estadisticas_local": [],
+      "estadisticas_visita": [],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
     },
     {
       "temporada": "2026-2",
