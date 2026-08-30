@@ -2403,9 +2403,15 @@
       "forfeit": "ninguno",
       "visita": "CUERVOSV40",
       "hora": "4:00 PM",
-      "estatus": "programado",
+      "estatus": "jugado",
       "id": "J30V49",
-      "fecha": "2026-08-29"
+      "fecha": "2026-08-29",
+      "marcador_local": 53,
+      "marcador_visita": 48,
+      "estadisticas_local": [],
+      "estadisticas_visita": [],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
     },
     {
       "temporada": "2026-2",
