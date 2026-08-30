@@ -2479,9 +2479,15 @@
       "forfeit": "ninguno",
       "visita": "CONEXIONV40",
       "hora": "3:00 PM",
-      "estatus": "programado",
+      "estatus": "jugado",
       "id": "J37V39",
-      "fecha": "2026-08-29"
+      "fecha": "2026-08-29",
+      "marcador_local": 39,
+      "marcador_visita": 41,
+      "estadisticas_local": [],
+      "estadisticas_visita": [],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
     }
   ]
 }
