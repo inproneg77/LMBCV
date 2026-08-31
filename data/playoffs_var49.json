@@ -8,9 +8,11 @@
       "equipoB": "SMV40",
       "juegos": [
         {
-          "jugado": "false",
+          "jugado": "true",
           "numero": 1,
-          "fecha": "2026-08-30"
+          "fecha": "2026-08-30",
+          "marcador_a": 49,
+          "marcador_b": 45
         }
       ]
     }
