@@ -2885,6 +2885,13 @@
           "puntos": 0,
           "triples": 0,
           "faltas": 0
+        },
+        {
+          "jugador": "FCOVARRUBI",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 4
         }
       ],
       "mvp_jugador": "ESTEBANLOPEZ",
