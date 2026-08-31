@@ -2651,9 +2651,123 @@
       "fecha": "2026-08-29",
       "marcador_local": 39,
       "marcador_visita": 41,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
+      "estadisticas_local": [
+        {
+          "jugador": "TONGAR",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 2,
+          "faltas": 0
+        },
+        {
+          "jugador": "PACHJES",
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 1,
+          "faltas": 4
+        },
+        {
+          "jugador": "JORGETAPIA",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "JUANDUARTE",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "HENRYCHAVEZ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "ACORONADO",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 1,
+          "faltas": 1
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "RMONTES",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "ESTEBANLOPEZ",
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 5,
+          "faltas": 0
+        },
+        {
+          "jugador": "LOLOMORENO",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "GERMANVALENZUELA",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 2,
+          "faltas": 1
+        },
+        {
+          "jugador": "GABINORUIZ",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "PEDROSALCEDO",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "FABIANBARRERA",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 2,
+          "faltas": 1
+        },
+        {
+          "jugador": "KANGELES",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JFRIAS2",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "GDURAN",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "ESTEBANLOPEZ",
       "mvp_nombre": ""
     }
   ]
