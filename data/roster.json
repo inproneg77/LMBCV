@@ -2992,6 +2992,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "GBARRERAS",
+      "nombre": "GILDARDO BARRERAS",
+      "numero": "99",
+      "membresias": [
+        {
+          "categoria_id": "var49",
+          "equipo_id": "VIKINGOSV40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
