@@ -3014,6 +3014,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "FLOPEZ",
+      "nombre": "FRANCISCO LOPEZ",
+      "numero": "10",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "MADERASV40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
