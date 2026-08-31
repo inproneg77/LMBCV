@@ -2858,9 +2858,137 @@
       "fecha": "2026-08-29",
       "marcador_local": 50,
       "marcador_visita": 30,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
+      "estadisticas_local": [
+        {
+          "jugador": "RGARCIA",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JSAGARTE2",
+          "asistio": "true",
+          "puntos": 1,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "JLOPEZ2",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "ETORRES2",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "GMENDEZYAQUI",
+          "asistio": "true",
+          "puntos": 17,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "RVARELA2",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "RBURRUEL2",
+          "asistio": "true",
+          "puntos": 16,
+          "triples": 2,
+          "faltas": 2
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "CESDOMIN",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "MAANMONT",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "IVRANG",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "LUISCASTRG",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "CARTORRE",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CARDURAN",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "JOSEISAB",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "MULLERFRAN",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "LUIDAVISLA",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "RACIELREYES",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ABELOMAR",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        }
+      ],
+      "mvp_jugador": "GMENDEZYAQUI",
       "mvp_nombre": ""
     },
     {
