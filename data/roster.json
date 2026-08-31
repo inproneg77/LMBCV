@@ -3050,6 +3050,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "CJATOMEA",
+      "nombre": "CARLOS JATOMEA",
+      "numero": "2",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "SMV40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
