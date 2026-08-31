@@ -3038,6 +3038,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "JCAMPUZANO",
+      "nombre": "JAUDIEL CAMPUZANO",
+      "numero": "91",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "SMV40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
