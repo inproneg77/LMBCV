@@ -394,7 +394,7 @@
         {
           "jugador": "ABDELCO",
           "asistio": "true",
-          "puntos": 4,
+          "puntos": 6,
           "triples": 0,
           "faltas": 1
         },
@@ -408,7 +408,7 @@
         {
           "jugador": "ALEXVEGA",
           "asistio": "true",
-          "puntos": 13,
+          "puntos": 11,
           "triples": 0,
           "faltas": 4
         },
@@ -429,9 +429,16 @@
         {
           "jugador": "JK7749",
           "asistio": "true",
-          "puntos": 18,
+          "puntos": 16,
           "triples": 0,
           "faltas": 4
+        },
+        {
+          "jugador": "GBARRERAS",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 1
         }
       ],
       "estadisticas_visita": [
@@ -478,7 +485,7 @@
           "faltas": 0
         }
       ],
-      "mvp_jugador": "",
+      "mvp_jugador": "GBARRERAS",
       "mvp_nombre": ""
     }
   ]
