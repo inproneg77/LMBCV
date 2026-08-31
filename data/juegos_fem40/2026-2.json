@@ -1408,9 +1408,116 @@
       "fecha": "2026-08-29",
       "marcador_local": 26,
       "marcador_visita": 22,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
+      "estadisticas_local": [
+        {
+          "jugador": "CGUT",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "AGUT",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "ARGRIJ",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "KENQUI",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "AGARCIA",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "MARISANTA",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "ADRIMART",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "FERGAST",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "PATROB",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "PAOARA",
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "KARSALC",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "LIZETHROM",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "MAYBDUL",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "EMANN",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "ALIZMOR",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "AGUT",
       "mvp_nombre": ""
     },
     {
