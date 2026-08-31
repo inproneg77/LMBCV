@@ -2583,14 +2583,134 @@
       "fecha": "2026-08-29",
       "marcador_local": 40,
       "marcador_visita": 44,
-      "estadisticas_local": [],
+      "estadisticas_local": [
+        {
+          "jugador": "RLOPEZ4",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 2,
+          "faltas": 1
+        },
+        {
+          "jugador": "MARIONB",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "ALDUKA",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "IVANMEND",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 1,
+          "faltas": 2
+        },
+        {
+          "jugador": "PATOSO",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "MEDEH",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 2,
+          "faltas": 3
+        },
+        {
+          "jugador": "BARRYMEN",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "CHUCOGA",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 2
+        }
+      ],
       "estadisticas_visita": [
+        {
+          "jugador": "MPENUE",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 4
+        },
+        {
+          "jugador": "JDIAZ",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "LPENUE",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CABALLOOZ",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "CNUN",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "APENUE",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 2,
+          "faltas": 1
+        },
         {
           "jugador": "PIRATAGRA",
           "asistio": "true",
           "puntos": 0,
           "triples": 0,
           "faltas": 0
+        },
+        {
+          "jugador": "MANOLOLIZ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "Manchas",
+          "asistio": "true",
+          "puntos": 22,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "DIRVING",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
         }
       ],
       "mvp_jugador": "PIRATAGRA",
