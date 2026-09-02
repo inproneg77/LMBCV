@@ -487,6 +487,20 @@
       ],
       "mvp_jugador": "GBARRERAS",
       "mvp_nombre": ""
+    },
+    {
+      "id": "var4920261_8",
+      "fecha": "2026-09-09",
+      "hora": "8:00 PM",
+      "local": "VIKINGOSV40",
+      "visita": "SMV40",
+      "sede_id": "gimnasio",
+      "temporada": "2026-1",
+      "fase": "final",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "true"
     }
   ]
 }
