@@ -3259,6 +3259,20 @@
       ],
       "mvp_jugador": "ESTEBANLOPEZ",
       "mvp_nombre": ""
+    },
+    {
+      "id": "var4020262_26",
+      "fecha": "2026-09-05",
+      "hora": "4:00 PM",
+      "local": "NARANJOV40",
+      "visita": "BURROSV40",
+      "sede_id": "duela",
+      "temporada": "2026-2",
+      "fase": "amistoso",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
