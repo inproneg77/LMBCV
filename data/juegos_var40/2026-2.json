@@ -3270,52 +3270,15 @@
       "temporada": "2026-2",
       "fase": "amistoso",
       "vuelta": 1,
-      "estatus": "jugado",
+      "estatus": "programado",
       "forfeit": "ninguno",
       "destacado": "false",
-      "marcador_local": 95,
-      "marcador_visita": 94,
-      "estadisticas_local": [
-        {
-          "jugador": "RLOPEZ4",
-          "asistio": "true",
-          "puntos": 1,
-          "triples": 0,
-          "faltas": 0
-        },
-        {
-          "jugador": "PATOSO",
-          "asistio": "true",
-          "puntos": 94,
-          "triples": 15,
-          "faltas": 0
-        }
-      ],
-      "estadisticas_visita": [
-        {
-          "jugador": "MPENUE",
-          "asistio": "true",
-          "puntos": 2,
-          "triples": 0,
-          "faltas": 0
-        },
-        {
-          "jugador": "JDIAZ",
-          "asistio": "true",
-          "puntos": 40,
-          "triples": 0,
-          "faltas": 0
-        },
-        {
-          "jugador": "LPENUE",
-          "asistio": "true",
-          "puntos": 42,
-          "triples": 0,
-          "faltas": 0
-        }
-      ],
-      "mvp_jugador": "PATOSO",
-      "mvp_nombre": "94 puntos, 15 triples"
+      "marcador_local": 0,
+      "marcador_visita": 0,
+      "estadisticas_local": [],
+      "estadisticas_visita": [],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
     }
   ]
 }
