@@ -3279,6 +3279,20 @@
       "estadisticas_visita": [],
       "mvp_jugador": "",
       "mvp_nombre": ""
+    },
+    {
+      "id": "var4020262_27",
+      "fecha": "2026-09-12",
+      "hora": "4:00 PM",
+      "local": "OSV40",
+      "visita": "BURROSV40",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
