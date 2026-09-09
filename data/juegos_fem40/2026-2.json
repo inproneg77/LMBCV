@@ -1667,6 +1667,20 @@
       "estatus": "programado",
       "forfeit": "ninguno",
       "destacado": "false"
+    },
+    {
+      "id": "fem4020262_14",
+      "fecha": "2026-09-12",
+      "hora": "7:00 PM",
+      "local": "LARAF40",
+      "visita": "TEALONGF40",
+      "sede_id": "duela",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 3,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
