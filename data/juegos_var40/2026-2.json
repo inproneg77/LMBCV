@@ -3289,20 +3289,6 @@
       "destacado": "false"
     },
     {
-      "id": "var4020262_29",
-      "fecha": "2026-09-12",
-      "hora": "6:00 PM",
-      "local": "SMV40",
-      "visita": "ALTOV40",
-      "sede_id": "gimnasio",
-      "temporada": "2026-2",
-      "fase": "regular",
-      "vuelta": 1,
-      "estatus": "programado",
-      "forfeit": "ninguno",
-      "destacado": "false"
-    },
-    {
       "id": "var4020262_30",
       "fecha": "2026-09-12",
       "hora": "7:00 PM",
