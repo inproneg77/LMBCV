@@ -81,6 +81,14 @@
 
     <div id="form-juego" class="form-oculto">
 
+      <div class="campo">
+        <label>¿Qué vas a hacer?</label>
+        <select id="sel-modo">
+          <option value="nuevo">Agendar un juego nuevo</option>
+          <option value="editar">Modificar o eliminar un juego programado</option>
+        </select>
+      </div>
+
       <div class="campo-fila">
         <div class="campo">
           <label>Categoría</label>
@@ -91,6 +99,14 @@
           <select id="sel-temporada"><option value="">Elige temporada…</option></select>
         </div>
       </div>
+
+      <div class="campo" id="campo-elegir-juego" style="display:none;">
+        <label>Juego programado a modificar</label>
+        <select id="sel-juego-existente"><option value="">Elige categoría y temporada primero…</option></select>
+        <div class="hint">Solo se listan juegos <b>programados</b> (sin resultado). Un juego ya jugado no se debe reprogramar aquí — eso se corrige en /captura o dime y lo reviso directo.</div>
+      </div>
+
+      <div id="campos-edicion" style="display:none;">
 
       <div class="campo-fila">
         <div class="campo">
@@ -142,18 +158,24 @@
         <label for="chk-destacado">Marcar como juego destacado (aparece resaltado en Calendario)</label>
       </div>
 
+      </div>
+
       <button class="cap-btn" id="btn-guardar" disabled>Guardar en GitHub</button>
+      <button class="cap-btn" id="btn-eliminar" style="display:none; background:#a33; margin-left:10px;">Eliminar este juego</button>
       <div class="cap-msg" id="msg"></div>
     </div>
   </div>
 
 <script>
+
 const OWNER = 'inproneg77';
 const REPO = 'LMBCV';
 const BRANCH = 'main';
 
 let EQUIPOS = [], CATEGORIAS = [], TEMPORADAS = [], SEDES = [];
 let TODOS_LOS_JUEGOS = []; // { id, categoria, temporada, local, visita, fecha } de TODO el sitio, para checar duplicados/IDs
+let archivoEdicionActual = null; // { path, sha, contenido } del archivo categoria+temporada que se está viendo en modo "editar"
+let juegoEnEdicionId = null;     // id del juego elegido para modificar/eliminar
 
 function token() { return localStorage.getItem('lmbc_gh_token') || ''; }
 
@@ -204,6 +226,95 @@ function actualizarEquipos() {
 
 function normalizar(txt) { return (txt || '').trim(); }
 
+function esModoEdicion() { return document.getElementById('sel-modo').value === 'editar'; }
+
+function actualizarModo() {
+  const editar = esModoEdicion();
+  document.getElementById('campo-elegir-juego').style.display = editar ? 'block' : 'none';
+  document.getElementById('campos-edicion').style.display = editar ? 'none' : 'block'; // en editar, se muestra hasta elegir un juego
+  document.getElementById('btn-eliminar').style.display = 'none';
+  document.getElementById('btn-guardar').textContent = editar ? 'Guardar cambios' : 'Guardar en GitHub';
+  archivoEdicionActual = null;
+  juegoEnEdicionId = null;
+  document.getElementById('sel-juego-existente').innerHTML = '<option value="">Elige categoría y temporada primero…</option>';
+  limpiarCamposEdicion();
+  validarFormulario();
+}
+
+// Trae el archivo categoria+temporada elegido (fresco, con token) y llena
+// el desplegable solo con juegos SIN resultado — no tiene sentido
+// reprogramar o borrar algo que ya se jugó desde aquí.
+async function cargarJuegosProgramados() {
+  const cat = document.getElementById('sel-categoria').value;
+  const temp = document.getElementById('sel-temporada').value;
+  const sel = document.getElementById('sel-juego-existente');
+  archivoEdicionActual = null;
+  juegoEnEdicionId = null;
+  document.getElementById('campos-edicion').style.display = 'none';
+  document.getElementById('btn-eliminar').style.display = 'none';
+
+  if (!cat || !temp) { sel.innerHTML = '<option value="">Elige categoría y temporada primero…</option>'; return; }
+
+  sel.innerHTML = '<option value="">Cargando…</option>';
+  try {
+    const path = `data/juegos_${cat}/${temp}.json`;
+    const r = await ghFetch(path);
+    archivoEdicionActual = r ? { path, sha: r.sha, contenido: r.contenido } : { path, sha: null, contenido: { id_temporada: temp, juegos: [] } };
+
+    const programados = (archivoEdicionActual.contenido.juegos ?? []).filter(j => j.estatus === 'programado');
+    if (programados.length === 0) {
+      sel.innerHTML = '<option value="">No hay juegos programados en esta categoría/temporada</option>';
+      return;
+    }
+    sel.innerHTML = '<option value="">Elige el juego…</option>' +
+      [...programados].sort((a,b) => a.fecha.localeCompare(b.fecha)).map(j => {
+        const eqLocal = EQUIPOS.find(e => e.id === j.local)?.nombre ?? j.local;
+        const eqVisita = EQUIPOS.find(e => e.id === j.visita)?.nombre ?? j.visita;
+        return `<option value="${j.id}">${j.fecha} — ${eqLocal} vs ${eqVisita}</option>`;
+      }).join('');
+  } catch (err) {
+    sel.innerHTML = '<option value="">Error al cargar</option>';
+    mostrarMsg('No se pudo cargar la lista de juegos: ' + err.message, true);
+  }
+}
+
+function elegirJuegoExistente() {
+  const id = document.getElementById('sel-juego-existente').value;
+  juegoEnEdicionId = id || null;
+  const camposEdicion = document.getElementById('campos-edicion');
+  const btnEliminar = document.getElementById('btn-eliminar');
+
+  if (!id) { camposEdicion.style.display = 'none'; btnEliminar.style.display = 'none'; validarFormulario(); return; }
+
+  const juego = archivoEdicionActual.contenido.juegos.find(j => j.id === id);
+  if (!juego) return;
+
+  actualizarEquipos();
+  document.getElementById('sel-local').value = juego.local;
+  document.getElementById('sel-visita').value = juego.visita;
+  document.getElementById('in-fecha').value = juego.fecha;
+  document.getElementById('in-hora').value = juego.hora ?? '';
+  document.getElementById('sel-sede').value = juego.sede_id ?? '';
+  document.getElementById('sel-fase').value = juego.fase ?? 'regular';
+  document.getElementById('in-vuelta').value = juego.vuelta ?? 1;
+  document.getElementById('chk-destacado').checked = String(juego.destacado) === 'true';
+
+  camposEdicion.style.display = 'block';
+  btnEliminar.style.display = 'inline-block';
+  validarFormulario();
+}
+
+function limpiarCamposEdicion() {
+  document.getElementById('sel-local').value = '';
+  document.getElementById('sel-visita').value = '';
+  document.getElementById('in-fecha').value = '';
+  document.getElementById('in-hora').value = '';
+  document.getElementById('sel-sede').value = '';
+  document.getElementById('sel-fase').value = 'regular';
+  document.getElementById('in-vuelta').value = 1;
+  document.getElementById('chk-destacado').checked = false;
+}
+
 function revisarDuplicado() {
   const cat = document.getElementById('sel-categoria').value;
   const temp = document.getElementById('sel-temporada').value;
@@ -230,6 +341,18 @@ function revisarDuplicado() {
 }
 
 function validarFormulario() {
+  const editar = esModoEdicion();
+  if (editar) {
+    const ok = juegoEnEdicionId &&
+               document.getElementById('sel-local').value &&
+               document.getElementById('sel-visita').value &&
+               document.getElementById('sel-local').value !== document.getElementById('sel-visita').value &&
+               document.getElementById('in-fecha').value &&
+               document.getElementById('in-hora').value.trim() &&
+               document.getElementById('sel-sede').value;
+    document.getElementById('btn-guardar').disabled = !ok;
+    return;
+  }
   const ok = document.getElementById('sel-categoria').value &&
              document.getElementById('sel-temporada').value &&
              document.getElementById('sel-local').value &&
@@ -251,10 +374,21 @@ async function iniciar() {
     if (tokenInput.value.trim()) cargarBase();
   });
 
-  ['sel-categoria'].forEach(id => document.getElementById(id).addEventListener('change', () => { actualizarEquipos(); validarFormulario(); revisarDuplicado(); }));
-  ['sel-temporada','sel-local','sel-visita','in-fecha'].forEach(id => document.getElementById(id).addEventListener('change', () => { validarFormulario(); revisarDuplicado(); }));
+  document.getElementById('sel-modo').addEventListener('change', actualizarModo);
+  document.getElementById('sel-juego-existente').addEventListener('change', elegirJuegoExistente);
+
+  ['sel-categoria'].forEach(id => document.getElementById(id).addEventListener('change', () => {
+    actualizarEquipos(); validarFormulario(); revisarDuplicado();
+    if (esModoEdicion()) cargarJuegosProgramados();
+  }));
+  ['sel-temporada'].forEach(id => document.getElementById(id).addEventListener('change', () => {
+    validarFormulario(); revisarDuplicado();
+    if (esModoEdicion()) cargarJuegosProgramados();
+  }));
+  ['sel-local','sel-visita','in-fecha'].forEach(id => document.getElementById(id).addEventListener('change', () => { validarFormulario(); revisarDuplicado(); }));
   ['in-hora','sel-sede'].forEach(id => document.getElementById(id).addEventListener('input', validarFormulario));
   document.getElementById('btn-guardar').addEventListener('click', guardar);
+  document.getElementById('btn-eliminar').addEventListener('click', eliminar);
 
   if (token()) await cargarBase();
 }
@@ -314,6 +448,8 @@ function generarIdUnico(categoria, temporada) {
 }
 
 async function guardar() {
+  if (esModoEdicion()) return guardarEdicion();
+
   const btn = document.getElementById('btn-guardar');
   btn.disabled = true;
   btn.textContent = 'Guardando…';
@@ -381,6 +517,86 @@ async function guardar() {
   } finally {
     btn.disabled = false;
     btn.textContent = 'Guardar en GitHub';
+  }
+}
+
+// Modifica un juego programado que ya existe: reescribe sus campos de
+// agenda (equipos, fecha, hora, sede, fase, vuelta, destacado) sin tocar su
+// ID ni nada relacionado a resultado (eso vive en /captura).
+async function guardarEdicion() {
+  const btn = document.getElementById('btn-guardar');
+  btn.disabled = true;
+  btn.textContent = 'Guardando…';
+  ocultarMsg();
+
+  try {
+    const path = archivoEdicionActual.path;
+    const fresco = await ghFetch(path);
+    if (!fresco) throw new Error('El archivo ya no existe — recarga la página.');
+
+    const juego = fresco.contenido.juegos.find(j => j.id === juegoEnEdicionId);
+    if (!juego) throw new Error('Este juego ya no está en el archivo (¿lo borraron desde otro lado?). Recarga la página.');
+
+    juego.local = document.getElementById('sel-local').value;
+    juego.visita = document.getElementById('sel-visita').value;
+    juego.fecha = document.getElementById('in-fecha').value;
+    juego.hora = document.getElementById('in-hora').value.trim();
+    juego.sede_id = document.getElementById('sel-sede').value;
+    juego.fase = document.getElementById('sel-fase').value;
+    juego.vuelta = Number(document.getElementById('in-vuelta').value || 1);
+    juego.destacado = document.getElementById('chk-destacado').checked ? 'true' : 'false';
+
+    const eqLocal = EQUIPOS.find(e => e.id === juego.local)?.nombre ?? juego.local;
+    const eqVisita = EQUIPOS.find(e => e.id === juego.visita)?.nombre ?? juego.visita;
+
+    await ghGuardar(path, fresco.sha, fresco.contenido, `Juego modificado: ${eqLocal} vs ${eqVisita} (${juego.fecha}) — vía Agregar Juego`);
+
+    mostrarMsg(`¡Guardado! Se actualizó ${eqLocal} vs ${eqVisita}, ${juego.fecha}.`, false);
+    archivoEdicionActual = { path, sha: null, contenido: fresco.contenido };
+    await cargarJuegosProgramados();
+  } catch (err) {
+    mostrarMsg('Error al guardar: ' + err.message, true);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Guardar cambios';
+  }
+}
+
+async function eliminar() {
+  if (!juegoEnEdicionId || !archivoEdicionActual) return;
+
+  const opcionTexto = document.querySelector(`#sel-juego-existente option[value="${juegoEnEdicionId}"]`)?.textContent ?? juegoEnEdicionId;
+  const confirmado = confirm(`¿Seguro que quieres ELIMINAR este juego?\n\n${opcionTexto}\n\nEsto no se puede deshacer desde aquí.`);
+  if (!confirmado) return;
+
+  const btn = document.getElementById('btn-eliminar');
+  btn.disabled = true;
+  btn.textContent = 'Eliminando…';
+  ocultarMsg();
+
+  try {
+    const path = archivoEdicionActual.path;
+    const fresco = await ghFetch(path);
+    if (!fresco) throw new Error('El archivo ya no existe — recarga la página.');
+
+    const existe = fresco.contenido.juegos.some(j => j.id === juegoEnEdicionId);
+    if (!existe) throw new Error('Este juego ya no está en el archivo — puede que alguien más ya lo haya borrado.');
+
+    fresco.contenido.juegos = fresco.contenido.juegos.filter(j => j.id !== juegoEnEdicionId);
+
+    await ghGuardar(path, fresco.sha, fresco.contenido, `Juego eliminado (${juegoEnEdicionId}) — vía Agregar Juego`);
+
+    mostrarMsg('Juego eliminado. Se reflejará en el sitio en 1-2 minutos.', false);
+    archivoEdicionActual = { path, sha: null, contenido: fresco.contenido };
+    juegoEnEdicionId = null;
+    document.getElementById('campos-edicion').style.display = 'none';
+    document.getElementById('btn-eliminar').style.display = 'none';
+    await cargarJuegosProgramados();
+  } catch (err) {
+    mostrarMsg('Error al eliminar: ' + err.message, true);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Eliminar este juego';
   }
 }
 
