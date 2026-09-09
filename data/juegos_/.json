@@ -1,0 +1,19 @@
+{
+  "id_temporada": "",
+  "juegos": [
+    {
+      "id": "_1",
+      "fecha": "2026-09-12",
+      "hora": "4:00 PM",
+      "local": "OSV40",
+      "visita": "BURROSV40",
+      "sede_id": "",
+      "temporada": "",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
+    }
+  ]
+}
