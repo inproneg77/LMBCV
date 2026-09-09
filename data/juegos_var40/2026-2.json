@@ -3261,26 +3261,6 @@
       "mvp_nombre": ""
     },
     {
-      "id": "var4020262_26",
-      "fecha": "2026-09-05",
-      "hora": "4:00 PM",
-      "local": "NARANJOV40",
-      "visita": "BURROSV40",
-      "sede_id": "duela",
-      "temporada": "2026-2",
-      "fase": "amistoso",
-      "vuelta": 1,
-      "estatus": "programado",
-      "forfeit": "ninguno",
-      "destacado": "false",
-      "marcador_local": 0,
-      "marcador_visita": 0,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
-      "mvp_nombre": ""
-    },
-    {
       "id": "var4020262_27",
       "fecha": "2026-09-12",
       "hora": "4:00 PM",
