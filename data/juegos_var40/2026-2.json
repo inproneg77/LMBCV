@@ -3349,6 +3349,20 @@
       "estatus": "programado",
       "forfeit": "ninguno",
       "destacado": "false"
+    },
+    {
+      "id": "var4020262_32",
+      "fecha": "2026-09-12",
+      "hora": "5:00 PM",
+      "local": "MADERASV40",
+      "visita": "ALTAR2026",
+      "sede_id": "duela",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
