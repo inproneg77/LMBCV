@@ -505,14 +505,99 @@
       "marcador_visita": 50,
       "estadisticas_local": [
         {
-          "jugador": "JK7749",
+          "jugador": "ABDELCO",
           "asistio": "true",
           "puntos": 0,
           "triples": 0,
-          "faltas": 0
+          "faltas": 1
+        },
+        {
+          "jugador": "ALEXVEGA",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 1,
+          "faltas": 4
+        },
+        {
+          "jugador": "javlopez",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 2
+        },
+        {
+          "jugador": "MANOLOLIZ",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "MARPARRA",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JK7749",
+          "asistio": "true",
+          "puntos": 18,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "GBARRERAS",
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 0,
+          "faltas": 1
         }
       ],
-      "estadisticas_visita": [],
+      "estadisticas_visita": [
+        {
+          "jugador": "CUBANO",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 4
+        },
+        {
+          "jugador": "WEROSOTO",
+          "asistio": "true",
+          "puntos": 17,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "GERA5",
+          "asistio": "true",
+          "puntos": 18,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "DRIVERA",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 5
+        },
+        {
+          "jugador": "GORTIZ",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "FCONTRERAS",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 5
+        }
+      ],
       "mvp_jugador": "JK7749",
       "mvp_nombre": ""
     }
