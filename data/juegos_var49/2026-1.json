@@ -498,9 +498,23 @@
       "temporada": "2026-1",
       "fase": "final",
       "vuelta": 1,
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
-      "destacado": "true"
+      "destacado": "true",
+      "marcador_local": 53,
+      "marcador_visita": 50,
+      "estadisticas_local": [
+        {
+          "jugador": "JK7749",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [],
+      "mvp_jugador": "JK7749",
+      "mvp_nombre": ""
     }
   ]
 }
