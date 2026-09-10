@@ -13,8 +13,16 @@
           "fecha": "2026-08-30",
           "marcador_a": 49,
           "marcador_b": 45
+        },
+        {
+          "jugado": "true",
+          "numero": 2,
+          "fecha": "2026-09-09",
+          "marcador_a": 53,
+          "marcador_b": 50
         }
-      ]
+      ],
+      "mvp_serie": "JAWD K.G."
     }
   ]
 }
