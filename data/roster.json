@@ -3074,6 +3074,18 @@
           "temporada": "2026-1"
         }
       ]
+    },
+    {
+      "id": "WRUIZ",
+      "nombre": "WILDOLFO RUIZ",
+      "numero": "23",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "NARANJOV40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
