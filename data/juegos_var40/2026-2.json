@@ -3315,10 +3315,103 @@
       "destacado": "false",
       "marcador_local": 19,
       "marcador_visita": 49,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
-      "mvp_nombre": ""
+      "estadisticas_local": [
+        {
+          "jugador": "CESDOMIN",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "JOSEISAB",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 1,
+          "faltas": 3
+        },
+        {
+          "jugador": "MULLERFRAN",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "LUIDAVISLA",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "JOSEROJAS",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "RACIELREYES",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "ABELOMAR",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "FAVELATOLON",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "CHARROD",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "TITOMEN",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 3,
+          "faltas": 0
+        },
+        {
+          "jugador": "ANGELFIE",
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "SOROSJJ",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "PANSIBRIAN",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 1,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "ANGELFIE",
+      "mvp_nombre": "15 puntos"
     },
     {
       "id": "var4020262_31",
