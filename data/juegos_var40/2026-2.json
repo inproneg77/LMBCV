@@ -3275,10 +3275,145 @@
       "destacado": "false",
       "marcador_local": 51,
       "marcador_visita": 37,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
-      "mvp_nombre": ""
+      "estadisticas_local": [
+        {
+          "jugador": "GPALA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "DMAZ",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "ANARAIZA",
+          "asistio": "true",
+          "puntos": 19,
+          "triples": 3,
+          "faltas": 0
+        },
+        {
+          "jugador": "GARYFEL",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "CYESK",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CARLOSPEREZ",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CARLOSALVAREZ",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JOSERABAGO",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CRISMENDEZ",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ELIASTRUJ",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "MPENUE",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 2
+        },
+        {
+          "jugador": "JDIAZ",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "LPENUE",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 0
+        },
+        {
+          "jugador": "SCHAVA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "CABALLOOZ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CNUN",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "APENUE",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "MANOLOLIZ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "DIRVING",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 3
+        }
+      ],
+      "mvp_jugador": "ANARAIZA",
+      "mvp_nombre": "19 puntos, 3 triples"
     },
     {
       "id": "var4020262_28",
