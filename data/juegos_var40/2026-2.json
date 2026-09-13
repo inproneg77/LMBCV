@@ -3547,20 +3547,6 @@
       ],
       "mvp_jugador": "ANGELFIE",
       "mvp_nombre": "15 puntos"
-    },
-    {
-      "id": "var4020262_32",
-      "fecha": "2026-09-12",
-      "hora": "5:00 PM",
-      "local": "MADERASV40",
-      "visita": "ALTOV40",
-      "sede_id": "duela",
-      "temporada": "2026-2",
-      "fase": "regular",
-      "vuelta": 1,
-      "estatus": "programado",
-      "forfeit": "ninguno",
-      "destacado": "false"
     }
   ]
 }
