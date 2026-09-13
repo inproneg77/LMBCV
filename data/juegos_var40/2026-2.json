@@ -3430,10 +3430,145 @@
       "destacado": "false",
       "marcador_local": 46,
       "marcador_visita": 49,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
-      "mvp_nombre": ""
+      "estadisticas_local": [
+        {
+          "jugador": "RLOPEZ4",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "MARIONB",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "ALDUKA",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "PATOSO",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "MEDEH",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 3,
+          "faltas": 0
+        },
+        {
+          "jugador": "BARRYMEN",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CHUCOGA",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 2,
+          "faltas": 1
+        },
+        {
+          "jugador": "javlopez",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "WRUIZ",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 3
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "JK77",
+          "asistio": "true",
+          "puntos": 16,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "JAVVALD",
+          "asistio": "true",
+          "puntos": 16,
+          "triples": 2,
+          "faltas": 1
+        },
+        {
+          "jugador": "MEMOSAL",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "ANDGUZ",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "ISAAOLA",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "MCUEN",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "NEGROURQ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "JCVILL",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "LALOCEL",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "BARNWYB",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        }
+      ],
+      "mvp_jugador": "JAVVALD",
+      "mvp_nombre": "16 puntos, 2 triples"
     },
     {
       "id": "var4020262_30",
