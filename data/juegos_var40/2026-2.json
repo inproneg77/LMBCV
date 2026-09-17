@@ -3682,6 +3682,20 @@
       ],
       "mvp_jugador": "ANGELFIE",
       "mvp_nombre": "15 puntos"
+    },
+    {
+      "id": "var4020262_29",
+      "fecha": "2026-09-19",
+      "hora": "3:00 pm",
+      "local": "CFEV40",
+      "visita": "BURROSV40",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
