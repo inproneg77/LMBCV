@@ -3724,6 +3724,20 @@
       "estatus": "programado",
       "forfeit": "ninguno",
       "destacado": "false"
+    },
+    {
+      "id": "var4020262_33",
+      "fecha": "2026-09-19",
+      "hora": "6:00 PM",
+      "local": "SMV40",
+      "visita": "mineros4",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
