@@ -3766,6 +3766,20 @@
       "estatus": "programado",
       "forfeit": "ninguno",
       "destacado": "false"
+    },
+    {
+      "id": "var4020262_36",
+      "fecha": "2026-09-19",
+      "hora": "5:00 PM",
+      "local": "CUERVOSV40",
+      "visita": "VIKINGOSV40",
+      "sede_id": "duela",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
