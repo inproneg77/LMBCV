@@ -3684,20 +3684,6 @@
       "mvp_nombre": "15 puntos"
     },
     {
-      "id": "var4020262_31",
-      "fecha": "2026-09-19",
-      "hora": "4:00 PM",
-      "local": "OSV40",
-      "visita": "CONEXIONV40",
-      "sede_id": "gimnasio",
-      "temporada": "2026-2",
-      "fase": "regular",
-      "vuelta": 1,
-      "estatus": "programado",
-      "forfeit": "ninguno",
-      "destacado": "false"
-    },
-    {
       "id": "var4020262_32",
       "fecha": "2026-09-19",
       "hora": "5:00 PM",
