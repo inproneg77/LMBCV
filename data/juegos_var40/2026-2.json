@@ -3812,6 +3812,13 @@
           "puntos": 3,
           "triples": 0,
           "faltas": 1
+        },
+        {
+          "jugador": "CHERMOSILL",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
         }
       ],
       "mvp_jugador": "GERA5",
