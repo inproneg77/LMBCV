@@ -3869,9 +3869,115 @@
       "temporada": "2026-2",
       "fase": "regular",
       "vuelta": 1,
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
-      "destacado": "false"
+      "destacado": "false",
+      "marcador_local": 79,
+      "marcador_visita": 45,
+      "estadisticas_local": [
+        {
+          "jugador": "CHOCOLEM",
+          "asistio": "true",
+          "puntos": 30,
+          "triples": 2,
+          "faltas": 0
+        },
+        {
+          "jugador": "FAVELATOLON",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 5
+        },
+        {
+          "jugador": "TITOMEN",
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "ANGELFIE",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "SOROSJJ",
+          "asistio": "true",
+          "puntos": 19,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "PANSIBRIAN",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "CHABELOH",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "ABDELCO",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "ALEXVEGA",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "JSAL",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 1,
+          "faltas": 2
+        },
+        {
+          "jugador": "JAREDROM",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "CAINBELTRAN",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "Alexhndez",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "GBARRERAS",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "CHOCOLEM",
+      "mvp_nombre": ""
     }
   ]
 }
