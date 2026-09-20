@@ -3737,7 +3737,127 @@
       "vuelta": 1,
       "estatus": "programado",
       "forfeit": "ninguno",
-      "destacado": "false"
+      "destacado": "false",
+      "marcador_local": 48,
+      "marcador_visita": 27,
+      "estadisticas_local": [
+        {
+          "jugador": "RLOPEZ4",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "MARIONB",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ALDUKA",
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "IVANMEND",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "PATOSO",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "MEDEH",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "BARRYMEN",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CHUCOGA",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "javlopez",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "HMACIEL",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 4
+        },
+        {
+          "jugador": "RPIMIENTA",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "IMORALES",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "HUMBERREYNA",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JESUSLEON",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "IMORALES2",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "JCONTRERAS",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        }
+      ],
+      "mvp_jugador": "ALDUKA",
+      "mvp_nombre": ""
     },
     {
       "id": "var4020262_36",
