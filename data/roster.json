@@ -3086,6 +3086,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "IMORALES2",
+      "nombre": "IVAN MORALES",
+      "numero": "83",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ICATSONV40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
