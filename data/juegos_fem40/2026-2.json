@@ -1678,9 +1678,94 @@
       "temporada": "2026-2",
       "fase": "regular",
       "vuelta": 3,
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
-      "destacado": "false"
+      "destacado": "false",
+      "marcador_local": 18,
+      "marcador_visita": 17,
+      "estadisticas_local": [
+        {
+          "jugador": "BSOTELO",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "CGUT",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "ARGRIJ",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "KENQUI",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "MARISANTA",
+          "asistio": "true",
+          "puntos": 1,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "MGARCIA",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 2
+        },
+        {
+          "jugador": "LBRACA",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "AMFRA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "kasilva",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "ANAHISFEL",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "DALIAFELI",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        }
+      ],
+      "mvp_jugador": "KENQUI",
+      "mvp_nombre": ""
     }
   ]
 }
