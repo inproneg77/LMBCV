@@ -3151,6 +3151,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "PHERNANDEZ",
+      "nombre": "PATRICIA HERNÁNDEZ",
+      "numero": "7",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "SALDOSF40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
