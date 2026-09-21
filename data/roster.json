@@ -3127,6 +3127,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "SMORENO",
+      "nombre": "SAYRA MORENO",
+      "numero": "33",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "SALDOSF40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
