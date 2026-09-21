@@ -3139,6 +3139,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "LPAYAN",
+      "nombre": "LUZ PAYAN",
+      "numero": "9",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "SALDOSF40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
