@@ -1671,6 +1671,13 @@
       "marcador_visita": 18,
       "estadisticas_local": [
         {
+          "jugador": "LUCGAR",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
           "jugador": "VILMTOR",
           "asistio": "true",
           "puntos": 2,
@@ -1685,14 +1692,99 @@
           "faltas": 0
         },
         {
+          "jugador": "PATSAN",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
           "jugador": "AAAVIL",
           "asistio": "true",
           "puntos": 3,
           "triples": 0,
           "faltas": 1
+        },
+        {
+          "jugador": "SMORENO",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "PHERNANDEZ",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
         }
       ],
-      "estadisticas_visita": [],
+      "estadisticas_visita": [
+        {
+          "jugador": "ADRIMART",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "PATROB",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "PAOARA",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 1
+        },
+        {
+          "jugador": "CORAORD",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "KARSALC",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "LIZETHROM",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "AUZO",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "LIZMEZA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "EMANN",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        }
+      ],
       "mvp_jugador": "",
       "mvp_nombre": ""
     },
