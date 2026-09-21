@@ -3834,9 +3834,115 @@
       "temporada": "2026-2",
       "fase": "regular",
       "vuelta": 1,
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
-      "destacado": "false"
+      "destacado": "false",
+      "marcador_local": 62,
+      "marcador_visita": 37,
+      "estadisticas_local": [
+        {
+          "jugador": "WEROSOTO",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CHULOVILLA",
+          "asistio": "true",
+          "puntos": 18,
+          "triples": 2,
+          "faltas": 0
+        },
+        {
+          "jugador": "JT3VOR",
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 5,
+          "faltas": 0
+        },
+        {
+          "jugador": "TONODIAZPAD",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "ESGAHUEVO",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "MARKOZPLA",
+          "asistio": "true",
+          "puntos": 1,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JCAMPUZANO",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 0
+        },
+        {
+          "jugador": "CJATOMEA",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "CESDOMIN",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "LUISCASTRG",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CARTORRE",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "CARDURAN",
+          "asistio": "true",
+          "puntos": 18,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JOSEISAB",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JOSEROJAS",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "JCAMPUZANO",
+      "mvp_nombre": ""
     },
     {
       "id": "var4020262_34",
