@@ -1886,6 +1886,20 @@
       ],
       "mvp_jugador": "KENQUI",
       "mvp_nombre": ""
+    },
+    {
+      "id": "fem4020262_15",
+      "fecha": "2026-09-26",
+      "hora": "7:00 PM",
+      "local": "LARAF40",
+      "visita": "SALDOSF40",
+      "sede_id": "duela",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 4,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
