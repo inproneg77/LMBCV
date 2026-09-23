@@ -4345,6 +4345,20 @@
       "estatus": "programado",
       "forfeit": "ninguno",
       "destacado": "false"
+    },
+    {
+      "id": "var4020262_39",
+      "fecha": "2026-09-26",
+      "hora": "4:00 PM",
+      "local": "ALTAR2026",
+      "visita": "VIKINGOSV40",
+      "sede_id": "duela",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
