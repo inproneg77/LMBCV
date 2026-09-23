@@ -4317,6 +4317,20 @@
       ],
       "mvp_jugador": "CHOCOLEM",
       "mvp_nombre": ""
+    },
+    {
+      "id": "var4020262_37",
+      "fecha": "2026-09-26",
+      "hora": "5.00 PM",
+      "local": "CONEXIONV40",
+      "visita": "NARANJOV40",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
