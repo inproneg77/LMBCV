@@ -4331,6 +4331,20 @@
       "estatus": "programado",
       "forfeit": "ninguno",
       "destacado": "false"
+    },
+    {
+      "id": "var4020262_38",
+      "fecha": "2026-09-26",
+      "hora": "6:00 PM",
+      "local": "CUERVOSV40",
+      "visita": "ALTOV40",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
