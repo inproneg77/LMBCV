@@ -4373,6 +4373,20 @@
       "estatus": "programado",
       "forfeit": "ninguno",
       "destacado": "false"
+    },
+    {
+      "id": "var4020262_41",
+      "fecha": "2026-09-26",
+      "hora": "6:00 PM",
+      "local": "mineros4",
+      "visita": "MADERASV40",
+      "sede_id": "duela",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
