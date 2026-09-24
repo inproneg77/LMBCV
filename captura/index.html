@@ -149,6 +149,7 @@
     <div class="cap-msg" id="msg"></div>
   </div>
 
+<script src="../js/amistosos.js"></script>
 <script>
 const OWNER = 'inproneg77';
 const REPO = 'LMBCV';
@@ -178,6 +179,7 @@ function actualizarEstadoToken() {
 document.getElementById('token').addEventListener('change', (e) => {
   localStorage.setItem('lmbc_gh_token', e.target.value.trim());
   actualizarEstadoToken();
+  cargarBase().catch(err => mostrarMsg(err.message, true));
 });
 
 async function ghFetch(path) {
@@ -206,7 +208,7 @@ async function ghGuardar(path, sha, objeto, mensaje) {
 async function cargarBase() {
   const [eqRes, rosRes, catRes, tempRes] = await Promise.all([
     fetch('../data/equipos.json').then(r => r.json()),
-    fetch('../data/roster.json').then(r => r.json()),
+    token() ? ghFetch('data/roster.json').then(r => r.contenido) : fetch('../data/roster.json').then(r => r.json()),
     fetch('../data/categorias.json').then(r => r.json()),
     fetch('../data/temporadas.json').then(r => r.json()),
   ]);
@@ -265,7 +267,7 @@ async function cargarJuegosDeCategoria() {
     selJuego.innerHTML = '<option value="">Elige el juego…</option>' +
       ordenados.map(j => {
         const marcador = j.estatus === 'jugado' ? ` (${j.marcador_local}-${j.marcador_visita})` : ' — programado';
-        return `<option value="${j.id}">${j.fecha} — ${nombreEquipo(j.local)} vs ${nombreEquipo(j.visita)}${marcador}</option>`;
+        return `<option value="${j.id}">${j.fase === 'amistoso' ? '[Amistoso] ' : ''}${j.temporada} · ${j.fecha} — ${nombreEquipo(j.local)} vs ${nombreEquipo(j.visita)}${marcador}</option>`;
       }).join('');
   } catch (err) {
     selJuego.innerHTML = '<option value="">Error al cargar (revisa tu token)</option>';
@@ -349,13 +351,7 @@ function pintarRoster(lado, equipoId, existentes) {
   const equipo = EQUIPOS.find(e => e.id === equipoId);
   document.getElementById(`titulo-${lado}`).textContent = equipo ? equipo.nombre : (lado === 'local' ? 'Local' : 'Visitante');
 
-  const jugadoresEquipo = JUGADORES.filter(j =>
-    (j.membresias ?? []).some(m =>
-      m.categoria_id === categoriaActual &&
-      m.equipo_id === equipoId &&
-      (!juegoElegido?.temporada || m.temporada === juegoElegido.temporada)
-    )
-  );
+  const jugadoresEquipo = JUGADORES.filter(j => jugadorElegible(j, juegoElegido, equipoId, categoriaActual));
 
   const cont = document.getElementById(`lista-${lado}`);
   if (jugadoresEquipo.length === 0) {
@@ -419,6 +415,7 @@ async function guardar() {
     if (!path) throw new Error('No se encontró el archivo de origen de este juego.');
 
     const fresco = await ghFetch(path);
+    const rosterFresco = await ghFetch('data/roster.json');
     const juego = fresco.contenido.juegos.find(j => j.id === juegoId);
     if (!juego) throw new Error('El juego ya no existe en el archivo (¿lo borraron?)');
 
@@ -436,8 +433,9 @@ async function guardar() {
       juego.estadisticas_visita = armarLista('visita');
     }
 
-    juego.mvp_jugador = document.getElementById('sel-mvp').value || '';
-    juego.mvp_nombre = document.getElementById('in-mvp-detalle').value.trim();
+    juego.mvp_jugador = juego.forfeit !== 'ninguno' ? '' : document.getElementById('sel-mvp').value || '';
+    juego.mvp_nombre = juego.forfeit !== 'ninguno' ? '' : document.getElementById('in-mvp-detalle').value.trim();
+    validarParticipaciones(juego, rosterFresco.contenido.jugadores, categoriaActual);
 
     await ghGuardar(
       path,
@@ -468,7 +466,7 @@ function ocultarMsg() {
 }
 
 actualizarEstadoToken();
-cargarBase();
+cargarBase().catch(err => mostrarMsg(err.message, true));
 </script>
 </body>
 </html>

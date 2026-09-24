@@ -79,12 +79,21 @@
     </div>
 
     <div id="form-jugador" class="form-oculto">
+      <div class="campo">
+        <label for="sel-alcance">Participación</label>
+        <select id="sel-alcance"><option value="liga">Liga</option><option value="amistoso">Solo para amistosos</option></select>
+        <div class="hint">Los invitados no se inscriben en la liga. Puedes asignar la misma persona a otros amistosos después.</div>
+      </div>
+      <div class="campo" id="campo-amistoso" hidden>
+        <label for="sel-amistoso">Juego amistoso</label>
+        <select id="sel-amistoso"><option value="">Elige categoría y temporada primero…</option></select>
+      </div>
 
       <div class="campo">
         <label>¿Qué vas a hacer?</label>
         <select id="sel-modo">
           <option value="nuevo">Dar de alta un jugador nuevo</option>
-          <option value="existente">Agregarle otra categoría/temporada a un jugador que ya existe</option>
+          <option value="existente">Asignar una participación a un jugador que ya existe</option>
         </select>
         <div class="hint">Si el jugador ya está en el roster y solo va a jugar una categoría o temporada nueva, usa la segunda opción — así no se duplica.</div>
       </div>
@@ -139,12 +148,15 @@
     </div>
   </div>
 
+<script src="../js/amistosos.js"></script>
 <script>
 const OWNER = 'inproneg77';
 const REPO = 'LMBCV';
 const BRANCH = 'main';
 
 let EQUIPOS = [], CATEGORIAS = [], TEMPORADAS = [], ROSTER_ACTUAL = null;
+let juegosAmistososAlta = [];
+let cargaAmistosos = 0;
 let jugadorExistenteElegido = null; // { id, nombre } cuando modo = "existente"
 
 function token() { return localStorage.getItem('lmbc_gh_token') || ''; }
@@ -268,7 +280,42 @@ function revisarDuplicados() {
   }
 }
 
+function esAltaAmistoso() { return document.getElementById('sel-alcance').value === 'amistoso'; }
+async function actualizarAmistosos() {
+  const version = ++cargaAmistosos;
+  const sel = document.getElementById('sel-amistoso');
+  document.getElementById('campo-amistoso').hidden = !esAltaAmistoso();
+  juegosAmistososAlta = [];
+  sel.innerHTML = '<option value="">Elige categoría y temporada primero…</option>';
+  actualizarEquiposDisponibles();
+  const cat = document.getElementById('sel-categoria').value;
+  const temp = document.getElementById('sel-temporada').value;
+  if (!esAltaAmistoso() || !cat || !temp) { validarFormulario(); return; }
+  sel.innerHTML = '<option value="">Cargando amistosos…</option>';
+  try {
+    const r = await ghFetch('data/juegos_' + cat + '/' + temp + '.json');
+    if (version !== cargaAmistosos) return;
+    juegosAmistososAlta = (r.contenido.juegos ?? []).filter(j => esAmistoso(j) && j.temporada === temp);
+    sel.innerHTML = '<option value="">Elige un amistoso…</option>' + juegosAmistososAlta.map(j => {
+      const nombre = id => EQUIPOS.find(e => e.id === id)?.nombre ?? id;
+      return '<option value="' + escaparHTML(j.id) + '">' + escaparHTML(j.fecha + ' — ' + nombre(j.local) + ' vs ' + nombre(j.visita)) + '</option>';
+    }).join('');
+    if (!juegosAmistososAlta.length) sel.innerHTML = '<option value="">Primero agenda un juego con fase Amistoso.</option>';
+  } catch (err) {
+    if (version !== cargaAmistosos) return;
+    sel.innerHTML = '<option value="">No se pudo cargar: revisa el archivo y el token.</option>';
+    mostrarMsg(err.message, true);
+  }
+  actualizarEquiposDisponibles(); validarFormulario();
+}
+function actualizarEquiposAmistoso() {
+  const juego = juegosAmistososAlta.find(j => j.id === document.getElementById('sel-amistoso').value);
+  const sel = document.getElementById('sel-equipo');
+  sel.innerHTML = '<option value="">Elige equipo…</option>' + (juego ? [juego.local, juego.visita].map(id => '<option value="' + escaparHTML(id) + '">' + escaparHTML(EQUIPOS.find(e => e.id === id)?.nombre ?? id) + '</option>').join('') : '');
+}
 function actualizarEquiposDisponibles() {
+  if (esAltaAmistoso()) { actualizarEquiposAmistoso(); return; }
+
   const cat = document.getElementById('sel-categoria').value;
   const selEquipo = document.getElementById('sel-equipo');
   if (!cat) { selEquipo.innerHTML = '<option value="">Elige categoría primero…</option>'; return; }
@@ -278,6 +325,8 @@ function actualizarEquiposDisponibles() {
 }
 
 function validarFormulario() {
+  if (esAltaAmistoso() && !document.getElementById('sel-amistoso').value) { document.getElementById('btn-guardar').disabled = true; return; }
+
   const modo = document.getElementById('sel-modo').value;
   const camposComunes = document.getElementById('sel-categoria').value &&
                          document.getElementById('sel-equipo').value &&
@@ -318,6 +367,8 @@ async function iniciar() {
   document.getElementById('sel-equipo').addEventListener('change', validarFormulario);
   document.getElementById('sel-temporada').addEventListener('change', validarFormulario);
   document.getElementById('btn-guardar').addEventListener('click', guardar);
+  ['sel-alcance', 'sel-categoria', 'sel-temporada'].forEach(id => document.getElementById(id).addEventListener('change', actualizarAmistosos));
+  document.getElementById('sel-amistoso').addEventListener('change', () => { actualizarEquiposDisponibles(); validarFormulario(); });
 
   if (token()) await cargarBase();
 }
@@ -370,20 +421,29 @@ async function guardar() {
       temporada: document.getElementById('sel-temporada').value,
     };
 
+    const campoParticipacion = esAltaAmistoso() ? 'participaciones_amistosos' : 'membresias';
+    if (esAltaAmistoso()) {
+      const juegoId = document.getElementById('sel-amistoso').value;
+      const archivo = await ghFetch('data/juegos_' + nuevaMembresia.categoria_id + '/' + nuevaMembresia.temporada + '.json');
+      const juego = (archivo.contenido.juegos ?? []).find(j => j.id === juegoId);
+      if (!juego || !esAmistoso(juego) || juego.temporada !== nuevaMembresia.temporada || ![juego.local, juego.visita].includes(nuevaMembresia.equipo_id)) throw new Error('El amistoso cambió. Vuelve a seleccionarlo.');
+      nuevaMembresia.juego_id = juegoId;
+    }
     let nombreParaMensaje;
 
     if (modo === 'existente') {
       const jugador = fresco.contenido.jugadores.find(j => j.id === jugadorExistenteElegido.id);
       if (!jugador) throw new Error('Ese jugador ya no está en el roster (¿lo borraron?). Recarga la página.');
 
-      const yaLaTiene = (jugador.membresias ?? []).some(m =>
+      const yaLaTiene = (jugador[campoParticipacion] ?? []).some(m =>
         m.categoria_id === nuevaMembresia.categoria_id &&
         m.equipo_id === nuevaMembresia.equipo_id &&
-        m.temporada === nuevaMembresia.temporada
+        m.temporada === nuevaMembresia.temporada &&
+        (!esAltaAmistoso() || m.juego_id === nuevaMembresia.juego_id)
       );
-      if (yaLaTiene) throw new Error(`${jugador.nombre} ya tiene exactamente esa categoría/equipo/temporada — no hay nada que agregar.`);
+      if (yaLaTiene) throw new Error(`${jugador.nombre} ya tiene esta participación registrada.`);
 
-      jugador.membresias = [...(jugador.membresias ?? []), nuevaMembresia];
+      jugador[campoParticipacion] = [...(jugador[campoParticipacion] ?? []), nuevaMembresia];
       nombreParaMensaje = jugador.nombre;
     } else {
       const id = document.getElementById('in-id').value.trim();
@@ -394,7 +454,8 @@ async function guardar() {
         id,
         nombre: document.getElementById('in-nombre').value.trim(),
         numero: document.getElementById('in-numero').value.trim(),
-        membresias: [nuevaMembresia],
+        membresias: [],
+        [campoParticipacion]: [nuevaMembresia],
       };
       fresco.contenido.jugadores.push(nuevoJugador);
       nombreParaMensaje = nuevoJugador.nombre;
@@ -425,11 +486,12 @@ async function guardar() {
     document.getElementById('sel-equipo').innerHTML = '<option value="">Elige categoría primero…</option>';
     document.getElementById('sel-temporada').value = '';
     document.getElementById('aviso-duplicado').classList.remove('visible');
+    await actualizarAmistosos();
     validarFormulario();
   } catch (err) {
     mostrarMsg('Error al guardar: ' + err.message, true);
   } finally {
-    btn.disabled = false;
+    validarFormulario();
     btn.textContent = 'Guardar en GitHub';
   }
 }

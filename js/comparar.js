@@ -56,7 +56,7 @@ function render() {
 // rival elegido) — puntos, triples y faltas, propios y del rival, promedio
 // por juego. Misma lógica que usa /rankings, aquí para un solo equipo.
 function estadisticasTemporada(equipoId) {
-  const juegos = ESTADO_CMP.juegos.filter(j =>
+  const juegos = ESTADO_CMP.juegosOficiales.filter(j =>
     j.categoria_id === categoriaActivaCmp &&
     j.estatus === 'jugado' &&
     (j.fase ?? 'regular') === 'regular' &&
@@ -111,7 +111,7 @@ function renderResultado() {
   // El historial de enfrentamientos abarca TODAS las temporadas registradas,
   // no solo la que está elegida en el selector (esa solo filtra el
   // "Comparativo de Temporada" de arriba).
-  const juegos = ESTADO_CMP.juegos.filter(j =>
+  const juegos = ESTADO_CMP.juegosOficiales.filter(j =>
     j.categoria_id === categoriaActivaCmp &&
     j.estatus === 'jugado' &&
     ((j.local === equipoACmp && j.visita === equipoBCmp) || (j.local === equipoBCmp && j.visita === equipoACmp))

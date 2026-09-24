@@ -11,10 +11,10 @@ async function iniciarJugador() {
 
 // Junta todas las líneas de estadística de este jugador, en TODAS las
 // categorías/temporadas/juegos donde haya participado — recorriendo los
-// mismos ESTADO_J.juegos que ya carga datos.js (nada de datos nuevos).
-function bitacoraDe(jugadorId) {
+// mismos ESTADO_J.juegosOficiales que ya carga datos.js (nada de datos nuevos).
+function bitacoraDe(jugadorId, juegos = ESTADO_J.juegosOficiales) {
   const filas = [];
-  ESTADO_J.juegos.forEach(j => {
+  juegos.forEach(j => {
     if (j.estatus !== 'jugado') return;
     const esLocal = (j.estadisticas_local ?? j.estadisticas ?? []).some(e => e.jugador === jugadorId);
     const esVisita = (j.estadisticas_visita ?? []).some(e => e.jugador === jugadorId);
@@ -44,7 +44,7 @@ function bitacoraDe(jugadorId) {
 }
 
 function contarMVP(jugadorId) {
-  return ESTADO_J.juegos.filter(j => j.estatus === 'jugado' && j.mvp_jugador === jugadorId).length;
+  return ESTADO_J.juegosOficiales.filter(j => j.estatus === 'jugado' && j.mvp_jugador === jugadorId).length;
 }
 
 // Agrupa las filas de la bitácora por categoría + temporada + equipo — cada
@@ -111,7 +111,7 @@ function render(id) {
   `;
 
   cont.innerHTML = `
-    <h3 class="lideres__titulo display">Total Acumulado (todas las temporadas y equipos)</h3>
+    <h3 class="lideres__titulo display">Total oficial (todas las temporadas y equipos)</h3>
     <div class="dash-metricas">
       <div class="dash-metrica"><div class="dash-metrica__valor">${totalCarrera.jj}</div><div class="dash-metrica__label">Juegos jugados</div></div>
       <div class="dash-metrica"><div class="dash-metrica__valor">${totalCarrera.puntos}</div><div class="dash-metrica__label">Puntos totales</div></div>
@@ -122,7 +122,9 @@ function render(id) {
     </div>
 
     <h3 class="lideres__titulo display" style="margin-top:30px;">Desglose por Temporada, Categoría y Equipo</h3>
-    ${grupos.length === 0 ? '<div class="empty">Todavía no tiene estadísticas capturadas.</div>' : grupos.map(g => renderGrupo(g)).join('')}
+    ${grupos.length === 0 ? '<div class="empty">Todavía no tiene estadísticas oficiales capturadas.</div>' : grupos.map(g => renderGrupo(g)).join('')}
+    <h3 class="lideres__titulo display" style="margin-top:30px;">Amistosos — fuera de los totales oficiales</h3>
+    ${agruparPorTemporada(bitacoraDe(id, ESTADO_J.juegosAmistosos)).map(g => renderGrupo(g)).join('') || '<div class="empty">Sin participaciones en amistosos.</div>'}
   `;
 }
 

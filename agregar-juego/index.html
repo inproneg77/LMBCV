@@ -166,6 +166,7 @@
     </div>
   </div>
 
+<script src="../js/amistosos.js"></script>
 <script>
 
 const OWNER = 'inproneg77';
@@ -537,6 +538,11 @@ async function guardarEdicion() {
     const juego = fresco.contenido.juegos.find(j => j.id === juegoEnEdicionId);
     if (!juego) throw new Error('Este juego ya no está en el archivo (¿lo borraron desde otro lado?). Recarga la página.');
 
+    if (esAmistoso(juego) && (document.getElementById('sel-fase').value !== 'amistoso' || document.getElementById('sel-local').value !== juego.local || document.getElementById('sel-visita').value !== juego.visita)) {
+      const roster = await ghFetch('data/roster.json');
+      const tieneInvitados = (roster?.contenido.jugadores ?? []).some(j => (j.participaciones_amistosos ?? []).some(p => p.juego_id === juego.id && p.temporada === juego.temporada && p.categoria_id === document.getElementById('sel-categoria').value));
+      if (tieneInvitados) throw new Error('Este amistoso tiene invitados asignados. Conserva su fase y equipos, o agenda otro juego.');
+    }
     juego.local = document.getElementById('sel-local').value;
     juego.visita = document.getElementById('sel-visita').value;
     juego.fecha = document.getElementById('in-fecha').value;
@@ -581,6 +587,11 @@ async function eliminar() {
 
     const existe = fresco.contenido.juegos.some(j => j.id === juegoEnEdicionId);
     if (!existe) throw new Error('Este juego ya no está en el archivo — puede que alguien más ya lo haya borrado.');
+
+    const roster = await ghFetch('data/roster.json');
+    const juego = fresco.contenido.juegos.find(j => j.id === juegoEnEdicionId);
+    const tieneInvitados = (roster?.contenido.jugadores ?? []).some(j => (j.participaciones_amistosos ?? []).some(p => p.juego_id === juego.id && p.temporada === juego.temporada && p.categoria_id === document.getElementById('sel-categoria').value));
+    if (tieneInvitados) throw new Error('Retira primero las invitaciones de este juego en el roster antes de eliminarlo.');
 
     fresco.contenido.juegos = fresco.contenido.juegos.filter(j => j.id !== juegoEnEdicionId);
 
