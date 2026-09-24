@@ -6,6 +6,9 @@ const path = require('node:path');
 const root = path.join(__dirname, '..');
 const read = p => fs.readFileSync(path.join(root,p),'utf8');
 const clone = x => JSON.parse(JSON.stringify(x));
+test('selecting a saved team loads its name for editing without erasing same-team roster',()=>{
+ const c=ambiente();run(c,"ambienteAmistosos.datos.equipos.push({id:'saved',nombre:'Equipo guardado',logo:'img/test.png'});ambienteAmistosos.datos.jugadores.push({id:'guest',equipo_id:'saved',nombre:'Invitado'})");value(c,'am-equipo-visita','saved');run(c,"amSeleccionarEquipo('visita')");assert.equal(c.document.getElementById('am-editar-nombre-visita').value,'Equipo guardado');run(c,"borradorAmistoso.filas.visita[0].puntos=33;amSeleccionarEquipo('visita')");assert.equal(run(c,'borradorAmistoso.filas.visita[0].puntos'),33);
+});
 test('agenda preserves played results and updates existing team logo; capture only writes results',async()=>{
  const agenda=ambiente();run(agenda,"ghGuardar=async()=>({content:{sha:'one'}})");await run(agenda,'amGuardar()');
  const scheduled=clone(run(agenda,'ambienteAmistosos.datos'));

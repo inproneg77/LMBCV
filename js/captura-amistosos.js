@@ -130,12 +130,13 @@ function amPintar() {
 }
 function amSeleccionarEquipo(lado) {
   const id = amEl('equipo-' + lado).value;
+  if(id===borradorAmistoso.juego[lado])return;
   if (id.startsWith('liga:')) return amCopiarLiga(lado, id.slice(5));
   const otro = lado === 'local' ? 'visita' : 'local';
   if (id && id === borradorAmistoso.juego[otro]) { amEl('equipo-' + lado).value = borradorAmistoso.juego[lado]; return amMensaje('Elige dos equipos diferentes.', true); }
   borradorAmistoso.juego[lado] = id;
   borradorAmistoso.filas[lado] = ambienteAmistosos.datos.jugadores.filter(p => p.equipo_id === id).map(p => ({...amClonar(p),asistio:false,puntos:0,triples:0,faltas:0}));
-  amPintarFilas(lado); amActualizarMVP();
+  amActualizarSelectoresEquipos();amPintarFilas(lado); amActualizarMVP();
 }
 async function amCrearEquipo(lado) {
   if(!AM_ES_AGENDA)throw new Error('Los equipos se crean en Agregar Juego.');
