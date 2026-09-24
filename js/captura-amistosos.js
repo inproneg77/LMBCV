@@ -12,6 +12,7 @@ const amId = tipo => {
 };
 const amClonar = valor => JSON.parse(JSON.stringify(valor));
 const amLogosPendientes = new Map();
+const amLogosSubidos = new Map();
 const amVacio = () => ({ equipos: [], jugadores: [], juegos: [] });
 async function abrirAgendaAmistosa() {
   document.getElementById('modo-captura').value='amistoso';document.getElementById('captura-liga').hidden=true;document.getElementById('captura-amistosos').hidden=false;
@@ -162,7 +163,7 @@ async function amCrearEquipo(lado) {
   amActualizarSelectoresEquipos(); amPintarFilas(lado); amActualizarMVP();
   amMensaje('Equipo «' + nombre + '» creado en este partido. Agrega sus jugadores y pulsa Guardar amistoso para publicarlo.');
 }
-async function amActualizarEquipo(lado) {
+async function amActualizarEquipo(lado, refrescar = true) {
   if(!AM_ES_AGENDA)throw new Error('Los equipos se modifican en Agregar Juego.');
   const id=borradorAmistoso.juego[lado];
   const actual=[...borradorAmistoso.equipos,...ambienteAmistosos.datos.equipos].find(e=>e.id===id);
@@ -175,9 +176,9 @@ async function amActualizarEquipo(lado) {
   try {
     if(archivo){const imagen=await amPrepararLogo(archivo);equipo.logo='img/amistosos/'+amId('logo')+'.png';amLogosPendientes.set(equipo.logo,imagen);}
     borradorAmistoso.equipos=borradorAmistoso.equipos.filter(e=>e.id!==id);borradorAmistoso.equipos.push(equipo);
-    amEl('editar-logo-'+lado).value='';amActualizarSelectoresEquipos();
-    amMensaje('Nombre y logo preparados. Pulsa Guardar cambios para publicarlos.');
-  } finally {amEl('contenido').disabled=false;}
+    amEl('editar-logo-'+lado).value='';
+    if(refrescar){amActualizarSelectoresEquipos();amMensaje('Nombre y logo preparados. Pulsa Guardar cambios para publicarlos.');}
+  } finally {amEl('contenido').disabled=amistosoGuardando;}
 }
 async function amPrepararLogo(archivo) {
   if (!['image/png','image/jpeg','image/webp'].includes(archivo.type)) throw new Error('El logo debe ser PNG, JPG o WebP.');
@@ -207,7 +208,7 @@ function amActualizarSelectoresEquipos() {
     amEl('editar-nombre-'+lado).value=equipo?.nombre ?? '';
     const img = amEl('vista-logo-' + lado);
     img.hidden = !equipo;
-    if (equipo) { img.src = amLogosPendientes.has(equipo.logo) ? 'data:image/png;base64,' + amLogosPendientes.get(equipo.logo) : '../' + (equipo.logo || 'img/equipos/placeholder.svg'); img.alt = 'Logo de ' + equipo.nombre; }
+    if (equipo) { const imagen=amLogosPendientes.get(equipo.logo) ?? amLogosSubidos.get(equipo.logo); img.src = imagen ? 'data:image/png;base64,' + imagen : '../' + (equipo.logo || 'img/equipos/placeholder.svg'); img.alt = 'Logo de ' + equipo.nombre; }
   }
   const existente=ambienteAmistosos.datos.juegos.some(j=>j.id===borradorAmistoso.juego.id);
   amEl('guardar').textContent=AM_ES_AGENDA?(existente?'Guardar cambios':'Programar amistoso'):'Guardar estadísticas y resultado';
@@ -326,10 +327,13 @@ async function amGuardar() {
   if(amistosoGuardando)return;
   amistosoGuardando=true;amEl('contenido').disabled=true;
   try {
+    // Recoge ambos lados antes de refrescar los selectores y sus nombres.
+    if(AM_ES_AGENDA)for(const lado of ['local','visita'])await amActualizarEquipo(lado,false);
     const datos=amPrepararGuardado();
     for (const equipo of datos.equipos.filter(e=>[borradorAmistoso.juego.local,borradorAmistoso.juego.visita].includes(e.id))) {
       if (!amLogosPendientes.has(equipo.logo)) continue;
       await ghGuardar(equipo.logo,undefined,null,'Logo de equipo de amistosos',amLogosPendientes.get(equipo.logo));
+      amLogosSubidos.set(equipo.logo,amLogosPendientes.get(equipo.logo));
       amLogosPendientes.delete(equipo.logo);
     }
     // Conservamos el SHA de apertura: un conflicto nunca pisa otro guardado.
@@ -390,4 +394,3 @@ function iniciarCapturaAmistosos() {
   }
 }
 iniciarCapturaAmistosos();
-

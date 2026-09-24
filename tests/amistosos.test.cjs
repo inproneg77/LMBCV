@@ -6,6 +6,37 @@ const path = require('node:path');
 const root = path.join(__dirname, '..');
 const read = p => fs.readFileSync(path.join(root,p),'utf8');
 const clone = x => JSON.parse(JSON.stringify(x));
+
+test('Save changes uploads both selected logos without Apply and retains previews after reopening',async()=>{
+ const c=ambiente();c.saved=[];
+ run(c,"ghGuardar=async(path,sha,obj,msg,image)=>{saved.push({path,sha,obj,image});return {content:{sha:'next'}}};amPrepararLogo=async file=>file.image");
+ await run(c,'amGuardar()');c.saved.length=0;
+ for(const side of ['local','visita']){
+  value(c,'am-editar-nombre-'+side,'Nuevo '+side);
+  c.document.getElementById('am-editar-logo-'+side).files=[{image:side}];
+ }
+ await run(c,'amGuardar()');
+ assert.equal(c.saved.length,3);
+ const data=c.saved[2].obj;
+ for(const [i,side] of ['local','visita'].entries()){
+  const team=data.equipos.find(e=>e.id===data.juegos[0][side]);
+  assert.equal(team.nombre,'Nuevo '+side);assert.equal(team.logo,c.saved[i].path);assert.equal(c.saved[i].image,side);
+  assert.equal(c.document.getElementById('am-vista-logo-'+side).src,'data:image/png;base64,'+side);
+  c.document.getElementById('am-editar-logo-'+side).files=[];
+ }
+ value(c,'am-juego',data.juegos[0].id);run(c,'amAbrirJuego()');
+ assert.equal(c.document.getElementById('am-vista-logo-local').src,'data:image/png;base64,local');
+ await run(c,'amGuardar()');assert.equal(c.saved.length,4);assert.equal(c.saved[3].path,'data/amistosos.json');
+});
+
+test('failed replacement upload keeps saved logo and selected replacement available to retry',async()=>{
+ const c=ambiente();run(c,"ghGuardar=async()=>({content:{sha:'saved'}})");await run(c,'amGuardar()');
+ const old=run(c,'ambienteAmistosos.datos.equipos[0].logo');
+ c.document.getElementById('am-editar-logo-local').files=[{}];
+ run(c,"amPrepararLogo=async()=> 'replacement';ghGuardar=async()=>{throw new Error('Upload failed')}");
+ await run(c,'amGuardar()');assert.equal(run(c,'ambienteAmistosos.datos.equipos[0].logo'),old);
+ assert.equal(run(c,'amLogosPendientes.size'),1);assert.match(c.document.getElementById('am-mensaje').textContent,/Upload failed/);
+});
 test('selecting a saved team loads its name for editing without erasing same-team roster',()=>{
  const c=ambiente();run(c,"ambienteAmistosos.datos.equipos.push({id:'saved',nombre:'Equipo guardado',logo:'img/test.png'});ambienteAmistosos.datos.jugadores.push({id:'guest',equipo_id:'saved',nombre:'Invitado'})");value(c,'am-equipo-visita','saved');run(c,"amSeleccionarEquipo('visita')");assert.equal(c.document.getElementById('am-editar-nombre-visita').value,'Equipo guardado');run(c,"borradorAmistoso.filas.visita[0].puntos=33;amSeleccionarEquipo('visita')");assert.equal(run(c,'borradorAmistoso.filas.visita[0].puntos'),33);
 });
@@ -164,4 +195,3 @@ test('capture saves a friendly to its original file and refuses a guest after ph
   await run(c,'guardar()');assert.equal(c.saved.length,phase==='amistoso'?1:0);if(c.saved.length){assert.equal(c.saved[0].p,'data/juegos_var40/2026-1.json');assert.equal(c.saved[0].obj.juegos[0].fase,'amistoso');assert.equal(c.saved[0].sha,'fresh-sha');}else assert.match(c.document.getElementById('msg').textContent,/no autorizado/);
  }
 });
-
