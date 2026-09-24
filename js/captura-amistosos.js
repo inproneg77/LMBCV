@@ -1,5 +1,6 @@
 // Captura independiente: equipos, jugadores y encuentros se guardan juntos.
 const ARCHIVO_AMISTOSOS = 'data/amistosos.json';
+const AM_ES_AGENDA = document.body?.dataset?.amistosos === 'agenda';
 let ambienteAmistosos = null;
 let borradorAmistoso = null;
 let amistosoGuardando = false;
@@ -12,6 +13,15 @@ const amId = tipo => {
 const amClonar = valor => JSON.parse(JSON.stringify(valor));
 const amLogosPendientes = new Map();
 const amVacio = () => ({ equipos: [], jugadores: [], juegos: [] });
+async function abrirAgendaAmistosa() {
+  document.getElementById('modo-captura').value='amistoso';document.getElementById('captura-liga').hidden=true;document.getElementById('captura-amistosos').hidden=false;
+  await abrirAmbienteAmistosos();if(!ambienteAmistosos)return;
+  const cat=document.getElementById('sel-categoria').value,temp=document.getElementById('sel-temporada').value;
+  if(cat)amEl('categoria').value=cat;if(temp)amEl('temporada').value=temp;amNuevo();
+  for(const lado of ['local','visita']){const id=document.getElementById('sel-'+lado).value;if(id)amCopiarLiga(lado,id);}
+  const fecha=document.getElementById('in-fecha').value;if(fecha)amEl('fecha').value=fecha;
+  amEl('sede').value=document.getElementById('sel-sede').value;
+}
 async function abrirAmistosoDesdeCaptura(id) {
   document.getElementById('modo-captura').value='amistoso';
   document.getElementById('captura-liga').hidden=true;
@@ -43,7 +53,7 @@ function amOpciones(items, seleccionado = '') {
   return items.map(x => `<option value="${escaparHTML(x.id)}" ${x.id === seleccionado ? 'selected' : ''}>${escaparHTML(x.nombre)}</option>`).join('');
 }
 async function amLeer() {
-  try { return await ghFetch(ARCHIVO_AMISTOSOS); }
+  try { return (await ghFetch(ARCHIVO_AMISTOSOS)) ?? {sha:null,contenido:amVacio()}; }
   catch (err) { if (err.status === 404) return { sha: null, contenido: amVacio() }; throw err; }
 }
 async function abrirAmbienteAmistosos() {
@@ -65,7 +75,7 @@ async function abrirAmbienteAmistosos() {
     amNuevo();
     amEl('contenido').hidden = false;
     amEl('cargar').hidden = true;
-    amMensaje('Crea el partido aquí: los equipos y jugadores quedan solo en amistosos.');
+    amMensaje(AM_ES_AGENDA?'Programa un nuevo amistoso o selecciona uno para modificarlo o eliminarlo.':'Selecciona un amistoso programado para capturar estadísticas y resultado.');
   } catch (err) { ambienteAmistosos=null; amMensaje(err.message, true); }
   finally { amEl('cargar').disabled = false; }
 }
@@ -74,7 +84,7 @@ function amListaJuegos() {
   const equipos = Object.fromEntries(ambienteAmistosos.datos.equipos.map(e => [e.id, e.nombre]));
   const juegos = ambienteAmistosos.datos.juegos.filter(j => j.categoria_id === cat && j.temporada === temp)
     .sort((a,b) => b.fecha.localeCompare(a.fecha));
-  amEl('juego').innerHTML = '<option value="">Nuevo amistoso</option>' + amOpciones(juegos.map(j => ({ id: j.id, nombre: `${j.fecha} — ${equipos[j.local]} vs ${equipos[j.visita]}` })), borradorAmistoso?.juego.id);
+  amEl('juego').innerHTML = '<option value="">'+(AM_ES_AGENDA?'Nuevo amistoso':'Elige el amistoso programado')+'</option>' + amOpciones(juegos.map(j => ({ id: j.id, nombre: `${j.fecha} — ${equipos[j.local]} vs ${equipos[j.visita]}` })), borradorAmistoso?.juego.id);
 }
 function amNuevo() {
   const ahora = new Date();
@@ -101,7 +111,7 @@ function amAbrirJuego() {
       return { ...amClonar(persona), asistio: !!stats && String(stats.asistio) !== 'false', puntos: stats?.puntos ?? 0, triples: stats?.triples ?? 0, faltas: stats?.faltas ?? 0 };
     });
   }
-  amPintar(); amMensaje('Amistoso abierto. Puedes agregar jugadores y actualizar el resultado.');
+  amPintar(); amMensaje(AM_ES_AGENDA?'Amistoso abierto para modificar su programación, equipos, jugadores y logos.':'Amistoso abierto para capturar estadísticas y resultado.');
 }
 function amPintar() {
   const j = borradorAmistoso.juego;
@@ -128,6 +138,7 @@ function amSeleccionarEquipo(lado) {
   amPintarFilas(lado); amActualizarMVP();
 }
 async function amCrearEquipo(lado) {
+  if(!AM_ES_AGENDA)throw new Error('Los equipos se crean en Agregar Juego.');
   const nombre = amEl('nombre-' + lado).value.trim();
   if (!nombre) return amMensaje('Escribe el nombre del equipo invitado.', true);
   const existente = [...ambienteAmistosos.datos.equipos,...borradorAmistoso.equipos].find(e => e.nombre.toLocaleLowerCase() === nombre.toLocaleLowerCase());
@@ -150,6 +161,23 @@ async function amCrearEquipo(lado) {
   amActualizarSelectoresEquipos(); amPintarFilas(lado); amActualizarMVP();
   amMensaje('Equipo «' + nombre + '» creado en este partido. Agrega sus jugadores y pulsa Guardar amistoso para publicarlo.');
 }
+async function amActualizarEquipo(lado) {
+  if(!AM_ES_AGENDA)throw new Error('Los equipos se modifican en Agregar Juego.');
+  const id=borradorAmistoso.juego[lado];
+  const actual=[...borradorAmistoso.equipos,...ambienteAmistosos.datos.equipos].find(e=>e.id===id);
+  if(!actual)throw new Error('Selecciona primero el equipo que quieres modificar.');
+  const nombre=amEl('editar-nombre-'+lado).value.trim();
+  if(!nombre)throw new Error('Escribe el nombre del equipo.');
+  const equipo={...actual,nombre};
+  const archivo=amEl('editar-logo-'+lado).files?.[0];
+  amEl('contenido').disabled=true;
+  try {
+    if(archivo){const imagen=await amPrepararLogo(archivo);equipo.logo='img/amistosos/'+amId('logo')+'.png';amLogosPendientes.set(equipo.logo,imagen);}
+    borradorAmistoso.equipos=borradorAmistoso.equipos.filter(e=>e.id!==id);borradorAmistoso.equipos.push(equipo);
+    amEl('editar-logo-'+lado).value='';amActualizarSelectoresEquipos();
+    amMensaje('Nombre y logo preparados. Pulsa Guardar cambios para publicarlos.');
+  } finally {amEl('contenido').disabled=false;}
+}
 async function amPrepararLogo(archivo) {
   if (!['image/png','image/jpeg','image/webp'].includes(archivo.type)) throw new Error('El logo debe ser PNG, JPG o WebP.');
   if (archivo.size > 10 * 1024 * 1024) throw new Error('El logo debe pesar menos de 10 MB.');
@@ -165,7 +193,7 @@ async function amPrepararLogo(archivo) {
   } finally { URL.revokeObjectURL(url); }
 }
 function amActualizarSelectoresEquipos() {
-  const equipos = [...ambienteAmistosos.datos.equipos,...borradorAmistoso.equipos];
+  const equipos = [...new Map([...ambienteAmistosos.datos.equipos,...borradorAmistoso.equipos].map(e=>[e.id,e])).values()];
   const liga = ambienteAmistosos.equiposLiga
     .filter(e => (e.categorias ?? []).includes(borradorAmistoso.juego.categoria_id))
     .map(e => ({id:'liga:'+e.id,nombre:e.nombre}));
@@ -175,14 +203,30 @@ function amActualizarSelectoresEquipos() {
     '<optgroup label="Equipos de amistosos">' + amOpciones(equipos,borradorAmistoso.juego[lado]) + '</optgroup>';
   for (const lado of ['local','visita']) {
     const equipo = equipos.find(e=>e.id===borradorAmistoso.juego[lado]);
+    amEl('editar-nombre-'+lado).value=equipo?.nombre ?? '';
     const img = amEl('vista-logo-' + lado);
     img.hidden = !equipo;
     if (equipo) { img.src = amLogosPendientes.has(equipo.logo) ? 'data:image/png;base64,' + amLogosPendientes.get(equipo.logo) : '../' + (equipo.logo || 'img/equipos/placeholder.svg'); img.alt = 'Logo de ' + equipo.nombre; }
   }
   const existente=ambienteAmistosos.datos.juegos.some(j=>j.id===borradorAmistoso.juego.id);
-  amEl('guardar').textContent=existente?'Guardar cambios y resultado':'Guardar nuevo amistoso';
-  amEl('eliminar').hidden=!existente;
-  amEl('estado-edicion').textContent=existente?'Editando partido guardado. Aquí puedes modificar su agenda, equipos, jugadores y resultado. Para otro encuentro pulsa Nuevo amistoso.':'Creando un nuevo amistoso.';
+  amEl('guardar').textContent=AM_ES_AGENDA?(existente?'Guardar cambios':'Programar amistoso'):'Guardar estadísticas y resultado';
+  amEl('guardar').disabled=!AM_ES_AGENDA&&!existente;
+  amEl('eliminar').hidden=!AM_ES_AGENDA||!existente;
+  amEl('estado-edicion').textContent=AM_ES_AGENDA?(existente?'Modificando la programación de este amistoso. Para otro encuentro pulsa Nuevo amistoso.':'Programando un nuevo amistoso.'):(existente?'Capturando estadísticas y resultado.':'Elige un partido ya programado.');
+  amAplicarContexto();
+}
+function amAplicarContexto() {
+  document.querySelectorAll('[data-am-agenda]').forEach(el=>{if(el.id!=='am-eliminar')el.hidden=!AM_ES_AGENDA;});
+  document.querySelectorAll('[data-am-resultados]').forEach(el=>el.hidden=AM_ES_AGENDA);
+  for(const campo of ['fecha','hora','sede','equipo-local','equipo-visita'])amEl(campo).disabled=!AM_ES_AGENDA;
+  amEl('titulo').textContent=AM_ES_AGENDA?'Programar y administrar amistosos':'Estadísticas y resultados de amistosos';
+  amEl('descripcion').textContent=AM_ES_AGENDA?'Programa el rol, administra equipos y logos, modifica o elimina encuentros. Los resultados se capturan en Captura Rápida.':'Abre un partido programado para registrar asistencia, estadísticas y resultado.';
+  amEl('ir-agenda').hidden=AM_ES_AGENDA;
+  amEl('ir-captura').hidden=!AM_ES_AGENDA;
+  const id=borradorAmistoso?.juego.id;
+  const existe=ambienteAmistosos?.datos.juegos.some(j=>j.id===id);
+  amEl('ir-agenda').href='../agregar-juego/'+(existe?'?juego='+encodeURIComponent(id):'?modo=amistoso');
+  amEl('ir-captura').href='../captura/'+(existe?'?juego='+encodeURIComponent(id):'');
 }
 function amCopiarLiga(lado, equipoId = amEl('liga-' + lado).value) {
   const original = ambienteAmistosos.equiposLiga.find(e => e.id === equipoId);
@@ -202,16 +246,16 @@ function amCopiarLiga(lado, equipoId = amEl('liga-' + lado).value) {
 function amAgregarJugador(lado) {
   const equipo = borradorAmistoso.juego[lado];
   if (!equipo) return amMensaje('Primero crea o selecciona el equipo de ese lado.',true);
-  borradorAmistoso.filas[lado].push({id:amId('p'),equipo_id:equipo,nombre:'',numero:'',asistio:true,puntos:0,triples:0,faltas:0});
+  borradorAmistoso.filas[lado].push({id:amId('p'),equipo_id:equipo,nombre:'',numero:'',asistio:!AM_ES_AGENDA,puntos:0,triples:0,faltas:0});
   amPintarFilas(lado); amActualizarMVP();
 }
 function amPintarFilas(lado) {
   const cont = amEl('jugadores-' + lado);
   cont.innerHTML = borradorAmistoso.filas[lado].map((p,i) => `<div class="am-jugador" data-fila="${i}">
-    <label><input type="checkbox" data-campo="asistio" ${p.asistio?'checked':''}> Jugó</label>
+    <label data-am-resultados><input type="checkbox" data-campo="asistio" ${p.asistio?'checked':''}> Jugó</label>
     <label>Nombre<input data-campo="nombre" value="${escaparHTML(p.nombre)}" maxlength="100"></label>
     <label>Número<input data-campo="numero" value="${escaparHTML(p.numero)}" maxlength="10"></label>
-    ${['puntos','triples','faltas'].map(k=>`<label>${k}<input type="number" min="0" step="1" data-campo="${k}" value="${escaparHTML(p[k])}"></label>`).join('')}
+    ${['puntos','triples','faltas'].map(k=>`<label data-am-resultados>${k}<input type="number" min="0" step="1" data-campo="${k}" value="${escaparHTML(p[k])}"></label>`).join('')}
     <button type="button" data-quitar="${i}" aria-label="Quitar jugador ${i+1} de ${lado}">Quitar</button>
   </div>`).join('');
   cont.querySelectorAll('[data-campo]').forEach(input => input.addEventListener('input', () => {
@@ -220,6 +264,7 @@ function amPintarFilas(lado) {
     amActualizarMVP();
   }));
   cont.querySelectorAll('[data-quitar]').forEach(btn => btn.addEventListener('click', () => {borradorAmistoso.filas[lado].splice(Number(btn.dataset.quitar),1);amPintarFilas(lado);amActualizarMVP();}));
+  amAplicarContexto();
 }
 function amActualizarMVP(elegido = amEl('mvp').value) {
   const participantes = Object.values(borradorAmistoso.filas).flat().filter(p => p.asistio && p.nombre.trim());
@@ -233,6 +278,8 @@ function amEntero(valor, campo) {
 function amPrepararGuardado() {
   const datos = amClonar(ambienteAmistosos.datos);
   const juego = amClonar(borradorAmistoso.juego);
+  const original=datos.juegos.find(j=>j.id===juego.id);
+  if(!AM_ES_AGENDA&&!original)throw new Error('Programa primero el amistoso en Agregar Juego.');
   if (!juego.local || !juego.visita || juego.local === juego.visita) throw new Error('Crea o selecciona dos equipos diferentes.');
   if (!juego.categoria_id || !juego.temporada) throw new Error('Selecciona categoría y temporada.');
   juego.fecha = amEl('fecha').value; juego.hora = amEl('hora').value;
@@ -244,7 +291,7 @@ function amPrepararGuardado() {
   juego.marcador_local = amEntero(amEl('marcador-local').value,'Marcador local');
   juego.marcador_visita = amEntero(amEl('marcador-visita').value,'Marcador visitante');
   const usados = new Set();
-  for (const equipo of borradorAmistoso.equipos.filter(e => [juego.local,juego.visita].includes(e.id))) if (!datos.equipos.some(e=>e.id===equipo.id)) datos.equipos.push(equipo);
+  if(AM_ES_AGENDA)for (const equipo of borradorAmistoso.equipos.filter(e => [juego.local,juego.visita].includes(e.id))) {const idx=datos.equipos.findIndex(e=>e.id===equipo.id);if(idx<0)datos.equipos.push(equipo);else datos.equipos[idx]=equipo;}
   for (const lado of ['local','visita']) {
     const filas = borradorAmistoso.filas[lado];
     juego['convocados_' + lado] = [];
@@ -264,6 +311,12 @@ function amPrepararGuardado() {
   juego.mvp_jugador = juego.forfeit==='ninguno' ? amEl('mvp').value : '';
   juego.mvp_nombre = juego.forfeit==='ninguno' ? amEl('detalle').value.trim() : '';
   if(juego.mvp_jugador && ![...juego.estadisticas_local,...juego.estadisticas_visita].some(p=>p.jugador===juego.mvp_jugador)) throw new Error('El MVP debe haber jugado.');
+  if(!AM_ES_AGENDA)for(const campo of ['fecha','hora','sede_id','categoria_id','temporada','local','visita'])juego[campo]=original[campo];
+  if(AM_ES_AGENDA){
+    for(const campo of ['estatus','forfeit','marcador_local','marcador_visita','mvp_jugador','mvp_nombre'])juego[campo]=original?.[campo] ?? ({estatus:'programado',forfeit:'ninguno',marcador_local:0,marcador_visita:0}[campo] ?? '');
+    for(const lado of ['local','visita'])juego['estadisticas_'+lado]=original?.['estadisticas_'+lado] ?? [];
+    if(original&&['local','visita'].some(lado=>original[lado]!==juego[lado])&&((original.estadisticas_local??[]).length||(original.estadisticas_visita??[]).length||original.estatus==='jugado'))throw new Error('Este partido ya tiene resultado o estadísticas. Corrige primero su captura antes de sustituir equipos. Puedes cambiar fecha, hora, sede o logo sin perder datos.');
+  }
   const index=datos.juegos.findIndex(j=>j.id===juego.id);
   if(index<0)datos.juegos.push(juego);else datos.juegos[index]=juego;
   return datos;
@@ -291,6 +344,7 @@ async function amGuardar() {
   finally{amistosoGuardando=false;amEl('contenido').disabled=false;}
 }
 async function amEliminar() {
+  if(!AM_ES_AGENDA)return amMensaje('Elimina el partido desde Agregar Juego.',true);
   if(amistosoGuardando || !borradorAmistoso)return;
   const id=borradorAmistoso.juego.id;
   if(!ambienteAmistosos.datos.juegos.some(j=>j.id===id))return;
@@ -321,6 +375,7 @@ function iniciarCapturaAmistosos() {
     amEl('crear-'+lado).addEventListener('click',amAccion(()=>amCrearEquipo(lado)));
     amEl('liga-'+lado).addEventListener('change',amAccion(()=>amCopiarLiga(lado)));
     amEl('agregar-'+lado).addEventListener('click',amAccion(()=>amAgregarJugador(lado)));
+    amEl('actualizar-equipo-'+lado).addEventListener('click',amAccion(()=>amActualizarEquipo(lado)));
   }
   amEl('guardar').addEventListener('click',amGuardar);
   amEl('eliminar').addEventListener('click',amEliminar);

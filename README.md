@@ -2,20 +2,15 @@
 
 ## Amistosos e invitados
 
-1. En `/agregar-juego/`, elige categoría, temporada, equipos y **Fase: Amistoso**.
-2. En `/nuevo-jugador/`, selecciona **Solo para amistosos**, la categoría,
-   temporada, encuentro y uno de sus equipos. Puedes crear una persona o
-   seleccionar una existente. Repite la asignación para invitarla a otro juego.
-3. En `/captura/`, selecciona el encuentro marcado **[Amistoso]** y captura
-   marcador, puntos, triples, faltas y MVP como siempre. El roster se lee desde
-   GitHub para disponer de los invitados recién guardados.
-4. El calendario muestra el amistoso, su resultado y su hoja de estadísticas.
-   El perfil individual presenta sus participaciones amistosas en una sección
-   separada. No suman a standing, líderes, MVP oficial, rankings, estadísticas
-   de equipos, enfrentamientos oficiales ni métricas del dashboard.
+La programación y administración se realizan en **Agregar Juego** (/agregar-juego/), eligiendo **Tipo de juego: Amistoso**. Allí se crean equipos invitados, se eligen equipos de liga, se preparan jugadores y se programan encuentros. Al seleccionar un partido existente se pueden modificar fecha, hora y sede, actualizar nombres y logos de sus equipos, o eliminar el partido con confirmación. Los equipos con estadísticas capturadas no se sustituyen sin corregir antes sus resultados; fecha, sede y logos sí pueden cambiarse conservando las estadísticas.
 
-Se conserva el mismo token personal y el guardado directo a `main`. El token
-vive en `localStorage` (`lmbc_gh_token`), no debe incluirse en ningún JSON.
+En **Captura Rápida** (/captura/), selecciona la categoría y el partido marcado **[Amistoso]** en la lista habitual. Aquí se capturan asistencia, puntos, triples, faltas, MVP, marcador y estatus. No se programan ni se eliminan juegos desde esta pantalla. Los enlaces entre ambas herramientas abren el mismo partido.
+
+Equipos, jugadores y partidos nuevos de amistosos viven en data/amistosos.json; los logos en img/amistosos/. Al copiar un equipo de liga recibe una identidad independiente: sus integrantes y resultados no se inscriben en el torneo oficial. Un cambio de nombre o logo de un equipo de amistosos se refleja en todos sus encuentros. El calendario muestra partidos y estadísticas amistosas, separados de standing, líderes, rankings y totales oficiales.
+
+Se conserva el mismo token personal en localStorage (lmbc_gh_token), nunca dentro de un JSON. El guardado utiliza el SHA del archivo para detectar cambios concurrentes. La agenda preserva los resultados guardados; la captura preserva los datos de programación.
+
+Los amistosos anteriores almacenados por categoría/temporada y sus invitados conservan el flujo existente. La siguiente sección describe ese formato heredado.
 
 ### Edición directa de JSON
 
@@ -215,16 +210,4 @@ desde cero sin usar /captura/):**
 
 Cada guardado en `/admin`, `/captura/` o `/nuevo-jugador/` hace commit directo
 a `main`, y GitHub Pages republica el sitio solo (1-2 minutos).
-# Capturar un amistoso que surge al momento
-
-Para completar resultados después del juego, entra a `/captura/`, elige categoría y selecciona el encuentro marcado **[Amistoso]** en la lista original. Se abre su formulario con jugadores, marcador y estadísticas. **Guardar cambios y resultado** actualiza ese mismo partido, incluida su fecha, hora, sede y equipos. **Eliminar este amistoso** elimina el encuentro y sus estadísticas tras confirmar, conservando equipos, jugadores y los demás partidos. **Nuevo amistoso** inicia otro registro. Los amistosos también aparecen al elegir editar un juego desde `/agregar-juego/` y abren ese mismo formulario.
-
-Abre `/captura/?modo=amistoso` con el mismo token de captura. También puedes elegir **Amistosos — crear y capturar aquí** en el selector Tipo de captura.
-
-1. Elige categoría/rama y temporada. Fecha y hora se proponen con el momento actual.
-2. En **Equipo (liga o amistosos)** selecciona directamente un equipo existente de la liga para cargar su plantilla de esa categoría y temporada. Para un invitado nuevo, escribe su nombre, selecciona su logo (PNG, JPG o WebP, opcional) y pulsa **Crear equipo local/visitante**. Verás la confirmación y la imagen; el equipo se publica al guardar el partido. Los logos se reducen a 512 píxeles y se almacenan en `img/amistosos/`.
-3. Pulsa **Agregar jugador** en cada lado: captura nombre, número, asistencia, puntos, triples y faltas. No necesitas registrar previamente al equipo ni al jugador en la liga.
-4. Captura marcador, estatus y destacado; pulsa **Guardar amistoso**. Para completar o corregir después, selecciona el encuentro en **Partido** dentro de este mismo ambiente.
-
-Equipos, jugadores, convocatorias y partidos se guardan juntos en `data/amistosos.json`. Las copias de liga reciben identidades propias: no crean inscripciones ni cambian el roster oficial. El calendario muestra resultados y hojas de estadísticas; los perfiles invitados muestran su historial amistoso. Standing, líderes, rankings y totales oficiales usan exclusivamente juegos oficiales. El guardado conserva el SHA del archivo y rechaza conflictos para no sobrescribir otra captura. Los amistosos anteriores conservan su captura existente en «Liga y juegos agendados».
 
