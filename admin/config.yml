@@ -89,9 +89,19 @@ collections:
               - { name: "id", label: "ID único (ej. jugador-01)", widget: "string" }
               - { name: "nombre", label: "Nombre completo", widget: "string" }
               - { name: "numero", label: "Número de dorsal (opcional)", widget: "string", required: false }
+              - name: "participaciones_amistosos"
+                label: "Invitaciones a amistosos (no inscriben en la liga)"
+                widget: "list"
+                required: false
+                fields:
+                  - { name: "categoria_id", label: "Categoría", widget: "string" }
+                  - { name: "temporada", label: "Temporada", widget: "string" }
+                  - { name: "equipo_id", label: "ID del equipo", widget: "string" }
+                  - { name: "juego_id", label: "ID del amistoso", widget: "string" }
               - name: "membresias"
                 label: "Categorías, equipos y temporadas en las que ha jugado"
                 widget: "list"
+                required: false
                 summary: "{{fields.categoria_id}} — {{fields.equipo_id}} ({{fields.temporada}})"
                 hint: "Agrega una fila por cada combinación de categoría + equipo + temporada. Si cambia de equipo o juega 2 categorías, agrega una fila nueva — no crees a la persona otra vez."
                 fields:

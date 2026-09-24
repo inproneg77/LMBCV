@@ -1,0 +1,98 @@
+const {test} = require('node:test');
+const assert = require('node:assert/strict');
+const vm = require('node:vm');
+const fs = require('node:fs');
+const path = require('node:path');
+const root = path.join(__dirname, '..');
+const read = p => fs.readFileSync(path.join(root,p),'utf8');
+const clone = x => JSON.parse(JSON.stringify(x));
+function context() {
+  const elements = {};
+  const element = id => elements[id] ??= {value:'',innerHTML:'',textContent:'',disabled:false,hidden:false,dataset:{},style:{},classList:{add(){},remove(){},toggle(){}},addEventListener(){},querySelectorAll(){return []}};
+  return vm.createContext({console, setTimeout,clearTimeout,AbortController,URLSearchParams,window:{},document:{getElementById:element,querySelectorAll:()=>[]},localStorage:{getItem:()=>'',setItem(){}},atob,btoa,escape,unescape});
+}
+function run(c,s){return vm.runInContext(s,c);}
+function load(c,p){run(c,read(p).replace(/^iniciar\w*\(\);\s*$/m,''));}
+function form(c,p){const script=[...read(p).matchAll(/<script>([\s\S]*?)<\/script>/g)][0][1];run(c,script.replace(/^iniciar\(\);\s*$/m,'').replace(/^actualizarEstadoToken\(\);$/m,'').replace(/^cargarBase\(\)\.catch.*$/m,''));}
+function value(c,id,v){c.document.getElementById(id).value=v;}
+const membership={categoria_id:'var40',temporada:'2026-1',equipo_id:'A'};
+const official={id:'P',nombre:'Oficial',membresias:[membership]};
+const guest={id:'G',nombre:'Invitado',membresias:[],participaciones_amistosos:[{...membership,juego_id:'F'}]};
+const regular={id:'R',categoria_id:'var40',temporada:'2026-1',fecha:'2026-01-01',hora:'12:00',local:'A',visita:'B',estatus:'jugado',fase:'regular',marcador_local:10,marcador_visita:5,mvp_jugador:'P',estadisticas_local:[{jugador:'P',puntos:10,triples:1,faltas:1}],estadisticas_visita:[]};
+const friendly={...regular,id:'F',fase:'amistoso',fecha:'2026-03-01',marcador_local:999,mvp_jugador:'G',estadisticas_local:[{jugador:'G',puntos:999,triples:99,faltas:9},{jugador:'P',puntos:500,triples:50,faltas:5}]};
+function fixture(includeFriendly=true){return {
+ 'data/temporadas.json':{temporadas:[{id:'2026-1'},{id:'2026-2'}]},
+ 'data/categorias.json':[{id:'var40',nombre:'Varonil 40',orden:1},{id:'fem40',orden:2},{id:'var49',orden:3}],
+ 'data/equipos.json':{equipos:[{id:'A',nombre:'A',categorias:['var40']},{id:'B',nombre:'B',categorias:['var40']}]},
+ 'data/roster.json':{jugadores:[official,...(includeFriendly?[guest]:[])]},
+ 'data/sedes.json':{sedes:[]},'data/patrocinadores.json':{patrocinadores:[]},
+ 'data/juegos_var40/2026-1.json':{juegos:[regular,...(includeFriendly?[friendly]:[])]},
+ 'data/juegos_var40/2026-2.json':{juegos:includeFriendly?[{...friendly,id:'F2',temporada:'2026-2',fecha:'2026-09-01'}]:[]}
+};}
+async function state(data){const c=context();load(c,'js/amistosos.js');load(c,'js/datos.js');c.fetch=async url=>({ok:true,json:async()=>clone(data[url]??{})});return clone(await run(c,'cargarDatos()'));}
+test('JavaScript and inline scripts compile; helper loads before consumers',()=>{
+ function walk(d){return fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(d,e.name)):[path.join(d,e.name)]);}
+ for(const f of walk(root)){if(f.endsWith('.js')) new vm.Script(fs.readFileSync(f,'utf8'),{filename:f});if(f.endsWith('.html')){const s=fs.readFileSync(f,'utf8');for(const m of s.matchAll(/<script>([\s\S]*?)<\/script>/g))new vm.Script(m[1],{filename:f});if(s.includes('js/datos.js'))assert.ok(s.indexOf('js/amistosos.js')<s.indexOf('js/datos.js'));}}
+});
+test('eligibility is restricted by game, team, category, season and phase',()=>{
+ const c=context();load(c,'js/amistosos.js');c.guest=clone(guest);c.game=clone(friendly);c.official=clone(official);
+ assert.equal(run(c,"jugadorElegible(guest,game,'A','var40')"),true);
+ for(const changes of [{id:'other'},{temporada:'2026-2'},{fase:'regular'},{fase:'playoffs'},{fase:'final'}]) {c.game={...friendly,...changes};assert.equal(run(c,"jugadorElegible(guest,game,'A','var40')"),false);}
+ c.game=clone(friendly);assert.equal(run(c,"jugadorElegible(guest,game,'B','var40')"),false);assert.equal(run(c,"jugadorElegible(guest,game,'A','fem40')"),false);
+ c.game=clone(regular);assert.equal(run(c,"jugadorElegible(official,game,'A','var40')"),true);
+ c.game={...regular,fase:undefined};assert.equal(run(c,'esJuegoOficial(game)'),true);
+});
+test('loader retains guest names, calendar games and isolated official datasets',async()=>{
+ const s=await state(fixture());assert.equal(s.juegos.length,3);assert.equal(s.juegosOficiales.length,1);assert.equal(s.juegosAmistosos.length,2);assert.equal(s.jugadores.length,1);assert.equal(s.jugadoresPorId.G.nombre,'Invitado');
+ const c=context();load(c,'js/amistosos.js');load(c,'js/datos.js');c.state=s;c.game=friendly;
+ const html=run(c,'renderHojaEstadistica(game,state)');assert.match(html,/Invitado/);assert.match(html,/999/);
+});
+test('all official calculations and rendered summaries stay unchanged after adding friendlies',async()=>{
+ const before=await state(fixture(false)),after=await state(fixture(true));
+ const cases=[
+ ['standing','S','categoriaActivaS="var40";temporadaActivaS="2026-1";','calcularStanding()'],
+ ['lideres','L','categoriaActivaL="var40";temporadaActivaL="2026-1";','acumularEstadisticas()'],
+ ['rankings','R','categoriaActivaR="var40";temporadaActivaR="2026-1";','[calcularEstadisticasEquipos(),renderSeccionMVP()]'],
+ ['equipos','E','categoriaActivaE="var40";temporadaActivaE="2026-1";','[resumenEquipo("A"),totalesJugadores("A")]'],
+ ['jugador','J','','[bitacoraDe("P"),contarMVP("P")]'],
+ ['dashboard','D','','[temporadaRecienteDe("var40"),standingTop3("var40"),liderPuntos("var40"),render(),document.getElementById("contenido").innerHTML]'],
+ ['comparar','CMP','categoriaActivaCmp="var40";temporadaActivaCmp="2026-1";equipoACmp="A";equipoBCmp="B";','[estadisticasTemporada("A"),render(),document.getElementById("contenido").innerHTML]']
+ ];
+ for(const [page,key,setup,expression] of cases){const evaluate=s=>{const c=context();load(c,'js/amistosos.js');load(c,'js/datos.js');load(c,'js/'+page+'.js');c.state=s;run(c,'ESTADO_'+key+'=state;'+setup);return JSON.stringify(run(c,expression));};assert.equal(evaluate(after),evaluate(before),page);}
+});
+test('player profile displays friendly totals separately, including guest-only profiles',async()=>{
+ const c=context();load(c,'js/amistosos.js');load(c,'js/datos.js');load(c,'js/jugador.js');c.state=await state(fixture());run(c,'ESTADO_J=state;render("G")');const html=c.document.getElementById('contenido').innerHTML;assert.match(html,/Total oficial/);assert.match(html,/Amistosos — fuera/);assert.match(html,/999/);assert.equal(run(c,'bitacoraDe("G").length'),0);assert.equal(run(c,'contarMVP("G")'),0);
+});
+test('friendly isolation applies to every category and season',async()=>{
+ const data=fixture();for(const cat of ['var40','fem40','var49'])for(const temp of ['2026-1','2026-2'])data['data/juegos_'+cat+'/'+temp+'.json']={juegos:[{...regular,id:cat+temp,temporada:temp},{...friendly,id:'F'+cat+temp,temporada:temp}]};
+ const s=await state(data);assert.equal(s.juegosOficiales.length,6);assert.equal(s.juegosAmistosos.length,6);for(const cat of ['var40','fem40','var49'])for(const temp of ['2026-1','2026-2'])assert.equal(s.juegosOficiales.filter(j=>j.categoria_id===cat&&j.temporada===temp).length,1);
+});
+function setupAlta(existing=false){const c=context();load(c,'js/amistosos.js');form(c,'nuevo-jugador/index.html');c.roster={jugadores:existing?[clone(official)]:[]};c.game=clone(friendly);c.saved=[];run(c,"ghFetch=async p=>({sha:'test-sha',contenido:p==='data/roster.json'?structuredClone(roster):{juegos:[game]}});ghGuardar=async (p,sha,obj)=>saved.push({p,sha,obj});");c.structuredClone=structuredClone;
+ for(const [id,v] of Object.entries({'sel-alcance':'amistoso','sel-modo':existing?'existente':'nuevo','sel-categoria':'var40','sel-temporada':'2026-1','sel-equipo':'A','sel-amistoso':'F','in-nombre':'Invitado','in-id':'G'}))value(c,id,v);
+ if(existing)run(c,'jugadorExistenteElegido=roster.jugadores[0]');return c;}
+test('new guest save writes only friendly participation and preserves SHA',async()=>{
+ const c=setupAlta();await run(c,'guardar()');assert.equal(c.saved.length,1);const j=c.saved[0].obj.jugadores[0];assert.equal(j.membresias.length,0);assert.deepEqual(clone(j.participaciones_amistosos),[{...membership,juego_id:'F'}]);assert.equal(c.saved[0].sha,'test-sha');assert.equal(c.document.getElementById('btn-guardar').disabled,true);
+});
+test('existing person keeps official memberships when invited',async()=>{const c=setupAlta(true);await run(c,'guardar()');assert.equal(c.saved.length,1);const j=c.saved[0].obj.jugadores[0];assert.deepEqual(clone(j.membresias),[membership]);assert.equal(j.participaciones_amistosos[0].juego_id,'F');});
+test('stale or duplicate invitations are rejected without saving',async()=>{
+ for(const change of [{fase:'regular'},{local:'C'},{temporada:'2026-2'}]){const c=setupAlta();Object.assign(c.game,change);await run(c,'guardar()');assert.equal(c.saved.length,0);assert.match(c.document.getElementById('msg').textContent,/cambió/);}
+ const c=setupAlta(true);c.roster.jugadores[0].participaciones_amistosos=[{...membership,juego_id:'F'}];await run(c,'guardar()');assert.equal(c.saved.length,0);
+});
+test('capture rejects guests in official games and duplicate players on both sides',()=>{
+ const c=context();load(c,'js/amistosos.js');c.players=[clone(official),clone(guest)];c.game=clone(friendly);assert.doesNotThrow(()=>run(c,"validarParticipaciones(game,players,'var40')"));c.game.fase='regular';assert.throws(()=>run(c,"validarParticipaciones(game,players,'var40')"),/no autorizado/);
+ c.game=clone(friendly);c.players[1].participaciones_amistosos.push({...membership,equipo_id:'B',juego_id:'F'});c.game.estadisticas_visita=[{jugador:'G'}];assert.throws(()=>run(c,"validarParticipaciones(game,players,'var40')"),/ambos equipos/);
+});
+test('calendar renders friendly label, score and guest statistics',async()=>{
+ const c=context();load(c,'js/amistosos.js');load(c,'js/datos.js');load(c,'js/calendario.js');c.state=await state(fixture());c.game=friendly;run(c,'ESTADO=state;');const html=run(c,'renderJuego(game)');assert.match(html,/Amistoso/);assert.match(html,/999/);assert.match(html,/Invitado/);
+});
+test('normal league registration still creates a membership',async()=>{
+ const c=setupAlta();value(c,'sel-alcance','liga');await run(c,'guardar()');assert.equal(c.saved.length,1);const j=c.saved[0].obj.jugadores[0];assert.deepEqual(clone(j.membresias),[membership]);assert.equal(j.participaciones_amistosos,undefined);
+});
+test('capture saves a friendly to its original file and refuses a guest after phase changes',async()=>{
+ for(const phase of ['amistoso','regular']) {
+  const c=context();load(c,'js/amistosos.js');form(c,'captura/index.html');c.game={...clone(friendly),fase:phase};c.players=[clone(official),clone(guest)];c.saved=[];c.structuredClone=structuredClone;
+  run(c,"categoriaActual='var40';archivosJuegos=[{path:'data/juegos_var40/2026-1.json'}];origenPorJuegoId={F:0};ghFetch=async p=>({sha:'fresh-sha',contenido:p==='data/roster.json'?{jugadores:players}:{juegos:[structuredClone(game)]}});ghGuardar=async (p,sha,obj)=>saved.push({p,sha,obj});armarLista=lado=>lado==='local'?[{jugador:'G',puntos:999}]:[];");
+  for(const [id,v] of Object.entries({'sel-juego':'F','sel-forfeit':'ninguno','sel-estatus':'jugado','marcador-local':'999','marcador-visita':'5','sel-mvp':'G'}))value(c,id,v);
+  await run(c,'guardar()');assert.equal(c.saved.length,phase==='amistoso'?1:0);if(c.saved.length){assert.equal(c.saved[0].p,'data/juegos_var40/2026-1.json');assert.equal(c.saved[0].obj.juegos[0].fase,'amistoso');assert.equal(c.saved[0].sha,'fresh-sha');}else assert.match(c.document.getElementById('msg').textContent,/no autorizado/);
+ }
+});

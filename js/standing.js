@@ -19,7 +19,7 @@ async function iniciarStanding() {
 
 // Juegos de temporada regular, jugados, de la categoría y temporada activas.
 function juegosRegularesVigentes() {
-  return ESTADO_S.juegos.filter(j =>
+  return ESTADO_S.juegosOficiales.filter(j =>
     j.categoria_id === categoriaActivaS &&
     j.estatus === 'jugado' &&
     (j.fase ?? 'regular') === 'regular' &&

@@ -113,9 +113,11 @@ async function cargarDatos() {
 
   const equiposPorId = Object.fromEntries(equipos.map(e => [e.id, e]));
   const sedesPorId = Object.fromEntries(sedes.map(s => [s.id, s]));
-  const jugadoresPorId = Object.fromEntries(jugadores.map(j => [j.id, j]));
+  const jugadoresPorId = Object.fromEntries((rosterData.jugadores ?? []).map(j => [j.id, j]));
+  const juegosOficiales = juegos.filter(esJuegoOficial);
+  const juegosAmistosos = juegos.filter(esAmistoso);
 
-  return { categorias, sedes, equipos, juegos, playoffs, jugadores, temporadas, patrocinadores, equiposPorId, sedesPorId, jugadoresPorId };
+  return { categorias, sedes, equipos, juegos, juegosOficiales, juegosAmistosos, playoffs, jugadores, temporadas, patrocinadores, equiposPorId, sedesPorId, jugadoresPorId };
 }
 
 // Genera un selector de temporada (<select>) dentro de #temporada-selector.

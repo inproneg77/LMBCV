@@ -28,7 +28,7 @@ async function iniciarLideres() {
 // Suma las estadísticas de todos los juegos jugados de la categoría/temporada
 // activa, agrupadas por jugador.
 function acumularEstadisticas() {
-  const juegos = ESTADO_L.juegos.filter(j =>
+  const juegos = ESTADO_L.juegosOficiales.filter(j =>
     j.categoria_id === categoriaActivaL &&
     j.estatus === 'jugado' &&
     (!temporadaActivaL || j.temporada === temporadaActivaL)

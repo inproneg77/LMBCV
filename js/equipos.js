@@ -60,7 +60,7 @@ function renderListaEquipos() {
 
 // Juegos de temporada regular, jugados, de este equipo/categoría/temporada
 function juegosDelEquipo(equipoId) {
-  return ESTADO_E.juegos.filter(j =>
+  return ESTADO_E.juegosOficiales.filter(j =>
     j.categoria_id === categoriaActivaE &&
     j.estatus === 'jugado' &&
     (!temporadaActivaE || j.temporada === temporadaActivaE) &&

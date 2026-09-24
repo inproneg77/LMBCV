@@ -27,7 +27,7 @@ function calcularEstadisticasEquipos() {
   const stats = {};
   equipos.forEach(e => { stats[e.id] = { equipo: e, jj: 0, pf: 0, pc: 0, triples: 0, triplesRival: 0, faltas: 0 }; });
 
-  const juegos = ESTADO_R.juegos.filter(j =>
+  const juegos = ESTADO_R.juegosOficiales.filter(j =>
     j.categoria_id === categoriaActivaR &&
     j.estatus === 'jugado' &&
     (j.fase ?? 'regular') === 'regular' &&
@@ -157,7 +157,7 @@ function renderSeccionRanking(r, filas) {
 
 // ===== MVP (antes /valiosos) =====
 function renderSeccionMVP() {
-  const juegos = ESTADO_R.juegos.filter(j =>
+  const juegos = ESTADO_R.juegosOficiales.filter(j =>
     j.categoria_id === categoriaActivaR &&
     j.estatus === 'jugado' &&
     (!temporadaActivaR || j.temporada === temporadaActivaR)

@@ -12,17 +12,17 @@ async function iniciarDashboard() {
 // mientras otra ya arrancó la regular de la siguiente), así que forzar una
 // sola temporada global para todas rompe la foto del momento.
 function temporadaRecienteDe(categoriaId) {
-  const fechas = ESTADO_D.juegos
+  const fechas = ESTADO_D.juegosOficiales
     .filter(j => j.categoria_id === categoriaId && j.estatus === 'jugado' && j.fecha)
     .map(j => j.fecha);
   if (fechas.length === 0) return null;
   const fechaMax = fechas.sort().at(-1);
-  return ESTADO_D.juegos.find(j => j.categoria_id === categoriaId && j.fecha === fechaMax)?.temporada ?? null;
+  return ESTADO_D.juegosOficiales.find(j => j.categoria_id === categoriaId && j.fecha === fechaMax)?.temporada ?? null;
 }
 
 function juegosVigentes(categoriaId) {
   const temp = temporadaRecienteDe(categoriaId);
-  return ESTADO_D.juegos.filter(j =>
+  return ESTADO_D.juegosOficiales.filter(j =>
     j.categoria_id === categoriaId &&
     (!temp || j.temporada === temp)
   );
@@ -182,7 +182,7 @@ function render() {
   // importar a qué temporada quedó etiquetado el juego.
   const totalJugados = categorias.reduce((acc, cat) =>
     acc + juegosVigentes(cat.id).filter(j => j.estatus === 'jugado').length, 0);
-  const programados = ESTADO_D.juegos.filter(j => j.estatus === 'programado');
+  const programados = ESTADO_D.juegosOficiales.filter(j => j.estatus === 'programado');
   const totalProgramados = programados.length;
 
   const hoyISO = new Date().toISOString().slice(0, 10);

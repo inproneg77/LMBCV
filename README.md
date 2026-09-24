@@ -1,5 +1,78 @@
 # LMBC — Liga Municipal de Básquetbol Caborca
 
+## Amistosos e invitados
+
+1. En `/agregar-juego/`, elige categoría, temporada, equipos y **Fase: Amistoso**.
+2. En `/nuevo-jugador/`, selecciona **Solo para amistosos**, la categoría,
+   temporada, encuentro y uno de sus equipos. Puedes crear una persona o
+   seleccionar una existente. Repite la asignación para invitarla a otro juego.
+3. En `/captura/`, selecciona el encuentro marcado **[Amistoso]** y captura
+   marcador, puntos, triples, faltas y MVP como siempre. El roster se lee desde
+   GitHub para disponer de los invitados recién guardados.
+4. El calendario muestra el amistoso, su resultado y su hoja de estadísticas.
+   El perfil individual presenta sus participaciones amistosas en una sección
+   separada. No suman a standing, líderes, MVP oficial, rankings, estadísticas
+   de equipos, enfrentamientos oficiales ni métricas del dashboard.
+
+Se conserva el mismo token personal y el guardado directo a `main`. El token
+vive en `localStorage` (`lmbc_gh_token`), no debe incluirse en ningún JSON.
+
+### Edición directa de JSON
+
+Los juegos siguen en `data/juegos_{categoria}/{temporada}.json`, con
+`fase: "amistoso"` y su `temporada`. Las ramas están representadas por
+`var40`, `fem40` y `var49`. El ID del juego debe ser único y estable.
+
+En `data/roster.json`, un invitado puede tener esta forma (IDs ilustrativos):
+
+```json
+{
+  "id": "INVITADO01",
+  "nombre": "Jugador invitado",
+  "numero": "12",
+  "membresias": [],
+  "participaciones_amistosos": [
+    {
+      "categoria_id": "var40",
+      "temporada": "2026-2",
+      "equipo_id": "ID_EQUIPO",
+      "juego_id": "ID_AMISTOSO"
+    }
+  ]
+}
+```
+
+`equipo_id` debe ser local o visitante de ese encuentro. Sus estadísticas usan
+el mismo ID de persona en `estadisticas_local` o `estadisticas_visita`. Una
+invitación nunca crea una membresía oficial; para inscribirlo en la liga usa
+el modo **Liga** y agrega una membresía a la persona existente.
+
+Los jugadores con membresía oficial en ese equipo/categoría/temporada también
+pueden jugar amistosos. El formulario valida participantes y MVP antes de
+guardar y evita que una persona figure en ambos equipos. Las modificaciones
+directas en GitHub o Decap deben respetar estas relaciones: no hay servidor
+que valide manualmente el contenido de los JSON.
+
+Un amistoso con invitados no puede cambiar de equipos/fase ni eliminarse desde
+la agenda hasta retirar sus `participaciones_amistosos` del roster; así no se
+reasignan invitados accidentalmente. Se puede cambiar fecha, hora y sede.
+
+### Separación de estadísticas y pruebas
+
+`js/amistosos.js` centraliza la elegibilidad. `cargarDatos()` expone `juegos`
+para el calendario, `juegosOficiales` para la liga y `juegosAmistosos` para la
+sección independiente del perfil. Los juegos antiguos sin `fase` conservan
+el tratamiento de temporada regular. Playoffs y finales mantienen sus reglas.
+No se migran ni se eliminan resultados existentes.
+
+Pruebas sin dependencias, con Node.js 22 o posterior:
+
+```sh
+node --test --test-isolation=none tests/amistosos.test.cjs
+```
+
+Las pruebas simulan lecturas/escrituras; no usan tokens ni modifican GitHub.
+
 Sitio estático (HTML/CSS/JS, sin build ni base de datos). Los datos viven en
 archivos JSON dentro de `data/` y se editan desde `/admin` (Decap CMS) o desde
 dos herramientas rápidas fuera del panel (`/captura/` y `/nuevo-jugador/`).
