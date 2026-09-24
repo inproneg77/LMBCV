@@ -1,6 +1,137 @@
 {
-  "equipos": [],
-  "jugadores": [],
-  "juegos": []
+  "equipos": [
+    {
+      "id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "nombre": "OLD SCHOOL",
+      "logo": "img/equipos/15.png",
+      "origen_liga_id": "OSV40"
+    },
+    {
+      "id": "am-e-ce42e954e67f4298edb2417d9f2686c2",
+      "nombre": "PATA DURA | NOGALES",
+      "logo": "img/amistosos/am-e-ce42e954e67f4298edb2417d9f2686c2.png"
+    }
+  ],
+  "jugadores": [
+    {
+      "id": "am-p-08650dd35743aeef3ec90bda763d70c9",
+      "nombre": "GUILLERMO PALAFOX",
+      "numero": "12",
+      "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "origen_liga_id": "GPALA"
+    },
+    {
+      "id": "am-p-a8c6a7835e79ae1269df84e800b05f3e",
+      "nombre": "DARIO MAZON",
+      "numero": "5",
+      "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "origen_liga_id": "DMAZ"
+    },
+    {
+      "id": "am-p-843196128e4d560cf4e4d6d1ba188471",
+      "nombre": "DANIEL NEBLINA",
+      "numero": "77",
+      "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "origen_liga_id": "DNEB"
+    },
+    {
+      "id": "am-p-f20c23bf5cae5324346677d0788d23a9",
+      "nombre": "ANIBAL ARAIZA",
+      "numero": "8",
+      "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "origen_liga_id": "ANARAIZA"
+    },
+    {
+      "id": "am-p-92e81bd46fce1a4761e64edbf5210490",
+      "nombre": "GERARDO  FELIX",
+      "numero": "4",
+      "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "origen_liga_id": "GARYFEL"
+    },
+    {
+      "id": "am-p-e8e787ca08b20f3b1d81279876c32934",
+      "nombre": "CARLOS YESCAS",
+      "numero": "0",
+      "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "origen_liga_id": "CYESK"
+    },
+    {
+      "id": "am-p-f8d1725204af2c921ecea407ce009ad5",
+      "nombre": "CARLOS PEREZ",
+      "numero": "",
+      "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "origen_liga_id": "CARLOSPEREZ"
+    },
+    {
+      "id": "am-p-2c7450f555020448d52ce06cec079d23",
+      "nombre": "CARLOS ALVAREZ",
+      "numero": "",
+      "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "origen_liga_id": "CARLOSALVAREZ"
+    },
+    {
+      "id": "am-p-3497f559a76fef7ae8d87529f1cf7363",
+      "nombre": "JOSE LUIS RABAGO",
+      "numero": "",
+      "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "origen_liga_id": "JOSERABAGO"
+    },
+    {
+      "id": "am-p-c991fe3dccadeaa619c619f937e6db67",
+      "nombre": "HORACIO VARELA",
+      "numero": "",
+      "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "origen_liga_id": "HORAIOVARELA"
+    },
+    {
+      "id": "am-p-11bb40d971f4b36fff0a0faa62fc04b4",
+      "nombre": "CRISTIAN MENDEZ",
+      "numero": "",
+      "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "origen_liga_id": "CRISMENDEZ"
+    },
+    {
+      "id": "am-p-37b10b8cb4f2b6b3c9241f7990cb1912",
+      "nombre": "ELIAS TRUJILLO",
+      "numero": "",
+      "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "origen_liga_id": "ELIASTRUJ"
+    }
+  ],
+  "juegos": [
+    {
+      "id": "am-j-05ce7bb503046648eec2faa72136dd9c",
+      "categoria_id": "var40",
+      "temporada": "2026-2",
+      "fase": "amistoso",
+      "fecha": "2026-09-24",
+      "hora": "16:00",
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "local": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "visita": "am-e-ce42e954e67f4298edb2417d9f2686c2",
+      "marcador_local": 0,
+      "marcador_visita": 0,
+      "sede_id": "gimnasio",
+      "convocados_local": [
+        "am-p-08650dd35743aeef3ec90bda763d70c9",
+        "am-p-a8c6a7835e79ae1269df84e800b05f3e",
+        "am-p-843196128e4d560cf4e4d6d1ba188471",
+        "am-p-f20c23bf5cae5324346677d0788d23a9",
+        "am-p-92e81bd46fce1a4761e64edbf5210490",
+        "am-p-e8e787ca08b20f3b1d81279876c32934",
+        "am-p-f8d1725204af2c921ecea407ce009ad5",
+        "am-p-2c7450f555020448d52ce06cec079d23",
+        "am-p-3497f559a76fef7ae8d87529f1cf7363",
+        "am-p-c991fe3dccadeaa619c619f937e6db67",
+        "am-p-11bb40d971f4b36fff0a0faa62fc04b4",
+        "am-p-37b10b8cb4f2b6b3c9241f7990cb1912"
+      ],
+      "estadisticas_local": [],
+      "convocados_visita": [],
+      "estadisticas_visita": [],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
+    }
+  ]
 }
-
