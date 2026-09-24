@@ -215,3 +215,14 @@ desde cero sin usar /captura/):**
 
 Cada guardado en `/admin`, `/captura/` o `/nuevo-jugador/` hace commit directo
 a `main`, y GitHub Pages republica el sitio solo (1-2 minutos).
+# Capturar un amistoso que surge al momento
+
+Abre `/captura/?modo=amistoso` con el mismo token de captura. También puedes elegir **Amistosos — crear y capturar aquí** en el selector Tipo de captura.
+
+1. Elige categoría/rama y temporada. Fecha y hora se proponen con el momento actual.
+2. Escribe el nombre de cada equipo y pulsa **Crear equipo local/visitante**. Puedes reutilizar un equipo de amistosos o copiar un equipo de liga con su plantilla de esa categoría y temporada.
+3. Pulsa **Agregar jugador** en cada lado: captura nombre, número, asistencia, puntos, triples y faltas. No necesitas registrar previamente al equipo ni al jugador en la liga.
+4. Captura marcador, estatus y destacado; pulsa **Guardar amistoso**. Para completar o corregir después, selecciona el encuentro en **Partido** dentro de este mismo ambiente.
+
+Equipos, jugadores, convocatorias y partidos se guardan juntos en `data/amistosos.json`. Las copias de liga reciben identidades propias: no crean inscripciones ni cambian el roster oficial. El calendario muestra resultados y hojas de estadísticas; los perfiles invitados muestran su historial amistoso. Standing, líderes, rankings y totales oficiales usan exclusivamente juegos oficiales. El guardado conserva el SHA del archivo y rechaza conflictos para no sobrescribir otra captura. Los amistosos anteriores conservan su captura existente en «Liga y juegos agendados».
+
