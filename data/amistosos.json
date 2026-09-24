@@ -207,6 +207,54 @@
       "numero": "24",
       "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
       "origen_liga_id": "MLARA"
+    },
+    {
+      "id": "am-p-e51a2ba020cc738c91efb5eb5930e50b",
+      "nombre": "OSVCAR NAVIDAD",
+      "numero": "3",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-9a5891d1859406f07f0c409c7286cb6c",
+      "nombre": "CESAR MARTINEZ",
+      "numero": "8",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-cd18bcc9dac77391d0aae992582138c3",
+      "nombre": "EDUARDO VELAZQUEZ",
+      "numero": "00",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-b250eaae6713f6164fe4b0424f69d21a",
+      "nombre": "RICARDO VALDEZ",
+      "numero": "11",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-d87825c1e0b36610e9b22947a43dd390",
+      "nombre": "SALVADOR VALDEZ",
+      "numero": "12",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-6c1506c449795d3afd196800ea48bfaf",
+      "nombre": "GABRIEL RODRIGUEZ",
+      "numero": "21",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-e7bf6cd2d00e8545223d41dc89a1c565",
+      "nombre": "ADALBERTO GARCIA",
+      "numero": "5",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-81e6d45b6e734a46afa925adf4f1bb2a",
+      "nombre": "JOAQUIN IBARRA",
+      "numero": "",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
     }
   ],
   "juegos": [
@@ -242,7 +290,16 @@
         "am-p-3bfc35a22aa51e98de44752dc9de831a"
       ],
       "estadisticas_local": [],
-      "convocados_visita": [],
+      "convocados_visita": [
+        "am-p-e51a2ba020cc738c91efb5eb5930e50b",
+        "am-p-9a5891d1859406f07f0c409c7286cb6c",
+        "am-p-cd18bcc9dac77391d0aae992582138c3",
+        "am-p-b250eaae6713f6164fe4b0424f69d21a",
+        "am-p-d87825c1e0b36610e9b22947a43dd390",
+        "am-p-6c1506c449795d3afd196800ea48bfaf",
+        "am-p-e7bf6cd2d00e8545223d41dc89a1c565",
+        "am-p-81e6d45b6e734a46afa925adf4f1bb2a"
+      ],
       "estadisticas_visita": [],
       "mvp_jugador": "",
       "mvp_nombre": ""
