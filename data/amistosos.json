@@ -10,6 +10,12 @@
       "id": "am-e-ce42e954e67f4298edb2417d9f2686c2",
       "nombre": "PATA DURA | NOGALES",
       "logo": "img/amistosos/am-e-ce42e954e67f4298edb2417d9f2686c2.png"
+    },
+    {
+      "id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "nombre": "CFE SUTERM",
+      "logo": "img/equipos/2.png",
+      "origen_liga_id": "CFEV40"
     }
   ],
   "jugadores": [
@@ -96,6 +102,111 @@
       "numero": "",
       "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
       "origen_liga_id": "ELIASTRUJ"
+    },
+    {
+      "id": "am-p-b03f66e1c251996bbcf75f4e848135ad",
+      "nombre": "JAWD KATAWRA",
+      "numero": "77",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "JK77"
+    },
+    {
+      "id": "am-p-a68b82d4f751bbf51adad1126755aa62",
+      "nombre": "JAVIER VALDOVINOS",
+      "numero": "10",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "JAVVALD"
+    },
+    {
+      "id": "am-p-ed5a6382a459bdf6c78e7f3b519ce366",
+      "nombre": "GUILLERMO SALCEDO",
+      "numero": "6",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "MEMOSAL"
+    },
+    {
+      "id": "am-p-e5758df0b59cbdb649e32ac39690f1d8",
+      "nombre": "ANDRES GUZMAN",
+      "numero": "18",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "ANDGUZ"
+    },
+    {
+      "id": "am-p-189275bd4207ee167056ebf51426e6d9",
+      "nombre": "ISAAC OLAIZ",
+      "numero": "11",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "ISAAOLA"
+    },
+    {
+      "id": "am-p-b7c85ee6975aebe15058175d9bd343b1",
+      "nombre": "MARTIN CUEN",
+      "numero": "69",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "MCUEN"
+    },
+    {
+      "id": "am-p-3ea46e6d21e4b74ab87e816388ac2b58",
+      "nombre": "MIGUEL PALAFOX",
+      "numero": "8",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "MIGPALAF"
+    },
+    {
+      "id": "am-p-87535448934a522c8293b6fad6aeda86",
+      "nombre": "JOEL GRIJALVA",
+      "numero": "",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "JOELGRIJ"
+    },
+    {
+      "id": "am-p-1d8327fa666a920c4dfdc77d709b3c98",
+      "nombre": "EDGAR URQUIDEZ",
+      "numero": "",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "NEGROURQ"
+    },
+    {
+      "id": "am-p-ae9e0679e7c764efd4e8fd04a28e5631",
+      "nombre": "JUAN CARLOS VILLANUEVA",
+      "numero": "",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "JCVILL"
+    },
+    {
+      "id": "am-p-c258fbf75ea268d4075d8ce9edbd8bda",
+      "nombre": "EDUARDO CELAYA",
+      "numero": "23",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "LALOCEL"
+    },
+    {
+      "id": "am-p-391848dce66a8e9689c6d1299365ac4d",
+      "nombre": "ALIS SANCHEZ",
+      "numero": "",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "ALISANC"
+    },
+    {
+      "id": "am-p-ae37b9af4c8fae6e17a530db982ead40",
+      "nombre": "ALEJANDRO FLORES",
+      "numero": "",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "POLLOALEJ"
+    },
+    {
+      "id": "am-p-40ae1f47d0ee9c14837a055b77b5f4d3",
+      "nombre": "BARNEY BARRAGAN",
+      "numero": "21",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "BARNWYB"
+    },
+    {
+      "id": "am-p-3bfc35a22aa51e98de44752dc9de831a",
+      "nombre": "MARCELO LARA",
+      "numero": "24",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "MLARA"
     }
   ],
   "juegos": [
@@ -105,27 +216,30 @@
       "temporada": "2026-2",
       "fase": "amistoso",
       "fecha": "2026-09-24",
-      "hora": "16:00",
+      "hora": "19:00",
       "estatus": "programado",
       "forfeit": "ninguno",
-      "local": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "local": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
       "visita": "am-e-ce42e954e67f4298edb2417d9f2686c2",
       "marcador_local": 0,
       "marcador_visita": 0,
       "sede_id": "gimnasio",
       "convocados_local": [
-        "am-p-08650dd35743aeef3ec90bda763d70c9",
-        "am-p-a8c6a7835e79ae1269df84e800b05f3e",
-        "am-p-843196128e4d560cf4e4d6d1ba188471",
-        "am-p-f20c23bf5cae5324346677d0788d23a9",
-        "am-p-92e81bd46fce1a4761e64edbf5210490",
-        "am-p-e8e787ca08b20f3b1d81279876c32934",
-        "am-p-f8d1725204af2c921ecea407ce009ad5",
-        "am-p-2c7450f555020448d52ce06cec079d23",
-        "am-p-3497f559a76fef7ae8d87529f1cf7363",
-        "am-p-c991fe3dccadeaa619c619f937e6db67",
-        "am-p-11bb40d971f4b36fff0a0faa62fc04b4",
-        "am-p-37b10b8cb4f2b6b3c9241f7990cb1912"
+        "am-p-b03f66e1c251996bbcf75f4e848135ad",
+        "am-p-a68b82d4f751bbf51adad1126755aa62",
+        "am-p-ed5a6382a459bdf6c78e7f3b519ce366",
+        "am-p-e5758df0b59cbdb649e32ac39690f1d8",
+        "am-p-189275bd4207ee167056ebf51426e6d9",
+        "am-p-b7c85ee6975aebe15058175d9bd343b1",
+        "am-p-3ea46e6d21e4b74ab87e816388ac2b58",
+        "am-p-87535448934a522c8293b6fad6aeda86",
+        "am-p-1d8327fa666a920c4dfdc77d709b3c98",
+        "am-p-ae9e0679e7c764efd4e8fd04a28e5631",
+        "am-p-c258fbf75ea268d4075d8ce9edbd8bda",
+        "am-p-391848dce66a8e9689c6d1299365ac4d",
+        "am-p-ae37b9af4c8fae6e17a530db982ead40",
+        "am-p-40ae1f47d0ee9c14837a055b77b5f4d3",
+        "am-p-3bfc35a22aa51e98de44752dc9de831a"
       ],
       "estadisticas_local": [],
       "convocados_visita": [],
