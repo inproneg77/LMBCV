@@ -24,7 +24,6 @@ async function abrirAmistosoDesdeCaptura(id) {
   amEl('categoria').value=juego.categoria_id;
   amEl('temporada').value=juego.temporada;
   amListaJuegos();amEl('juego').value=id;amAbrirJuego();
-  amEl('guardar').textContent='Guardar estadísticas y resultado';
 }
 function amNormalizar(datos) {
   if (!datos || !['equipos', 'jugadores', 'juegos'].every(k => Array.isArray(datos[k]))) throw new Error('El archivo de amistosos tiene un formato inválido.');
@@ -175,13 +174,15 @@ function amActualizarSelectoresEquipos() {
     '<optgroup label="Equipos de la liga">' + amOpciones(liga) + '</optgroup>' +
     '<optgroup label="Equipos de amistosos">' + amOpciones(equipos,borradorAmistoso.juego[lado]) + '</optgroup>';
   for (const lado of ['local','visita']) {
-    const guardado=ambienteAmistosos.datos.juegos.some(j=>j.id===borradorAmistoso.juego.id);
-    for(const campo of ['equipo-','liga-','crear-','nombre-','logo-'])amEl(campo+lado).disabled=guardado;
     const equipo = equipos.find(e=>e.id===borradorAmistoso.juego[lado]);
     const img = amEl('vista-logo-' + lado);
     img.hidden = !equipo;
     if (equipo) { img.src = amLogosPendientes.has(equipo.logo) ? 'data:image/png;base64,' + amLogosPendientes.get(equipo.logo) : '../' + (equipo.logo || 'img/equipos/placeholder.svg'); img.alt = 'Logo de ' + equipo.nombre; }
   }
+  const existente=ambienteAmistosos.datos.juegos.some(j=>j.id===borradorAmistoso.juego.id);
+  amEl('guardar').textContent=existente?'Guardar cambios y resultado':'Guardar nuevo amistoso';
+  amEl('eliminar').hidden=!existente;
+  amEl('estado-edicion').textContent=existente?'Editando partido guardado. Aquí puedes modificar su agenda, equipos, jugadores y resultado. Para otro encuentro pulsa Nuevo amistoso.':'Creando un nuevo amistoso.';
 }
 function amCopiarLiga(lado, equipoId = amEl('liga-' + lado).value) {
   const original = ambienteAmistosos.equiposLiga.find(e => e.id === equipoId);
@@ -289,6 +290,21 @@ async function amGuardar() {
   } catch(err){amMensaje(err.status===409?'Otra captura cambió los amistosos. Tu formulario sigue aquí; copia lo pendiente y vuelve a abrir el ambiente antes de guardar.':err.message,true);}
   finally{amistosoGuardando=false;amEl('contenido').disabled=false;}
 }
+async function amEliminar() {
+  if(amistosoGuardando || !borradorAmistoso)return;
+  const id=borradorAmistoso.juego.id;
+  if(!ambienteAmistosos.datos.juegos.some(j=>j.id===id))return;
+  if(!confirm('¿Eliminar este amistoso y sus estadísticas? Los equipos, jugadores y otros encuentros se conservarán.'))return;
+  amistosoGuardando=true;amEl('contenido').disabled=true;
+  try {
+    const datos=amClonar(ambienteAmistosos.datos);
+    datos.juegos=datos.juegos.filter(j=>j.id!==id);
+    const resultado=await ghGuardar(ARCHIVO_AMISTOSOS,ambienteAmistosos.sha,datos,'Eliminar partido amistoso y sus estadísticas');
+    ambienteAmistosos.datos=datos;ambienteAmistosos.sha=resultado.content.sha;
+    amNuevo();amMensaje('Amistoso eliminado. Sus equipos y jugadores siguen disponibles para otros partidos.');
+  }catch(err){amMensaje(err.status===409?'Otro guardado cambió el archivo. Vuelve a abrir el partido antes de eliminarlo.':err.message,true);}
+  finally{amistosoGuardando=false;amEl('contenido').disabled=false;}
+}
 function iniciarCapturaAmistosos() {
   document.getElementById('modo-captura').addEventListener('change',async e=>{
     const amistoso=e.target.value==='amistoso';
@@ -307,6 +323,9 @@ function iniciarCapturaAmistosos() {
     amEl('agregar-'+lado).addEventListener('click',amAccion(()=>amAgregarJugador(lado)));
   }
   amEl('guardar').addEventListener('click',amGuardar);
+  amEl('eliminar').addEventListener('click',amEliminar);
+  const juegoSolicitado=new URLSearchParams(window.location.search).get('juego');
+  if(juegoSolicitado){abrirAmistosoDesdeCaptura(juegoSolicitado);return;}
   if (new URLSearchParams(window.location.search).get('modo') === 'amistoso') {
     document.getElementById('modo-captura').value = 'amistoso';
     document.getElementById('captura-liga').hidden = true;

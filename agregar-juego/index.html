@@ -262,16 +262,19 @@ async function cargarJuegosProgramados() {
     const r = await ghFetch(path);
     archivoEdicionActual = r ? { path, sha: r.sha, contenido: r.contenido } : { path, sha: null, contenido: { id_temporada: temp, juegos: [] } };
 
-    const programados = (archivoEdicionActual.contenido.juegos ?? []).filter(j => j.estatus === 'programado');
+    const amistosos=await ghFetch('data/amistosos.json');
+    const invitados=amistosos?.contenido.equipos ?? [];
+    const independientes=(amistosos?.contenido.juegos ?? []).filter(j=>j.categoria_id===cat&&j.temporada===temp).map(j=>({...j,id:'amistoso:'+j.id}));
+    const programados = [...(archivoEdicionActual.contenido.juegos ?? []).filter(j => j.estatus === 'programado'),...independientes];
     if (programados.length === 0) {
       sel.innerHTML = '<option value="">No hay juegos programados en esta categoría/temporada</option>';
       return;
     }
     sel.innerHTML = '<option value="">Elige el juego…</option>' +
       [...programados].sort((a,b) => a.fecha.localeCompare(b.fecha)).map(j => {
-        const eqLocal = EQUIPOS.find(e => e.id === j.local)?.nombre ?? j.local;
-        const eqVisita = EQUIPOS.find(e => e.id === j.visita)?.nombre ?? j.visita;
-        return `<option value="${j.id}">${j.fecha} — ${eqLocal} vs ${eqVisita}</option>`;
+        const eqLocal = [...EQUIPOS,...invitados].find(e => e.id === j.local)?.nombre ?? j.local;
+        const eqVisita = [...EQUIPOS,...invitados].find(e => e.id === j.visita)?.nombre ?? j.visita;
+        return `<option value="${escaparHTML(j.id)}">${j.fase==='amistoso'?'[Amistoso] ':''}${escaparHTML(j.fecha)} — ${escaparHTML(eqLocal)} vs ${escaparHTML(eqVisita)}</option>`;
       }).join('');
   } catch (err) {
     sel.innerHTML = '<option value="">Error al cargar</option>';
@@ -281,6 +284,7 @@ async function cargarJuegosProgramados() {
 
 function elegirJuegoExistente() {
   const id = document.getElementById('sel-juego-existente').value;
+  if(id.startsWith('amistoso:')) { window.location.href='../captura/?juego='+encodeURIComponent(id.slice(9)); return; }
   juegoEnEdicionId = id || null;
   const camposEdicion = document.getElementById('campos-edicion');
   const btnEliminar = document.getElementById('btn-eliminar');
@@ -622,3 +626,4 @@ iniciar();
 </script>
 </body>
 </html>
+

@@ -217,6 +217,8 @@ Cada guardado en `/admin`, `/captura/` o `/nuevo-jugador/` hace commit directo
 a `main`, y GitHub Pages republica el sitio solo (1-2 minutos).
 # Capturar un amistoso que surge al momento
 
+Para completar resultados después del juego, entra a `/captura/`, elige categoría y selecciona el encuentro marcado **[Amistoso]** en la lista original. Se abre su formulario con jugadores, marcador y estadísticas. **Guardar cambios y resultado** actualiza ese mismo partido, incluida su fecha, hora, sede y equipos. **Eliminar este amistoso** elimina el encuentro y sus estadísticas tras confirmar, conservando equipos, jugadores y los demás partidos. **Nuevo amistoso** inicia otro registro. Los amistosos también aparecen al elegir editar un juego desde `/agregar-juego/` y abren ese mismo formulario.
+
 Abre `/captura/?modo=amistoso` con el mismo token de captura. También puedes elegir **Amistosos — crear y capturar aquí** en el selector Tipo de captura.
 
 1. Elige categoría/rama y temporada. Fecha y hora se proponen con el momento actual.

@@ -11,8 +11,14 @@ test('original capture lists isolated friendlies and opens them for results',asy
  run(c,"token=()=> 'test';TEMPORADAS=[{id:'2026-2'}];EQUIPOS=[{id:'A',nombre:'Liga'}];ghFetch=async p=>({sha:'test',contenido:p==='data/amistosos.json'?data:{juegos:[]}})");value(c,'sel-cat','var40');await run(c,'cargarJuegosDeCategoria()');assert.match(c.document.getElementById('sel-juego').innerHTML,/Visitantes/);assert.match(c.document.getElementById('sel-juego').innerHTML,/\[Amistoso\]/);
  c.opened=[];run(c,'abrirAmistosoDesdeCaptura=async id=>opened.push(id)');value(c,'sel-juego','isolated');await run(c,'mostrarJuegoElegido()');assert.deepEqual(c.opened,['isolated']);
 });
-test('saved friendly locks team replacement but leaves statistics editable',async()=>{
- const c=ambiente();run(c,"ghGuardar=async()=>({content:{sha:'next'}})");await run(c,'amGuardar()');assert.equal(c.document.getElementById('am-equipo-local').disabled,true);assert.equal(c.document.getElementById('am-crear-visita').disabled,true);assert.equal(c.document.getElementById('am-agregar-visita').disabled,false);run(c,'amNuevo()');assert.equal(c.document.getElementById('am-equipo-local').disabled,false);
+test('saved friendly can change its schedule without losing stats and exposes delete',async()=>{
+ const c=ambiente();run(c,"ghGuardar=async()=>({content:{sha:'next'}})");await run(c,'amGuardar()');assert.equal(c.document.getElementById('am-equipo-local').disabled,false);assert.equal(c.document.getElementById('am-eliminar').hidden,false);
+ value(c,'am-fecha','2026-10-03');value(c,'am-hora','19:30');value(c,'am-sede','otra');await run(c,'amGuardar()');const game=clone(run(c,'ambienteAmistosos.datos.juegos[0]'));assert.equal(game.fecha,'2026-10-03');assert.equal(game.hora,'19:30');assert.equal(game.sede_id,'otra');assert.equal(game.estadisticas_local[0].puntos,25);assert.equal(run(c,'ambienteAmistosos.datos.juegos.length'),1);
+ run(c,'amNuevo()');assert.equal(c.document.getElementById('am-eliminar').hidden,true);
+});
+test('delete removes only the selected game and cancellation leaves it intact',async()=>{
+ const c=ambiente();run(c,"ghGuardar=async()=>({content:{sha:'next'}})");await run(c,'amGuardar()');run(c,"ambienteAmistosos.datos.juegos.push({...ambienteAmistosos.datos.juegos[0],id:'otro'})");c.confirm=()=>false;await run(c,'amEliminar()');assert.equal(run(c,'ambienteAmistosos.datos.juegos.length'),2);
+ c.confirm=()=>true;await run(c,'amEliminar()');assert.equal(run(c,'ambienteAmistosos.datos.juegos.length'),1);assert.equal(run(c,'ambienteAmistosos.datos.juegos[0].id'),'otro');assert.equal(run(c,'ambienteAmistosos.datos.equipos.length'),2);assert.equal(run(c,'ambienteAmistosos.datos.jugadores.length'),2);
 });
 function ambiente() {
  const c=context();c.structuredClone=structuredClone;c.crypto=require('node:crypto').webcrypto;load(c,'js/amistosos.js');load(c,'js/captura-amistosos.js');
