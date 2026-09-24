@@ -80,7 +80,7 @@
       <span class="estado falta" id="token-estado">Falta el token</span>
     </div>
 
-    <label>Tipo de captura<select id="modo-captura"><option value="liga">Liga y juegos agendados</option><option value="amistoso">Amistosos — crear y capturar aquí</option></select></label>
+    <label>Tipo de captura<select id="modo-captura"><option value="liga">Capturar resultados — liga y amistosos</option><option value="amistoso">Amistosos — crear y capturar aquí</option></select></label>
 <section id="captura-liga">
     <div class="cap-selects">
       <select id="sel-cat"><option value="">Cargando categorías…</option></select>
@@ -254,6 +254,9 @@ async function cargarJuegosDeCategoria() {
     archivosJuegos = resultados
       .map((r, i) => r ? { path: `data/juegos_${categoriaActual}/${TEMPORADAS[i].id}.json`, sha: r.sha, contenido: r.contenido } : null)
       .filter(Boolean);
+    const amistosos = await ghFetch('data/amistosos.json');
+    const equiposInvitados = amistosos.contenido.equipos ?? [];
+    archivosJuegos.push({path:'data/amistosos.json',sha:amistosos.sha,contenido:{juegos:(amistosos.contenido.juegos ?? []).filter(j=>j.categoria_id===categoriaActual)}});
 
     origenPorJuegoId = {};
     const todosLosJuegos = [];
@@ -264,7 +267,7 @@ async function cargarJuegosDeCategoria() {
       });
     });
 
-    const nombreEquipo = (id) => EQUIPOS.find(e => e.id === id)?.nombre ?? id;
+    const nombreEquipo = (id) => [...EQUIPOS,...equiposInvitados].find(e => e.id === id)?.nombre ?? id;
     const ordenados = [...todosLosJuegos].sort((a, b) => b.fecha.localeCompare(a.fecha));
     if (ordenados.length === 0) {
       selJuego.innerHTML = '<option value="">No hay juegos en esta categoría</option>';
@@ -273,7 +276,7 @@ async function cargarJuegosDeCategoria() {
     selJuego.innerHTML = '<option value="">Elige el juego…</option>' +
       ordenados.map(j => {
         const marcador = j.estatus === 'jugado' ? ` (${j.marcador_local}-${j.marcador_visita})` : ' — programado';
-        return `<option value="${j.id}">${j.fase === 'amistoso' ? '[Amistoso] ' : ''}${j.temporada} · ${j.fecha} — ${nombreEquipo(j.local)} vs ${nombreEquipo(j.visita)}${marcador}</option>`;
+        return `<option value="${escaparHTML(j.id)}">${j.fase === 'amistoso' ? '[Amistoso] ' : ''}${escaparHTML(j.temporada)} · ${escaparHTML(j.fecha)} — ${escaparHTML(nombreEquipo(j.local))} vs ${escaparHTML(nombreEquipo(j.visita))}${marcador}</option>`;
       }).join('');
   } catch (err) {
     selJuego.innerHTML = '<option value="">Error al cargar (revisa tu token)</option>';
@@ -293,10 +296,14 @@ function ocultarTodo() {
 
 let juegoElegido = null;
 
-function mostrarJuegoElegido() {
+async function mostrarJuegoElegido() {
   const juegoId = document.getElementById('sel-juego').value;
   ocultarTodo();
   if (!juegoId || archivosJuegos.length === 0) return;
+  if (archivosJuegos[origenPorJuegoId[juegoId]]?.path === 'data/amistosos.json') {
+    await abrirAmistosoDesdeCaptura(juegoId);
+    return;
+  }
 
   juegoElegido = archivosJuegos[origenPorJuegoId[juegoId]]?.contenido.juegos.find(j => j.id === juegoId);
   if (!juegoElegido) return;
@@ -474,7 +481,7 @@ function ocultarMsg() {
 actualizarEstadoToken();
 cargarBase().catch(err => mostrarMsg(err.message, true));
 </script>
-<script src="../js/captura-amistosos.js?v=4"></script>
+<script src="../js/captura-amistosos.js?v=5"></script>
 </body>
 </html>
 

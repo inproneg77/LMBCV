@@ -12,6 +12,20 @@ const amId = tipo => {
 const amClonar = valor => JSON.parse(JSON.stringify(valor));
 const amLogosPendientes = new Map();
 const amVacio = () => ({ equipos: [], jugadores: [], juegos: [] });
+async function abrirAmistosoDesdeCaptura(id) {
+  document.getElementById('modo-captura').value='amistoso';
+  document.getElementById('captura-liga').hidden=true;
+  document.getElementById('captura-amistosos').hidden=false;
+  ambienteAmistosos=null;
+  await abrirAmbienteAmistosos();
+  if (!ambienteAmistosos) return;
+  const juego=ambienteAmistosos.datos.juegos.find(j=>j.id===id);
+  if (!juego) return amMensaje('El partido ya no está disponible. Actualiza la lista.',true);
+  amEl('categoria').value=juego.categoria_id;
+  amEl('temporada').value=juego.temporada;
+  amListaJuegos();amEl('juego').value=id;amAbrirJuego();
+  amEl('guardar').textContent='Guardar estadísticas y resultado';
+}
 function amNormalizar(datos) {
   if (!datos || !['equipos', 'jugadores', 'juegos'].every(k => Array.isArray(datos[k]))) throw new Error('El archivo de amistosos tiene un formato inválido.');
   return datos;
@@ -161,6 +175,8 @@ function amActualizarSelectoresEquipos() {
     '<optgroup label="Equipos de la liga">' + amOpciones(liga) + '</optgroup>' +
     '<optgroup label="Equipos de amistosos">' + amOpciones(equipos,borradorAmistoso.juego[lado]) + '</optgroup>';
   for (const lado of ['local','visita']) {
+    const guardado=ambienteAmistosos.datos.juegos.some(j=>j.id===borradorAmistoso.juego.id);
+    for(const campo of ['equipo-','liga-','crear-','nombre-','logo-'])amEl(campo+lado).disabled=guardado;
     const equipo = equipos.find(e=>e.id===borradorAmistoso.juego[lado]);
     const img = amEl('vista-logo-' + lado);
     img.hidden = !equipo;
@@ -268,6 +284,7 @@ async function amGuardar() {
     borradorAmistoso.equipos=[];
     borradorAmistoso.juego=amClonar(datos.juegos.find(j=>j.id===borradorAmistoso.juego.id));
     amListaJuegos();
+    amActualizarSelectoresEquipos();
     amMensaje('Amistoso guardado. Sus equipos y jugadores permanecen fuera de la liga; aparecerá en el calendario al publicarse.');
   } catch(err){amMensaje(err.status===409?'Otra captura cambió los amistosos. Tu formulario sigue aquí; copia lo pendiente y vuelve a abrir el ambiente antes de guardar.':err.message,true);}
   finally{amistosoGuardando=false;amEl('contenido').disabled=false;}
