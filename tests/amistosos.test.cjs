@@ -6,16 +6,36 @@ const path = require('node:path');
 const root = path.join(__dirname, '..');
 const read = p => fs.readFileSync(path.join(root,p),'utf8');
 const clone = x => JSON.parse(JSON.stringify(x));
+test('selecting a saved team loads its name for editing without erasing same-team roster',()=>{
+ const c=ambiente();run(c,"ambienteAmistosos.datos.equipos.push({id:'saved',nombre:'Equipo guardado',logo:'img/test.png'});ambienteAmistosos.datos.jugadores.push({id:'guest',equipo_id:'saved',nombre:'Invitado'})");value(c,'am-equipo-visita','saved');run(c,"amSeleccionarEquipo('visita')");assert.equal(c.document.getElementById('am-editar-nombre-visita').value,'Equipo guardado');run(c,"borradorAmistoso.filas.visita[0].puntos=33;amSeleccionarEquipo('visita')");assert.equal(run(c,'borradorAmistoso.filas.visita[0].puntos'),33);
+});
+test('agenda preserves played results and updates existing team logo; capture only writes results',async()=>{
+ const agenda=ambiente();run(agenda,"ghGuardar=async()=>({content:{sha:'one'}})");await run(agenda,'amGuardar()');
+ const scheduled=clone(run(agenda,'ambienteAmistosos.datos'));
+ const cap=context();cap.crypto=require('node:crypto').webcrypto;load(cap,'js/amistosos.js');load(cap,'js/captura-amistosos.js');cap.data=scheduled;
+ run(cap,"ambienteAmistosos={sha:'one',datos:data,equiposLiga:[],jugadoresLiga:[]}");value(cap,'am-juego',scheduled.juegos[0].id);run(cap,'amAbrirJuego()');assert.equal(cap.document.getElementById('am-fecha').disabled,true);assert.equal(cap.document.getElementById('am-eliminar').hidden,true);
+ value(cap,'am-estatus','jugado');value(cap,'am-marcador-local','25');value(cap,'am-marcador-visita','20');run(cap,'borradorAmistoso.filas.local[0].asistio=true;borradorAmistoso.filas.local[0].puntos=25');value(cap,'am-fecha','2027-01-01');
+ const played=clone(run(cap,'amPrepararGuardado()'));assert.equal(played.juegos[0].fecha,scheduled.juegos[0].fecha);assert.equal(played.juegos[0].estadisticas_local[0].puntos,25);
+ agenda.played=played;run(agenda,'ambienteAmistosos.datos=played');value(agenda,'am-juego',played.juegos[0].id);run(agenda,'amAbrirJuego()');value(agenda,'am-fecha','2026-10-10');value(agenda,'am-editar-nombre-local','Nombre corregido');agenda.document.getElementById('am-editar-logo-local').files=[{type:'image/png',size:10}];run(agenda,"amPrepararLogo=async()=> 'image'");await run(agenda,"amActualizarEquipo('local')");
+ const edited=clone(run(agenda,'amPrepararGuardado()'));assert.equal(edited.juegos[0].fecha,'2026-10-10');assert.deepEqual(edited.juegos[0].estadisticas_local,played.juegos[0].estadisticas_local);assert.equal(edited.juegos[0].marcador_local,25);assert.equal(edited.equipos[0].nombre,'Nombre corregido');assert.match(edited.equipos[0].logo,/img\/amistosos\/am-logo-/);assert.equal(edited.equipos.length,2);
+ run(cap,'amNuevo()');assert.throws(()=>run(cap,'amPrepararGuardado()'),/Programa primero/);
+});
 test('original capture lists isolated friendlies and opens them for results',async()=>{
  const c=context();load(c,'js/amistosos.js');form(c,'captura/index.html');c.data={equipos:[{id:'guest',nombre:'Visitantes'}],juegos:[{id:'isolated',fase:'amistoso',categoria_id:'var40',temporada:'2026-2',fecha:'2026-09-24',local:'A',visita:'guest'}]};
  run(c,"token=()=> 'test';TEMPORADAS=[{id:'2026-2'}];EQUIPOS=[{id:'A',nombre:'Liga'}];ghFetch=async p=>({sha:'test',contenido:p==='data/amistosos.json'?data:{juegos:[]}})");value(c,'sel-cat','var40');await run(c,'cargarJuegosDeCategoria()');assert.match(c.document.getElementById('sel-juego').innerHTML,/Visitantes/);assert.match(c.document.getElementById('sel-juego').innerHTML,/\[Amistoso\]/);
  c.opened=[];run(c,'abrirAmistosoDesdeCaptura=async id=>opened.push(id)');value(c,'sel-juego','isolated');await run(c,'mostrarJuegoElegido()');assert.deepEqual(c.opened,['isolated']);
 });
-test('saved friendly locks team replacement but leaves statistics editable',async()=>{
- const c=ambiente();run(c,"ghGuardar=async()=>({content:{sha:'next'}})");await run(c,'amGuardar()');assert.equal(c.document.getElementById('am-equipo-local').disabled,true);assert.equal(c.document.getElementById('am-crear-visita').disabled,true);assert.equal(c.document.getElementById('am-agregar-visita').disabled,false);run(c,'amNuevo()');assert.equal(c.document.getElementById('am-equipo-local').disabled,false);
+test('saved friendly can change its schedule without losing stats and exposes delete',async()=>{
+ const c=ambiente();run(c,"ghGuardar=async()=>({content:{sha:'next'}})");await run(c,'amGuardar()');assert.equal(c.document.getElementById('am-equipo-local').disabled,false);assert.equal(c.document.getElementById('am-eliminar').hidden,false);
+ value(c,'am-fecha','2026-10-03');value(c,'am-hora','19:30');value(c,'am-sede','otra');await run(c,'amGuardar()');const game=clone(run(c,'ambienteAmistosos.datos.juegos[0]'));assert.equal(game.fecha,'2026-10-03');assert.equal(game.hora,'19:30');assert.equal(game.sede_id,'otra');assert.equal(game.estadisticas_local.length,0);assert.equal(run(c,'ambienteAmistosos.datos.juegos.length'),1);
+ run(c,'amNuevo()');assert.equal(c.document.getElementById('am-eliminar').hidden,true);
+});
+test('delete removes only the selected game and cancellation leaves it intact',async()=>{
+ const c=ambiente();run(c,"ghGuardar=async()=>({content:{sha:'next'}})");await run(c,'amGuardar()');run(c,"ambienteAmistosos.datos.juegos.push({...ambienteAmistosos.datos.juegos[0],id:'otro'})");c.confirm=()=>false;await run(c,'amEliminar()');assert.equal(run(c,'ambienteAmistosos.datos.juegos.length'),2);
+ c.confirm=()=>true;await run(c,'amEliminar()');assert.equal(run(c,'ambienteAmistosos.datos.juegos.length'),1);assert.equal(run(c,'ambienteAmistosos.datos.juegos[0].id'),'otro');assert.equal(run(c,'ambienteAmistosos.datos.equipos.length'),2);assert.equal(run(c,'ambienteAmistosos.datos.jugadores.length'),2);
 });
 function ambiente() {
- const c=context();c.structuredClone=structuredClone;c.crypto=require('node:crypto').webcrypto;load(c,'js/amistosos.js');load(c,'js/captura-amistosos.js');
+ const c=context();c.document.body={dataset:{amistosos:'agenda'}};c.structuredClone=structuredClone;c.crypto=require('node:crypto').webcrypto;load(c,'js/amistosos.js');load(c,'js/captura-amistosos.js');
  run(c,"ambienteAmistosos={sha:'initial',datos:amVacio(),equiposLiga:[],jugadoresLiga:[]}");
  value(c,'am-categoria','var40');value(c,'am-temporada','2026-2');run(c,'amNuevo()');
  for(const side of ['local','visita']){value(c,'am-nombre-'+side,'Invitado '+side);run(c,`amCrearEquipo('${side}');amAgregarJugador('${side}');borradorAmistoso.filas.${side}[0].nombre='Jugador ${side}';borradorAmistoso.filas.${side}[0].puntos=25;`);}
@@ -38,8 +58,8 @@ test('failed logo upload retains draft and does not publish broken game',async()
 });
 test('spontaneous friendly creates independent teams and players, saves atomically and reopens',async()=>{
  const c=ambiente();c.saved=[];run(c,"ghGuardar=async(path,sha,obj)=>{saved.push({path,sha,obj});return {content:{sha:'next'}}}");
- await run(c,'amGuardar()');assert.equal(c.saved.length,1);const write=c.saved[0];assert.equal(write.path,'data/amistosos.json');assert.equal(write.sha,'initial');assert.equal(write.obj.equipos.length,2);assert.equal(write.obj.jugadores.length,2);assert.equal(write.obj.juegos[0].fase,'amistoso');assert.equal(write.obj.juegos[0].estadisticas_local[0].puntos,25);
- value(c,'am-juego',write.obj.juegos[0].id);run(c,'amAbrirJuego()');assert.equal(run(c,'borradorAmistoso.filas.local[0].puntos'),25);
+ await run(c,'amGuardar()');assert.equal(c.saved.length,1);const write=c.saved[0];assert.equal(write.path,'data/amistosos.json');assert.equal(write.sha,'initial');assert.equal(write.obj.equipos.length,2);assert.equal(write.obj.jugadores.length,2);assert.equal(write.obj.juegos[0].fase,'amistoso');assert.equal(write.obj.juegos[0].estadisticas_local.length,0);assert.equal(write.obj.juegos[0].estatus,'programado');
+ value(c,'am-juego',write.obj.juegos[0].id);run(c,'amAbrirJuego()');assert.equal(run(c,'borradorAmistoso.filas.local[0].puntos'),0);
  await run(c,'amGuardar()');assert.equal(c.saved[1].sha,'next');assert.equal(c.saved[1].obj.juegos.length,1);assert.equal(c.saved[1].obj.jugadores.length,2);
 });
 test('invalid scores and concurrent writes preserve draft without corrupting stored state',async()=>{
@@ -52,7 +72,7 @@ test('copying a league team clones identities and handles numeric jersey numbers
 test('independent friendly dataset appears in calendar and leaves all official collections unchanged',async()=>{
  const c=ambiente(),data=fixture(false);data['data/amistosos.json']=clone(run(c,'amPrepararGuardado()'));const before=await state(fixture(false)),after=await state(data);
  for(const k of ['equipos','jugadores','juegosOficiales','playoffs'])assert.deepEqual(after[k],before[k],k);
- assert.equal(after.juegosAmistosos.length,1);const view=context();load(view,'js/amistosos.js');load(view,'js/datos.js');load(view,'js/calendario.js');view.state=after;view.game=after.juegosAmistosos[0];run(view,'ESTADO=state');assert.match(run(view,'renderJuego(game)'),/Invitado visita/);assert.match(run(view,'renderJuego(game)'),/Jugador local/);
+ assert.equal(after.juegosAmistosos.length,1);const view=context();load(view,'js/amistosos.js');load(view,'js/datos.js');load(view,'js/calendario.js');view.state=after;view.game=after.juegosAmistosos[0];run(view,'ESTADO=state');assert.match(run(view,'renderJuego(game)'),/Invitado visita/);assert.equal(after.jugadoresPorId[after.juegosAmistosos[0].convocados_local[0]].nombre,'Jugador local');
 });
 function context() {
   const elements = {};
