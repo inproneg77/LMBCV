@@ -6,6 +6,14 @@ const path = require('node:path');
 const root = path.join(__dirname, '..');
 const read = p => fs.readFileSync(path.join(root,p),'utf8');
 const clone = x => JSON.parse(JSON.stringify(x));
+test('original capture lists isolated friendlies and opens them for results',async()=>{
+ const c=context();load(c,'js/amistosos.js');form(c,'captura/index.html');c.data={equipos:[{id:'guest',nombre:'Visitantes'}],juegos:[{id:'isolated',fase:'amistoso',categoria_id:'var40',temporada:'2026-2',fecha:'2026-09-24',local:'A',visita:'guest'}]};
+ run(c,"token=()=> 'test';TEMPORADAS=[{id:'2026-2'}];EQUIPOS=[{id:'A',nombre:'Liga'}];ghFetch=async p=>({sha:'test',contenido:p==='data/amistosos.json'?data:{juegos:[]}})");value(c,'sel-cat','var40');await run(c,'cargarJuegosDeCategoria()');assert.match(c.document.getElementById('sel-juego').innerHTML,/Visitantes/);assert.match(c.document.getElementById('sel-juego').innerHTML,/\[Amistoso\]/);
+ c.opened=[];run(c,'abrirAmistosoDesdeCaptura=async id=>opened.push(id)');value(c,'sel-juego','isolated');await run(c,'mostrarJuegoElegido()');assert.deepEqual(c.opened,['isolated']);
+});
+test('saved friendly locks team replacement but leaves statistics editable',async()=>{
+ const c=ambiente();run(c,"ghGuardar=async()=>({content:{sha:'next'}})");await run(c,'amGuardar()');assert.equal(c.document.getElementById('am-equipo-local').disabled,true);assert.equal(c.document.getElementById('am-crear-visita').disabled,true);assert.equal(c.document.getElementById('am-agregar-visita').disabled,false);run(c,'amNuevo()');assert.equal(c.document.getElementById('am-equipo-local').disabled,false);
+});
 function ambiente() {
  const c=context();c.structuredClone=structuredClone;c.crypto=require('node:crypto').webcrypto;load(c,'js/amistosos.js');load(c,'js/captura-amistosos.js');
  run(c,"ambienteAmistosos={sha:'initial',datos:amVacio(),equiposLiga:[],jugadoresLiga:[]}");
