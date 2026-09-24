@@ -4,7 +4,13 @@ let ambienteAmistosos = null;
 let borradorAmistoso = null;
 let amistosoGuardando = false;
 const amEl = id => document.getElementById('am-' + id);
-const amId = tipo => 'am-' + tipo + '-' + crypto.randomUUID();
+const amId = tipo => {
+  const bytes = new Uint8Array(16);
+  crypto.getRandomValues(bytes);
+  return 'am-' + tipo + '-' + Array.from(bytes,b=>b.toString(16).padStart(2,'0')).join('');
+};
+const amClonar = valor => JSON.parse(JSON.stringify(valor));
+const amLogosPendientes = new Map();
 const amVacio = () => ({ equipos: [], jugadores: [], juegos: [] });
 function amNormalizar(datos) {
   if (!datos || !['equipos', 'jugadores', 'juegos'].every(k => Array.isArray(datos[k]))) throw new Error('El archivo de amistosos tiene un formato inválido.');
@@ -13,6 +19,12 @@ function amNormalizar(datos) {
 function amMensaje(texto, error = false) {
   amEl('mensaje').textContent = texto;
   amEl('mensaje').className = 'cap-msg ' + (error ? 'error' : 'ok');
+}
+function amAccion(accion) {
+  return async (...args) => {
+    try { await accion(...args); }
+    catch (err) { amMensaje('No se pudo completar: ' + err.message, true); }
+  };
 }
 function amOpciones(items, seleccionado = '') {
   return items.map(x => `<option value="${escaparHTML(x.id)}" ${x.id === seleccionado ? 'selected' : ''}>${escaparHTML(x.nombre)}</option>`).join('');
@@ -37,11 +49,11 @@ async function abrirAmbienteAmistosos() {
     const activa = ambienteAmistosos.temps.find(t => String(t.activa) === 'true')?.id;
     amEl('temporada').innerHTML = amOpciones(ambienteAmistosos.temps, activa);
     amEl('sede').innerHTML = '<option value="">Sin sede definida</option>' + amOpciones(ambienteAmistosos.sedes);
+    amNuevo();
     amEl('contenido').hidden = false;
     amEl('cargar').hidden = true;
-    amNuevo();
     amMensaje('Crea el partido aquí: los equipos y jugadores quedan solo en amistosos.');
-  } catch (err) { amMensaje(err.message, true); }
+  } catch (err) { ambienteAmistosos=null; amMensaje(err.message, true); }
   finally { amEl('cargar').disabled = false; }
 }
 function amListaJuegos() {
@@ -65,7 +77,7 @@ function amAbrirJuego() {
   if (!id) return amNuevo();
   const juego = ambienteAmistosos.datos.juegos.find(j => j.id === id);
   if (!juego) return;
-  borradorAmistoso = { juego: structuredClone(juego), equipos: [], filas: { local: [], visita: [] } };
+  borradorAmistoso = { juego: amClonar(juego), equipos: [], filas: { local: [], visita: [] } };
   for (const lado of ['local','visita']) {
     const estadisticas = juego['estadisticas_' + lado] ?? [];
     const ids = new Set([...(juego['convocados_' + lado] ?? []), ...estadisticas.map(e => e.jugador)]);
@@ -73,7 +85,7 @@ function amAbrirJuego() {
       const persona = ambienteAmistosos.datos.jugadores.find(p => p.id === id);
       if (!persona) throw new Error('No se encontró al jugador ' + id);
       const stats = estadisticas.find(e => e.jugador === id);
-      return { ...structuredClone(persona), asistio: !!stats && String(stats.asistio) !== 'false', puntos: stats?.puntos ?? 0, triples: stats?.triples ?? 0, faltas: stats?.faltas ?? 0 };
+      return { ...amClonar(persona), asistio: !!stats && String(stats.asistio) !== 'false', puntos: stats?.puntos ?? 0, triples: stats?.triples ?? 0, faltas: stats?.faltas ?? 0 };
     });
   }
   amPintar(); amMensaje('Amistoso abierto. Puedes agregar jugadores y actualizar el resultado.');
@@ -86,45 +98,82 @@ function amPintar() {
   }
   amEl('detalle').value = j.mvp_nombre ?? '';
   for (const lado of ['local','visita']) {
-    const equipos = [...ambienteAmistosos.datos.equipos, ...borradorAmistoso.equipos];
-    amEl('equipo-' + lado).innerHTML = '<option value="">Elige o crea un equipo</option>' + amOpciones(equipos,j[lado]);
     const liga = ambienteAmistosos.equiposLiga.filter(e => (e.categorias ?? []).includes(j.categoria_id));
     amEl('liga-' + lado).innerHTML = '<option value="">Copiar un equipo de liga…</option>' + amOpciones(liga);
     amPintarFilas(lado);
   }
+  amActualizarSelectoresEquipos();
   amActualizarMVP(j.mvp_jugador ?? '');
 }
 function amSeleccionarEquipo(lado) {
   const id = amEl('equipo-' + lado).value;
+  if (id.startsWith('liga:')) return amCopiarLiga(lado, id.slice(5));
   const otro = lado === 'local' ? 'visita' : 'local';
   if (id && id === borradorAmistoso.juego[otro]) { amEl('equipo-' + lado).value = borradorAmistoso.juego[lado]; return amMensaje('Elige dos equipos diferentes.', true); }
   borradorAmistoso.juego[lado] = id;
-  borradorAmistoso.filas[lado] = ambienteAmistosos.datos.jugadores.filter(p => p.equipo_id === id).map(p => ({...structuredClone(p),asistio:false,puntos:0,triples:0,faltas:0}));
+  borradorAmistoso.filas[lado] = ambienteAmistosos.datos.jugadores.filter(p => p.equipo_id === id).map(p => ({...amClonar(p),asistio:false,puntos:0,triples:0,faltas:0}));
   amPintarFilas(lado); amActualizarMVP();
 }
-function amCrearEquipo(lado) {
+async function amCrearEquipo(lado) {
   const nombre = amEl('nombre-' + lado).value.trim();
   if (!nombre) return amMensaje('Escribe el nombre del equipo invitado.', true);
   const existente = [...ambienteAmistosos.datos.equipos,...borradorAmistoso.equipos].find(e => e.nombre.toLocaleLowerCase() === nombre.toLocaleLowerCase());
   if (existente) { amEl('equipo-' + lado).value = existente.id; amSeleccionarEquipo(lado); return amMensaje('Se seleccionó el equipo que ya existía.'); }
   const equipo = { id: amId('e'), nombre, logo: 'img/equipos/placeholder.svg' };
+  const archivo = amEl('logo-' + lado).files?.[0];
+  if (archivo) {
+    amEl('crear-' + lado).disabled = true;
+    try {
+      const imagen = await amPrepararLogo(archivo);
+      equipo.logo = 'img/amistosos/' + equipo.id + '.png';
+      amLogosPendientes.set(equipo.logo, imagen);
+    } finally { amEl('crear-' + lado).disabled = false; }
+  }
   borradorAmistoso.equipos.push(equipo);
   borradorAmistoso.juego[lado] = equipo.id;
   borradorAmistoso.filas[lado] = [];
   amEl('nombre-' + lado).value = '';
+  amEl('logo-' + lado).value = '';
   amActualizarSelectoresEquipos(); amPintarFilas(lado); amActualizarMVP();
+  amMensaje('Equipo «' + nombre + '» creado en este partido. Agrega sus jugadores y pulsa Guardar amistoso para publicarlo.');
+}
+async function amPrepararLogo(archivo) {
+  if (!['image/png','image/jpeg','image/webp'].includes(archivo.type)) throw new Error('El logo debe ser PNG, JPG o WebP.');
+  if (archivo.size > 10 * 1024 * 1024) throw new Error('El logo debe pesar menos de 10 MB.');
+  const url = URL.createObjectURL(archivo);
+  try {
+    const img = new Image();
+    await new Promise((resolve,reject) => {img.onload=resolve;img.onerror=()=>reject(new Error('No se pudo abrir la imagen.'));img.src=url;});
+    const escala = Math.min(1,512/Math.max(img.naturalWidth,img.naturalHeight));
+    const canvas = document.createElement('canvas');
+    canvas.width=Math.max(1,Math.round(img.naturalWidth*escala));canvas.height=Math.max(1,Math.round(img.naturalHeight*escala));
+    canvas.getContext('2d').drawImage(img,0,0,canvas.width,canvas.height);
+    return canvas.toDataURL('image/png').split(',')[1];
+  } finally { URL.revokeObjectURL(url); }
 }
 function amActualizarSelectoresEquipos() {
   const equipos = [...ambienteAmistosos.datos.equipos,...borradorAmistoso.equipos];
-  for (const lado of ['local','visita']) amEl('equipo-' + lado).innerHTML = '<option value="">Elige o crea un equipo</option>' + amOpciones(equipos,borradorAmistoso.juego[lado]);
+  const liga = ambienteAmistosos.equiposLiga
+    .filter(e => (e.categorias ?? []).includes(borradorAmistoso.juego.categoria_id))
+    .map(e => ({id:'liga:'+e.id,nombre:e.nombre}));
+  for (const lado of ['local','visita']) amEl('equipo-' + lado).innerHTML =
+    '<option value="">Elige un equipo o crea uno nuevo</option>' +
+    '<optgroup label="Equipos de la liga">' + amOpciones(liga) + '</optgroup>' +
+    '<optgroup label="Equipos de amistosos">' + amOpciones(equipos,borradorAmistoso.juego[lado]) + '</optgroup>';
+  for (const lado of ['local','visita']) {
+    const equipo = equipos.find(e=>e.id===borradorAmistoso.juego[lado]);
+    const img = amEl('vista-logo-' + lado);
+    img.hidden = !equipo;
+    if (equipo) { img.src = amLogosPendientes.has(equipo.logo) ? 'data:image/png;base64,' + amLogosPendientes.get(equipo.logo) : '../' + (equipo.logo || 'img/equipos/placeholder.svg'); img.alt = 'Logo de ' + equipo.nombre; }
+  }
 }
-function amCopiarLiga(lado) {
-  const original = ambienteAmistosos.equiposLiga.find(e => e.id === amEl('liga-' + lado).value);
+function amCopiarLiga(lado, equipoId = amEl('liga-' + lado).value) {
+  const original = ambienteAmistosos.equiposLiga.find(e => e.id === equipoId);
   if (!original) return;
   const otro = lado === 'local' ? 'visita' : 'local';
   let equipo = [...ambienteAmistosos.datos.equipos,...borradorAmistoso.equipos].find(e => e.origen_liga_id === original.id);
   if (!equipo) { equipo = { id: amId('e'), nombre: original.nombre, logo: original.logo, origen_liga_id: original.id }; borradorAmistoso.equipos.push(equipo); }
-  if (equipo.id === borradorAmistoso.juego[otro]) return amMensaje('Ese equipo ya está en el otro lado.',true);
+  if (equipo.id === borradorAmistoso.juego[otro]) { amActualizarSelectoresEquipos(); return amMensaje('Ese equipo ya está en el otro lado.',true); }
   borradorAmistoso.juego[lado] = equipo.id;
   const juego = borradorAmistoso.juego;
   borradorAmistoso.filas[lado] = ambienteAmistosos.jugadoresLiga.filter(p => (p.membresias ?? []).some(m => m.equipo_id === original.id && m.categoria_id === juego.categoria_id && m.temporada === juego.temporada)).map(p => {
@@ -165,8 +214,8 @@ function amEntero(valor, campo) {
   return n;
 }
 function amPrepararGuardado() {
-  const datos = structuredClone(ambienteAmistosos.datos);
-  const juego = structuredClone(borradorAmistoso.juego);
+  const datos = amClonar(ambienteAmistosos.datos);
+  const juego = amClonar(borradorAmistoso.juego);
   if (!juego.local || !juego.visita || juego.local === juego.visita) throw new Error('Crea o selecciona dos equipos diferentes.');
   if (!juego.categoria_id || !juego.temporada) throw new Error('Selecciona categoría y temporada.');
   juego.fecha = amEl('fecha').value; juego.hora = amEl('hora').value;
@@ -207,12 +256,17 @@ async function amGuardar() {
   amistosoGuardando=true;amEl('contenido').disabled=true;
   try {
     const datos=amPrepararGuardado();
+    for (const equipo of datos.equipos.filter(e=>[borradorAmistoso.juego.local,borradorAmistoso.juego.visita].includes(e.id))) {
+      if (!amLogosPendientes.has(equipo.logo)) continue;
+      await ghGuardar(equipo.logo,undefined,null,'Logo de equipo de amistosos',amLogosPendientes.get(equipo.logo));
+      amLogosPendientes.delete(equipo.logo);
+    }
     // Conservamos el SHA de apertura: un conflicto nunca pisa otro guardado.
     const resultado=await ghGuardar(ARCHIVO_AMISTOSOS,ambienteAmistosos.sha,datos,'Captura de amistoso: equipos, jugadores y resultado');
     ambienteAmistosos.datos=datos;
     ambienteAmistosos.sha=resultado.content.sha;
     borradorAmistoso.equipos=[];
-    borradorAmistoso.juego=structuredClone(datos.juegos.find(j=>j.id===borradorAmistoso.juego.id));
+    borradorAmistoso.juego=amClonar(datos.juegos.find(j=>j.id===borradorAmistoso.juego.id));
     amListaJuegos();
     amMensaje('Amistoso guardado. Sus equipos y jugadores permanecen fuera de la liga; aparecerá en el calendario al publicarse.');
   } catch(err){amMensaje(err.status===409?'Otra captura cambió los amistosos. Tu formulario sigue aquí; copia lo pendiente y vuelve a abrir el ambiente antes de guardar.':err.message,true);}
@@ -226,14 +280,14 @@ function iniciarCapturaAmistosos() {
     if(amistoso)await abrirAmbienteAmistosos();
   });
   amEl('cargar').addEventListener('click',abrirAmbienteAmistosos);
-  amEl('nuevo').addEventListener('click',amNuevo);
+  amEl('nuevo').addEventListener('click',amAccion(amNuevo));
   amEl('juego').addEventListener('change',()=>{try{amAbrirJuego();}catch(e){amMensaje(e.message,true);}});
-  for(const id of ['categoria','temporada'])amEl(id).addEventListener('change',amNuevo);
+  for(const id of ['categoria','temporada'])amEl(id).addEventListener('change',amAccion(amNuevo));
   for(const lado of ['local','visita']){
-    amEl('equipo-'+lado).addEventListener('change',()=>amSeleccionarEquipo(lado));
-    amEl('crear-'+lado).addEventListener('click',()=>amCrearEquipo(lado));
-    amEl('liga-'+lado).addEventListener('change',()=>amCopiarLiga(lado));
-    amEl('agregar-'+lado).addEventListener('click',()=>amAgregarJugador(lado));
+    amEl('equipo-'+lado).addEventListener('change',amAccion(()=>amSeleccionarEquipo(lado)));
+    amEl('crear-'+lado).addEventListener('click',amAccion(()=>amCrearEquipo(lado)));
+    amEl('liga-'+lado).addEventListener('change',amAccion(()=>amCopiarLiga(lado)));
+    amEl('agregar-'+lado).addEventListener('click',amAccion(()=>amAgregarJugador(lado)));
   }
   amEl('guardar').addEventListener('click',amGuardar);
   if (new URLSearchParams(window.location.search).get('modo') === 'amistoso') {
