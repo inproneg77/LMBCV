@@ -1,6 +1,19 @@
 {
   "temporadas": [
-    { "id": "2026-1", "nombre": "Temporada 2026-1", "activa": false },
-    { "id": "2026-2", "nombre": "Temporada 2026-2", "activa": true }
+    {
+      "id": "2026-1",
+      "nombre": "Temporada 2026-1",
+      "activa": false
+    },
+    {
+      "id": "2026-2",
+      "nombre": "Temporada 2026-2",
+      "activa": true
+    },
+    {
+      "activa": "false",
+      "id": "Amistosos-2026",
+      "nombre": "Amistosos 20206"
+    }
   ]
 }
