@@ -14,6 +14,20 @@ function ambiente() {
  value(c,'am-estatus','jugado');value(c,'am-forfeit','ninguno');value(c,'am-marcador-local','25');value(c,'am-marcador-visita','20');
  return c;
 }
+test('main team selector lists league teams and selection loads independent players',()=>{
+ const c=ambiente();run(c,"ambienteAmistosos.equiposLiga=[{id:'A',nombre:'Equipo Liga',categorias:['var40']},{id:'B',nombre:'Otra rama',categorias:['fem40']}];ambienteAmistosos.jugadoresLiga=[{id:'P',nombre:'Jugador Liga',numero:8,membresias:[{equipo_id:'A',categoria_id:'var40',temporada:'2026-2'}]}];amActualizarSelectoresEquipos()");
+ const html=c.document.getElementById('am-equipo-local').innerHTML;assert.match(html,/liga:A/);assert.doesNotMatch(html,/Otra rama/);
+ value(c,'am-equipo-local','liga:A');run(c,"amSeleccionarEquipo('local')");assert.equal(run(c,'borradorAmistoso.filas.local[0].nombre'),'Jugador Liga');assert.notEqual(run(c,'borradorAmistoso.juego.local'),'A');assert.equal(run(c,'amPrepararGuardado().equipos.find(e=>e.origen_liga_id==="A").nombre'),'Equipo Liga');
+});
+test('team creation works without randomUUID or structuredClone and uploads logo before data',async()=>{
+ const c=ambiente();c.crypto={getRandomValues:require('node:crypto').webcrypto.getRandomValues.bind(require('node:crypto').webcrypto)};c.structuredClone=undefined;
+ value(c,'am-nombre-visita','Invitado con logo');c.document.getElementById('am-logo-visita').files=[{type:'image/png',size:10}];
+ run(c,"amPrepararLogo=async()=> 'aW1hZ2Vu'");await run(c,"amCrearEquipo('visita')");assert.match(c.document.getElementById('am-mensaje').textContent,/creado/);
+ c.saved=[];run(c,"ghGuardar=async(path,sha,obj,msg,image)=>{saved.push({path,sha,obj,image});return {content:{sha:'saved'}}}");await run(c,'amGuardar()');assert.equal(c.saved.length,2);assert.match(c.saved[0].path,/^img\/amistosos\//);assert.equal(c.saved[0].image,'aW1hZ2Vu');assert.equal(c.saved[1].path,'data/amistosos.json');assert.equal(c.saved[1].obj.equipos.find(e=>e.nombre==='Invitado con logo').logo,c.saved[0].path);
+});
+test('failed logo upload retains draft and does not publish broken game',async()=>{
+ const c=ambiente();run(c,"borradorAmistoso.equipos[0].logo='img/amistosos/test.png';amLogosPendientes.set('img/amistosos/test.png','image');ghGuardar=async()=>{throw new Error('Error al subir logo')}");await run(c,'amGuardar()');assert.equal(run(c,'ambienteAmistosos.datos.juegos.length'),0);assert.equal(run(c,'amLogosPendientes.size'),1);assert.match(c.document.getElementById('am-mensaje').textContent,/Error al subir logo/);
+});
 test('spontaneous friendly creates independent teams and players, saves atomically and reopens',async()=>{
  const c=ambiente();c.saved=[];run(c,"ghGuardar=async(path,sha,obj)=>{saved.push({path,sha,obj});return {content:{sha:'next'}}}");
  await run(c,'amGuardar()');assert.equal(c.saved.length,1);const write=c.saved[0];assert.equal(write.path,'data/amistosos.json');assert.equal(write.sha,'initial');assert.equal(write.obj.equipos.length,2);assert.equal(write.obj.jugadores.length,2);assert.equal(write.obj.juegos[0].fase,'amistoso');assert.equal(write.obj.juegos[0].estadisticas_local[0].puntos,25);
