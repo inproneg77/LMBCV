@@ -48,12 +48,13 @@ async function cargarDatos() {
   const temporadas = temporadasData.temporadas ?? [];
   const idsTemporadas = temporadas.map(t => t.id);
 
-  const [categoriasRaw, sedesData, patrociniosData, equiposData, rosterData, ...resto] = await Promise.all([
+  const [categoriasRaw, sedesData, patrociniosData, equiposData, rosterData, amistososData, ...resto] = await Promise.all([
     fetchJSON('data/categorias.json', []),
     fetchJSON('data/sedes.json', { sedes: [] }),
     fetchJSON('data/patrocinadores.json', { patrocinadores: [] }),
     fetchJSON('data/equipos.json', { equipos: [] }),
     fetchJSON('data/roster.json', { jugadores: [] }),
+    fetchJSON('data/amistosos.json', { equipos: [], jugadores: [], juegos: [] }),
     // Un archivo por cada combinación categoría × temporada. Si una
     // combinación no tiene archivo todavía (temporada nueva sin juegos
     // capturados en esa categoría), fetchJSON regresa vacío sin tronar.
@@ -107,13 +108,15 @@ async function cargarDatos() {
     }
   }
 
+  juegos.push(...(amistososData.juegos ?? []).map(j => ({...j, fase: 'amistoso'})));
+
   const playoffs = CATS.flatMap((cat, i) =>
     (playoffsPorCat[i].series ?? []).map(s => ({ ...s, categoria_id: cat }))
   );
 
-  const equiposPorId = Object.fromEntries(equipos.map(e => [e.id, e]));
+  const equiposPorId = Object.fromEntries([...(amistososData.equipos ?? []).map(e => ({...e, nombre: escaparHTML(e.nombre)})), ...equipos].map(e => [e.id, e]));
   const sedesPorId = Object.fromEntries(sedes.map(s => [s.id, s]));
-  const jugadoresPorId = Object.fromEntries((rosterData.jugadores ?? []).map(j => [j.id, j]));
+  const jugadoresPorId = Object.fromEntries([...(amistososData.jugadores ?? []).map(j => ({...j, nombre: escaparHTML(j.nombre)})), ...(rosterData.jugadores ?? [])].map(j => [j.id, j]));
   const juegosOficiales = juegos.filter(esJuegoOficial);
   const juegosAmistosos = juegos.filter(esAmistoso);
 
@@ -307,3 +310,5 @@ function formatearFecha(fechaISO) {
     fecha
   };
 }
+
+
