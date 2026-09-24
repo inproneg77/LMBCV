@@ -255,6 +255,54 @@
       "nombre": "JOAQUIN IBARRA",
       "numero": "",
       "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-18083463868d63dcb0f71dbad5898443",
+      "nombre": "OSCAR NAVIDAD",
+      "numero": "3",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-c946d1d0b695e049e4c2a75ccfe3200d",
+      "nombre": "CESAR MARTINEZ",
+      "numero": "8",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-5f17edf7b40660db4c4403c327d270a5",
+      "nombre": "EDUARDO VELAZQUEZ",
+      "numero": "00",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-6821fc3b64618e6c24de5206957091dc",
+      "nombre": "RICARDO VALDEZ",
+      "numero": "11",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-7a59f8e77e07e4878f2374634d16e027",
+      "nombre": "SALVADOR VALDEZ",
+      "numero": "12",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-abec78420151352b9a3e214d3a14285d",
+      "nombre": "GABRIEL RODRIGUEZ",
+      "numero": "21",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-4bc3ee8cefae8559c9e5cb7fe9161000",
+      "nombre": "ADALBERTO GARCIA",
+      "numero": "5",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-fa1082c791602d531da53078293d2c1e",
+      "nombre": "JOAQUIN IBARRA",
+      "numero": "",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
     }
   ],
   "juegos": [
@@ -333,7 +381,16 @@
         "am-p-37b10b8cb4f2b6b3c9241f7990cb1912"
       ],
       "estadisticas_local": [],
-      "convocados_visita": [],
+      "convocados_visita": [
+        "am-p-18083463868d63dcb0f71dbad5898443",
+        "am-p-c946d1d0b695e049e4c2a75ccfe3200d",
+        "am-p-5f17edf7b40660db4c4403c327d270a5",
+        "am-p-6821fc3b64618e6c24de5206957091dc",
+        "am-p-7a59f8e77e07e4878f2374634d16e027",
+        "am-p-abec78420151352b9a3e214d3a14285d",
+        "am-p-4bc3ee8cefae8559c9e5cb7fe9161000",
+        "am-p-fa1082c791602d531da53078293d2c1e"
+      ],
       "estadisticas_visita": [],
       "mvp_jugador": "",
       "mvp_nombre": ""
