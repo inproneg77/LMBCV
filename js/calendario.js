@@ -25,7 +25,7 @@ function renderProximoJuego() {
   const cont = document.getElementById('proximo-juego');
   if (!cont) return;
 
-  const hoyISO = new Date().toISOString().slice(0, 10);
+  const hoyISO = fechaLocalISO();
   const programados = ESTADO.juegos.filter(j => j.estatus === 'programado');
 
   const destacado = programados.find(j => String(j.destacado) === 'true');
@@ -90,7 +90,7 @@ function render() {
   });
 
   const mesesOrdenados = Object.keys(porMes).sort().reverse();
-  const hoyMesKey = new Date().toISOString().slice(0, 7);
+  const hoyMesKey = fechaLocalISO().slice(0, 7);
 
   cont.innerHTML = mesesOrdenados.map(mesKey => {
     const fechas = Object.keys(porMes[mesKey]).sort().reverse();

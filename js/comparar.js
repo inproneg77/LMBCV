@@ -118,8 +118,9 @@ function renderResultado() {
   ).sort((a,b) => b.fecha.localeCompare(a.fecha));
 
   const filaComparativo = (etiqueta, valA, valB, masAltoEsMejor = true) => {
-    const mejorA = masAltoEsMejor ? valA > valB : valA < valB;
-    const mejorB = masAltoEsMejor ? valB > valA : valB < valA;
+    const numericos = Number.isFinite(Number(valA)) && Number.isFinite(Number(valB));
+    const mejorA = numericos && (masAltoEsMejor ? Number(valA) > Number(valB) : Number(valA) < Number(valB));
+    const mejorB = numericos && (masAltoEsMejor ? Number(valB) > Number(valA) : Number(valB) < Number(valA));
     return `
       <tr>
         <td class="mono ${mejorA ? 'cmp-mejor' : ''}" style="text-align:right; width:30%;">${valA}</td>

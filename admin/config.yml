@@ -160,7 +160,7 @@ collections:
             value_field: "temporadas.*.id"
             hint: "Si la temporada no aparece, créala primero en '📅 Temporadas'."
           - { name: "fecha", label: "Fecha del juego", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
-          - { name: "hora", label: "Hora (24h, ej. 17:00)", widget: "string" }
+          - { name: "hora", label: "Hora (24h, ej. 17:00)", widget: "string", pattern: ['^([01][0-9]|2[0-3]):[0-5][0-9]$', "Usa HH:mm, por ejemplo 17:00"] }
           - name: "sede_id"
             label: "Sede"
             widget: "relation"
@@ -328,7 +328,7 @@ collections:
             value_field: "temporadas.*.id"
             hint: "Si la temporada no aparece, créala primero en '📅 Temporadas'."
           - { name: "fecha", label: "Fecha del juego", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
-          - { name: "hora", label: "Hora (24h, ej. 17:00)", widget: "string" }
+          - { name: "hora", label: "Hora (24h, ej. 17:00)", widget: "string", pattern: ['^([01][0-9]|2[0-3]):[0-5][0-9]$', "Usa HH:mm, por ejemplo 17:00"] }
           - name: "sede_id"
             label: "Sede"
             widget: "relation"
@@ -496,7 +496,7 @@ collections:
             value_field: "temporadas.*.id"
             hint: "Si la temporada no aparece, créala primero en '📅 Temporadas'."
           - { name: "fecha", label: "Fecha del juego", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
-          - { name: "hora", label: "Hora (24h, ej. 17:00)", widget: "string" }
+          - { name: "hora", label: "Hora (24h, ej. 17:00)", widget: "string", pattern: ['^([01][0-9]|2[0-3]):[0-5][0-9]$', "Usa HH:mm, por ejemplo 17:00"] }
           - name: "sede_id"
             label: "Sede"
             widget: "relation"
