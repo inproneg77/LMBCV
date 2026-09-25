@@ -30,24 +30,7 @@ function juegosVigentes(categoriaId) {
 
 // ===== Standing top 3 de una categoría (misma regla de puntos que /standing) =====
 function standingTop3(categoriaId) {
-  const equipos = ESTADO_D.equipos.filter(e => e.categoria_id === categoriaId);
-  const tabla = {};
-  equipos.forEach(e => { tabla[e.id] = { equipo: e, pts: 0, jj: 0 }; });
-
-  juegosVigentes(categoriaId)
-    .filter(j => j.estatus === 'jugado' && (j.fase ?? 'regular') === 'regular')
-    .forEach(j => {
-      const local = tabla[j.local], visita = tabla[j.visita];
-      if (!local || !visita) return;
-      local.jj++; visita.jj++;
-      const forfeit = j.forfeit ?? 'ninguno';
-      if (forfeit === 'local') { visita.pts += 2; }
-      else if (forfeit === 'visita') { local.pts += 2; }
-      else if (j.marcador_local > j.marcador_visita) { local.pts += 2; visita.pts += 1; }
-      else if (j.marcador_visita > j.marcador_local) { visita.pts += 2; local.pts += 1; }
-    });
-
-  return Object.values(tabla).filter(f => f.jj > 0).sort((a,b) => b.pts - a.pts).slice(0, 3);
+  return calcularTablaLiga(ESTADO_D.equipos.filter(e=>e.categoria_id===categoriaId),juegosVigentes(categoriaId).filter(j=>j.estatus==='jugado'&&(j.fase??'regular')==='regular')).filter(f=>f.jj>0).slice(0,3);
 }
 
 // ===== Líder de puntos de una categoría =====
@@ -185,7 +168,7 @@ function render() {
   const programados = ESTADO_D.juegosOficiales.filter(j => j.estatus === 'programado');
   const totalProgramados = programados.length;
 
-  const hoyISO = new Date().toISOString().slice(0, 10);
+  const hoyISO = fechaLocalISO();
   // Playoffs/Final primero (es lo más relevante para quien entra al
   // Dashboard), luego regular, luego amistosos — dentro de cada grupo,
   // por fecha más próxima.

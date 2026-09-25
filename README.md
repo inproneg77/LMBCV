@@ -211,3 +211,7 @@ desde cero sin usar /captura/):**
 Cada guardado en `/admin`, `/captura/` o `/nuevo-jugador/` hace commit directo
 a `main`, y GitHub Pages republica el sitio solo (1-2 minutos).
 
+
+## Torneos relámpago independientes
+
+Acceso público: `/torneos/`. Administración: `/torneos/?administrar=1`, también desde Agregar Juego y Captura. Cada torneo admite nombre propio, categorías y ramas libres, equipos inscritos en varias categorías, rosters separados, grupos y eliminación a un partido. Consulta [la guía de uso](docs/torneos-relampago.md) y [la decisión de arquitectura](docs/adr/001-torneos-independientes.md).

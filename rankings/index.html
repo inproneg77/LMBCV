@@ -41,7 +41,7 @@
         <a href="../playoffs/index.html">Playoffs</a>
         <a href="../lideres/index.html">Líderes</a>
         <a href="../noticias/index.html">Noticias</a>
-      </nav>
+      <a href="../torneos/">Torneos</a></nav>
     </div>
   </header>
 
@@ -74,7 +74,7 @@
     const _fetch = window.fetch;
     window.fetch = (url, opts) => _fetch(url.startsWith('data/') ? '../' + url : url, opts);
   </script>
-  <script src="../js/amistosos.js"></script>
+  <script src="../js/amistosos.js?v=torneos-1"></script>
 <script src="../js/datos.js"></script>
   <script src="../js/rankings.js"></script>
 </body>
