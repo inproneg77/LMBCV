@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <title>Caborca Piensa en Grande — Copa de Básquetbol</title>
+ <meta name="description" content="El espacio de la Copa Caborca Piensa en Grande. Ediciones, categorías femeniles y varoniles, equipos, calendario, grupos, resultados y líderes.">
+ <meta name="theme-color" content="#751b3c">
+ <link rel="stylesheet" href="https://inproneg77.github.io/piensa/css/torneos.css?v=piensa-1"><link rel="stylesheet" href="https://inproneg77.github.io/piensa/css/copa.css?v=piensa-1">
+ <script src="https://inproneg77.github.io/piensa/js/copa.js?v=piensa-1"></script>
+</head>
+<body>
+ <a class="skip" href="#main">Saltar al contenido</a>
+ <header class="copa-header">
+  <a class="copa-brand" href="./" aria-label="Inicio de Caborca Piensa en Grande"><span id="copa-mark" class="brand-mark" aria-hidden="true">CPG<span>•</span></span><img id="copa-logo" hidden alt="Logo de la copa"><span><strong>CABORCA<br>PIENSA EN GRANDE</strong><small id="copa-mode">Básquetbol · Caborca, Sonora</small></span></a>
+  <nav aria-label="Navegación de la copa"><a href="./">Ediciones</a><a class="admin-link" href="?administrar=1">Administrar copa <span aria-hidden="true">↗</span></a></nav>
+ </header>
+ <section class="copa-hero" aria-label="Presentación de la copa">
+  <div class="hero-copy"><span class="eyebrow">UNA CIUDAD. MUCHAS CATEGORÍAS. LA MISMA PASIÓN.</span><h1>Caborca<br>Piensa en <em>Grande.</em></h1><p>La cancha nos reúne.<br>Vive cada edición, cada equipo y cada partido.</p><a class="hero-cta" href="#tor-app">Explorar ediciones <span aria-hidden="true">↓</span></a></div>
+  <div class="court-art" aria-hidden="true"><div class="court-lines"></div><span class="court-word">JUEGA<br>EN<br>GRANDE.</span><span class="court-caption">CABORCA · SONORA</span><div class="ball"></div></div>
+ </section>
+ <div class="copa-strip"><span>Femenil y varonil</span><span>Categorías independientes</span><span>Grupos + eliminación directa</span></div>
+ <main id="main" class="tor-wrap">
+  <div id="tor-message" role="status" aria-live="polite"></div>
+  <section id="tor-auth" hidden aria-label="Acceso de organización"><h2>Administrar la copa</h2><p>Crea una edición, registra sus categorías y organiza la competencia.</p><label>Token de GitHub para el repositorio piensa<input type="password" id="tor-token" autocomplete="off" placeholder="Token con acceso a piensa"></label><div class="tor-actions"><button id="tor-connect">Conectar</button><button id="tor-disconnect" class="secondary">Cerrar acceso</button></div><p class="tor-muted">Se guarda en este navegador hasta cerrar acceso. Necesita permiso Contents: lectura y escritura en inproneg77/piensa. Este acceso es independiente del de la liga.</p></section>
+  <div id="tor-app"><p role="status">Cargando ediciones de la copa…</p></div>
+ </main>
+ <dialog id="tor-dialog"><form id="tor-form"><div id="tor-fields"></div><p id="tor-form-error" role="alert"></p><div class="tor-actions"><button type="submit">Guardar / continuar</button><button type="button" id="tor-cancel" class="secondary">Cancelar</button></div></form></dialog>
+ <footer class="copa-footer"><strong>Caborca Piensa en Grande</strong><p>Una copa. Una comunidad. Una nueva historia cada año.</p><a href="?administrar=1">Acceso de organización</a></footer>
+ <script src="https://inproneg77.github.io/piensa/js/torneos-core.js?v=piensa-1"></script><script src="https://inproneg77.github.io/piensa/js/torneos-storage.js?v=piensa-1"></script><script src="https://inproneg77.github.io/piensa/js/torneos-ui.js?v=piensa-1"></script>
+</body></html>
