@@ -2,6 +2,27 @@ const {test}=require('node:test');
 const assert=require('node:assert/strict');
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const C=require('../js/portal-core.js');
+test('catalog requests begin before a slow season index resolves',async()=>{
+ const requested=[];let release;
+ const gate=new Promise(r=>release=r);
+ const context=vm.createContext({window:{},console,setTimeout,clearTimeout,AbortController,URLSearchParams,fetch:async p=>{
+  requested.push(p);if(p==='data/temporadas.json')await gate;
+  return {ok:true,status:200,json:async()=>p==='data/categorias.json'?[]:p==='data/sedes.json'?{sedes:[]}: {}};
+ }});
+ for(const p of ['js/amistosos.js','js/datos.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,'..',p),'utf8'),context);
+ const pending=vm.runInContext('cargarDatos()',context);
+ assert.ok(requested.includes('data/roster.json'));assert.ok(requested.includes('data/equipos.json'));
+ release();await pending;
+});
+test('calendar defers statistics rendering while preserving eager export support',()=>{
+ let sheets=0;
+ const context=vm.createContext({window:{},URLSearchParams,renderHojaEstadistica:()=>{sheets++;return 'FULL_STATS';},nombreMVP:()=>'',escaparHTML:String,RUTA_IMG:''});
+ vm.runInContext(fs.readFileSync(path.join(__dirname,'../js/calendario.js'),'utf8').replace(/^iniciar\(\);\s*$/m,''),context);
+ vm.runInContext("ESTADO={equiposPorId:{},sedesPorId:{},temporadas:[],categorias:[],jugadoresPorId:{}}",context);
+ context.game={id:'g',estatus:'jugado',estadisticas_local:[{puntos:2}],marcador_local:2,marcador_visita:0};
+ const deferred=vm.runInContext('renderJuego(game,true)',context);assert.equal(sheets,0);assert.ok(deferred.includes('juego-detalle'));assert.ok(!deferred.includes('FULL_STATS'));
+ assert.match(vm.runInContext('renderJuego(game)',context),/FULL_STATS/);assert.equal(sheets,1);
+});
 const games=[
  {id:'a',categoria_id:'var40',temporada:'2026-2',local:'A',visita:'B',fase:'regular',estatus:'programado',fecha:'2026-10-01',hora:'18:00'},
  {id:'b',categoria_id:'var40',temporada:'2026-2',local:'A',visita:'C',fase:'amistoso',estatus:'jugado',fecha:'2026-09-25',hora:'17:00'},
