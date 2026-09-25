@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "id": "tor-eb7a5d6c4866a106b7d85a90",
+  "name": "Caborca Piensa en Grande 2026",
+  "status": "borrador",
+  "logo": "",
+  "start": "2026-11-06",
+  "end": "2026-11-08",
+  "timezone": "America/Hermosillo",
+  "venues": [],
+  "teams": [],
+  "entries": [],
+  "divisions": [],
+  "games": [],
+  "trash": [],
+  "history": [
+    {
+      "at": "2026-09-25T05:43:33.903Z",
+      "action": "Torneo creado"
+    }
+  ]
+}
