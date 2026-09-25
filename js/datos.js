@@ -20,10 +20,11 @@ async function fetchJSON(url, valorPorDefecto = {}, intentos = 2) {
     const timeoutId = setTimeout(() => controller.abort(), 9000);
     try {
       const res = await fetch(url, { signal: controller.signal });
-      clearTimeout(timeoutId);
-      if (res.status === 404 && /data\/juegos_[^/]+\//.test(url)) return valorPorDefecto;
+      if (res.status === 404 && /data\/juegos_[^/]+\//.test(url)) { clearTimeout(timeoutId); return valorPorDefecto; }
       if (!res.ok) throw new Error('HTTP ' + res.status);
-      return await res.json();
+      const data = await res.json();
+      clearTimeout(timeoutId);
+      return data;
     } catch (err) {
       clearTimeout(timeoutId);
       if (i === intentos - 1) {
@@ -46,6 +47,15 @@ async function cargarDatos(opciones = {}) {
   // acumulados, más lento). Ahora es un archivo chico por categoría +
   // temporada. Para saber qué archivos pedir necesitamos la lista de
   // temporadas primero — por eso esta petición va aparte, antes del resto.
+  // Independent catalogs start immediately, alongside the season index.
+  const catalogRequests = [
+    fetchJSON('data/categorias.json', []),
+    fetchJSON('data/sedes.json', { sedes: [] }),
+    fetchJSON('data/patrocinadores.json', { patrocinadores: [] }),
+    fetchJSON('data/equipos.json', { equipos: [] }),
+    fetchJSON('data/roster.json', { jugadores: [] }),
+    fetchJSON('data/amistosos.json', { equipos: [], jugadores: [], juegos: [] }),
+  ];
   const temporadasData = await fetchJSON('data/temporadas.json', { temporadas: [] });
   const temporadas = temporadasData.temporadas ?? [];
   const activa = temporadas.find(t=>String(t.activa)==='true')?.id ?? [...temporadas].sort((a,b)=>b.id.localeCompare(a.id))[0]?.id;
@@ -53,12 +63,7 @@ async function cargarDatos(opciones = {}) {
   const idsTemporadas = temporadas.filter(t=>!seleccion||t.id===seleccion).map(t => t.id);
 
   const [categoriasRaw, sedesData, patrociniosData, equiposData, rosterData, amistososData, ...resto] = await Promise.all([
-    fetchJSON('data/categorias.json', []),
-    fetchJSON('data/sedes.json', { sedes: [] }),
-    fetchJSON('data/patrocinadores.json', { patrocinadores: [] }),
-    fetchJSON('data/equipos.json', { equipos: [] }),
-    fetchJSON('data/roster.json', { jugadores: [] }),
-    fetchJSON('data/amistosos.json', { equipos: [], jugadores: [], juegos: [] }),
+    ...catalogRequests,
     // Un archivo por cada combinación categoría × temporada. Si una
     // combinación no tiene archivo todavía (temporada nueva sin juegos
     // capturados en esa categoría), fetchJSON regresa vacío sin tronar.

@@ -17,6 +17,7 @@ function iniciarFiltrosCalendario(){
 
 
 async function iniciar() {
+  window.addEventListener('beforeprint', prepararImpresion);
   ESTADO = await cargarDatos();
   renderPatrocinadores(ESTADO.patrocinadores);
   renderProximoJuego();
@@ -27,6 +28,19 @@ async function iniciar() {
     tabsListas = true;
     render();
   }, { incluirTodos: true });
+}
+
+// Printing still includes every statistics sheet, including collapsed games.
+function prepararImpresion() {
+  if (!ESTADO) return;
+  document.querySelectorAll('.juego-toggle').forEach(details => {
+    if (details.dataset.loaded) return;
+    const game = ESTADO.juegos.find(j => j.id === details.dataset.game);
+    if (game) {
+      details.querySelector('.juego-detalle').innerHTML = renderHojaEstadistica(game, ESTADO);
+      details.dataset.loaded = 'true';
+    }
+  });
 }
 
 // Encuentra qué juego mostrar en el banner de arriba:
@@ -117,7 +131,7 @@ function render() {
       const { diaSemana, texto } = formatearFecha(fecha);
       const filas = porMes[mesKey][fecha]
         .sort((a,b) => a.hora.localeCompare(b.hora))
-        .map(renderJuego).join('');
+        .map(j => renderJuego(j, true)).join('');
 
       return `
         <div class="jornada">
@@ -137,6 +151,11 @@ function render() {
       </details>
     `;
   }).join('');
+  cont.querySelectorAll('.juego-toggle').forEach(details=>details.addEventListener('toggle',()=>{
+    if(!details.open||details.dataset.loaded)return;
+    const game=juegos.find(j=>j.id===details.dataset.game);
+    if(game){details.querySelector('.juego-detalle').innerHTML=renderHojaEstadistica(game,ESTADO);details.dataset.loaded='true';}
+  }));
 }
 
 function nombreDeMes(mesKey) {
@@ -150,7 +169,7 @@ const ETIQUETAS_FASE = {
   amistoso: 'Amistoso',
 };
 
-function renderJuego(j) {
+function renderJuego(j, lazy = false) {
   const local = ESTADO.equiposPorId[j.local];
   const visita = ESTADO.equiposPorId[j.visita];
   const sede = ESTADO.sedesPorId[j.sede_id]?.nombre ?? '';
@@ -209,12 +228,13 @@ function renderJuego(j) {
       </div>
       <div class="marcador">
         ${marcadorHTML}
-        <div class="marcador__info mono" style="margin-top:6px;">${sede} · ${nombreTemporada}</div>
+
       </div>
       <div class="equipo equipo--visita">
         <img src="${RUTA_IMG}${visita?.logo ?? 'img/equipos/placeholder.svg'}" alt="${visita?.nombre ?? ''}" loading="lazy">
         <span class="equipo__nombre">${visita?.nombre ?? 'Por definir'}</span>
       </div>
+      <div class="juego-meta"><span>${sede}</span><span>${nombreTemporada}</span></div>
       ${mvpHTML}
       ${forfeitHTML}
       ${observacionHTML}
@@ -225,9 +245,9 @@ function renderJuego(j) {
   if (!tieneEstadisticas) return tarjeta;
 
   return `
-    <details class="juego-toggle">
+    <details class="juego-toggle" data-game="${escaparHTML(j.id)}">
       <summary>${tarjeta}</summary>
-      <div class="juego-detalle">${renderHojaEstadistica(j, ESTADO)}</div>
+      <div class="juego-detalle">${lazy ? '' : renderHojaEstadistica(j, ESTADO)}</div>
     </details>
   `;
 }
