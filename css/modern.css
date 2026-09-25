@@ -9,3 +9,5 @@ body{font-size:15px;line-height:1.5;overflow-x:clip}h1,h2,h3,.display{font-famil
 @media print{.site-header,.site-footer,.section-nav,.mobile-dock,.portal-filters,.calendar-filters,.header-actions,.data-notice{display:none!important}body{padding:0;background:white}.portal,.page{padding:0;max-width:none}.card-grid{grid-template-columns:repeat(2,1fr)}.portal-card,.game-mini{break-inside:avoid}.standing-table td:first-child,.standing-table th:first-child{position:static}}
 
 .spotlight .game-meta{color:#c0cad6}
+
+.pin-second th:first-child,.pin-second td:first-child{width:42px;min-width:42px;max-width:42px}.pin-second th:nth-child(2),.pin-second td:nth-child(2){position:sticky;left:42px;background:white;z-index:2}.pin-second th:nth-child(2){background:#edf1f5}@media print{.pin-second th:nth-child(2),.pin-second td:nth-child(2){position:static}}
