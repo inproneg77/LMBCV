@@ -21,12 +21,14 @@ async function fetchJSON(url, valorPorDefecto = {}, intentos = 2) {
     try {
       const res = await fetch(url, { signal: controller.signal });
       clearTimeout(timeoutId);
+      if (res.status === 404 && /data\/juegos_[^/]+\//.test(url)) return valorPorDefecto;
       if (!res.ok) throw new Error('HTTP ' + res.status);
       return await res.json();
     } catch (err) {
       clearTimeout(timeoutId);
       if (i === intentos - 1) {
         console.warn('No se pudo cargar', url, err);
+        if(typeof window.dispatchEvent==='function' && typeof CustomEvent==='function')window.dispatchEvent(new CustomEvent('lmbc:data-error'));
         return valorPorDefecto;
       }
       await new Promise(r => setTimeout(r, 500)); // pequeña pausa antes de reintentar
@@ -35,7 +37,7 @@ async function fetchJSON(url, valorPorDefecto = {}, intentos = 2) {
   return valorPorDefecto;
 }
 
-async function cargarDatos() {
+async function cargarDatos(opciones = {}) {
   const CATS = ['var40', 'fem40', 'var49'];
 
   // Los juegos ya no viven en UN archivo por categoría que crece para
@@ -46,7 +48,9 @@ async function cargarDatos() {
   // temporadas primero — por eso esta petición va aparte, antes del resto.
   const temporadasData = await fetchJSON('data/temporadas.json', { temporadas: [] });
   const temporadas = temporadasData.temporadas ?? [];
-  const idsTemporadas = temporadas.map(t => t.id);
+  const activa = temporadas.find(t=>String(t.activa)==='true')?.id ?? [...temporadas].sort((a,b)=>b.id.localeCompare(a.id))[0]?.id;
+  const seleccion = opciones.temporada === 'activa' ? activa : opciones.temporada;
+  const idsTemporadas = temporadas.filter(t=>!seleccion||t.id===seleccion).map(t => t.id);
 
   const [categoriasRaw, sedesData, patrociniosData, equiposData, rosterData, amistososData, ...resto] = await Promise.all([
     fetchJSON('data/categorias.json', []),
@@ -238,16 +242,17 @@ function iniciarSelectorTemporada(temporadas, callback) {
   }
 
   const ordenadas = [...temporadas].sort((a,b) => b.id.localeCompare(a.id));
-  const porDefecto = ordenadas.find(t => String(t.activa) === 'true')?.id ?? ordenadas[0].id;
+  const pedida = new URLSearchParams(window.location?.search||'').get('temporada') || window.LMBC?.read('lmbc_season');
+  const porDefecto = ordenadas.find(t=>t.id===pedida)?.id ?? ordenadas.find(t => String(t.activa) === 'true')?.id ?? ordenadas[0].id;
 
   cont.innerHTML = `
-    <select id="temporada-select" class="temporada-select">
+    <select id="temporada-select" class="temporada-select" aria-label="Temporada de liga">
       ${ordenadas.map(t => `<option value="${t.id}" ${t.id === porDefecto ? 'selected' : ''}>${t.nombre}</option>`).join('')}
     </select>
   `;
 
   const select = document.getElementById('temporada-select');
-  select.addEventListener('change', () => callback(select.value));
+  select.addEventListener('change', () => {window.LMBC?.write('lmbc_season',select.value);callback(select.value);});
   callback(porDefecto);
   return () => select.value;
 }
@@ -275,7 +280,9 @@ function renderPatrocinadores(patrocinadores) {
 // arranca en la primera categoría.
 function iniciarTabs(categorias, callback, opciones = {}) {
   const cats = [...categorias].sort((a,b) => a.orden - b.orden);
-  let activa = opciones.incluirTodos ? null : cats[0]?.id;
+  const parametros = new URLSearchParams(window.location?.search||'');
+  const pedida = parametros.has('categoria') ? parametros.get('categoria') : window.LMBC?.read('lmbc_category');
+  let activa = cats.find(c=>c.id===pedida)?.id ?? (opciones.incluirTodos ? null : cats[0]?.id);
 
   const tabs = document.getElementById('tabs');
   const botonTodos = opciones.incluirTodos
@@ -289,6 +296,7 @@ function iniciarTabs(categorias, callback, opciones = {}) {
   tabs.querySelectorAll('.tab').forEach(btn => {
     btn.addEventListener('click', () => {
       activa = btn.dataset.cat || null;
+      window.LMBC?.write('lmbc_category',activa||'');
       tabs.querySelectorAll('.tab').forEach(b => b.classList.toggle('is-active', b === btn));
       callback(activa);
     });
@@ -310,5 +318,4 @@ function formatearFecha(fechaISO) {
     fecha
   };
 }
-
 

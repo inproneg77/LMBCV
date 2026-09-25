@@ -19,35 +19,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
-</head>
+<link rel="stylesheet" href="../css/modern.css?v=modern-1"><script defer src="../js/site.js?v=modern-1"></script></head>
 <body>
 
-  <header class="site-header">
-    <div class="site-header__inner">
-      <a href="../index.html" class="brand">
-        <img src="../img/equipos/logovets.png" alt="LMBC" class="brand__mark">
-        <div>
-          <div class="brand__name">LMBC</div>
-          <div class="brand__sub">Liga de Veteranos</div>
-        </div>
-      </a>
-      <nav class="site-nav">
-        <a href="../index.html">Calendario</a>
-        <a href="../standing/index.html">Standing</a>
-        <a href="../equipos/index.html">Equipos</a>
-        <a href="../dashboard/index.html">Dashboard</a>
-        <a href="../rankings/index.html">Rankings</a>
-        <a href="../comparar/index.html">Comparar</a>
-        <a href="../playoffs/index.html" class="active">Playoffs</a>
-        <a href="../lideres/index.html">Líderes</a>
-        <a href="../noticias/index.html">Noticias</a>
-      <a href="../torneos/">Torneos</a></nav>
-    </div>
-  </header>
+  <header class="site-header"><div class="site-header__inner"><a class="brand" href="../index.html">LMBC</a><nav class="site-nav"><a href="../index.html">Inicio</a><a href="../calendario/">Partidos</a><a href="../equipos/">Equipos</a><a href="../estadisticas/">Estadísticas</a><a href="../torneos/">Torneos</a><a href="../administrar/">Administrar</a></nav></div></header>
 
   <div class="hero">
     <div class="hero__inner">
-      <div class="hero__eyebrow">Temporada 2026</div>
+      <div class="hero__eyebrow">Liga de Veteranos · Caborca</div>
       <h1 class="hero__title">Playoffs</h1>
       <p class="hero__sub">Series a ganar dos de tres juegos, por ronda, hasta la Gran Final.</p>
     </div>
@@ -75,7 +54,8 @@
     window.fetch = (url, opts) => _fetch(url.startsWith('data/') ? '../' + url : url, opts);
   </script>
   <script src="../js/amistosos.js?v=torneos-1"></script>
-<script src="../js/datos.js"></script>
+<script src="../js/datos.js?v=modern-1"></script>
   <script src="../js/playoffs.js"></script>
 </body>
 </html>
+

@@ -215,3 +215,8 @@ a `main`, y GitHub Pages republica el sitio solo (1-2 minutos).
 ## Torneos relámpago independientes
 
 Acceso público: `/torneos/`. Administración: `/torneos/?administrar=1`, también desde Agregar Juego y Captura. Cada torneo admite nombre propio, categorías y ramas libres, equipos inscritos en varias categorías, rosters separados, grupos y eliminación a un partido. Consulta [la guía de uso](docs/torneos-relampago.md) y [la decisión de arquitectura](docs/adr/001-torneos-independientes.md).
+
+
+## Portal y administración
+
+Consulta [la navegación y arquitectura del portal](docs/portal-moderno.md). Inicio, Partidos, Equipos, Estadísticas y Torneos comparten diseño y navegación; el acceso de administración está en `/administrar/`.
