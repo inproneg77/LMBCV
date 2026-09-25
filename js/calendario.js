@@ -2,10 +2,25 @@ let ESTADO = null;
 let categoriaActiva = null;
 let tabsListas = false;
 
+const calendarParams = new URLSearchParams(window.location?.search||'');
+const calendarFilter={season:calendarParams.get('temporada')||'',team:calendarParams.get('equipo')||'',state:calendarParams.get('estado')||'',kind:calendarParams.get('tipo')||'',query:'',day:'',game:calendarParams.get('juego')||''};
+function iniciarFiltrosCalendario(){
+ const controls=document.querySelector('.controles');if(!controls||typeof PortalCore==='undefined')return;
+ const node=document.createElement('div');node.className='calendar-filters';node.innerHTML='<label>Buscar equipos<input id="calendar-query" type="search" placeholder="Nombre del equipo"></label><label>Mostrar<select id="calendar-state"><option value="">Todos los partidos</option><option value="programado">Próximos / programados</option><option value="jugado">Resultados</option></select></label><label>Competencia<select id="calendar-kind"><option value="">Liga y amistosos</option><option value="liga">Solo liga</option><option value="amistoso">Solo amistosos</option></select></label><label>Fecha<input id="calendar-day" type="date"></label><label class="check-filter"><input id="calendar-mine" type="checkbox">Mi equipo</label><button class="secondary-link" id="calendar-clear">Limpiar filtros</button>';
+ controls.after(node);
+ const seasonLabel=document.createElement('label');seasonLabel.textContent='Temporada';const seasonSelect=document.createElement('select');seasonSelect.id='calendar-season';seasonSelect.innerHTML='<option value="">Todas las temporadas</option>'+ESTADO.temporadas.map(t=>'<option value="'+escaparHTML(t.id)+'">'+escaparHTML(t.nombre)+'</option>').join('');seasonLabel.append(seasonSelect);node.insertBefore(seasonLabel,node.querySelector('label.check-filter'));seasonSelect.value=calendarFilter.season;seasonSelect.onchange=()=>{calendarFilter.season=seasonSelect.value;calendarFilter.game='';render();};
+ for(const [key,event] of [['query','input'],['state','change'],['kind','change'],['day','change']]){const el=document.getElementById('calendar-'+key);el.value=calendarFilter[key];el.addEventListener(event,()=>{calendarFilter[key]=el.value;calendarFilter.game='';render();});}
+ const mine=document.getElementById('calendar-mine');mine.checked=!!calendarFilter.team;mine.addEventListener('change',()=>{if(mine.checked&&!window.LMBC.read('lmbc_favorite')){mine.checked=false;window.LMBC.directory(true);return;}calendarFilter.team=mine.checked?window.LMBC.read('lmbc_favorite'):'';calendarFilter.game='';render();});
+ window.addEventListener('lmbc:favorite',()=>{calendarFilter.team=window.LMBC.read('lmbc_favorite');mine.checked=!!calendarFilter.team;calendarFilter.game='';render();});
+ document.getElementById('calendar-clear').onclick=()=>{Object.keys(calendarFilter).forEach(k=>calendarFilter[k]='');node.querySelectorAll('input,select').forEach(e=>{if(e.type==='checkbox')e.checked=false;else e.value='';});render();};
+}
+
+
 async function iniciar() {
   ESTADO = await cargarDatos();
   renderPatrocinadores(ESTADO.patrocinadores);
   renderProximoJuego();
+  iniciarFiltrosCalendario();
 
   iniciarTabs(ESTADO.categorias, (cat) => {
     categoriaActiva = cat;
@@ -72,10 +87,11 @@ function render() {
   // temporada. Se muestra TODO lo que hay — jugado o programado — sin
   // filtrar por temporada, para que playoffs/resultados de una temporada
   // que sigue vigente no desaparezcan solo porque ya inició la siguiente.
-  const juegos = ESTADO.juegos.filter(j =>
+  let juegos = ESTADO.juegos.filter(j =>
     categoriaActiva === null || j.categoria_id === categoriaActiva
   );
 
+  if(typeof PortalCore!=='undefined')juegos=PortalCore.filterGames(juegos,calendarFilter,ESTADO.equiposPorId).filter(j=>(!calendarFilter.day||j.fecha===calendarFilter.day)&&(!calendarFilter.game||j.id===calendarFilter.game));
   if (juegos.length === 0) {
     cont.innerHTML = `<div class="empty">Todavía no hay juegos capturados para esta categoría.</div>`;
     return;
@@ -95,7 +111,7 @@ function render() {
   cont.innerHTML = mesesOrdenados.map(mesKey => {
     const fechas = Object.keys(porMes[mesKey]).sort().reverse();
     const nombreMes = nombreDeMes(mesKey);
-    const abierto = mesKey >= hoyMesKey ? 'open' : ''; // meses pasados quedan colapsados
+    const abierto = mesKey >= hoyMesKey || calendarFilter.game || calendarFilter.day || calendarFilter.query || calendarFilter.team || calendarFilter.state ? 'open' : ''; // meses pasados quedan colapsados
 
     const jornadasHTML = fechas.map(fecha => {
       const { diaSemana, texto } = formatearFecha(fecha);

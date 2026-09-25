@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LMBC — Noticias</title>
-<meta name="description" content="Comunicados oficiales de la liga.">
+<title>LMBC — Calendario</title>
+<meta name="description" content="Rol de la semana, resultados al día siguiente de cada jornada y jugador destacado de cada partido.">
 <link rel="icon" type="image/png" href="../img/equipos/logovets.png">
 <link rel="apple-touch-icon" href="../img/equipos/logovets.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="LMBC — Noticias">
-<meta property="og:description" content="Comunicados oficiales de la liga.">
+<meta property="og:title" content="LMBC — Calendario">
+<meta property="og:description" content="Rol de la semana, resultados al día siguiente de cada jornada y jugador destacado de cada partido.">
 <meta property="og:image" content="https://caborcavets.online/img/equipos/logovets.png">
-<meta property="og:url" content="https://caborcavets.online/noticias/">
+<meta property="og:url" content="https://caborcavets.online/calendario/">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LMBC — Noticias">
-<meta name="twitter:description" content="Comunicados oficiales de la liga.">
+<meta name="twitter:title" content="LMBC — Calendario">
+<meta name="twitter:description" content="Rol de la semana, resultados al día siguiente de cada jornada y jugador destacado de cada partido.">
 <meta name="twitter:image" content="https://caborcavets.online/img/equipos/logovets.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -27,11 +27,17 @@
   <div class="hero">
     <div class="hero__inner">
       <div class="hero__eyebrow">Liga de Veteranos · Caborca</div>
-      <h1 class="hero__title">Noticias y Avisos</h1>
-      <p class="hero__sub">Comunicados oficiales de la liga.</p>
+      <h1 class="hero__title">Calendario de Juegos</h1>
+      <p class="hero__sub">Rol de la semana, resultados al día siguiente de cada jornada y jugador destacado de cada partido.</p>
     </div>
   </div>
 
+  <div id="proximo-juego"></div>
+
+  <div class="controles">
+    <div class="tabs" id="tabs"></div>
+    <div id="temporada-selector"></div>
+  </div>
 
   <main class="page">
     <div id="contenido"></div>
@@ -43,14 +49,11 @@
     © 2026 LMBC — Liga Municipal de Básquetbol de Veteranos
   </footer>
 
-  <script>
-    window.RUTA_IMG = '../';
-    const _fetch = window.fetch;
-    window.fetch = (url, opts) => _fetch(url.startsWith('data/') ? '../' + url : url, opts);
-  </script>
+  <script>window.RUTA_IMG='../';const _fetch=window.fetch;window.fetch=(url,opts)=>_fetch(typeof url==='string'&&url.startsWith('data/')?'../'+url:url,opts);</script>
   <script src="../js/amistosos.js?v=torneos-1"></script>
 <script src="../js/datos.js?v=modern-1"></script>
-  <script src="../js/noticias.js"></script>
+  <script src="../js/portal-core.js?v=modern-1"></script>
+<script src="../js/calendario.js?v=modern-1"></script>
 </body>
 </html>
 

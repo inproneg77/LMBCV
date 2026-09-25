@@ -16,6 +16,8 @@ async function iniciarEquipos() {
   iniciarTabs(ESTADO_E.categorias, (cat) => {
     categoriaActivaE = cat;
     equipoActivoE = null;
+    const requested = new URLSearchParams(window.location?.search||'').get('equipo');
+    if(ESTADO_E.equipos.some(e=>e.id===requested&&e.categoria_id===cat))equipoActivoE=requested;
     renderEquipos();
   });
 }
@@ -211,3 +213,4 @@ function renderJuegoHistorial(j, equipoId) {
 }
 
 iniciarEquipos();
+
