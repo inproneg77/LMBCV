@@ -16,20 +16,7 @@
     }
   ],
   "entries": [],
-  "divisions": [
-    {
-      "id": "div-3361297e85f66f1cbad0ac09",
-      "name": "44+",
-      "branch": "Varonil",
-      "groups": [],
-      "qualify": 2,
-      "win": 2,
-      "loss": 1,
-      "forfeit": 0,
-      "tieOrder": [],
-      "bracketSeeds": []
-    }
-  ],
+  "divisions": [],
   "games": [],
   "trash": [
     {
@@ -56,6 +43,23 @@
         ]
       },
       "at": "2026-09-26T04:34:24.895Z"
+    },
+    {
+      "id": "trash-3802c72a59c4533fc52c6ee7",
+      "kind": "division",
+      "value": {
+        "id": "div-3361297e85f66f1cbad0ac09",
+        "name": "44+",
+        "branch": "Varonil",
+        "groups": [],
+        "qualify": 2,
+        "win": 2,
+        "loss": 1,
+        "forfeit": 0,
+        "tieOrder": [],
+        "bracketSeeds": []
+      },
+      "at": "2026-09-26T04:35:25.322Z"
     }
   ],
   "history": [
@@ -78,6 +82,10 @@
     {
       "at": "2026-09-26T04:34:24.898Z",
       "action": "Inscripción retirada"
+    },
+    {
+      "at": "2026-09-26T04:35:25.324Z",
+      "action": "Categoría eliminada"
     }
   ]
 }

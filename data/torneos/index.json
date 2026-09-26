@@ -17,14 +17,8 @@
       "status": "borrador",
       "start": "2026-09-25",
       "end": "2026-09-27",
-      "divisions": [
-        {
-          "id": "div-3361297e85f66f1cbad0ac09",
-          "name": "44+",
-          "branch": "Varonil"
-        }
-      ],
-      "updatedAt": "2026-09-26T04:34:26.151Z"
+      "divisions": [],
+      "updatedAt": "2026-09-26T04:35:26.340Z"
     }
   ]
 }
