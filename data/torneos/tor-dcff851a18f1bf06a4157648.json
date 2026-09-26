@@ -8,8 +8,22 @@
   "end": "2026-09-27",
   "timezone": "America/Hermosillo",
   "venues": [],
-  "teams": [],
-  "entries": [],
+  "teams": [
+    {
+      "id": "team-c678b7596e834fbd36beabb5",
+      "name": "Vets4",
+      "logo": ""
+    }
+  ],
+  "entries": [
+    {
+      "id": "entry-bf64f7f6269f83dd72f47d7d",
+      "teamId": "team-c678b7596e834fbd36beabb5",
+      "divisionId": "div-3361297e85f66f1cbad0ac09",
+      "groupId": "",
+      "roster": []
+    }
+  ],
   "divisions": [
     {
       "id": "div-3361297e85f66f1cbad0ac09",
@@ -34,6 +48,10 @@
     {
       "at": "2026-09-26T04:32:35.117Z",
       "action": "Categoría y rama guardadas"
+    },
+    {
+      "at": "2026-09-26T04:33:03.407Z",
+      "action": "Equipo creado e inscrito"
     }
   ]
 }
