@@ -19,6 +19,20 @@
       "estadisticas_local": [],
       "id": "J649",
       "fecha": "2026-08-09"
+    },
+    {
+      "id": "var4920262_2",
+      "fecha": "2026-09-27",
+      "hora": "11:00",
+      "local": "MADERASV40",
+      "visita": "VIKINGOSV40",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
