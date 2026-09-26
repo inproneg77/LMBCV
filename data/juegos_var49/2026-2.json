@@ -33,6 +33,20 @@
       "estatus": "programado",
       "forfeit": "ninguno",
       "destacado": "false"
+    },
+    {
+      "id": "var4920262_3",
+      "fecha": "2026-09-27",
+      "hora": "12:00",
+      "local": "SMV40",
+      "visita": "FEDE49",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
