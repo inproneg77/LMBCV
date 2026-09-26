@@ -15,28 +15,7 @@
       "logo": ""
     }
   ],
-  "entries": [
-    {
-      "id": "entry-bf64f7f6269f83dd72f47d7d",
-      "teamId": "team-c678b7596e834fbd36beabb5",
-      "divisionId": "div-3361297e85f66f1cbad0ac09",
-      "groupId": "",
-      "roster": [
-        {
-          "id": "player-1646f32bd3ccaa24b24336fb",
-          "name": "Juan",
-          "number": "77",
-          "active": true
-        },
-        {
-          "id": "player-c73c11cfbd9d4ae9fd8dd645",
-          "name": "Carlos",
-          "number": "88",
-          "active": true
-        }
-      ]
-    }
-  ],
+  "entries": [],
   "divisions": [
     {
       "id": "div-3361297e85f66f1cbad0ac09",
@@ -52,7 +31,33 @@
     }
   ],
   "games": [],
-  "trash": [],
+  "trash": [
+    {
+      "id": "trash-6f8a61b3a19b6b325d120b8f",
+      "kind": "entry",
+      "value": {
+        "id": "entry-bf64f7f6269f83dd72f47d7d",
+        "teamId": "team-c678b7596e834fbd36beabb5",
+        "divisionId": "div-3361297e85f66f1cbad0ac09",
+        "groupId": "",
+        "roster": [
+          {
+            "id": "player-1646f32bd3ccaa24b24336fb",
+            "name": "Juan",
+            "number": "77",
+            "active": true
+          },
+          {
+            "id": "player-c73c11cfbd9d4ae9fd8dd645",
+            "name": "Carlos",
+            "number": "88",
+            "active": true
+          }
+        ]
+      },
+      "at": "2026-09-26T04:34:24.895Z"
+    }
+  ],
   "history": [
     {
       "at": "2026-09-26T04:31:51.343Z",
@@ -69,6 +74,10 @@
     {
       "at": "2026-09-26T04:33:48.730Z",
       "action": "Roster actualizado"
+    },
+    {
+      "at": "2026-09-26T04:34:24.898Z",
+      "action": "Inscripción retirada"
     }
   ]
 }
