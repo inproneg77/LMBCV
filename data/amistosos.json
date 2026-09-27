@@ -16,6 +16,12 @@
       "nombre": "CFE SUTERM",
       "logo": "img/equipos/2.png",
       "origen_liga_id": "CFEV40"
+    },
+    {
+      "id": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "nombre": "CUERVOS",
+      "logo": "img/equipos/cuervos-dos.jpeg",
+      "origen_liga_id": "CUERVOSV40"
     }
   ],
   "jugadores": [
@@ -210,7 +216,7 @@
     },
     {
       "id": "am-p-e51a2ba020cc738c91efb5eb5930e50b",
-      "nombre": "OSVCAR NAVIDAD",
+      "nombre": "OSCAR NAVIDAD",
       "numero": "3",
       "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
     },
@@ -303,6 +309,83 @@
       "nombre": "JOAQUIN IBARRA",
       "numero": "",
       "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-904c2eac1d1f034f8702654df4f65230",
+      "nombre": "FERNANDO LEMAS",
+      "numero": "33",
+      "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "origen_liga_id": "CHOCOLEM"
+    },
+    {
+      "id": "am-p-f02c878448aa220ebc024aee89aba7e0",
+      "nombre": "PABLO FAVELA",
+      "numero": "8",
+      "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "origen_liga_id": "FAVELATOLON"
+    },
+    {
+      "id": "am-p-117781d7fe21fa4f81ad9f6ae89203ba",
+      "nombre": "ENRIQUE MARTINEZ",
+      "numero": "91",
+      "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "origen_liga_id": "CHARROD"
+    },
+    {
+      "id": "am-p-1a5f5132389765ea84e4dbff8495ee27",
+      "nombre": "ARIEL MENA",
+      "numero": "3",
+      "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "origen_liga_id": "TITOMEN"
+    },
+    {
+      "id": "am-p-1baee4ddc0e294a8baf7d32eae094b01",
+      "nombre": "ANGEL FIERROS",
+      "numero": "17",
+      "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "origen_liga_id": "ANGELFIE"
+    },
+    {
+      "id": "am-p-339509323ddb9c97dae9d2cd9779b86c",
+      "nombre": "FERNANDO BRASIL",
+      "numero": "32",
+      "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "origen_liga_id": "FDOBRA"
+    },
+    {
+      "id": "am-p-105d7b6b966b7e80632ca23ab56f9613",
+      "nombre": "RUBEN FONSECA",
+      "numero": "13",
+      "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "origen_liga_id": "FONSECAR"
+    },
+    {
+      "id": "am-p-03546abb8de4296fc23245f4d1580f7a",
+      "nombre": "RAUL ALVAREZ BON",
+      "numero": "",
+      "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "origen_liga_id": "RULOBON"
+    },
+    {
+      "id": "am-p-9a8987f74a8cfddcf922127ef0bb3973",
+      "nombre": "SERGIO OROS",
+      "numero": "",
+      "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "origen_liga_id": "SOROSJJ"
+    },
+    {
+      "id": "am-p-a0b62f76f2233642f9179f0406fce8a1",
+      "nombre": "MARTIN PARRA",
+      "numero": "",
+      "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "origen_liga_id": "MARPARRA"
+    },
+    {
+      "id": "am-p-95aa36c199021324f02ae1a889f707a0",
+      "nombre": "FRANCISCO SIBRIAN",
+      "numero": "",
+      "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "origen_liga_id": "PANSIBRIAN"
     }
   ],
   "juegos": [
@@ -382,6 +465,56 @@
       ],
       "estadisticas_local": [],
       "convocados_visita": [
+        "am-p-18083463868d63dcb0f71dbad5898443",
+        "am-p-c946d1d0b695e049e4c2a75ccfe3200d",
+        "am-p-5f17edf7b40660db4c4403c327d270a5",
+        "am-p-6821fc3b64618e6c24de5206957091dc",
+        "am-p-7a59f8e77e07e4878f2374634d16e027",
+        "am-p-abec78420151352b9a3e214d3a14285d",
+        "am-p-4bc3ee8cefae8559c9e5cb7fe9161000",
+        "am-p-fa1082c791602d531da53078293d2c1e"
+      ],
+      "estadisticas_visita": [],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
+    },
+    {
+      "id": "am-j-e05c0159a57886cbbc6e7029e9ef94a3",
+      "categoria_id": "var40",
+      "temporada": "2026-2",
+      "fase": "amistoso",
+      "fecha": "2026-09-27",
+      "hora": "14:00",
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "local": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "visita": "am-e-ce42e954e67f4298edb2417d9f2686c2",
+      "marcador_local": 0,
+      "marcador_visita": 0,
+      "sede_id": "gimnasio",
+      "convocados_local": [
+        "am-p-904c2eac1d1f034f8702654df4f65230",
+        "am-p-f02c878448aa220ebc024aee89aba7e0",
+        "am-p-117781d7fe21fa4f81ad9f6ae89203ba",
+        "am-p-1a5f5132389765ea84e4dbff8495ee27",
+        "am-p-1baee4ddc0e294a8baf7d32eae094b01",
+        "am-p-339509323ddb9c97dae9d2cd9779b86c",
+        "am-p-105d7b6b966b7e80632ca23ab56f9613",
+        "am-p-03546abb8de4296fc23245f4d1580f7a",
+        "am-p-9a8987f74a8cfddcf922127ef0bb3973",
+        "am-p-a0b62f76f2233642f9179f0406fce8a1",
+        "am-p-95aa36c199021324f02ae1a889f707a0"
+      ],
+      "estadisticas_local": [],
+      "convocados_visita": [
+        "am-p-e51a2ba020cc738c91efb5eb5930e50b",
+        "am-p-9a5891d1859406f07f0c409c7286cb6c",
+        "am-p-cd18bcc9dac77391d0aae992582138c3",
+        "am-p-b250eaae6713f6164fe4b0424f69d21a",
+        "am-p-d87825c1e0b36610e9b22947a43dd390",
+        "am-p-6c1506c449795d3afd196800ea48bfaf",
+        "am-p-e7bf6cd2d00e8545223d41dc89a1c565",
+        "am-p-81e6d45b6e734a46afa925adf4f1bb2a",
         "am-p-18083463868d63dcb0f71dbad5898443",
         "am-p-c946d1d0b695e049e4c2a75ccfe3200d",
         "am-p-5f17edf7b40660db4c4403c327d270a5",
