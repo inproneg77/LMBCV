@@ -4470,9 +4470,58 @@
       "temporada": "2026-2",
       "fase": "regular",
       "vuelta": 1,
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
-      "destacado": "false"
+      "destacado": "false",
+      "marcador_local": 48,
+      "marcador_visita": 35,
+      "estadisticas_local": [
+        {
+          "jugador": "FAVELATOLON",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CHARROD",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 2
+        },
+        {
+          "jugador": "ANGELFIE",
+          "asistio": "true",
+          "puntos": 24,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "RULOBON",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "SOROSJJ",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "MARPARRA",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1
+        }
+      ],
+      "estadisticas_visita": [],
+      "mvp_jugador": "ANGELFIE",
+      "mvp_nombre": ""
     },
     {
       "id": "var4020262_39",
