@@ -77,14 +77,14 @@
     {
       "id": "am-p-2c7450f555020448d52ce06cec079d23",
       "nombre": "CARLOS ALVAREZ",
-      "numero": "",
+      "numero": "22",
       "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
       "origen_liga_id": "CARLOSALVAREZ"
     },
     {
       "id": "am-p-3497f559a76fef7ae8d87529f1cf7363",
       "nombre": "JOSE LUIS RABAGO",
-      "numero": "",
+      "numero": "21",
       "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
       "origen_liga_id": "JOSERABAGO"
     },
@@ -105,7 +105,7 @@
     {
       "id": "am-p-37b10b8cb4f2b6b3c9241f7990cb1912",
       "nombre": "ELIAS TRUJILLO",
-      "numero": "",
+      "numero": "13",
       "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
       "origen_liga_id": "ELIASTRUJ"
     },
@@ -301,13 +301,13 @@
     {
       "id": "am-p-4bc3ee8cefae8559c9e5cb7fe9161000",
       "nombre": "ADALBERTO GARCIA",
-      "numero": "5",
+      "numero": "1",
       "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
     },
     {
       "id": "am-p-fa1082c791602d531da53078293d2c1e",
       "nombre": "JOAQUIN IBARRA",
-      "numero": "",
+      "numero": "5",
       "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
     },
     {
@@ -386,6 +386,30 @@
       "numero": "",
       "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537",
       "origen_liga_id": "PANSIBRIAN"
+    },
+    {
+      "id": "am-p-4d168e87c43aef721c4aa5f0fcd2626e",
+      "nombre": "REGINO GARCIA",
+      "numero": "00",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-4c1ed36b441b69c5cf7c5789baba0875",
+      "nombre": "MANUEL MENCINA",
+      "numero": "23",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-732e6798802700e0977ef94d5ba90a48",
+      "nombre": "RAFAEL BURRUEL",
+      "numero": "7",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-7fe793acbe56e0a43d899f794c22d3c9",
+      "nombre": "SERGIO IBARRA",
+      "numero": "13",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
     }
   ],
   "juegos": [
@@ -442,12 +466,12 @@
       "fase": "amistoso",
       "fecha": "2026-09-26",
       "hora": "16:00",
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
       "local": "am-e-df7ea6d74be3db77aade96559ac830d0",
       "visita": "am-e-ce42e954e67f4298edb2417d9f2686c2",
-      "marcador_local": 0,
-      "marcador_visita": 0,
+      "marcador_local": 55,
+      "marcador_visita": 50,
       "sede_id": "gimnasio",
       "convocados_local": [
         "am-p-08650dd35743aeef3ec90bda763d70c9",
@@ -463,7 +487,78 @@
         "am-p-11bb40d971f4b36fff0a0faa62fc04b4",
         "am-p-37b10b8cb4f2b6b3c9241f7990cb1912"
       ],
-      "estadisticas_local": [],
+      "estadisticas_local": [
+        {
+          "jugador": "am-p-08650dd35743aeef3ec90bda763d70c9",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-a8c6a7835e79ae1269df84e800b05f3e",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 2
+        },
+        {
+          "jugador": "am-p-843196128e4d560cf4e4d6d1ba188471",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "am-p-f20c23bf5cae5324346677d0788d23a9",
+          "asistio": "true",
+          "puntos": 18,
+          "triples": 4,
+          "faltas": 2
+        },
+        {
+          "jugador": "am-p-92e81bd46fce1a4761e64edbf5210490",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "am-p-f8d1725204af2c921ecea407ce009ad5",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "am-p-2c7450f555020448d52ce06cec079d23",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "am-p-3497f559a76fef7ae8d87529f1cf7363",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-11bb40d971f4b36fff0a0faa62fc04b4",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "am-p-37b10b8cb4f2b6b3c9241f7990cb1912",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 2
+        }
+      ],
       "convocados_visita": [
         "am-p-18083463868d63dcb0f71dbad5898443",
         "am-p-c946d1d0b695e049e4c2a75ccfe3200d",
@@ -472,11 +567,86 @@
         "am-p-7a59f8e77e07e4878f2374634d16e027",
         "am-p-abec78420151352b9a3e214d3a14285d",
         "am-p-4bc3ee8cefae8559c9e5cb7fe9161000",
-        "am-p-fa1082c791602d531da53078293d2c1e"
+        "am-p-fa1082c791602d531da53078293d2c1e",
+        "am-p-4d168e87c43aef721c4aa5f0fcd2626e",
+        "am-p-4c1ed36b441b69c5cf7c5789baba0875",
+        "am-p-732e6798802700e0977ef94d5ba90a48",
+        "am-p-7fe793acbe56e0a43d899f794c22d3c9"
       ],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
-      "mvp_nombre": ""
+      "estadisticas_visita": [
+        {
+          "jugador": "am-p-18083463868d63dcb0f71dbad5898443",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-c946d1d0b695e049e4c2a75ccfe3200d",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "am-p-6821fc3b64618e6c24de5206957091dc",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "am-p-7a59f8e77e07e4878f2374634d16e027",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "am-p-abec78420151352b9a3e214d3a14285d",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 1,
+          "faltas": 5
+        },
+        {
+          "jugador": "am-p-fa1082c791602d531da53078293d2c1e",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "am-p-4d168e87c43aef721c4aa5f0fcd2626e",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "am-p-4c1ed36b441b69c5cf7c5789baba0875",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-732e6798802700e0977ef94d5ba90a48",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "am-p-7fe793acbe56e0a43d899f794c22d3c9",
+          "asistio": "true",
+          "puntos": 20,
+          "triples": 2,
+          "faltas": 3
+        }
+      ],
+      "mvp_jugador": "am-p-f20c23bf5cae5324346677d0788d23a9",
+      "mvp_nombre": "18 PUNTOS, 4 TRIPLES"
     },
     {
       "id": "am-j-e05c0159a57886cbbc6e7029e9ef94a3",
