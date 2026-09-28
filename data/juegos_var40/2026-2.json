@@ -4329,9 +4329,72 @@
       "temporada": "2026-2",
       "fase": "regular",
       "vuelta": 1,
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
-      "destacado": "false"
+      "destacado": "false",
+      "marcador_local": 36,
+      "marcador_visita": 70,
+      "estadisticas_local": [
+        {
+          "jugador": "RMONTES",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "ESTEBANLOPEZ",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "LOLOMORENO",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "GERMANVALENZUELA",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 2
+        },
+        {
+          "jugador": "PEDROSALCEDO",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "GARCES",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "FABIANBARRERA",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "IRODRIGUEZ",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
     },
     {
       "id": "var4020262_38",
