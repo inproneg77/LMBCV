@@ -4390,11 +4390,75 @@
           "puntos": 2,
           "triples": 0,
           "faltas": 0
+        },
+        {
+          "jugador": "MMONTIJO",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 2,
+          "faltas": 0
+        },
+        {
+          "jugador": "NCAZAREZ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
         }
       ],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
-      "mvp_nombre": ""
+      "estadisticas_visita": [
+        {
+          "jugador": "RLOPEZ4",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ALDUKA",
+          "asistio": "true",
+          "puntos": 21,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "PATOSO",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "MEDEH",
+          "asistio": "true",
+          "puntos": 23,
+          "triples": 5,
+          "faltas": 0
+        },
+        {
+          "jugador": "BARRYMEN",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CHUCOGA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "javlopez",
+          "asistio": "true",
+          "puntos": 18,
+          "triples": 4,
+          "faltas": 1
+        }
+      ],
+      "mvp_jugador": "MEDEH",
+      "mvp_nombre": "23 PUNTOS, 5 TRIPLES"
     },
     {
       "id": "var4020262_38",
