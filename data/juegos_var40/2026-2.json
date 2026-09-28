@@ -4390,6 +4390,20 @@
           "puntos": 8,
           "triples": 0,
           "faltas": 2
+        },
+        {
+          "jugador": "GGALAVINA",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "RCASTRO",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 1
         }
       ],
       "estadisticas_visita": [
@@ -4450,8 +4464,8 @@
           "faltas": 0
         }
       ],
-      "mvp_jugador": "",
-      "mvp_nombre": ""
+      "mvp_jugador": "GMENDEZYAQUI",
+      "mvp_nombre": "13 PUNTOS"
     },
     {
       "id": "var4020262_40",
