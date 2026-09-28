@@ -4519,9 +4519,52 @@
           "faltas": 1
         }
       ],
-      "estadisticas_visita": [],
+      "estadisticas_visita": [
+        {
+          "jugador": "PACHJES",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "AFIGUEROA",
+          "asistio": "true",
+          "puntos": 20,
+          "triples": 2,
+          "faltas": 4
+        },
+        {
+          "jugador": "ACORONADO",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 2,
+          "faltas": 1
+        },
+        {
+          "jugador": "CHERMOSILL",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "MJUAREZ",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "OCARBAJAL",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        }
+      ],
       "mvp_jugador": "ANGELFIE",
-      "mvp_nombre": ""
+      "mvp_nombre": "24 PUNTOS"
     },
     {
       "id": "var4020262_39",
