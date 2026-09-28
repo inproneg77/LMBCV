@@ -3221,6 +3221,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "MJUAREZ",
+      "nombre": "MIGUEL JUAREZ",
+      "numero": "14",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ALTOV40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
