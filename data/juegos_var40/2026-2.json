@@ -4823,9 +4823,87 @@
       "temporada": "2026-2",
       "fase": "regular",
       "vuelta": 1,
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
-      "destacado": "false"
+      "destacado": "false",
+      "marcador_local": 38,
+      "marcador_visita": 30,
+      "estadisticas_local": [
+        {
+          "jugador": "CESDOMIN",
+          "asistio": "true",
+          "puntos": 16,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "IVRANG",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "CARDURAN",
+          "asistio": "true",
+          "puntos": 16,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "FRANMENDSS",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "JOSEISAB",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "MULLERFRAN",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "AMENDO",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "ELPONCE",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 1,
+          "faltas": 3
+        },
+        {
+          "jugador": "TADMART",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "VICFRAN",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "CESDOMIN",
+      "mvp_nombre": ""
     }
   ]
 }
