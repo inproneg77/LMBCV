@@ -4736,6 +4736,13 @@
           "puntos": 3,
           "triples": 1,
           "faltas": 0
+        },
+        {
+          "jugador": "AMARTINEZ",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
         }
       ],
       "estadisticas_visita": [
