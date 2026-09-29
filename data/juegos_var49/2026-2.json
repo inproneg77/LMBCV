@@ -136,9 +136,23 @@
       "temporada": "2026-2",
       "fase": "regular",
       "vuelta": 1,
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
-      "destacado": "false"
+      "destacado": "false",
+      "marcador_local": 50,
+      "marcador_visita": 25,
+      "estadisticas_local": [
+        {
+          "jugador": "GARYFEL",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 0,
+          "faltas": 3
+        }
+      ],
+      "estadisticas_visita": [],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
     }
   ]
 }
