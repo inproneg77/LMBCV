@@ -44,9 +44,44 @@
       "temporada": "2026-2",
       "fase": "regular",
       "vuelta": 1,
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
-      "destacado": "false"
+      "destacado": "false",
+      "marcador_local": 97,
+      "marcador_visita": 48,
+      "estadisticas_local": [
+        {
+          "jugador": "WEROSOTO",
+          "asistio": "true",
+          "puntos": 18,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "javlopez",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 2,
+          "faltas": 0
+        },
+        {
+          "jugador": "ESTEBANLOPEZ",
+          "asistio": "true",
+          "puntos": 27,
+          "triples": 6,
+          "faltas": 0
+        },
+        {
+          "jugador": "GABINORUIZ",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        }
+      ],
+      "estadisticas_visita": [],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
     },
     {
       "id": "var4920262_4",
