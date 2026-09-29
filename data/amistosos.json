@@ -440,6 +440,12 @@
       "nombre": "IVAN LOPEZ",
       "numero": "31",
       "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-e42181e386279ae583acda3974f048af",
+      "nombre": "ANDRES GUZMAN",
+      "numero": "",
+      "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537"
     }
   ],
   "juegos": [
@@ -839,12 +845,12 @@
       "fase": "amistoso",
       "fecha": "2026-09-27",
       "hora": "14:00",
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
       "local": "am-e-4905c2315ee7276030a94c1f60cc1537",
       "visita": "am-e-ce42e954e67f4298edb2417d9f2686c2",
-      "marcador_local": 0,
-      "marcador_visita": 0,
+      "marcador_local": 63,
+      "marcador_visita": 33,
       "sede_id": "gimnasio",
       "convocados_local": [
         "am-p-904c2eac1d1f034f8702654df4f65230",
@@ -857,9 +863,60 @@
         "am-p-03546abb8de4296fc23245f4d1580f7a",
         "am-p-9a8987f74a8cfddcf922127ef0bb3973",
         "am-p-a0b62f76f2233642f9179f0406fce8a1",
-        "am-p-95aa36c199021324f02ae1a889f707a0"
+        "am-p-95aa36c199021324f02ae1a889f707a0",
+        "am-p-e42181e386279ae583acda3974f048af"
       ],
-      "estadisticas_local": [],
+      "estadisticas_local": [
+        {
+          "jugador": "am-p-f02c878448aa220ebc024aee89aba7e0",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-117781d7fe21fa4f81ad9f6ae89203ba",
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-1baee4ddc0e294a8baf7d32eae094b01",
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "am-p-03546abb8de4296fc23245f4d1580f7a",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-9a8987f74a8cfddcf922127ef0bb3973",
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "am-p-95aa36c199021324f02ae1a889f707a0",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-e42181e386279ae583acda3974f048af",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 0
+        }
+      ],
       "convocados_visita": [
         "am-p-e51a2ba020cc738c91efb5eb5930e50b",
         "am-p-9a5891d1859406f07f0c409c7286cb6c",
