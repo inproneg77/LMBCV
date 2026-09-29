@@ -212,7 +212,7 @@ function renderDetalleEquipo(equipoId) {
 }
 
 function renderJuegoHistorial(j, equipoId) {
-  const esLocal = j.local === equipoId;
+  const esLocal = esAmistoso(j) ? mismoRegistroAmistoso(j.local, equipoId, ESTADO_E.equiposPorId) : j.local === equipoId;
   const rival = ESTADO_E.equiposPorId[esLocal ? j.visita : j.local];
   const propio = esLocal ? j.marcador_local : j.marcador_visita;
   const marcadorRival = esLocal ? j.marcador_visita : j.marcador_local;
