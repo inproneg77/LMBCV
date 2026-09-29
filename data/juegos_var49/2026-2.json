@@ -58,6 +58,13 @@
           "faltas": 0
         },
         {
+          "jugador": "GERA5",
+          "asistio": "true",
+          "puntos": 41,
+          "triples": 9,
+          "faltas": 0
+        },
+        {
           "jugador": "javlopez",
           "asistio": "true",
           "puntos": 11,
@@ -67,7 +74,7 @@
         {
           "jugador": "ESTEBANLOPEZ",
           "asistio": "true",
-          "puntos": 27,
+          "puntos": 25,
           "triples": 6,
           "faltas": 0
         },
@@ -79,9 +86,45 @@
           "faltas": 1
         }
       ],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
-      "mvp_nombre": ""
+      "estadisticas_visita": [
+        {
+          "jugador": "IMORALES",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "AMENDO",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "RDUARTE",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "JONTIVEROS",
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "GCASTILLO",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 1
+        }
+      ],
+      "mvp_jugador": "GERA5",
+      "mvp_nombre": "41 PUNTOS, 9 TRIPLES"
     },
     {
       "id": "var4920262_4",
