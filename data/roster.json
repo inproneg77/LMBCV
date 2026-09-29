@@ -3435,6 +3435,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "RDUARTE",
+      "nombre": "RAFAEL DUARTE",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var49",
+          "equipo_id": "FEDE49",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
