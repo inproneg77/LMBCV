@@ -1,3 +1,10 @@
+// Relaciona copias de amistosos mediante su vínculo explícito, nunca por nombre.
+function mismoRegistroAmistoso(id, buscado, catalogo) {
+  if (id === buscado) return true;
+  if (!id || !buscado) return false;
+  return (catalogo[id]?.origen_liga_id || id) === (catalogo[buscado]?.origen_liga_id || buscado);
+}
+
 function esAmistoso(juego) { return juego.fase === 'amistoso'; }
 function esJuegoOficial(juego) { return ['regular', 'playoffs', 'final'].includes(juego.fase ?? 'regular'); }
 function jugadorElegible(jugador, juego, equipoId, categoriaId) {
