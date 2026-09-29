@@ -446,6 +446,36 @@
       "nombre": "ANDRES GUZMAN",
       "numero": "",
       "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537"
+    },
+    {
+      "id": "am-p-203fa6adcb8661c8a4e05fad3626aa37",
+      "nombre": "REGINO GARCIA",
+      "numero": "",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-281a52ff432743692cf0bcc5d16d385f",
+      "nombre": "SERGIO IBARRA",
+      "numero": "",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-1bce5b39ab9e23587699ef058aec064d",
+      "nombre": "RAFAEL BURRUEL",
+      "numero": "",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-f723203ac83ac6372068ef1d38278e77",
+      "nombre": "IVAN LOPEZ",
+      "numero": "",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-ebf973836daf78bba89066985b06a815",
+      "nombre": "EDUARDO CELAYA",
+      "numero": "",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
     }
   ],
   "juegos": [
@@ -933,11 +963,94 @@
         "am-p-7a59f8e77e07e4878f2374634d16e027",
         "am-p-abec78420151352b9a3e214d3a14285d",
         "am-p-4bc3ee8cefae8559c9e5cb7fe9161000",
-        "am-p-fa1082c791602d531da53078293d2c1e"
+        "am-p-fa1082c791602d531da53078293d2c1e",
+        "am-p-203fa6adcb8661c8a4e05fad3626aa37",
+        "am-p-281a52ff432743692cf0bcc5d16d385f",
+        "am-p-1bce5b39ab9e23587699ef058aec064d",
+        "am-p-f723203ac83ac6372068ef1d38278e77",
+        "am-p-ebf973836daf78bba89066985b06a815"
       ],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
-      "mvp_nombre": ""
+      "estadisticas_visita": [
+        {
+          "jugador": "am-p-18083463868d63dcb0f71dbad5898443",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-c946d1d0b695e049e4c2a75ccfe3200d",
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-6821fc3b64618e6c24de5206957091dc",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-7a59f8e77e07e4878f2374634d16e027",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-abec78420151352b9a3e214d3a14285d",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-fa1082c791602d531da53078293d2c1e",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "am-p-203fa6adcb8661c8a4e05fad3626aa37",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "am-p-281a52ff432743692cf0bcc5d16d385f",
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 2,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-1bce5b39ab9e23587699ef058aec064d",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "am-p-f723203ac83ac6372068ef1d38278e77",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-ebf973836daf78bba89066985b06a815",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "am-p-1baee4ddc0e294a8baf7d32eae094b01",
+      "mvp_nombre": "15 PUNTOS, REBOTES, DEFENSA"
     }
   ]
 }
