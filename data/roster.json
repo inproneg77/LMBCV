@@ -3447,6 +3447,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "JONTIVEROS",
+      "nombre": "JAVIER ONTIVEROS",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var49",
+          "equipo_id": "FEDE49",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
