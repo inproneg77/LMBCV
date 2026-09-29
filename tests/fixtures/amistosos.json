@@ -1,0 +1,1056 @@
+{
+  "equipos": [
+    {
+      "id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "nombre": "OLD SCHOOL",
+      "logo": "img/equipos/15.png",
+      "origen_liga_id": "OSV40"
+    },
+    {
+      "id": "am-e-ce42e954e67f4298edb2417d9f2686c2",
+      "nombre": "PATA DURA | NOGALES",
+      "logo": "img/amistosos/am-logo-7da0223e1736783217483ba0cccc4b4f.png"
+    },
+    {
+      "id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "nombre": "CFE SUTERM",
+      "logo": "img/equipos/2.png",
+      "origen_liga_id": "CFEV40"
+    },
+    {
+      "id": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "nombre": "CUERVOS",
+      "logo": "img/equipos/cuervos-dos.jpeg",
+      "origen_liga_id": "CUERVOSV40"
+    }
+  ],
+  "jugadores": [
+    {
+      "id": "am-p-08650dd35743aeef3ec90bda763d70c9",
+      "nombre": "GUILLERMO PALAFOX",
+      "numero": "12",
+      "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "origen_liga_id": "GPALA"
+    },
+    {
+      "id": "am-p-a8c6a7835e79ae1269df84e800b05f3e",
+      "nombre": "DARIO MAZON",
+      "numero": "5",
+      "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "origen_liga_id": "DMAZ"
+    },
+    {
+      "id": "am-p-843196128e4d560cf4e4d6d1ba188471",
+      "nombre": "DANIEL NEBLINA",
+      "numero": "77",
+      "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "origen_liga_id": "DNEB"
+    },
+    {
+      "id": "am-p-f20c23bf5cae5324346677d0788d23a9",
+      "nombre": "ANIBAL ARAIZA",
+      "numero": "8",
+      "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "origen_liga_id": "ANARAIZA"
+    },
+    {
+      "id": "am-p-92e81bd46fce1a4761e64edbf5210490",
+      "nombre": "GERARDO  FELIX",
+      "numero": "4",
+      "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "origen_liga_id": "GARYFEL"
+    },
+    {
+      "id": "am-p-e8e787ca08b20f3b1d81279876c32934",
+      "nombre": "CARLOS YESCAS",
+      "numero": "0",
+      "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "origen_liga_id": "CYESK"
+    },
+    {
+      "id": "am-p-f8d1725204af2c921ecea407ce009ad5",
+      "nombre": "CARLOS PEREZ",
+      "numero": "",
+      "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "origen_liga_id": "CARLOSPEREZ"
+    },
+    {
+      "id": "am-p-2c7450f555020448d52ce06cec079d23",
+      "nombre": "CARLOS ALVAREZ",
+      "numero": "22",
+      "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "origen_liga_id": "CARLOSALVAREZ"
+    },
+    {
+      "id": "am-p-3497f559a76fef7ae8d87529f1cf7363",
+      "nombre": "JOSE LUIS RABAGO",
+      "numero": "21",
+      "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "origen_liga_id": "JOSERABAGO"
+    },
+    {
+      "id": "am-p-c991fe3dccadeaa619c619f937e6db67",
+      "nombre": "HORACIO VARELA",
+      "numero": "",
+      "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "origen_liga_id": "HORAIOVARELA"
+    },
+    {
+      "id": "am-p-11bb40d971f4b36fff0a0faa62fc04b4",
+      "nombre": "CRISTIAN MENDEZ",
+      "numero": "",
+      "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "origen_liga_id": "CRISMENDEZ"
+    },
+    {
+      "id": "am-p-37b10b8cb4f2b6b3c9241f7990cb1912",
+      "nombre": "ELIAS TRUJILLO",
+      "numero": "13",
+      "equipo_id": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "origen_liga_id": "ELIASTRUJ"
+    },
+    {
+      "id": "am-p-b03f66e1c251996bbcf75f4e848135ad",
+      "nombre": "JAWD KATAWRA",
+      "numero": "77",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "JK77"
+    },
+    {
+      "id": "am-p-a68b82d4f751bbf51adad1126755aa62",
+      "nombre": "JAVIER VALDOVINOS",
+      "numero": "10",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "JAVVALD"
+    },
+    {
+      "id": "am-p-ed5a6382a459bdf6c78e7f3b519ce366",
+      "nombre": "GUILLERMO SALCEDO",
+      "numero": "6",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "MEMOSAL"
+    },
+    {
+      "id": "am-p-e5758df0b59cbdb649e32ac39690f1d8",
+      "nombre": "ANDRES GUZMAN",
+      "numero": "18",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "ANDGUZ"
+    },
+    {
+      "id": "am-p-189275bd4207ee167056ebf51426e6d9",
+      "nombre": "ISAAC OLAIZ",
+      "numero": "11",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "ISAAOLA"
+    },
+    {
+      "id": "am-p-b7c85ee6975aebe15058175d9bd343b1",
+      "nombre": "MARTIN CUEN",
+      "numero": "69",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "MCUEN"
+    },
+    {
+      "id": "am-p-3ea46e6d21e4b74ab87e816388ac2b58",
+      "nombre": "MIGUEL PALAFOX",
+      "numero": "8",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "MIGPALAF"
+    },
+    {
+      "id": "am-p-87535448934a522c8293b6fad6aeda86",
+      "nombre": "JOEL GRIJALVA",
+      "numero": "4",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "JOELGRIJ"
+    },
+    {
+      "id": "am-p-1d8327fa666a920c4dfdc77d709b3c98",
+      "nombre": "EDGAR URQUIDEZ",
+      "numero": "",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "NEGROURQ"
+    },
+    {
+      "id": "am-p-ae9e0679e7c764efd4e8fd04a28e5631",
+      "nombre": "JUAN CARLOS VILLANUEVA",
+      "numero": "8",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "JCVILL"
+    },
+    {
+      "id": "am-p-c258fbf75ea268d4075d8ce9edbd8bda",
+      "nombre": "EDUARDO CELAYA",
+      "numero": "23",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "LALOCEL"
+    },
+    {
+      "id": "am-p-391848dce66a8e9689c6d1299365ac4d",
+      "nombre": "ALIS SANCHEZ",
+      "numero": "44",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "ALISANC"
+    },
+    {
+      "id": "am-p-ae37b9af4c8fae6e17a530db982ead40",
+      "nombre": "ALEJANDRO FLORES",
+      "numero": "7",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "POLLOALEJ"
+    },
+    {
+      "id": "am-p-40ae1f47d0ee9c14837a055b77b5f4d3",
+      "nombre": "BARNEY BARRAGAN",
+      "numero": "21",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "BARNWYB"
+    },
+    {
+      "id": "am-p-3bfc35a22aa51e98de44752dc9de831a",
+      "nombre": "MARCELO LARA",
+      "numero": "24",
+      "equipo_id": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "origen_liga_id": "MLARA"
+    },
+    {
+      "id": "am-p-e51a2ba020cc738c91efb5eb5930e50b",
+      "nombre": "OSCAR NAVIDAD",
+      "numero": "3",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-9a5891d1859406f07f0c409c7286cb6c",
+      "nombre": "CESAR MARTINEZ",
+      "numero": "8",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-cd18bcc9dac77391d0aae992582138c3",
+      "nombre": "EDUARDO VELAZQUEZ",
+      "numero": "00",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-b250eaae6713f6164fe4b0424f69d21a",
+      "nombre": "RICARDO VALDEZ",
+      "numero": "11",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-d87825c1e0b36610e9b22947a43dd390",
+      "nombre": "SALVADOR VALDEZ",
+      "numero": "12",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-6c1506c449795d3afd196800ea48bfaf",
+      "nombre": "GABRIEL RODRIGUEZ",
+      "numero": "21",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-e7bf6cd2d00e8545223d41dc89a1c565",
+      "nombre": "ADALBERTO GARCIA",
+      "numero": "1",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-81e6d45b6e734a46afa925adf4f1bb2a",
+      "nombre": "JOAQUIN IBARRA",
+      "numero": "5",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-18083463868d63dcb0f71dbad5898443",
+      "nombre": "OSCAR NAVIDAD",
+      "numero": "3",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-c946d1d0b695e049e4c2a75ccfe3200d",
+      "nombre": "CESAR MARTINEZ",
+      "numero": "8",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-5f17edf7b40660db4c4403c327d270a5",
+      "nombre": "EDUARDO VELAZQUEZ",
+      "numero": "00",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-6821fc3b64618e6c24de5206957091dc",
+      "nombre": "RICARDO VALDEZ",
+      "numero": "11",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-7a59f8e77e07e4878f2374634d16e027",
+      "nombre": "SALVADOR VALDEZ",
+      "numero": "12",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-abec78420151352b9a3e214d3a14285d",
+      "nombre": "GABRIEL RODRIGUEZ",
+      "numero": "21",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-4bc3ee8cefae8559c9e5cb7fe9161000",
+      "nombre": "ADALBERTO GARCIA",
+      "numero": "1",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-fa1082c791602d531da53078293d2c1e",
+      "nombre": "JOAQUIN IBARRA",
+      "numero": "5",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-904c2eac1d1f034f8702654df4f65230",
+      "nombre": "FERNANDO LEMAS",
+      "numero": "33",
+      "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "origen_liga_id": "CHOCOLEM"
+    },
+    {
+      "id": "am-p-f02c878448aa220ebc024aee89aba7e0",
+      "nombre": "PABLO FAVELA",
+      "numero": "8",
+      "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "origen_liga_id": "FAVELATOLON"
+    },
+    {
+      "id": "am-p-117781d7fe21fa4f81ad9f6ae89203ba",
+      "nombre": "ENRIQUE MARTINEZ",
+      "numero": "91",
+      "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "origen_liga_id": "CHARROD"
+    },
+    {
+      "id": "am-p-1a5f5132389765ea84e4dbff8495ee27",
+      "nombre": "ARIEL MENA",
+      "numero": "3",
+      "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "origen_liga_id": "TITOMEN"
+    },
+    {
+      "id": "am-p-1baee4ddc0e294a8baf7d32eae094b01",
+      "nombre": "ANGEL FIERROS",
+      "numero": "17",
+      "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "origen_liga_id": "ANGELFIE"
+    },
+    {
+      "id": "am-p-339509323ddb9c97dae9d2cd9779b86c",
+      "nombre": "FERNANDO BRASIL",
+      "numero": "32",
+      "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "origen_liga_id": "FDOBRA"
+    },
+    {
+      "id": "am-p-105d7b6b966b7e80632ca23ab56f9613",
+      "nombre": "RUBEN FONSECA",
+      "numero": "13",
+      "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "origen_liga_id": "FONSECAR"
+    },
+    {
+      "id": "am-p-03546abb8de4296fc23245f4d1580f7a",
+      "nombre": "RAUL ALVAREZ BON",
+      "numero": "",
+      "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "origen_liga_id": "RULOBON"
+    },
+    {
+      "id": "am-p-9a8987f74a8cfddcf922127ef0bb3973",
+      "nombre": "SERGIO OROS",
+      "numero": "",
+      "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "origen_liga_id": "SOROSJJ"
+    },
+    {
+      "id": "am-p-a0b62f76f2233642f9179f0406fce8a1",
+      "nombre": "MARTIN PARRA",
+      "numero": "",
+      "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "origen_liga_id": "MARPARRA"
+    },
+    {
+      "id": "am-p-95aa36c199021324f02ae1a889f707a0",
+      "nombre": "FRANCISCO SIBRIAN",
+      "numero": "",
+      "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "origen_liga_id": "PANSIBRIAN"
+    },
+    {
+      "id": "am-p-4d168e87c43aef721c4aa5f0fcd2626e",
+      "nombre": "REGINO GARCIA",
+      "numero": "00",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-4c1ed36b441b69c5cf7c5789baba0875",
+      "nombre": "MANUEL MENCINA",
+      "numero": "23",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-732e6798802700e0977ef94d5ba90a48",
+      "nombre": "RAFAEL BURRUEL",
+      "numero": "7",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-7fe793acbe56e0a43d899f794c22d3c9",
+      "nombre": "SERGIO IBARRA",
+      "numero": "13",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-4b5a13aadf38049bfbb615d55e901759",
+      "nombre": "REGINO GARCIA",
+      "numero": "00",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-fcb0670e8abb2b365937cebe239ef563",
+      "nombre": "MANUEL MENCINA",
+      "numero": "23",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-064cec21d8fdc9f5db6c10ff19c4dfd4",
+      "nombre": "RAFAEL BURRUEL",
+      "numero": "7",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-88e690554774f986eccaffd915060de6",
+      "nombre": "SERGIO IBARRA",
+      "numero": "13",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-73508a9759ee8a49ef0ddc9807d41e30",
+      "nombre": "IVAN LOPEZ",
+      "numero": "31",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-e42181e386279ae583acda3974f048af",
+      "nombre": "ANDRES GUZMAN",
+      "numero": "",
+      "equipo_id": "am-e-4905c2315ee7276030a94c1f60cc1537"
+    },
+    {
+      "id": "am-p-203fa6adcb8661c8a4e05fad3626aa37",
+      "nombre": "REGINO GARCIA",
+      "numero": "",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-281a52ff432743692cf0bcc5d16d385f",
+      "nombre": "SERGIO IBARRA",
+      "numero": "",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-1bce5b39ab9e23587699ef058aec064d",
+      "nombre": "RAFAEL BURRUEL",
+      "numero": "",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-f723203ac83ac6372068ef1d38278e77",
+      "nombre": "IVAN LOPEZ",
+      "numero": "",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-ebf973836daf78bba89066985b06a815",
+      "nombre": "EDUARDO CELAYA",
+      "numero": "",
+      "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    }
+  ],
+  "juegos": [
+    {
+      "id": "am-j-05ce7bb503046648eec2faa72136dd9c",
+      "categoria_id": "var40",
+      "temporada": "2026-2",
+      "fase": "amistoso",
+      "fecha": "2026-09-26",
+      "hora": "19:00",
+      "estatus": "jugado",
+      "forfeit": "ninguno",
+      "local": "am-e-1eb4a3da7c54781e0f445a9dc87cd7f8",
+      "visita": "am-e-ce42e954e67f4298edb2417d9f2686c2",
+      "marcador_local": 47,
+      "marcador_visita": 39,
+      "sede_id": "gimnasio",
+      "convocados_local": [
+        "am-p-b03f66e1c251996bbcf75f4e848135ad",
+        "am-p-a68b82d4f751bbf51adad1126755aa62",
+        "am-p-ed5a6382a459bdf6c78e7f3b519ce366",
+        "am-p-e5758df0b59cbdb649e32ac39690f1d8",
+        "am-p-189275bd4207ee167056ebf51426e6d9",
+        "am-p-b7c85ee6975aebe15058175d9bd343b1",
+        "am-p-3ea46e6d21e4b74ab87e816388ac2b58",
+        "am-p-87535448934a522c8293b6fad6aeda86",
+        "am-p-1d8327fa666a920c4dfdc77d709b3c98",
+        "am-p-ae9e0679e7c764efd4e8fd04a28e5631",
+        "am-p-c258fbf75ea268d4075d8ce9edbd8bda",
+        "am-p-391848dce66a8e9689c6d1299365ac4d",
+        "am-p-ae37b9af4c8fae6e17a530db982ead40",
+        "am-p-40ae1f47d0ee9c14837a055b77b5f4d3",
+        "am-p-3bfc35a22aa51e98de44752dc9de831a"
+      ],
+      "estadisticas_local": [
+        {
+          "jugador": "am-p-b03f66e1c251996bbcf75f4e848135ad",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "am-p-a68b82d4f751bbf51adad1126755aa62",
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 2,
+          "faltas": 2
+        },
+        {
+          "jugador": "am-p-e5758df0b59cbdb649e32ac39690f1d8",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-189275bd4207ee167056ebf51426e6d9",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "am-p-87535448934a522c8293b6fad6aeda86",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-ae9e0679e7c764efd4e8fd04a28e5631",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "am-p-c258fbf75ea268d4075d8ce9edbd8bda",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-391848dce66a8e9689c6d1299365ac4d",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "am-p-ae37b9af4c8fae6e17a530db982ead40",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-3bfc35a22aa51e98de44752dc9de831a",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "convocados_visita": [
+        "am-p-e51a2ba020cc738c91efb5eb5930e50b",
+        "am-p-9a5891d1859406f07f0c409c7286cb6c",
+        "am-p-cd18bcc9dac77391d0aae992582138c3",
+        "am-p-b250eaae6713f6164fe4b0424f69d21a",
+        "am-p-d87825c1e0b36610e9b22947a43dd390",
+        "am-p-6c1506c449795d3afd196800ea48bfaf",
+        "am-p-e7bf6cd2d00e8545223d41dc89a1c565",
+        "am-p-81e6d45b6e734a46afa925adf4f1bb2a",
+        "am-p-4b5a13aadf38049bfbb615d55e901759",
+        "am-p-fcb0670e8abb2b365937cebe239ef563",
+        "am-p-064cec21d8fdc9f5db6c10ff19c4dfd4",
+        "am-p-88e690554774f986eccaffd915060de6",
+        "am-p-73508a9759ee8a49ef0ddc9807d41e30"
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "am-p-e51a2ba020cc738c91efb5eb5930e50b",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-9a5891d1859406f07f0c409c7286cb6c",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-b250eaae6713f6164fe4b0424f69d21a",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-d87825c1e0b36610e9b22947a43dd390",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "am-p-6c1506c449795d3afd196800ea48bfaf",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 2,
+          "faltas": 4
+        },
+        {
+          "jugador": "am-p-81e6d45b6e734a46afa925adf4f1bb2a",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "am-p-4b5a13aadf38049bfbb615d55e901759",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "am-p-fcb0670e8abb2b365937cebe239ef563",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-064cec21d8fdc9f5db6c10ff19c4dfd4",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "am-p-88e690554774f986eccaffd915060de6",
+          "asistio": "true",
+          "puntos": 18,
+          "triples": 1,
+          "faltas": 3
+        },
+        {
+          "jugador": "am-p-73508a9759ee8a49ef0ddc9807d41e30",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        }
+      ],
+      "mvp_jugador": "am-p-a68b82d4f751bbf51adad1126755aa62",
+      "mvp_nombre": "14 PUNTOS, 2 TRIPLES"
+    },
+    {
+      "id": "am-j-05ce7bb503046648eec2faa72136dd9c-recuperado-old-school",
+      "categoria_id": "var40",
+      "temporada": "2026-2",
+      "fase": "amistoso",
+      "fecha": "2026-09-26",
+      "hora": "16:00",
+      "estatus": "jugado",
+      "forfeit": "ninguno",
+      "local": "am-e-df7ea6d74be3db77aade96559ac830d0",
+      "visita": "am-e-ce42e954e67f4298edb2417d9f2686c2",
+      "marcador_local": 55,
+      "marcador_visita": 50,
+      "sede_id": "gimnasio",
+      "convocados_local": [
+        "am-p-08650dd35743aeef3ec90bda763d70c9",
+        "am-p-a8c6a7835e79ae1269df84e800b05f3e",
+        "am-p-843196128e4d560cf4e4d6d1ba188471",
+        "am-p-f20c23bf5cae5324346677d0788d23a9",
+        "am-p-92e81bd46fce1a4761e64edbf5210490",
+        "am-p-e8e787ca08b20f3b1d81279876c32934",
+        "am-p-f8d1725204af2c921ecea407ce009ad5",
+        "am-p-2c7450f555020448d52ce06cec079d23",
+        "am-p-3497f559a76fef7ae8d87529f1cf7363",
+        "am-p-c991fe3dccadeaa619c619f937e6db67",
+        "am-p-11bb40d971f4b36fff0a0faa62fc04b4",
+        "am-p-37b10b8cb4f2b6b3c9241f7990cb1912"
+      ],
+      "estadisticas_local": [
+        {
+          "jugador": "am-p-08650dd35743aeef3ec90bda763d70c9",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-a8c6a7835e79ae1269df84e800b05f3e",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 2
+        },
+        {
+          "jugador": "am-p-843196128e4d560cf4e4d6d1ba188471",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "am-p-f20c23bf5cae5324346677d0788d23a9",
+          "asistio": "true",
+          "puntos": 18,
+          "triples": 4,
+          "faltas": 2
+        },
+        {
+          "jugador": "am-p-92e81bd46fce1a4761e64edbf5210490",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "am-p-f8d1725204af2c921ecea407ce009ad5",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "am-p-2c7450f555020448d52ce06cec079d23",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "am-p-3497f559a76fef7ae8d87529f1cf7363",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-11bb40d971f4b36fff0a0faa62fc04b4",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "am-p-37b10b8cb4f2b6b3c9241f7990cb1912",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 2
+        }
+      ],
+      "convocados_visita": [
+        "am-p-18083463868d63dcb0f71dbad5898443",
+        "am-p-c946d1d0b695e049e4c2a75ccfe3200d",
+        "am-p-5f17edf7b40660db4c4403c327d270a5",
+        "am-p-6821fc3b64618e6c24de5206957091dc",
+        "am-p-7a59f8e77e07e4878f2374634d16e027",
+        "am-p-abec78420151352b9a3e214d3a14285d",
+        "am-p-4bc3ee8cefae8559c9e5cb7fe9161000",
+        "am-p-fa1082c791602d531da53078293d2c1e",
+        "am-p-4d168e87c43aef721c4aa5f0fcd2626e",
+        "am-p-4c1ed36b441b69c5cf7c5789baba0875",
+        "am-p-732e6798802700e0977ef94d5ba90a48",
+        "am-p-7fe793acbe56e0a43d899f794c22d3c9"
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "am-p-18083463868d63dcb0f71dbad5898443",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-c946d1d0b695e049e4c2a75ccfe3200d",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "am-p-6821fc3b64618e6c24de5206957091dc",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "am-p-7a59f8e77e07e4878f2374634d16e027",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "am-p-abec78420151352b9a3e214d3a14285d",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 1,
+          "faltas": 5
+        },
+        {
+          "jugador": "am-p-fa1082c791602d531da53078293d2c1e",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "am-p-4d168e87c43aef721c4aa5f0fcd2626e",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "am-p-4c1ed36b441b69c5cf7c5789baba0875",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-732e6798802700e0977ef94d5ba90a48",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "am-p-7fe793acbe56e0a43d899f794c22d3c9",
+          "asistio": "true",
+          "puntos": 20,
+          "triples": 2,
+          "faltas": 3
+        }
+      ],
+      "mvp_jugador": "am-p-f20c23bf5cae5324346677d0788d23a9",
+      "mvp_nombre": "18 PUNTOS, 4 TRIPLES"
+    },
+    {
+      "id": "am-j-e05c0159a57886cbbc6e7029e9ef94a3",
+      "categoria_id": "var40",
+      "temporada": "2026-2",
+      "fase": "amistoso",
+      "fecha": "2026-09-27",
+      "hora": "14:00",
+      "estatus": "jugado",
+      "forfeit": "ninguno",
+      "local": "am-e-4905c2315ee7276030a94c1f60cc1537",
+      "visita": "am-e-ce42e954e67f4298edb2417d9f2686c2",
+      "marcador_local": 63,
+      "marcador_visita": 33,
+      "sede_id": "gimnasio",
+      "convocados_local": [
+        "am-p-904c2eac1d1f034f8702654df4f65230",
+        "am-p-f02c878448aa220ebc024aee89aba7e0",
+        "am-p-117781d7fe21fa4f81ad9f6ae89203ba",
+        "am-p-1a5f5132389765ea84e4dbff8495ee27",
+        "am-p-1baee4ddc0e294a8baf7d32eae094b01",
+        "am-p-339509323ddb9c97dae9d2cd9779b86c",
+        "am-p-105d7b6b966b7e80632ca23ab56f9613",
+        "am-p-03546abb8de4296fc23245f4d1580f7a",
+        "am-p-9a8987f74a8cfddcf922127ef0bb3973",
+        "am-p-a0b62f76f2233642f9179f0406fce8a1",
+        "am-p-95aa36c199021324f02ae1a889f707a0",
+        "am-p-e42181e386279ae583acda3974f048af"
+      ],
+      "estadisticas_local": [
+        {
+          "jugador": "am-p-f02c878448aa220ebc024aee89aba7e0",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-117781d7fe21fa4f81ad9f6ae89203ba",
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-1baee4ddc0e294a8baf7d32eae094b01",
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "am-p-03546abb8de4296fc23245f4d1580f7a",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-9a8987f74a8cfddcf922127ef0bb3973",
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "am-p-95aa36c199021324f02ae1a889f707a0",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-e42181e386279ae583acda3974f048af",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 0
+        }
+      ],
+      "convocados_visita": [
+        "am-p-e51a2ba020cc738c91efb5eb5930e50b",
+        "am-p-9a5891d1859406f07f0c409c7286cb6c",
+        "am-p-cd18bcc9dac77391d0aae992582138c3",
+        "am-p-b250eaae6713f6164fe4b0424f69d21a",
+        "am-p-d87825c1e0b36610e9b22947a43dd390",
+        "am-p-6c1506c449795d3afd196800ea48bfaf",
+        "am-p-e7bf6cd2d00e8545223d41dc89a1c565",
+        "am-p-81e6d45b6e734a46afa925adf4f1bb2a",
+        "am-p-18083463868d63dcb0f71dbad5898443",
+        "am-p-c946d1d0b695e049e4c2a75ccfe3200d",
+        "am-p-5f17edf7b40660db4c4403c327d270a5",
+        "am-p-6821fc3b64618e6c24de5206957091dc",
+        "am-p-7a59f8e77e07e4878f2374634d16e027",
+        "am-p-abec78420151352b9a3e214d3a14285d",
+        "am-p-4bc3ee8cefae8559c9e5cb7fe9161000",
+        "am-p-fa1082c791602d531da53078293d2c1e",
+        "am-p-203fa6adcb8661c8a4e05fad3626aa37",
+        "am-p-281a52ff432743692cf0bcc5d16d385f",
+        "am-p-1bce5b39ab9e23587699ef058aec064d",
+        "am-p-f723203ac83ac6372068ef1d38278e77",
+        "am-p-ebf973836daf78bba89066985b06a815"
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "am-p-18083463868d63dcb0f71dbad5898443",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-c946d1d0b695e049e4c2a75ccfe3200d",
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-6821fc3b64618e6c24de5206957091dc",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-7a59f8e77e07e4878f2374634d16e027",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-abec78420151352b9a3e214d3a14285d",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-fa1082c791602d531da53078293d2c1e",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "am-p-203fa6adcb8661c8a4e05fad3626aa37",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "am-p-281a52ff432743692cf0bcc5d16d385f",
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 2,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-1bce5b39ab9e23587699ef058aec064d",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "am-p-f723203ac83ac6372068ef1d38278e77",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "am-p-ebf973836daf78bba89066985b06a815",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "am-p-1baee4ddc0e294a8baf7d32eae094b01",
+      "mvp_nombre": "15 PUNTOS, REBOTES, DEFENSA"
+    }
+  ]
+}

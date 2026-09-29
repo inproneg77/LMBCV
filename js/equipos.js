@@ -61,12 +61,14 @@ function renderListaEquipos() {
 }
 
 // Juegos de temporada regular, jugados, de este equipo/categoría/temporada
-function juegosDelEquipo(equipoId) {
-  return ESTADO_E.juegosOficiales.filter(j =>
+function juegosDelEquipo(equipoId, fuente = ESTADO_E.juegosOficiales) {
+  return fuente.filter(j =>
     j.categoria_id === categoriaActivaE &&
     j.estatus === 'jugado' &&
     (!temporadaActivaE || j.temporada === temporadaActivaE) &&
-    (j.local === equipoId || j.visita === equipoId)
+    (esAmistoso(j)
+      ? [j.local, j.visita].some(id => mismoRegistroAmistoso(id, equipoId, ESTADO_E.equiposPorId))
+      : (j.local === equipoId || j.visita === equipoId))
   );
 }
 
@@ -75,7 +77,7 @@ function resumenEquipo(equipoId) {
   const r = { jj: 0, jg: 0, jp: 0, pf: 0, pc: 0, pts: 0 };
 
   juegos.forEach(j => {
-    const esLocal = j.local === equipoId;
+    const esLocal = esAmistoso(j) ? mismoRegistroAmistoso(j.local, equipoId, ESTADO_E.equiposPorId) : j.local === equipoId;
     const propio = esLocal ? j.marcador_local : j.marcador_visita;
     const rival = esLocal ? j.marcador_visita : j.marcador_local;
     const forfeit = j.forfeit ?? 'ninguno';
@@ -93,8 +95,8 @@ function resumenEquipo(equipoId) {
   return r;
 }
 
-function totalesJugadores(equipoId) {
-  const juegos = juegosDelEquipo(equipoId);
+function totalesJugadores(equipoId, fuente = ESTADO_E.juegosOficiales) {
+  const juegos = juegosDelEquipo(equipoId, fuente);
   const acumulado = {};
 
   // Se recorre juego por juego, usando la lista de estadísticas que
@@ -102,15 +104,16 @@ function totalesJugadores(equipoId) {
   // Así, si un jugador después cambia de equipo, su historial con este
   // equipo se queda intacto — no depende de su roster actual.
   juegos.forEach(juego => {
-    const esLocal = juego.local === equipoId;
+    const esLocal = esAmistoso(juego) ? mismoRegistroAmistoso(juego.local, equipoId, ESTADO_E.equiposPorId) : juego.local === equipoId;
     const lista = esLocal ? (juego.estadisticas_local ?? juego.estadisticas) : juego.estadisticas_visita;
 
     (lista ?? []).forEach(e => {
       if (String(e.asistio) === 'false') return;
-      const jugador = ESTADO_E.jugadoresPorId[e.jugador];
+      const id = esAmistoso(juego) ? (ESTADO_E.jugadoresPorId[e.jugador]?.origen_liga_id || e.jugador) : e.jugador;
+      const jugador = ESTADO_E.jugadoresPorId[id] || ESTADO_E.jugadoresPorId[e.jugador];
       if (!jugador) return;
 
-      const acc = (acumulado[e.jugador] ??= { jugador, jj: 0, puntos: 0, triples: 0, faltas: 0 });
+      const acc = (acumulado[id] ??= { jugador, jj: 0, puntos: 0, triples: 0, faltas: 0 });
       acc.jj++;
       acc.puntos += Number(e.puntos ?? 0);
       acc.triples += Number(e.triples ?? 0);
@@ -119,6 +122,30 @@ function totalesJugadores(equipoId) {
   });
 
   return Object.values(acumulado).sort((a,b) => b.puntos - a.puntos);
+}
+
+
+function renderAmistososEquipo(equipoId) {
+  const fuente = ESTADO_E.juegosAmistosos ?? [];
+  const juegos = juegosDelEquipo(equipoId, fuente).sort((a,b) => b.fecha.localeCompare(a.fecha));
+  const jugadores = totalesJugadores(equipoId, fuente);
+  const totales = juegos.reduce((r,j) => {
+    const local = mismoRegistroAmistoso(j.local, equipoId, ESTADO_E.equiposPorId);
+    const pf = Number(local ? j.marcador_local : j.marcador_visita);
+    const pc = Number(local ? j.marcador_visita : j.marcador_local);
+    const ganador = j.forfeit === 'local' ? !local : j.forfeit === 'visita' ? local : pf > pc;
+    r.pf += pf; r.pc += pc; r.jg += Number(ganador); r.jp += Number(!ganador && (pf !== pc || ['local','visita'].includes(j.forfeit)));
+    return r;
+  }, {pf:0, pc:0, jg:0, jp:0});
+  return `<section aria-label="Estadísticas de amistosos">
+    <h3 class="lideres__titulo display" style="margin-top:28px;">Amistosos — fuera de los totales oficiales</h3>
+    ${juegos.length ? `<p>${juegos.length} JJ · ${totales.jg} ganados · ${totales.jp} perdidos · ${totales.pf} puntos a favor · ${totales.pc} en contra</p>
+    <div class="table-scroll"><table class="standing-table">
+      <thead><tr><th>Jugador</th><th>JJ</th><th>Pts</th><th>3pt</th><th>Faltas</th></tr></thead>
+      <tbody>${jugadores.map(j => `<tr><td>${linkJugador(j.jugador.id,j.jugador.nombre)}</td><td>${j.jj}</td><td>${j.puntos}</td><td>${j.triples}</td><td>${j.faltas}</td></tr>`).join('')}</tbody>
+    </table></div>
+    ${juegos.map(j => renderJuegoHistorial(j,equipoId)).join('')}` : '<div class="empty">Sin amistosos jugados en esta categoría y temporada.</div>'}
+  </section>`;
 }
 
 function renderDetalleEquipo(equipoId) {
@@ -169,6 +196,7 @@ function renderDetalleEquipo(equipoId) {
 
     <h3 class="lideres__titulo display" style="margin-top:28px;">Historial de Juegos</h3>
     ${historial.length === 0 ? `<div class="empty">Sin juegos jugados todavía en esta temporada.</div>` : historial.map(j => renderJuegoHistorial(j, equipoId)).join('')}
+    ${renderAmistososEquipo(equipoId)}
   `;
 
   document.getElementById('volver-equipos').addEventListener('click', () => {

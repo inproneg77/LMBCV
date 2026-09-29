@@ -16,12 +16,15 @@ function bitacoraDe(jugadorId, juegos = ESTADO_J.juegosOficiales) {
   const filas = [];
   juegos.forEach(j => {
     if (j.estatus !== 'jugado') return;
-    const esLocal = (j.estadisticas_local ?? j.estadisticas ?? []).some(e => e.jugador === jugadorId);
-    const esVisita = (j.estadisticas_visita ?? []).some(e => e.jugador === jugadorId);
+    const coincide = e => esAmistoso(j)
+      ? mismoRegistroAmistoso(e.jugador, jugadorId, ESTADO_J.jugadoresPorId)
+      : e.jugador === jugadorId;
+    const esLocal = (j.estadisticas_local ?? j.estadisticas ?? []).some(coincide);
+    const esVisita = (j.estadisticas_visita ?? []).some(coincide);
     if (!esLocal && !esVisita) return;
 
     const lista = esLocal ? (j.estadisticas_local ?? j.estadisticas) : j.estadisticas_visita;
-    const linea = lista.find(e => e.jugador === jugadorId);
+    const linea = lista.find(coincide);
     if (String(linea.asistio) === 'false') return;
 
     const propioId = esLocal ? j.local : j.visita;
