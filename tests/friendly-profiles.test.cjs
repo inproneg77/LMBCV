@@ -36,7 +36,7 @@ test('team friendly history and roster totals follow original IDs and stay outsi
  assert.equal(run('resumenEquipo("OSV40").pf'),12);
  assert.equal(run('juegosDelEquipo("OSV40",state.juegosAmistosos).length'),1);
  assert.equal(run('totalesJugadores("OSV40",state.juegosAmistosos).reduce((s,p)=>s+p.puntos,0)'),55);
- run('renderDetalleEquipo("OSV40")');assert.match(nodes.contenido.innerHTML,/55 puntos a favor/);assert.match(nodes.contenido.innerHTML,/PATA DURA/);
+ run('renderDetalleEquipo("OSV40")');assert.match(nodes.contenido.innerHTML,/55 puntos a favor/);assert.match(nodes.contenido.innerHTML,/vs PATA DURA/);assert.match(nodes.contenido.innerHTML,/55-50/);
  assert.equal(run('resumenEquipo("OSV40").pf'),12);
  run('temporadaActivaE="otra"');assert.equal(run('juegosDelEquipo("OSV40",state.juegosAmistosos).length'),0);
  run('temporadaActivaE="2026-2";categoriaActivaE="fem40"');assert.equal(run('juegosDelEquipo("OSV40",state.juegosAmistosos).length'),0);
