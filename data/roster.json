@@ -3393,6 +3393,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "AGARCIA2",
+      "nombre": "ARMANDO GARCIA",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var49",
+          "equipo_id": "RETRO49",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
