@@ -4918,6 +4918,20 @@
       ],
       "mvp_jugador": "CESDOMIN",
       "mvp_nombre": ""
+    },
+    {
+      "id": "var4020262_42",
+      "fecha": "2026-10-03",
+      "hora": "16:00",
+      "local": "OSV40",
+      "visita": "ALTAR2026",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
