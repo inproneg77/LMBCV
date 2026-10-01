@@ -4960,6 +4960,20 @@
       "estatus": "programado",
       "forfeit": "ninguno",
       "destacado": "true"
+    },
+    {
+      "id": "var4020262_45",
+      "fecha": "2026-10-03",
+      "hora": "19:00",
+      "local": "NARANJOV40",
+      "visita": "mineros4",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
