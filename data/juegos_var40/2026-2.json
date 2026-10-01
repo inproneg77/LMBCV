@@ -4946,6 +4946,20 @@
       "estatus": "programado",
       "forfeit": "ninguno",
       "destacado": "false"
+    },
+    {
+      "id": "var4020262_44",
+      "fecha": "2026-10-03",
+      "hora": "18:00",
+      "local": "CFEV40",
+      "visita": "VIKINGOSV40",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "true"
     }
   ]
 }
