@@ -30,9 +30,94 @@
       "temporada": "2026-2",
       "fase": "regular",
       "vuelta": 1,
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
-      "destacado": "false"
+      "destacado": "false",
+      "marcador_local": 46,
+      "marcador_visita": 60,
+      "estadisticas_local": [
+        {
+          "jugador": "HMACIEL",
+          "asistio": "true",
+          "puntos": 18,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "GORTEGA",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "ELPONCE",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "VICFRAN",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CAINBELTRAN",
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 3,
+          "faltas": 4
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "ABDELCO",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "TECOLIZ",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 2,
+          "faltas": 0
+        },
+        {
+          "jugador": "ALEXVEGA",
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 1,
+          "faltas": 3
+        },
+        {
+          "jugador": "JURIAS",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "Alexhndez",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "GBARRERAS",
+          "asistio": "true",
+          "puntos": 20,
+          "triples": 0,
+          "faltas": 1
+        }
+      ],
+      "mvp_jugador": "GBARRERAS",
+      "mvp_nombre": "20 PUNTOS"
     },
     {
       "id": "var4920262_3",
