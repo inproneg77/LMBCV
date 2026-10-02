@@ -228,16 +228,108 @@
       "marcador_visita": 25,
       "estadisticas_local": [
         {
+          "jugador": "GPALA",
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 2,
+          "faltas": 1
+        },
+        {
+          "jugador": "DMAZ",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
           "jugador": "GARYFEL",
           "asistio": "true",
           "puntos": 11,
           "triples": 0,
           "faltas": 3
+        },
+        {
+          "jugador": "MARIONB",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "MEMOSAL",
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 2,
+          "faltas": 0
+        },
+        {
+          "jugador": "JOSERABAGO",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "LCELAYA",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
         }
       ],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
-      "mvp_nombre": ""
+      "estadisticas_visita": [
+        {
+          "jugador": "RMONTES",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "FERMINZAVALA",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "ALEXESPINOZA",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 2,
+          "faltas": 1
+        },
+        {
+          "jugador": "LUISBAUTISTA",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "TITOLEON",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "LCASTLLO",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "AGARCIA2",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 3
+        }
+      ],
+      "mvp_jugador": "GPALA",
+      "mvp_nombre": "14 PUNTOS, 2 TRIPLES"
     }
   ]
 }
