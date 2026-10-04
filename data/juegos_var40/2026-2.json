@@ -4957,9 +4957,115 @@
       "temporada": "2026-2",
       "fase": "regular",
       "vuelta": 1,
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
-      "destacado": "true"
+      "destacado": "true",
+      "marcador_local": 52,
+      "marcador_visita": 45,
+      "estadisticas_local": [
+        {
+          "jugador": "JAVVALD",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 2
+        },
+        {
+          "jugador": "MEMOSAL",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "ANDGUZ",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ISAAOLA",
+          "asistio": "true",
+          "puntos": 25,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "MCUEN",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "NEGROURQ",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "LALOCEL",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "ALISANC",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "MLARA",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "ABDELCO",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "TECOLIZ",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JSAL",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "JAREDROM",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "CAINBELTRAN",
+          "asistio": "true",
+          "puntos": 16,
+          "triples": 2,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "ISAAOLA",
+      "mvp_nombre": "25 PUNTOS"
     },
     {
       "id": "var4020262_45",
