@@ -5282,9 +5282,94 @@
       "temporada": "2026-2",
       "fase": "regular",
       "vuelta": 1,
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
-      "destacado": "false"
+      "destacado": "false",
+      "marcador_local": 65,
+      "marcador_visita": 47,
+      "estadisticas_local": [
+        {
+          "jugador": "MARIONB",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "MEDEH",
+          "asistio": "true",
+          "puntos": 20,
+          "triples": 6,
+          "faltas": 0
+        },
+        {
+          "jugador": "BARRYMEN",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "CHUCOGA",
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 2,
+          "faltas": 0
+        },
+        {
+          "jugador": "javlopez",
+          "asistio": "true",
+          "puntos": 16,
+          "triples": 4,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "CESDOMIN",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 2,
+          "faltas": 2
+        },
+        {
+          "jugador": "IVRANG",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CARDURAN",
+          "asistio": "true",
+          "puntos": 22,
+          "triples": 2,
+          "faltas": 2
+        },
+        {
+          "jugador": "JOSEISAB",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "LUIDAVISLA",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "RACIELREYES",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 3
+        }
+      ],
+      "mvp_jugador": "MEDEH",
+      "mvp_nombre": "20 Puntos, 6 Triples"
     }
   ]
 }
