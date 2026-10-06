@@ -21,7 +21,7 @@ async function iniciarRankings() {
 
 // Acumula, por equipo, todo lo necesario para los 5 rankings ofensivos/
 // defensivos a partir de los juegos de temporada regular ya jugados
-// (misma base que el Standing).
+// Los forfeits conservan su resultado oficial, pero no cuentan como desempeño en cancha.
 function calcularEstadisticasEquipos() {
   const equipos = ESTADO_R.equipos.filter(e => e.categoria_id === categoriaActivaR);
   const stats = {};
@@ -31,6 +31,7 @@ function calcularEstadisticasEquipos() {
     j.categoria_id === categoriaActivaR &&
     j.estatus === 'jugado' &&
     (j.fase ?? 'regular') === 'regular' &&
+    !['local', 'visita'].includes(j.forfeit) &&
     (!temporadaActivaR || j.temporada === temporadaActivaR)
   );
 
@@ -104,8 +105,12 @@ function renderRankings() {
   if (seleccionado.modo === 'ranking') {
     const filas = calcularEstadisticasEquipos();
     contenidoHTML = filas.length === 0
-      ? `<div class="empty">Todavía no hay juegos jugados con estadísticas para calcular rankings en esta categoría/temporada.</div>`
+      ? `<div class="empty">Sin juegos disputados para calcular rankings en esta categoría/temporada.</div>`
       : renderSeccionRanking(RANKINGS_EQUIPO.find(r => r.id === seleccionado.id), filas);
+    const clasificados = new Set(filas.map(f => f.equipo.id));
+    const sinJuegos = ESTADO_R.equipos.filter(e => e.categoria_id === categoriaActivaR && !clasificados.has(e.id));
+    contenidoHTML = '<p class="ranking-nota">Promedios calculados únicamente con partidos disputados de temporada regular; se excluyen forfeits de ambos equipos.</p>' + contenidoHTML;
+    if (sinJuegos.length) contenidoHTML += '<p class="ranking-nota"><strong>Sin juegos disputados (fuera del ranking):</strong> ' + sinJuegos.map(e => escaparHTML(e.nombre)).join(' · ') + '</p>';
   } else if (seleccionado.modo === 'mvp') {
     contenidoHTML = renderSeccionMVP();
   } else {
