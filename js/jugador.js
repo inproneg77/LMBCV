@@ -108,12 +108,13 @@ function render(id) {
     .join(' · ');
 
   tituloWrap.innerHTML = `
-    <div class="hero__eyebrow">Perfil de jugador</div>
+    <div class="profile-identity"><div class="profile-avatar" aria-hidden="true">${escaparHTML((jugador?.nombre||'Jugador').trim().split(/\s+/).slice(0,2).map(n=>n[0]).join(''))}</div><div><div class="hero__eyebrow">Perfil de jugador</div>
     <h1 class="hero__title">${jugador?.nombre ?? 'Jugador'}</h1>
-    <p class="hero__sub">${equiposTexto || 'Sin equipo asignado'}${jugador?.numero ? ` · #${jugador.numero}` : ''}</p>
+    <p class="hero__sub">${equiposTexto || 'Sin equipo asignado'}${jugador?.numero ? ` · #${jugador.numero}` : ''}</p></div></div>
   `;
 
   cont.innerHTML = `
+    <div data-profile-root>${typeof ArenaUI!=='undefined'?ArenaUI.switches():''}<section id="profile-oficial" data-profile-panel="oficial" aria-label="Estadísticas oficiales">
     <h3 class="lideres__titulo display">Total oficial (todas las temporadas y equipos)</h3>
     <div class="dash-metricas">
       <div class="dash-metrica"><div class="dash-metrica__valor">${totalCarrera.jj}</div><div class="dash-metrica__label">Juegos jugados</div></div>
@@ -126,8 +127,10 @@ function render(id) {
 
     <h3 class="lideres__titulo display" style="margin-top:30px;">Desglose por Temporada, Categoría y Equipo</h3>
     ${grupos.length === 0 ? '<div class="empty">Todavía no tiene estadísticas oficiales capturadas.</div>' : grupos.map(g => renderGrupo(g)).join('')}
+    </section><section id="profile-amistosos" data-profile-panel="amistosos" aria-label="Estadísticas de amistosos" ${typeof ArenaUI!=='undefined'?'hidden':''}>
     <h3 class="lideres__titulo display" style="margin-top:30px;">Amistosos — fuera de los totales oficiales</h3>
     ${agruparPorTemporada(bitacoraDe(id, ESTADO_J.juegosAmistosos)).map(g => renderGrupo(g)).join('') || '<div class="empty">Sin participaciones en amistosos.</div>'}
+    </section></div>
   `;
 }
 
