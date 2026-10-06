@@ -174,6 +174,7 @@ function renderDetalleEquipo(equipoId) {
       </div>
     </div>
 
+    <div data-profile-root>${typeof ArenaUI!=='undefined'?ArenaUI.switches():''}<section id="profile-oficial" data-profile-panel="oficial" aria-label="Estadísticas oficiales">
     <h3 class="lideres__titulo display" style="margin-top:28px;">Estadísticas del Roster</h3>
     ${jugadores.length === 0 ? `<div class="empty">Sin jugadores en el roster todavía.</div>` : `
       <div class="table-scroll">
@@ -196,7 +197,7 @@ function renderDetalleEquipo(equipoId) {
 
     <h3 class="lideres__titulo display" style="margin-top:28px;">Historial de Juegos</h3>
     ${historial.length === 0 ? `<div class="empty">Sin juegos jugados todavía en esta temporada.</div>` : historial.map(j => renderJuegoHistorial(j, equipoId)).join('')}
-    ${renderAmistososEquipo(equipoId)}
+    </section><section id="profile-amistosos" data-profile-panel="amistosos" ${typeof ArenaUI!=='undefined'?'hidden':''}>${renderAmistososEquipo(equipoId)}</section></div>
   `;
 
   document.getElementById('volver-equipos').addEventListener('click', () => {

@@ -234,7 +234,7 @@ function renderJuego(j, lazy = false) {
         <img src="${RUTA_IMG}${visita?.logo ?? 'img/equipos/placeholder.svg'}" alt="${visita?.nombre ?? ''}" loading="lazy">
         <span class="equipo__nombre">${visita?.nombre ?? 'Por definir'}</span>
       </div>
-      <div class="juego-meta"><span>${sede}</span><span>${nombreTemporada}</span></div>
+      <div class="juego-meta"><span>${escaparHTML(j.hora)} hrs · ${sede}</span><span>${nombreTemporada}</span></div>
       ${mvpHTML}
       ${forfeitHTML}
       ${observacionHTML}
@@ -242,13 +242,14 @@ function renderJuego(j, lazy = false) {
     </div>
   `;
 
-  if (!tieneEstadisticas) return tarjeta;
+  const acciones = typeof ArenaUI !== 'undefined' ? ArenaUI.gameActions(j, ESTADO) : '';
+  if (!tieneEstadisticas) return `<article class="calendar-match">${tarjeta}${acciones}</article>`;
 
   return `
-    <details class="juego-toggle" data-game="${escaparHTML(j.id)}">
+    <article class="calendar-match"><details class="juego-toggle" data-game="${escaparHTML(j.id)}">
       <summary>${tarjeta}</summary>
       <div class="juego-detalle">${lazy ? '' : renderHojaEstadistica(j, ESTADO)}</div>
-    </details>
+    </details>${acciones}</article>
   `;
 }
 

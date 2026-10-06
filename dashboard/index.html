@@ -19,8 +19,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" href="../css/modern.css?v=modern-2"><script defer src="../js/site.js?v=modern-2"></script></head>
-<body>
+<link rel="stylesheet" href="../css/modern.css?v=modern-2"><script defer src="../js/site.js?v=modern-2"></script><link rel="stylesheet" href="../css/arena.css?v=arena-1"></head>
+<body class="arena">
 
   <header class="site-header"><div class="site-header__inner"><a class="brand" href="../index.html">LMBC</a><nav class="site-nav"><a href="../index.html">Inicio</a><a href="../calendario/">Partidos</a><a href="../equipos/">Equipos</a><a href="../estadisticas/">Estadísticas</a><a href="../torneos/">Torneos</a><a href="../administrar/">Administrar</a></nav></div></header>
 
@@ -53,7 +53,7 @@
     const _fetch = window.fetch;
     window.fetch = (url, opts) => _fetch(url.startsWith('data/') ? '../' + url : url, opts);
   </script>
-  <script src="../js/amistosos.js?v=torneos-1"></script>
+  <script src="../js/arena-core.js?v=arena-1"></script><script src="../js/arena.js?v=arena-1"></script><script src="../js/amistosos.js?v=torneos-1"></script>
 <script src="../js/datos.js?v=modern-2"></script>
   <script src="../js/dashboard.js?v=torneos-1"></script>
 </body>

@@ -1,0 +1,141 @@
+/* Arena: public presentation only. No competition rules or data writes. */
+:root{--arena-dark:#122825;--arena-green:#215c4c;--arena-lime:#d6ee96;--arena-paper:#f6f5f0;--arena-border:#dedfd6}
+body.arena{background:var(--arena-paper);--navy:#172e29;--gold:#426a42;--gold-bright:#d6ee96;--bg:var(--arena-paper);--text-dim:#586760;--line:var(--arena-border)}
+.arena .site-header{background:#fcfcf8eF;backdrop-filter:blur(12px)}
+.arena .brand__mark{width:48px;height:48px;object-fit:contain}
+.arena .site-nav a.active{background:#eaf0df;box-shadow:none;color:#173d2d}
+.arena .site-header__inner{max-width:1280px}
+.arena .portal,.arena .page,.arena .hero__inner,.arena .controles{max-width:1200px}
+.arena .portal-intro{position:relative;isolation:isolate;overflow:hidden;background:var(--arena-dark);color:#fff;border-radius:24px;padding:40px;margin:0 0 22px;min-height:245px;align-items:center}
+.arena .portal-intro:after{content:'';position:absolute;right:-100px;top:-180px;width:580px;height:580px;border:1px solid #d6ee9633;border-radius:50%;box-shadow:0 0 0 75px #d6ee960a,0 0 0 150px #d6ee9607;z-index:-1;pointer-events:none}
+.arena .portal-intro h1{font-family:Teko,Impact,sans-serif;text-transform:uppercase;font-size:clamp(52px,6.7vw,86px);letter-spacing:-.025em;line-height:.95;max-width:720px;margin:14px 0}
+.arena .portal-intro .eyebrow{color:var(--arena-lime);font-size:11px}
+.arena .portal-intro .muted{color:#d6dfd9;max-width:470px;line-height:1.65}
+.arena .portal-intro>.secondary-link{background:var(--arena-lime);color:var(--arena-dark);border:0;white-space:nowrap;align-self:end}
+.arena .primary-link{background:var(--arena-green)}
+.arena .quick-paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 24px}
+.arena .quick-paths a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;font-weight:700;font-size:13px}
+.arena .quick-paths small{display:block;font-weight:400;color:var(--text-dim);font-size:11px;margin-top:3px}
+.arena .portal-filters{background:#ebece4;border-radius:12px;padding:12px 16px;justify-content:space-between;margin:0 0 24px}
+.arena .portal-filters label{flex:1;max-width:360px}
+.arena .portal-filters select{width:100%}
+.arena .portal-top{grid-template-columns:minmax(0,1.45fr) minmax(0,1fr)}
+.arena .spotlight{background:#e2ebd5;color:var(--navy);border:1px solid #ccd8be;padding:26px;border-radius:18px}
+.arena .spotlight .eyebrow{color:#38572c}
+.arena .spotlight .game-mini{background:#fff;color:var(--navy);border-color:#d3dccb}
+.arena .spotlight .game-mini small,.arena .spotlight .game-meta{color:#536255}
+.arena .spotlight .game-mini .game-state{color:#305b32}
+.arena .spotlight .secondary-link{background:white;color:var(--navy);border-color:#ccd8be}
+.arena .portal-card,.arena .equipo-card{box-shadow:none;border-radius:18px}
+.arena .portal-section{margin-top:38px}
+.arena .section-heading{border-bottom:1px solid var(--line);padding-bottom:14px}
+.arena .section-heading h2{font-size:24px;letter-spacing:-.04em}
+.arena .match-shell{min-width:0;border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden}
+.arena .match-shell .game-mini{border:0;border-radius:0;padding:20px}
+.arena .game-mini:hover{background:#fafbf6}
+.arena .game-side{grid-template-columns:44px minmax(0,1fr) auto;font-size:14px;gap:12px;margin:14px 0}
+.arena .game-side span{overflow-wrap:anywhere}
+.arena .game-side img{width:44px;height:44px;padding:4px;border:1px solid #edf0e7}
+.arena .game-side b{font-family:Teko,Impact,sans-serif;font-size:36px;line-height:1;letter-spacing:0}
+.arena .game-meta{flex-wrap:wrap;align-items:start;line-height:1.5}
+.arena .game-state{padding:3px 7px;background:#edf3e4;border-radius:5px;color:#315b30}
+.arena .game-mini small{padding-top:12px;border-top:1px solid var(--line);line-height:1.8}
+.arena .game-actions{display:flex;gap:8px;justify-content:flex-end;padding:10px 14px;border-top:1px solid var(--line);background:#fafbf7}
+.arena .game-actions button{border:0;background:transparent;color:#315b40;font-size:12px;font-weight:700;min-height:36px;padding:7px 10px;border-radius:6px}
+.arena .game-actions button:hover{background:#e8eedf}
+.arena .game-actions button:disabled{opacity:.55}
+.arena .competition-card{background:#721e3b;color:white;border:0}
+.arena .competition-card .eyebrow{color:#ffe9ad}
+.arena .competition-card p{color:#f3dae2}
+.arena .competition-card .arrow{color:#ffe9ad}
+.arena .portal-card .stat-number{font-family:Teko,Impact,sans-serif;font-size:62px;color:var(--arena-green)}
+.arena .portal-card .stat-number .leader-label{font:500 12px Inter,sans-serif;letter-spacing:0}
+.arena .mes{background:transparent;border:0;border-radius:0;margin-bottom:20px}
+.arena .mes__titulo{background:#e6e9de;color:var(--navy);border-radius:12px;padding:18px 20px;font-weight:750}
+.arena .jornada{padding:18px 0}
+.arena .jornada__head{margin:12px 0 18px}
+.arena .jornada__fecha{font-family:Inter,sans-serif;font-size:20px;letter-spacing:-.02em}
+.arena .juego{grid-template-columns:minmax(0,1fr) 132px minmax(0,1fr);gap:18px;padding:24px;border:1px solid var(--line);box-shadow:none;border-radius:16px}
+.arena .juego .equipo{min-width:0;gap:16px}
+.arena .juego .equipo img{width:64px;height:64px;flex-shrink:0;border:1px solid var(--line)}
+.arena .juego .equipo__nombre{font-size:16px;white-space:normal;overflow-wrap:anywhere}
+.arena .juego .marcador__score{font-family:Teko,Impact,sans-serif;font-size:46px;letter-spacing:0;gap:10px}
+.arena .juego .marcador__badge{background:#edf1e6;color:#365a3a;font-size:10px}
+.arena .juego .marcador__info{margin-top:6px}
+.arena .juego-meta{font-size:12px;gap:8px 18px;padding-top:14px}
+.arena .juego .fase-tag{position:static;grid-column:1/-1;justify-self:start;background:#eaf1df;padding:4px 9px;border-radius:6px;font-size:11px}
+.arena .juego .mvp,.arena .juego .observacion,.arena .juego .juego-toggle__hint{grid-column:1/-1;overflow-wrap:anywhere}
+.arena .juego .mvp{background:#f0f4e9;color:#365039;border-radius:8px;padding:10px}
+.arena .juego-toggle{margin-bottom:0}
+.arena .calendar-match{margin-bottom:16px}
+.arena .calendar-match>.game-actions{border:1px solid var(--line);border-top:0;border-radius:0 0 12px 12px;margin-top:-4px}
+.arena .calendar-filters{box-shadow:none}
+.arena .ranking-podium{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0 24px}
+.arena .podium-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 18px;display:grid;justify-items:center;gap:10px;text-align:center;min-width:0}
+.arena .podium-card:first-child{background:#e3edcf;border-color:#c2d3a4}
+.arena .podium-place{position:absolute;top:14px;left:16px;font-weight:800;font-size:14px;color:#567042}
+.arena .podium-card img{width:68px;height:68px;object-fit:contain}
+.arena .podium-card strong{overflow-wrap:anywhere;font-size:14px}
+.arena .podium-number{font-family:Teko,Impact,sans-serif;font-size:48px;line-height:1;color:var(--arena-green)}
+.arena .podium-card small{font-size:11px;color:var(--text-dim)}
+.arena .ranking-nota{padding:14px 18px;background:#e9ede0;border-radius:10px;font-size:13px}
+.arena .equipo-card img{width:94px;height:94px;object-fit:contain}
+.arena .equipo-card{padding:28px 18px;transition:transform .15s}
+.arena .equipo-card:hover{transform:translateY(-3px);border-color:#879d78}
+.arena .equipo-detalle-header{padding:26px;background:#e5ecd9;border:1px solid #d3dec4;border-radius:18px;gap:22px;margin:20px 0}
+.arena .equipo-detalle-header>img{width:96px;height:96px;object-fit:contain;background:white;padding:10px;border-radius:18px}
+.arena .profile-switch{display:flex;gap:8px;margin:20px 0}
+.arena .profile-switch button{background:#fff;border:1px solid var(--line);border-radius:9px;padding:12px 18px;font-weight:650;font-size:13px}
+.arena .profile-switch button[aria-pressed=true]{background:var(--arena-green);border-color:var(--arena-green);color:white}
+.arena .profile-identity{display:flex;align-items:center;gap:20px}
+.arena .profile-avatar{width:90px;height:90px;border-radius:20px;background:#dce9c5;color:#2f5735;display:grid;place-items:center;flex-shrink:0;font-size:34px;font-weight:800}
+.arena .profile-avatar img{width:100%;height:100%;object-fit:cover;border-radius:inherit}
+.arena .dash-metricas{gap:12px}
+.arena .dash-metrica{background:white;border:1px solid var(--line);border-radius:14px;padding:20px 12px}
+.arena .dash-metrica__valor{font-family:Teko,Impact,sans-serif;font-size:44px;color:var(--arena-green)}
+.arena .jugador-grupo{margin-top:20px;border-radius:14px;overflow:hidden}
+.arena .historial-item{gap:10px;min-width:0}
+.arena .historial-item__rival{white-space:normal;overflow-wrap:anywhere}
+.arena .arena-share-dialog{width:min(640px,94vw);max-height:90dvh;padding:22px;border:1px solid var(--line);border-radius:20px}
+.arena .arena-share-dialog img{display:block;width:100%;max-height:54vh;object-fit:contain;border-radius:10px;background:#122825}
+.arena .arena-share-dialog .share-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.arena .arena-share-dialog p{font-size:13px;color:var(--text-dim)}
+.arena .tor-card{border-radius:16px;box-shadow:none}
+.arena .tor-card img{object-fit:contain}
+.arena .tor-wrap>h1{font-size:clamp(28px,4vw,42px)}
+.arena .tor-context{background:#e6eddc}
+.arena .patrocinadores{border-top:1px solid var(--line);background:#eeefe7}
+.arena .patrocinadores__grid img{object-fit:contain;max-width:150px}
+.arena .site-footer{background:var(--arena-dark)}
+@media(max-width:760px){
+.arena .portal-intro{padding:28px 22px;min-height:260px;gap:20px;border-radius:18px}
+.arena .portal-intro h1{font-size:56px}
+.arena .portal-intro>.secondary-link{align-self:start}
+.arena .quick-paths{gap:7px}.arena .quick-paths a{padding:12px 10px;font-size:11px}.arena .quick-paths small{font-size:10px}
+.arena .portal-top{grid-template-columns:1fr}
+.arena .spotlight{padding:20px}
+.arena .portal-filters{padding:12px;gap:10px}.arena .portal-filters label{min-width:0;max-width:none}
+.arena .juego{grid-template-columns:minmax(0,1fr) 86px minmax(0,1fr);padding:16px 12px;gap:12px}
+.arena .juego .equipo{flex-direction:column;text-align:center;gap:9px}
+.arena .juego .equipo img{width:52px;height:52px}
+.arena .juego .equipo__nombre{font-size:12px;line-height:1.4}
+.arena .juego .marcador__score{font-size:34px;gap:5px}
+.arena .juego-meta{font-size:11px;line-height:1.6}
+.arena .ranking-podium{gap:7px}
+.arena .podium-card{padding:34px 8px 16px;gap:8px;border-radius:12px}
+.arena .podium-card img{width:44px;height:44px}.arena .podium-card strong{font-size:11px}
+.arena .podium-number{font-size:34px}.arena .podium-card small{font-size:10px}
+.arena .podium-place{top:10px;left:10px}
+.arena .equipo-detalle-header{padding:20px 16px;gap:14px}
+.arena .equipo-detalle-header>img{width:70px;height:70px}
+.arena .equipo-detalle-header h2{font-size:24px!important;overflow-wrap:anywhere}
+.arena .profile-avatar{width:64px;height:64px;border-radius:14px;font-size:25px}
+.arena .profile-identity{align-items:start;gap:14px}
+.arena .profile-identity h1{font-size:27px;overflow-wrap:anywhere}
+.arena .profile-switch button{flex:1;padding:10px;font-size:12px}
+.arena .historial-item{display:flex!important;flex-wrap:wrap;padding:13px 10px}
+.arena .historial-item__rival{flex:1 1 65%}
+.arena .game-actions{justify-content:center}
+.arena .mobile-dock .active{background:#e7efd9;color:#254c30}
+}
+@media print{.arena .quick-paths,.arena .game-actions,.arena .profile-switch,.arena .ranking-podium,.arena-share-dialog{display:none!important}.arena [data-profile-panel][hidden]{display:block!important}.arena .juego{break-inside:avoid}.arena .portal-intro{background:white;color:black;min-height:0}.arena .portal-intro .muted{color:black}}

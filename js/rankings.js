@@ -134,6 +134,7 @@ function renderSeccionRanking(r, filas) {
 
   return `
     <section class="ranking-seccion">
+      <div class="ranking-podium" aria-label="Primeros tres equipos">${ordenadas.slice(0,3).map((f,i)=>`<article class="podium-card"><span class="podium-place">#${i+1}</span><img width="68" height="68" src="${RUTA_IMG}${f.equipo.logo}" alt="" loading="lazy"><strong>${escaparHTML(f.equipo.nombre)}</strong><span class="podium-number">${f[r.campo].toFixed(1)}</span><small>${r.sufijo} · ${f.jj} juegos disputados</small></article>`).join('')}</div>
       <div class="table-scroll">
         <table class="standing-table">
           <thead>
