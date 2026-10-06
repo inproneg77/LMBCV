@@ -108,7 +108,7 @@ function render(id) {
     .join(' · ');
 
   tituloWrap.innerHTML = `
-    <div class="profile-identity"><div class="profile-avatar" aria-hidden="true">${escaparHTML((jugador?.nombre||'Jugador').trim().split(/\s+/).slice(0,2).map(n=>n[0]).join(''))}</div><div><div class="hero__eyebrow">Perfil de jugador</div>
+    <div class="profile-identity"><div class="profile-avatar" aria-hidden="true">${jugador?.foto&&/^img\/jugadores\/[a-zA-Z0-9_-]+\.png$/.test(jugador.foto)?`<img src="../${escaparHTML(jugador.foto)}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">`:escaparHTML((jugador?.nombre||'Jugador').trim().split(/\s+/).slice(0,2).map(n=>n[0]).join(''))}</div><div><div class="hero__eyebrow">Perfil de jugador</div>
     <h1 class="hero__title">${jugador?.nombre ?? 'Jugador'}</h1>
     <p class="hero__sub">${equiposTexto || 'Sin equipo asignado'}${jugador?.numero ? ` · #${jugador.numero}` : ''}</p></div></div>
   `;
