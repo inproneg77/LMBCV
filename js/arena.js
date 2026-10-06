@@ -34,7 +34,7 @@
   fit(ctx,m.local,270,510,420,32);fit(ctx,m.visitor,810,510,420,32);
   ctx.fillStyle='#29473d';ctx.fillRect(64,560,952,150);ctx.fillStyle='#d6ee96';
   fit(ctx,mvp?m.mvp:m.date+' · '+(m.time||''),540,620,850,mvp?44:32);
-  ctx.fillStyle='#e1e9dd';fit(ctx,mvp?'Reconocimiento registrado en la hoja del juego':m.venue,540,666,850,24);
+  if(!mvp){ctx.fillStyle='#e1e9dd';fit(ctx,m.venue,540,666,850,24);}
   if(mvp){ctx.fillStyle='#d6dfd8';fit(ctx,m.date+' · '+m.venue,540,763,950,24);}
   if(sponsors.some(Boolean)){
    ctx.fillStyle='#d6dfd8';fit(ctx,'CON EL APOYO DE',540,834,950,17);
