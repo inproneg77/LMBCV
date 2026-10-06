@@ -8,7 +8,7 @@
   const date = v => /^\d{4}-\d{2}-\d{2}$/.test(v)&&new Date(v+'T12:00:00Z').toISOString().slice(0,10)===v;
   const minutes = v => { if(!/^([01]\d|2[0-3]):[0-5]\d$/.test(v))fail('Usa una hora de 24 horas, por ejemplo 17:30.');return +v.slice(0,2)*60 + +v.slice(3); };
   const time = n => String(Math.floor(n/60)).padStart(2,'0')+':'+String(n%60).padStart(2,'0');
-  function create(title){return {schema:1,id:id('tor'),name:name(title),status:'borrador',logo:'',start:'',end:'',timezone:'America/Hermosillo',venues:[],teams:[],entries:[],divisions:[],games:[],trash:[],history:[]};}
+  function create(title){return {schema:1,id:id('tor'),name:name(title),status:'borrador',visible:false,logo:'',start:'',end:'',timezone:'America/Hermosillo',venues:[],teams:[],entries:[],divisions:[],games:[],trash:[],history:[]};}
   function division(title,branch){return {id:id('div'),name:name(title),branch:name(branch),groups:[],qualify:2,win:2,loss:1,forfeit:0,tieOrder:[],bracketSeeds:[]};}
   const divisionEntries=(t,d)=>t.entries.filter(e=>e.divisionId===d);
   const teamName=(t,e)=>t.teams.find(x=>x.id===t.entries.find(x=>x.id===e)?.teamId)?.name??'Por definir';
@@ -82,6 +82,7 @@
       for(const line of g[side+'Stats']??[]){const p=entry.roster.find(p=>p.id===line.playerId);if(!p)continue;const r=rows[p.id]??={id:p.id,entryId:eid,name:p.name,number:p.number,team:teamName(t,eid),played:0,points:0,threes:0,fouls:0,mvp:0};r.played++;r.points+=line.points;r.threes+=line.threes;r.fouls+=line.fouls;r.mvp+=g.mvp===p.id?1:0;a.threes+=line.threes;a.fouls+=line.fouls;}}
     return {players:Object.values(rows),teams:Object.values(teams),games};}
   const roundName=(t,g)=>{const max=Math.max(...t.games.filter(x=>x.divisionId===g.divisionId&&x.phase==='knockout').map(x=>x.round));return ({0:'Final',1:'Semifinal',2:'Cuartos de final',3:'Octavos de final'})[max-g.round]??'Ronda '+g.round;};
-  const api={clone,id,name,integer,date,minutes,time,create,division,validate,validateResult,divisionEntries,teamName,standings,roundRobin,groupGames,schedule,qualifiers,bracket,winner,resolve,result,descendants,reopen,stats,roundName};
+  const isPublic=t=>t.visible!==false&&['publicado','finalizado'].includes(t.status);
+  const api={isPublic,clone,id,name,integer,date,minutes,time,create,division,validate,validateResult,divisionEntries,teamName,standings,roundRobin,groupGames,schedule,qualifiers,bracket,winner,resolve,result,descendants,reopen,stats,roundName};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.Torneo=api;
 })(typeof window!=='undefined'?window:this);

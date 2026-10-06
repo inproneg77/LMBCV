@@ -16,7 +16,7 @@
     const head=(await api('/git/ref/heads/main')).object.sha;
     const current=await read(path,head);if(current.sha!==expectedSha){const error=new Error('Otra persona modificó este torneo. Tu borrador está conservado. Exporta una copia y abre la versión actual antes de combinar cambios.');error.status=409;throw error;}
     const index=(await read('data/torneos/index.json',head)).data??{torneos:[]};
-    const summary={id:t.id,name:t.name,logo:t.logo,status:t.status,start:t.start,end:t.end,divisions:t.divisions.map(d=>({id:d.id,name:d.name,branch:d.branch})),updatedAt:new Date().toISOString()};
+    const summary={id:t.id,name:t.name,logo:t.logo,status:t.status,visible:core.isPublic(t),start:t.start,end:t.end,divisions:t.divisions.map(d=>({id:d.id,name:d.name,branch:d.branch})),updatedAt:new Date().toISOString()};
     index.torneos=[...index.torneos.filter(x=>x.id!==t.id),summary];
     const parent=await api('/git/commits/'+head);const entries=[];
     const dataBlob=await api('/git/blobs','POST',{content:JSON.stringify(t,null,2)+'\n',encoding:'utf-8'});entries.push({path,mode:'100644',type:'blob',sha:dataBlob.sha});
