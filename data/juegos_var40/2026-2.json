@@ -4929,9 +4929,108 @@
       "temporada": "2026-2",
       "fase": "regular",
       "vuelta": 1,
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
-      "destacado": "false"
+      "destacado": "false",
+      "marcador_local": 45,
+      "marcador_visita": 37,
+      "estadisticas_local": [
+        {
+          "jugador": "GPALA",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 2
+        },
+        {
+          "jugador": "DMAZ",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 2
+        },
+        {
+          "jugador": "DNEB",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "ANARAIZA",
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ELIASTRUJ",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 0,
+          "faltas": 4
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "RGARCIA",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "JSAGARTE2",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "JLOPEZ2",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 2,
+          "faltas": 1
+        },
+        {
+          "jugador": "ETORRES2",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "GMENDEZYAQUI",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 5
+        },
+        {
+          "jugador": "RBURRUEL2",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 3,
+          "faltas": 3
+        },
+        {
+          "jugador": "GGALAVINA",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "RCASTRO",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 1,
+          "faltas": 3
+        }
+      ],
+      "mvp_jugador": "ANARAIZA",
+      "mvp_nombre": ""
     },
     {
       "id": "var4020262_43",
