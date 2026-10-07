@@ -1,0 +1,23 @@
+/* Cup-only presentation: no league styles or data dependencies. */
+.tor-wrap,.tor-grid,.tor-context,.tor-card,.tor-actions,.tor-row,.edition-title{min-width:0}
+.tor-wrap h1,.tor-wrap h2,.tor-wrap h3,dialog h2{overflow-wrap:anywhere;line-height:1.25}
+.tor-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));align-items:start}
+.tor-card{margin:0;padding:22px}.tor-grid{margin-block:20px}.tor-card .tor-actions{margin-bottom:0}
+.game-card{display:flex;flex-direction:column;gap:12px;height:100%}.game-card>.tor-tag{align-self:flex-start;margin:0}
+.game-teams{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:12px}
+.game-teams h3{font-size:clamp(16px,2vw,21px);margin:0;white-space:normal;overflow-wrap:anywhere}.game-teams h3:last-child{text-align:right}
+.game-versus{font-size:11px;font-weight:800;color:var(--muted)}.game-card .tor-score{margin:0;text-align:center;font-size:34px}
+.game-meta{display:flex;flex-wrap:wrap;gap:8px 16px;background:#fff8da;border-radius:10px;padding:12px;line-height:1.5;font-size:13px}
+.game-meta span:last-child{flex-basis:100%;overflow-wrap:anywhere}.game-card p{margin:0}.game-card>.tor-actions:last-child{margin-top:auto}
+.tor-tabs{display:flex;flex-wrap:wrap;background:#fff;padding:12px;border-radius:12px;border:1px solid var(--line)}
+.tor-tabs button{flex:1 1 145px;white-space:normal}.tor-tabs button.active{box-shadow:0 3px 12px #751b3c25}
+.tor-actions button,.tor-actions a{white-space:normal;overflow-wrap:anywhere}.tor-context select{width:100%}
+.player-photo{width:68px;height:80px;object-fit:cover;border-radius:10px;display:block;margin-bottom:8px}
+.player-portrait{display:block;width:min(260px,100%);max-height:320px;object-fit:cover;border-radius:16px;margin-bottom:20px}
+.tor-table input[type=file]{width:220px;white-space:normal;font-size:12px}.tor-table label{font-size:12px;max-width:240px;white-space:normal}
+.share-preview{width:100%;height:auto;display:block;border-radius:12px}.copa-share{max-width:640px}
+dialog .tor-actions{flex-wrap:wrap}dialog .tor-link{background:var(--guinda);color:#fff;padding:12px 16px;border-radius:8px}
+.tor-table td:first-child{white-space:normal;min-width:150px}.tor-table button{white-space:normal;text-align:left}
+.tor-table th{position:sticky;top:0}.tor-scroll{max-width:100%;overscroll-behavior-inline:contain}
+@media(max-width:640px){.copa-header{padding:16px;gap:12px;align-items:flex-start}.copa-header nav{gap:8px;flex-wrap:wrap;justify-content:flex-end}.copa-header nav .admin-link{padding:10px;font-size:12px}.copa-brand small{max-width:120px}.tor-wrap{padding:20px 12px 48px}.tor-card{padding:16px}.tor-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));padding:8px;gap:6px}.tor-tabs button{padding:10px 6px;font-size:12px}.tor-context{display:block}.tor-context span{display:block}.tor-context select{font-size:16px}.tor-row{grid-template-columns:1fr}.tor-actions>button,.tor-actions>a{flex:1 1 135px;text-align:center}.edition-title{gap:12px;align-items:flex-start}.edition-logo{width:64px;height:64px}.edition-title h1{font-size:26px}.tor-savebar{position:static}.game-teams{gap:8px}dialog{width:calc(100% - 16px);max-height:92dvh;padding:16px}dialog .tor-actions{bottom:-16px}.tor-table input{font-size:16px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
