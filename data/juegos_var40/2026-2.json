@@ -5322,6 +5322,13 @@
           "puntos": 16,
           "triples": 4,
           "faltas": 0
+        },
+        {
+          "jugador": "LFELIX",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
         }
       ],
       "estadisticas_visita": [
