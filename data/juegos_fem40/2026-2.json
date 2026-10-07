@@ -1900,6 +1900,20 @@
       "estatus": "programado",
       "forfeit": "ninguno",
       "destacado": "false"
+    },
+    {
+      "id": "fem4020262_16",
+      "fecha": "2026-10-10",
+      "hora": "18:00",
+      "local": "MAESTRASF40",
+      "visita": "DIAMONDS40",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
