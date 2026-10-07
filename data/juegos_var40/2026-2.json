@@ -5370,6 +5370,20 @@
       ],
       "mvp_jugador": "MEDEH",
       "mvp_nombre": "20 Puntos, 6 Triples"
+    },
+    {
+      "id": "var4020262_46",
+      "fecha": "2026-10-11",
+      "hora": "16:00",
+      "local": "CFEV40",
+      "visita": "BURROSV40",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "true"
     }
   ]
 }
