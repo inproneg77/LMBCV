@@ -3500,6 +3500,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "LFELIX",
+      "nombre": "LUIS FELIX",
+      "numero": "77",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "NARANJOV40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
