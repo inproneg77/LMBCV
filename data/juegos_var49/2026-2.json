@@ -330,6 +330,20 @@
       ],
       "mvp_jugador": "GPALA",
       "mvp_nombre": "14 PUNTOS, 2 TRIPLES"
+    },
+    {
+      "id": "var4920262_5",
+      "fecha": "2026-10-11",
+      "hora": "11:00",
+      "local": "VIKINGOSV40",
+      "visita": "FEDE49",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
