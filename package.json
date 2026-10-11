@@ -1,6 +1,0 @@
-{
-  "name": "lmbc-vets",
-  "private": true,
-  "scripts": {"test": "node scripts/test.cjs"},
-  "engines": {"node": ">=24"}
-}
