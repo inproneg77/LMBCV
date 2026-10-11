@@ -3518,6 +3518,18 @@
         }
       ],
       "foto": "img/jugadores/foto-0d0ca6cb-20a3-483d-bc9c-8b94cd8b6c08.png"
+    },
+    {
+      "id": "JMARTINEZ",
+      "nombre": "JUAN MARCOS MARTINEZ",
+      "numero": "55",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ALTOV40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
