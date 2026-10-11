@@ -4,14 +4,14 @@ let temporadaActivaE = null;
 let equipoActivoE = null;
 
 async function iniciarEquipos() {
-  ESTADO_E = await cargarDatos();
+  ESTADO_E = await cargarDatos({temporada:new URLSearchParams(window.location?.search||'').get('temporada')||'activa'});
   renderPatrocinadores(ESTADO_E.patrocinadores);
 
   iniciarSelectorTemporada(ESTADO_E.temporadas, (temp) => {
     temporadaActivaE = temp;
     equipoActivoE = null;
     renderEquipos();
-  });
+  }, ESTADO_E);
 
   iniciarTabs(ESTADO_E.categorias, (cat) => {
     categoriaActivaE = cat;
@@ -45,8 +45,8 @@ function renderListaEquipos() {
     <div class="equipos-grid">
       ${equipos.map(e => `
         <button class="equipo-card" data-id="${e.id}">
-          <img src="${RUTA_IMG}${e.logo}" alt="${e.nombre}" loading="lazy">
-          <span>${e.nombre}</span>
+          <img src="${RUTA_IMG}${escaparHTML(e.logo)}" alt="${escaparHTML(e.nombre)}" loading="lazy">
+          <span>${escaparHTML(e.nombre)}</span>
         </button>
       `).join('')}
     </div>
@@ -165,9 +165,9 @@ function renderDetalleEquipo(equipoId) {
     </button>
 
     <div class="equipo-detalle-header">
-      <img src="${RUTA_IMG}${equipo.logo}" alt="${equipo.nombre}">
+      <img src="${RUTA_IMG}${escaparHTML(equipo.logo)}" alt="${escaparHTML(equipo.nombre)}">
       <div>
-        <h2 class="display" style="font-size:32px; color:var(--navy);">${equipo.nombre}</h2>
+        <h2 class="display" style="font-size:32px; color:var(--navy);">${escaparHTML(equipo.nombre)}</h2>
         <div class="mono" style="color:var(--text-dim); font-size:13px;">
           ${r.jj} JJ · ${r.jg}-${r.jp} · ${r.pts} pts en tabla · Dif ${r.pf - r.pc >= 0 ? '+' : ''}${r.pf - r.pc}
         </div>
@@ -224,7 +224,7 @@ function renderJuegoHistorial(j, equipoId) {
   const resumen = `
     <div class="historial-item">
       <span class="historial-item__resultado ${gano ? 'gano' : 'perdio'}">${gano ? 'G' : 'P'}</span>
-      <span class="historial-item__rival">${esLocal ? 'vs' : '@'} ${rival?.nombre ?? '—'}</span>
+      <span class="historial-item__rival">${esLocal ? 'vs' : '@'} ${escaparHTML(rival?.nombre ?? '—')}</span>
       <span class="mono">${propio}-${marcadorRival}</span>
       <span class="historial-item__fecha mono">${texto}</span>
       ${tieneStats ? '<span class="historial-item__ver">Ver hoja ▾</span>' : ''}

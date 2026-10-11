@@ -1,5 +1,5 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
-const C=require('../js/fan-core.js');const ctx=vm.createContext({});vm.runInContext(fs.readFileSync(path.join(__dirname,'../js/amistosos.js'),'utf8'),ctx);const table=ctx.calcularTablaLiga;
+const C=require('../js/fan-core.js');const ctx=vm.createContext({FanCore:require('../js/fan-core.js'),});vm.runInContext(fs.readFileSync(path.join(__dirname,'../js/amistosos.js'),'utf8'),ctx);const table=ctx.calcularTablaLiga;
 const player={id:'p',nombre:'Jugador real',foto:'img/jugadores/p.png'};
 const game=(id,extra={})=>({id,categoria_id:'var40',temporada:'2026-2',fase:'regular',estatus:'jugado',fecha:'2026-10-01',hora:'18:00',local:'a',visita:'b',marcador_local:60,marcador_visita:40,estadisticas_local:[{jugador:'p',puntos:22,triples:4,asistio:true}],...extra});
 function state(games){return {equipos:[{id:'a',nombre:'A',categoria_id:'var40'},{id:'b',nombre:'B',categoria_id:'var40'},{id:'c',nombre:'A',categoria_id:'fem40'}],juegos:games,playoffs:[],jugadoresPorId:{p:player}};}

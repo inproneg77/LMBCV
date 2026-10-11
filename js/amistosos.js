@@ -25,6 +25,31 @@ function validarParticipaciones(juego, jugadores, categoriaId) {
   }
   if (juego.mvp_jugador && !vistos.has(juego.mvp_jugador)) throw new Error('El MVP debe haber participado en este juego.');
 }
+function firmaJuego(juego) {
+  const ordenar=v=>Array.isArray(v)?v.map(ordenar):v&&typeof v==='object'?Object.fromEntries(Object.keys(v).sort().map(k=>[k,ordenar(v[k])])):v;
+  return JSON.stringify(ordenar(juego));
+}
+function verificarVersionJuego(actual, original) {
+  if(original && firmaJuego(actual)!==firmaJuego(original))throw new Error('Otra sesión modificó este juego. Tu borrador se conserva. Recarga el juego y revisa la versión actual antes de combinar tus cambios.');
+}
+function validarCapturaLiga(juego) {
+  const entero=(v,label)=>{if(!Number.isInteger(v)||v<0)throw new Error(label+' debe ser un entero no negativo.');};
+  entero(juego.marcador_local,'Marcador local');entero(juego.marcador_visita,'Marcador visitante');
+  if(juego.estatus==='jugado'&&juego.marcador_local===juego.marcador_visita)throw new Error('Un juego finalizado no puede terminar empatado.');
+  if(['local','visita'].includes(juego.forfeit)){
+    if(juego.marcador_local!==(juego.forfeit==='local'?0:20)||juego.marcador_visita!==(juego.forfeit==='visita'?0:20))throw new Error('Un forfeit se registra con marcador administrativo 20–0.');
+    if((juego.estadisticas_local??[]).length||(juego.estadisticas_visita??[]).length||juego.mvp_jugador)throw new Error('Un forfeit no tiene estadísticas individuales ni MVP.');
+    return true;
+  }
+  const sumas=[];
+  for(const lado of ['local','visita']){
+    const lista=juego['estadisticas_'+lado]??[];let suma=0;
+    for(const l of lista){for(const campo of ['puntos','triples','faltas'])entero(Number(l[campo]??0),campo);if(Number(l.triples??0)*3>Number(l.puntos??0))throw new Error('Los triples no pueden sumar más que los puntos del jugador.');suma+=Number(l.puntos??0);}
+    sumas.push(suma);
+  }
+  if(juego.estadisticas_completas&&juego.estatus==='jugado'&&(sumas[0]!==juego.marcador_local||sumas[1]!==juego.marcador_visita)&&!['local','visita'].includes(juego.forfeit))throw new Error('La suma individual no coincide con el marcador. Corrige la captura o déjala como estadísticas pendientes.');
+  return sumas[0]===juego.marcador_local&&sumas[1]===juego.marcador_visita;
+}
 function escaparHTML(valor) {
   return String(valor ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }

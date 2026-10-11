@@ -10,14 +10,14 @@ const TIPOS_LIDERES = [
 ];
 
 async function iniciarLideres() {
-  ESTADO_L = await cargarDatos();
+  ESTADO_L = await cargarDatos({temporada:new URLSearchParams(window.location?.search||'').get('temporada')||'activa',amistosos:false});
   renderPatrocinadores(ESTADO_L.patrocinadores);
   tipoActivoL = TIPOS_LIDERES[0].id;
 
   iniciarSelectorTemporada(ESTADO_L.temporadas, (temp) => {
     temporadaActivaL = temp;
     renderLideres();
-  });
+  }, ESTADO_L);
 
   iniciarTabs(ESTADO_L.categorias, (cat) => {
     categoriaActivaL = cat;
@@ -75,7 +75,7 @@ function tablaTop10(filas, campo, titulo) {
             <tr>
               <td class="rank">${i+1}</td>
               <td style="text-align:left; font-weight:600; color:var(--navy);">${linkJugador(f.jugador.id, f.jugador.nombre)}</td>
-              <td style="text-align:left; font-size:12px; color:var(--text-dim);">${f.equipo?.nombre ?? '—'}</td>
+              <td style="text-align:left; font-size:12px; color:var(--text-dim);">${escaparHTML(f.equipo?.nombre ?? '—')}</td>
               <td>${f.juegos}</td>
               <td class="mono" style="font-weight:700;">${f[campo]}</td>
             </tr>
@@ -95,7 +95,7 @@ function renderLideres() {
   const subtabsHTML = `
     <div class="tabs ranking-subtabs">
       ${TIPOS_LIDERES.map(t => `
-        <button class="tab ${t.id === tipoActivoL ? 'is-active' : ''}" data-tipo="${t.id}">${t.icono} ${t.titulo}</button>
+        <button class="tab ${t.id === tipoActivoL ? 'is-active' : ''}" data-tipo="${t.id}">${t.icono} ${escaparHTML(t.titulo)}</button>
       `).join('')}
     </div>
   `;

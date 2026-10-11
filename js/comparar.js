@@ -5,14 +5,14 @@ let equipoACmp = null;
 let equipoBCmp = null;
 
 async function iniciarComparar() {
-  ESTADO_CMP = await cargarDatos();
+  ESTADO_CMP = await cargarDatos({temporada:new URLSearchParams(window.location?.search||'').get('temporada')||'activa',amistosos:false});
   renderPatrocinadores(ESTADO_CMP.patrocinadores);
 
   iniciarSelectorTemporada(ESTADO_CMP.temporadas, (temp) => {
     temporadaActivaCmp = temp;
     equipoACmp = null; equipoBCmp = null;
     render();
-  });
+  }, ESTADO_CMP);
 
   iniciarTabs(ESTADO_CMP.categorias, (cat) => {
     categoriaActivaCmp = cat;
@@ -26,7 +26,7 @@ function render() {
   if (!categoriaActivaCmp) return;
 
   const equipos = ESTADO_CMP.equipos.filter(e => e.categoria_id === categoriaActivaCmp);
-  const opciones = equipos.map(e => `<option value="${e.id}">${e.nombre}</option>`).join('');
+  const opciones = equipos.map(e => `<option value="${e.id}">${escaparHTML(e.nombre)}</option>`).join('');
 
   cont.innerHTML = `
     <div class="comparar-selectores">
@@ -56,40 +56,10 @@ function render() {
 // rival elegido) — puntos, triples y faltas, propios y del rival, promedio
 // por juego. Misma lógica que usa /rankings, aquí para un solo equipo.
 function estadisticasTemporada(equipoId) {
-  const juegos = ESTADO_CMP.juegosOficiales.filter(j =>
-    j.categoria_id === categoriaActivaCmp &&
-    j.estatus === 'jugado' &&
-    (j.fase ?? 'regular') === 'regular' &&
-    (!temporadaActivaCmp || j.temporada === temporadaActivaCmp) &&
-    (j.local === equipoId || j.visita === equipoId)
-  );
-
-  const r = { jj: 0, jg: 0, jp: 0, pf: 0, pc: 0, triples: 0, triplesRival: 0, faltas: 0 };
-
-  const sumaCampo = (lista, campo) =>
-    (lista ?? []).reduce((acc, e) => acc + Number(e[campo] ?? 0), 0);
-
-  juegos.forEach(j => {
-    const esLocal = j.local === equipoId;
-    const rivalId = esLocal ? j.visita : j.local;
-    const propio = esLocal ? j.marcador_local : j.marcador_visita;
-    const rival = esLocal ? j.marcador_visita : j.marcador_local;
-
-    r.jj++; r.pf += propio; r.pc += rival;
-    if (propio > rival) r.jg++; else if (rival > propio) r.jp++;
-
-    const listaPropia = esLocal ? (j.estadisticas_local ?? j.estadisticas) : j.estadisticas_visita;
-    const listaRival = esLocal ? j.estadisticas_visita : (j.estadisticas_local ?? j.estadisticas);
-
-    r.triples += sumaCampo(listaPropia, 'triples');
-    r.triplesRival += sumaCampo(listaRival, 'triples');
-    r.faltas += sumaCampo(listaPropia, 'faltas');
-  });
-
-  return r;
+  return FanCore.performanceStats(ESTADO_CMP.juegosOficiales,categoriaActivaCmp,temporadaActivaCmp,equipoId);
 }
 
-function renderResultado() {
+async function renderResultado() {
   const cont = document.getElementById('cmp-resultado');
   if (!cont) return;
 
@@ -102,6 +72,9 @@ function renderResultado() {
     return;
   }
 
+  const pair=[equipoACmp,equipoBCmp];
+  try { if(ESTADO_CMP.ensureHistory)await ESTADO_CMP.ensureHistory(); } catch(err) { cont.textContent=err.message;return; }
+  if(pair[0]!==equipoACmp||pair[1]!==equipoBCmp)return;
   const equipoA = ESTADO_CMP.equiposPorId[equipoACmp];
   const equipoB = ESTADO_CMP.equiposPorId[equipoBCmp];
 
@@ -133,26 +106,28 @@ function renderResultado() {
   const comparativoHTML = `
     <h3 class="lideres__titulo display" style="margin-top:6px;">Comparativo de Temporada</h3>
     <div class="cmp-encabezado">
-      <div class="cmp-encabezado__equipo"><img src="${RUTA_IMG}${equipoA.logo}" alt="${equipoA.nombre}"><span>${equipoA.nombre}</span></div>
-      <div class="cmp-encabezado__equipo"><img src="${RUTA_IMG}${equipoB.logo}" alt="${equipoB.nombre}"><span>${equipoB.nombre}</span></div>
+      <div class="cmp-encabezado__equipo"><img src="${RUTA_IMG}${escaparHTML(equipoA.logo)}" alt="${escaparHTML(equipoA.nombre)}"><span>${escaparHTML(equipoA.nombre)}</span></div>
+      <div class="cmp-encabezado__equipo"><img src="${RUTA_IMG}${escaparHTML(equipoB.logo)}" alt="${escaparHTML(equipoB.nombre)}"><span>${escaparHTML(equipoB.nombre)}</span></div>
     </div>
+    <p class="results-note">Los promedios excluyen forfeits de ambos equipos. El récord conserva los resultados oficiales; — indica que no hay juegos en cancha.</p>
     <div class="table-scroll">
       <table class="standing-table cmp-tabla">
         <tbody>
-          ${filaComparativo('Juegos Jugados', statsA.jj, statsB.jj)}
+          ${filaComparativo('Juegos oficiales', statsA.officialGames, statsB.officialGames)}
+          ${filaComparativo('Juegos en cancha', statsA.jj, statsB.jj)}
           ${filaComparativo('Récord (G-P)', `${statsA.jg}-${statsA.jp}`, `${statsB.jg}-${statsB.jp}`)}
-          ${filaComparativo('Puntos a favor / juego', statsA.jj ? (statsA.pf/statsA.jj).toFixed(1) : '0.0', statsB.jj ? (statsB.pf/statsB.jj).toFixed(1) : '0.0')}
-          ${filaComparativo('Puntos en contra / juego', statsA.jj ? (statsA.pc/statsA.jj).toFixed(1) : '0.0', statsB.jj ? (statsB.pc/statsB.jj).toFixed(1) : '0.0', false)}
-          ${filaComparativo('Triples anotados / juego', statsA.jj ? (statsA.triples/statsA.jj).toFixed(1) : '0.0', statsB.jj ? (statsB.triples/statsB.jj).toFixed(1) : '0.0')}
-          ${filaComparativo('Triples permitidos / juego', statsA.jj ? (statsA.triplesRival/statsA.jj).toFixed(1) : '0.0', statsB.jj ? (statsB.triplesRival/statsB.jj).toFixed(1) : '0.0', false)}
-          ${filaComparativo('Faltas / juego', statsA.jj ? (statsA.faltas/statsA.jj).toFixed(1) : '0.0', statsB.jj ? (statsB.faltas/statsB.jj).toFixed(1) : '0.0', false)}
+          ${filaComparativo('Puntos a favor / juego', statsA.jj ? (statsA.pf/statsA.jj).toFixed(1) : '—', statsB.jj ? (statsB.pf/statsB.jj).toFixed(1) : '—')}
+          ${filaComparativo('Puntos en contra / juego', statsA.jj ? (statsA.pc/statsA.jj).toFixed(1) : '—', statsB.jj ? (statsB.pc/statsB.jj).toFixed(1) : '—', false)}
+          ${filaComparativo('Triples anotados / juego', statsA.jj ? (statsA.triples/statsA.jj).toFixed(1) : '—', statsB.jj ? (statsB.triples/statsB.jj).toFixed(1) : '—')}
+          ${filaComparativo('Triples permitidos / juego', statsA.jj ? (statsA.triplesRival/statsA.jj).toFixed(1) : '—', statsB.jj ? (statsB.triplesRival/statsB.jj).toFixed(1) : '—', false)}
+          ${filaComparativo('Faltas / juego', statsA.jj ? (statsA.faltas/statsA.jj).toFixed(1) : '—', statsB.jj ? (statsB.faltas/statsB.jj).toFixed(1) : '—', false)}
         </tbody>
       </table>
     </div>
   `;
 
   if (juegos.length === 0) {
-    cont.innerHTML = comparativoHTML + `<div class="empty" style="margin-top:20px;">${equipoA.nombre} y ${equipoB.nombre} no se han enfrentado todavía (en ninguna temporada registrada).</div>`;
+    cont.innerHTML = comparativoHTML + `<div class="empty" style="margin-top:20px;">${escaparHTML(equipoA.nombre)} y ${escaparHTML(equipoB.nombre)} no se han enfrentado todavía (en ninguna temporada registrada).</div>`;
     return;
   }
 
@@ -168,8 +143,8 @@ function renderResultado() {
   cont.innerHTML = comparativoHTML + `
     <div class="cmp-resumen">
       <div class="cmp-resumen__equipo">
-        <img src="${RUTA_IMG}${equipoA.logo}" alt="${equipoA.nombre}">
-        <span>${equipoA.nombre}</span>
+        <img src="${RUTA_IMG}${escaparHTML(equipoA.logo)}" alt="${escaparHTML(equipoA.nombre)}">
+        <span>${escaparHTML(equipoA.nombre)}</span>
         <div class="cmp-resumen__victorias">${victoriasA}</div>
       </div>
       <div class="cmp-resumen__centro">
@@ -178,8 +153,8 @@ function renderResultado() {
         <div class="mono" style="font-size:11px; color:var(--text-dim);">${ptsA} – ${ptsB} pts totales</div>
       </div>
       <div class="cmp-resumen__equipo">
-        <img src="${RUTA_IMG}${equipoB.logo}" alt="${equipoB.nombre}">
-        <span>${equipoB.nombre}</span>
+        <img src="${RUTA_IMG}${escaparHTML(equipoB.logo)}" alt="${escaparHTML(equipoB.nombre)}">
+        <span>${escaparHTML(equipoB.nombre)}</span>
         <div class="cmp-resumen__victorias">${victoriasB}</div>
       </div>
     </div>
@@ -200,8 +175,8 @@ function renderEnfrentamiento(j, equipoA, equipoB) {
 
   const resumen = `
     <div class="historial-item">
-      <span class="historial-item__resultado ${marcadorA > marcadorB ? 'gano' : 'perdio'}">${marcadorA > marcadorB ? equipoA.nombre[0] : equipoB.nombre[0]}</span>
-      <span class="historial-item__rival">${equipoA.nombre} vs ${equipoB.nombre}</span>
+      <span class="historial-item__resultado ${marcadorA > marcadorB ? 'gano' : 'perdio'}">${escaparHTML(marcadorA > marcadorB ? equipoA.nombre[0] : equipoB.nombre[0])}</span>
+      <span class="historial-item__rival">${escaparHTML(equipoA.nombre)} vs ${escaparHTML(equipoB.nombre)}</span>
       <span class="mono">${marcadorA}-${marcadorB}</span>
       <span class="historial-item__fecha mono">${texto} · ${temporada} · ${sede}</span>
       ${tieneStats ? '<span class="historial-item__ver">Ver hoja ▾</span>' : ''}

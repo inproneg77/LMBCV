@@ -4,14 +4,14 @@ let temporadaActivaR = null;
 let tipoActivoR = null;
 
 async function iniciarRankings() {
-  ESTADO_R = await cargarDatos();
+  ESTADO_R = await cargarDatos({temporada:new URLSearchParams(window.location?.search||'').get('temporada')||'activa',amistosos:false});
   renderPatrocinadores(ESTADO_R.patrocinadores);
   tipoActivoR = TIPOS[0].id;
 
   iniciarSelectorTemporada(ESTADO_R.temporadas, (temp) => {
     temporadaActivaR = temp;
     renderRankings();
-  });
+  }, ESTADO_R);
 
   iniciarTabs(ESTADO_R.categorias, (cat) => {
     categoriaActivaR = cat;
@@ -23,52 +23,9 @@ async function iniciarRankings() {
 // defensivos a partir de los juegos de temporada regular ya jugados
 // Los forfeits conservan su resultado oficial, pero no cuentan como desempeño en cancha.
 function calcularEstadisticasEquipos() {
-  const equipos = ESTADO_R.equipos.filter(e => e.categoria_id === categoriaActivaR);
-  const stats = {};
-  equipos.forEach(e => { stats[e.id] = { equipo: e, jj: 0, pf: 0, pc: 0, triples: 0, triplesRival: 0, faltas: 0 }; });
-
-  const juegos = ESTADO_R.juegosOficiales.filter(j =>
-    j.categoria_id === categoriaActivaR &&
-    j.estatus === 'jugado' &&
-    (j.fase ?? 'regular') === 'regular' &&
-    !['local', 'visita'].includes(j.forfeit) &&
-    (!temporadaActivaR || j.temporada === temporadaActivaR)
-  );
-
-  const sumaCampo = (lista, campo) =>
-    (lista ?? []).reduce((acc, e) => acc + Number(e[campo] ?? 0), 0);
-
-  juegos.forEach(j => {
-    const local = stats[j.local];
-    const visita = stats[j.visita];
-    if (!local || !visita) return;
-
-    local.jj++; visita.jj++;
-    local.pf += j.marcador_local; local.pc += j.marcador_visita;
-    visita.pf += j.marcador_visita; visita.pc += j.marcador_local;
-
-    const listaLocal = j.estadisticas_local ?? j.estadisticas;
-    const listaVisita = j.estadisticas_visita;
-
-    const triplesLocal = sumaCampo(listaLocal, 'triples');
-    const triplesVisita = sumaCampo(listaVisita, 'triples');
-    const faltasLocal = sumaCampo(listaLocal, 'faltas');
-    const faltasVisita = sumaCampo(listaVisita, 'faltas');
-
-    local.triples += triplesLocal;       local.triplesRival += triplesVisita;  local.faltas += faltasLocal;
-    visita.triples += triplesVisita;     visita.triplesRival += triplesLocal;  visita.faltas += faltasVisita;
-  });
-
-  return Object.values(stats)
-    .filter(s => s.jj > 0)
-    .map(s => ({
-      ...s,
-      promPF: s.pf / s.jj,
-      promPC: s.pc / s.jj,
-      promTriples: s.triples / s.jj,
-      promTriplesRival: s.triplesRival / s.jj,
-      promFaltas: s.faltas / s.jj,
-    }));
+  return ESTADO_R.equipos.filter(e=>e.categoria_id===categoriaActivaR)
+    .map(e=>{const {officialGames,jg,jp,...performance}=FanCore.performanceStats(ESTADO_R.juegosOficiales,categoriaActivaR,temporadaActivaR,e.id);return {equipo:e,...performance};})
+    .filter(s=>s.jj>0);
 }
 
 const RANKINGS_EQUIPO = [
@@ -94,7 +51,7 @@ function renderRankings() {
   const subtabsHTML = `
     <div class="tabs ranking-subtabs">
       ${TIPOS.map(t => `
-        <button class="tab ${t.id === tipoActivoR ? 'is-active' : ''}" data-tipo="${t.id}">${t.icono} ${t.titulo}</button>
+        <button class="tab ${t.id === tipoActivoR ? 'is-active' : ''}" data-tipo="${t.id}">${t.icono} ${escaparHTML(t.titulo)}</button>
       `).join('')}
     </div>
   `;
@@ -134,7 +91,7 @@ function renderSeccionRanking(r, filas) {
 
   return `
     <section class="ranking-seccion">
-      <div class="ranking-podium" aria-label="Primeros tres equipos">${ordenadas.slice(0,3).map((f,i)=>`<article class="podium-card"><span class="podium-place">#${i+1}</span><img width="68" height="68" src="${RUTA_IMG}${f.equipo.logo}" alt="" loading="lazy"><strong>${escaparHTML(f.equipo.nombre)}</strong><span class="podium-number">${f[r.campo].toFixed(1)}</span><small>${r.sufijo} · ${f.jj} juegos disputados</small></article>`).join('')}</div>
+      <div class="ranking-podium" aria-label="Primeros tres equipos">${ordenadas.slice(0,3).map((f,i)=>`<article class="podium-card"><span class="podium-place">#${i+1}</span><img width="68" height="68" src="${RUTA_IMG}${escaparHTML(f.equipo.logo)}" alt="" loading="lazy"><strong>${escaparHTML(f.equipo.nombre)}</strong><span class="podium-number">${f[r.campo].toFixed(1)}</span><small>${r.sufijo} · ${f.jj} juegos disputados</small></article>`).join('')}</div>
       <div class="table-scroll">
         <table class="standing-table">
           <thead>
@@ -146,8 +103,8 @@ function renderSeccionRanking(r, filas) {
                 <td class="rank">${i + 1}</td>
                 <td>
                   <div class="equipo-cell">
-                    <img src="${RUTA_IMG}${f.equipo.logo}" alt="${f.equipo.nombre}" loading="lazy">
-                    <span>${f.equipo.nombre}</span>
+                    <img src="${RUTA_IMG}${escaparHTML(f.equipo.logo)}" alt="${escaparHTML(f.equipo.nombre)}" loading="lazy">
+                    <span>${escaparHTML(f.equipo.nombre)}</span>
                   </div>
                 </td>
                 <td class="mono" style="font-weight:700;">${f[r.campo].toFixed(1)}</td>
@@ -250,12 +207,12 @@ function renderSeccionCampeon() {
     <div class="campeones-grid" style="max-width:280px;">
       <div class="campeon-card">
         <div class="campeon-card__trofeo">🏆</div>
-        <img src="${RUTA_IMG}${equipo?.logo ?? 'img/equipos/placeholder.svg'}" alt="${equipo?.nombre ?? ''}" class="campeon-card__logo">
-        <div class="campeon-card__nombre">${equipo?.nombre ?? 'Equipo'}</div>
-        <div class="campeon-card__cat">${categoria?.nombre ?? ''}</div>
+        <img src="${RUTA_IMG}${escaparHTML(equipo?.logo ?? 'img/equipos/placeholder.svg')}" alt="${escaparHTML(equipo?.nombre ?? '')}" class="campeon-card__logo">
+        <div class="campeon-card__nombre">${escaparHTML(equipo?.nombre ?? 'Equipo')}</div>
+        <div class="campeon-card__cat">${escaparHTML(categoria?.nombre ?? '')}</div>
         <div class="campeon-card__temp mono">${temporada}</div>
         ${fecha ? `<div class="campeon-card__fecha mono">${formatearFecha(fecha).texto}</div>` : ''}
-        ${serie.mvp_serie ? `<div class="campeon-card__mvp">★ ${categoria?.etiqueta_mvp ?? 'MVP'} de la Final: <b>${serie.mvp_serie}</b></div>` : ''}
+        ${serie.mvp_serie ? `<div class="campeon-card__mvp">★ ${categoria?.etiqueta_mvp ?? 'MVP'} de la Final: <b>${escaparHTML(serie.mvp_serie)}</b></div>` : ''}
       </div>
     </div>
   `;

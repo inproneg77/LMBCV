@@ -7,7 +7,7 @@ const root=path.join(__dirname,'..');
 const game=(extra={})=>({categoria_id:'var40',temporada:'2026-2',estatus:'jugado',fase:'regular',local:'A',visita:'B',marcador_local:60,marcador_visita:40,estadisticas_local:[{triples:6,faltas:8}],estadisticas_visita:[{triples:4,faltas:10}],...extra});
 function setup(juegos){
  const node={innerHTML:'',querySelectorAll:()=>[]};
- const c=vm.createContext({document:{getElementById:()=>node},RUTA_IMG:''});
+ const c=vm.createContext({FanCore:require('../js/fan-core.js'),document:{getElementById:()=>node},RUTA_IMG:''});
  for(const p of ['amistosos','rankings','standing'])vm.runInContext(fs.readFileSync(path.join(root,'js',p+'.js'),'utf8').replace(/^iniciar(?:Rankings|Standing)\(\);\s*$/gm,''),c);
  c.state={equipos:['A','B','C'].map(id=>({id,nombre:id,categoria_id:'var40'})),juegosOficiales:juegos};
  const run=s=>vm.runInContext(s,c);

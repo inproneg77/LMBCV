@@ -5,7 +5,7 @@ const C=require('../js/portal-core.js');
 test('catalog requests begin before a slow season index resolves',async()=>{
  const requested=[];let release;
  const gate=new Promise(r=>release=r);
- const context=vm.createContext({window:{},console,setTimeout,clearTimeout,AbortController,URLSearchParams,fetch:async p=>{
+ const context=vm.createContext({FanCore:require('../js/fan-core.js'),window:{},console,setTimeout,clearTimeout,AbortController,URLSearchParams,fetch:async p=>{
   requested.push(p);if(p==='data/temporadas.json')await gate;
   return {ok:true,status:200,json:async()=>p==='data/categorias.json'?[]:p==='data/sedes.json'?{sedes:[]}: {}};
  }});
@@ -16,7 +16,7 @@ test('catalog requests begin before a slow season index resolves',async()=>{
 });
 test('calendar defers statistics rendering while preserving eager export support',()=>{
  let sheets=0;
- const context=vm.createContext({window:{},URLSearchParams,renderHojaEstadistica:()=>{sheets++;return 'FULL_STATS';},nombreMVP:()=>'',escaparHTML:String,RUTA_IMG:''});
+ const context=vm.createContext({FanCore:require('../js/fan-core.js'),window:{},URLSearchParams,renderHojaEstadistica:()=>{sheets++;return 'FULL_STATS';},nombreMVP:()=>'',escaparHTML:String,RUTA_IMG:''});
  vm.runInContext(fs.readFileSync(path.join(__dirname,'../js/calendario.js'),'utf8').replace(/^iniciar\(\);\s*$/m,''),context);
  vm.runInContext("ESTADO={equiposPorId:{},sedesPorId:{},temporadas:[],categorias:[],jugadoresPorId:{}}",context);
  context.game={id:'g',estatus:'jugado',estadisticas_local:[{puntos:2}],marcador_local:2,marcador_visita:0};
@@ -45,7 +45,7 @@ test('portal leaders match official participation and exclude all friendly stati
  assert.deepEqual(C.leaders(fixture,{p:{nombre:'Persona'}}),[{id:'p',name:'Persona',points:24,threes:4,games:2}]);
 });
 test('home loader requests selected season while full calendar retains all seasons',async()=>{
- const requested=[],root=path.join(__dirname,'..');const context=vm.createContext({window:{},console,setTimeout,clearTimeout,AbortController,URLSearchParams,fetch:async p=>{requested.push(p);try{const data=JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));return{ok:true,status:200,json:async()=>data};}catch{return{ok:false,status:404};}}});
+ const requested=[],root=path.join(__dirname,'..');const context=vm.createContext({FanCore:require('../js/fan-core.js'),window:{},console,setTimeout,clearTimeout,AbortController,URLSearchParams,fetch:async p=>{requested.push(p);try{const data=JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));return{ok:true,status:200,json:async()=>data};}catch{return{ok:false,status:404};}}});
  for(const p of ['js/amistosos.js','js/datos.js'])vm.runInContext(fs.readFileSync(path.join(root,p),'utf8'),context);
  const s=await vm.runInContext("cargarDatos({temporada:'2026-2'})",context);
  assert.equal(requested.filter(p=>p.startsWith('data/juegos_')).length,3);

@@ -6,31 +6,35 @@
 // no necesita nada (''), pero las páginas en subcarpetas (standing/,
 // playoffs/, valiosos/) necesitan '../' para que las imágenes carguen bien.
 const RUTA_IMG = window.RUTA_IMG || '';
+const catalogCache = new Map();
 
 // fetch con tiempo límite y reintento. En datos móviles (a diferencia de
 // wifi) una petición se puede quedar "colgada" sin fallar ni responder
 // nunca — como antes usábamos Promise.all sin límite de tiempo, bastaba con
 // que UNA de las ~16 peticiones se trabara para que el sitio completo se
 // quedara cargando para siempre. Con esto, cada una tiene máximo 9s por
-// intento (2 intentos), y si de plano falla, se sigue con datos vacíos en
-// vez de tronar toda la carga.
+// intento (2 intentos), y si de plano falla, se informa el error sin mostrar estadísticas incompletas.
 async function fetchJSON(url, valorPorDefecto = {}, intentos = 2) {
+  const catalog = /^data\/(categorias|sedes|patrocinadores|equipos|roster|temporadas)\.json$/.test(url);
+  const cached = catalogCache.get(url);
+  if (catalog && cached && Date.now()-cached.at < 30000) return cached.value;
   for (let i = 0; i < intentos; i++) {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 9000);
     try {
-      const res = await fetch(url, { signal: controller.signal });
-      if (res.status === 404 && /data\/juegos_[^/]+\//.test(url)) { clearTimeout(timeoutId); return valorPorDefecto; }
+      const res = await fetch(url, { signal: controller.signal, cache: 'no-cache' });
+      if (res.status === 404 && /data\/(juegos_[^/]+\/|playoffs_)/.test(url)) { clearTimeout(timeoutId); return valorPorDefecto; }
       if (!res.ok) throw new Error('HTTP ' + res.status);
       const data = await res.json();
       clearTimeout(timeoutId);
+      if (catalog) catalogCache.set(url, {at:Date.now(),value:data});
       return data;
     } catch (err) {
       clearTimeout(timeoutId);
       if (i === intentos - 1) {
         console.warn('No se pudo cargar', url, err);
         if(typeof window.dispatchEvent==='function' && typeof CustomEvent==='function')window.dispatchEvent(new CustomEvent('lmbc:data-error'));
-        return valorPorDefecto;
+        throw new Error('No se pudo cargar '+url+'. Reintenta antes de consultar estadísticas.');
       }
       await new Promise(r => setTimeout(r, 500)); // pequeña pausa antes de reintentar
     }
@@ -39,7 +43,6 @@ async function fetchJSON(url, valorPorDefecto = {}, intentos = 2) {
 }
 
 async function cargarDatos(opciones = {}) {
-  const CATS = ['var40', 'fem40', 'var49'];
 
   // Los juegos ya no viven en UN archivo por categoría que crece para
   // siempre (eso era lo que hacía lenta la captura en /admin — Decap CMS
@@ -53,13 +56,16 @@ async function cargarDatos(opciones = {}) {
     fetchJSON('data/sedes.json', { sedes: [] }),
     fetchJSON('data/patrocinadores.json', { patrocinadores: [] }),
     fetchJSON('data/equipos.json', { equipos: [] }),
-    fetchJSON('data/roster.json', { jugadores: [] }),
-    fetchJSON('data/amistosos.json', { equipos: [], jugadores: [], juegos: [] }),
+    opciones.roster === false ? Promise.resolve({jugadores:[]}) : fetchJSON('data/roster.json', { jugadores: [] }),
+    opciones.amistosos === false ? Promise.resolve({equipos:[],jugadores:[],juegos:[]}) : fetchJSON('data/amistosos.json', { equipos: [], jugadores: [], juegos: [] }),
   ];
+  Promise.allSettled(catalogRequests); // Attach rejection handlers while the season index is loading.
   const temporadasData = await fetchJSON('data/temporadas.json', { temporadas: [] });
   const temporadas = temporadasData.temporadas ?? [];
+  const categoriasData = await catalogRequests[0];
+  const CATS = (Array.isArray(categoriasData) ? categoriasData : []).map(c=>c.id);
   const activa = temporadas.find(t=>String(t.activa)==='true')?.id ?? [...temporadas].sort((a,b)=>b.id.localeCompare(a.id))[0]?.id;
-  const seleccion = opciones.temporada === 'activa' ? activa : opciones.temporada;
+  const seleccion = opciones.temporada === 'activa' || (opciones.temporada && !temporadas.some(t=>t.id===opciones.temporada)) ? activa : opciones.temporada;
   const idsTemporadas = temporadas.filter(t=>!seleccion||t.id===seleccion).map(t => t.id);
 
   const [categoriasRaw, sedesData, patrociniosData, equiposData, rosterData, amistososData, ...resto] = await Promise.all([
@@ -123,13 +129,29 @@ async function cargarDatos(opciones = {}) {
     (playoffsPorCat[i].series ?? []).map(s => ({ ...s, categoria_id: cat }))
   );
 
-  const equiposPorId = Object.fromEntries([...(amistososData.equipos ?? []).map(e => ({...e, nombre: escaparHTML(e.nombre)})), ...equipos].map(e => [e.id, e]));
+  const equiposPorId = Object.fromEntries([...(amistososData.equipos ?? []), ...equipos].map(e => [e.id, e]));
   const sedesPorId = Object.fromEntries(sedes.map(s => [s.id, s]));
-  const jugadoresPorId = Object.fromEntries([...(amistososData.jugadores ?? []).map(j => ({...j, nombre: escaparHTML(j.nombre)})), ...(rosterData.jugadores ?? [])].map(j => [j.id, j]));
+  const jugadoresPorId = Object.fromEntries([...(amistososData.jugadores ?? []), ...(rosterData.jugadores ?? [])].map(j => [j.id, {...j,foto:window.LMBCImages?.source(j.foto)||j.foto}]));
   const juegosOficiales = juegos.filter(esJuegoOficial);
   const juegosAmistosos = juegos.filter(esAmistoso);
 
-  return { categorias, sedes, equipos, juegos, juegosOficiales, juegosAmistosos, playoffs, jugadores, temporadas, patrocinadores, equiposPorId, sedesPorId, jugadoresPorId };
+  const state = { categorias, sedes, equipos, juegos, juegosOficiales, juegosAmistosos, playoffs, jugadores, temporadas, patrocinadores, equiposPorId, sedesPorId, jugadoresPorId };
+  const loaded = new Set(idsTemporadas), pending = new Map();
+  state.ensureSeason = async season => {
+    const ids = season ? [season] : temporadas.map(t=>t.id);
+    await Promise.all(ids.filter(id=>temporadas.some(t=>t.id===id)).map(id=>{
+      if(loaded.has(id))return;
+      if(!pending.has(id))pending.set(id,(async()=>{
+        const files=await Promise.all(CATS.map(cat=>fetchJSON(`data/juegos_${cat}/${id}.json`,{juegos:[]})));
+        const rows=CATS.flatMap((cat,i)=>(files[i].juegos??[]).map(g=>({...g,categoria_id:cat})));
+        state.juegos.push(...rows);state.juegosOficiales.push(...rows.filter(esJuegoOficial));state.juegosAmistosos.push(...rows.filter(esAmistoso));loaded.add(id);
+      })().finally(()=>pending.delete(id)));
+      return pending.get(id);
+    }));
+    return state;
+  };
+  state.ensureHistory = () => state.ensureSeason('');
+  return state;
 }
 
 // Genera un selector de temporada (<select>) dentro de #temporada-selector.
@@ -139,8 +161,8 @@ async function cargarDatos(opciones = {}) {
 // Se usa en Equipos, Líderes, Rankings, Dashboard y la hoja de estadísticas
 // — un solo lugar para que el link sea consistente en todo el sitio.
 function linkJugador(id, nombre) {
-  if (!id) return nombre ?? '—';
-  return `<a href="${RUTA_IMG}jugador/?id=${encodeURIComponent(id)}" class="jugador-link">${nombre ?? '—'}</a>`;
+  if (!id) return escaparHTML(nombre ?? '—');
+  return `<a href="${RUTA_IMG}jugador/?id=${encodeURIComponent(id)}" class="jugador-link">${escaparHTML(nombre ?? '—')}</a>`;
 }
 
 // Resuelve el nombre a mostrar como MVP: prioriza el jugador seleccionado por
@@ -177,7 +199,7 @@ function renderHojaEstadistica(juego, ESTADO) {
 
   const tablaEquipo = (nombreEquipo, lista, totales) => `
     <div class="hoja__equipo">
-      <h4 class="hoja__equipo-nombre">${nombreEquipo}</h4>
+      <h4 class="hoja__equipo-nombre">${escaparHTML(nombreEquipo)}</h4>
       ${lista.length === 0 ? '<div class="empty" style="padding:16px;">Sin estadísticas capturadas.</div>' : `
         <div class="table-scroll">
           <table class="standing-table">
@@ -214,9 +236,9 @@ function renderHojaEstadistica(juego, ESTADO) {
   return `
     <div class="hoja">
       <div class="hoja__marcador">
-        <span>${local?.nombre ?? ''}</span>
+        <span>${escaparHTML(local?.nombre ?? '')}</span>
         <span class="mono" style="font-family:'Teko',sans-serif; font-size:26px;">${juego.marcador_local} – ${juego.marcador_visita}</span>
-        <span>${visita?.nombre ?? ''}</span>
+        <span>${escaparHTML(visita?.nombre ?? '')}</span>
       </div>
       <div class="hoja__equipos">
         ${tablaEquipo(local?.nombre ?? 'Local', statsLocal, totLocal)}
@@ -224,9 +246,9 @@ function renderHojaEstadistica(juego, ESTADO) {
       </div>
       ${todos.length > 0 ? `
         <div class="hoja__lideres">
-          ${liderPts ? `<div>🏀 Más puntos: <b>${liderPts.nombre}</b> (${liderPts.puntos ?? 0})</div>` : ''}
-          ${liderTrip && liderTrip.triples > 0 ? `<div>🎯 Más triples: <b>${liderTrip.nombre}</b> (${liderTrip.triples})</div>` : ''}
-          ${liderFaltas && liderFaltas.faltas > 0 ? `<div>🟨 Más faltas: <b>${liderFaltas.nombre}</b> (${liderFaltas.faltas})</div>` : ''}
+          ${liderPts ? `<div>🏀 Más puntos: <b>${escaparHTML(liderPts.nombre)}</b> (${liderPts.puntos ?? 0})</div>` : ''}
+          ${liderTrip && liderTrip.triples > 0 ? `<div>🎯 Más triples: <b>${escaparHTML(liderTrip.nombre)}</b> (${liderTrip.triples})</div>` : ''}
+          ${liderFaltas && liderFaltas.faltas > 0 ? `<div>🟨 Más faltas: <b>${escaparHTML(liderFaltas.nombre)}</b> (${liderFaltas.faltas})</div>` : ''}
         </div>
       ` : ''}
     </div>
@@ -236,7 +258,7 @@ function renderHojaEstadistica(juego, ESTADO) {
 // Genera un selector de temporada (<select>) dentro de #temporada-selector.
 // callback(temporadaId) se llama al iniciar (con la temporada marcada como
 // activa, o la más reciente si ninguna lo está) y cada vez que cambie.
-function iniciarSelectorTemporada(temporadas, callback) {
+function iniciarSelectorTemporada(temporadas, callback, estado) {
   const cont = document.getElementById('temporada-selector');
   if (!cont) return () => null;
 
@@ -252,29 +274,27 @@ function iniciarSelectorTemporada(temporadas, callback) {
 
   cont.innerHTML = `
     <select id="temporada-select" class="temporada-select" aria-label="Temporada de liga">
-      ${ordenadas.map(t => `<option value="${t.id}" ${t.id === porDefecto ? 'selected' : ''}>${t.nombre}</option>`).join('')}
+      ${ordenadas.map(t => `<option value="${t.id}" ${t.id === porDefecto ? 'selected' : ''}>${escaparHTML(t.nombre)}</option>`).join('')}
     </select>
   `;
 
   const select = document.getElementById('temporada-select');
-  select.addEventListener('change', () => {window.LMBC?.write('lmbc_season',select.value);callback(select.value);});
+  let version=0;
+  select.addEventListener('change', async () => {
+    const current=++version,value=select.value;
+    window.LMBC?.write('lmbc_season',value);
+    try{if(estado?.ensureSeason)await estado.ensureSeason(value);if(current!==version)return;callback(value);window.dispatchEvent?.(new CustomEvent('lmbc:context'));}
+    catch(err){console.warn(err);}
+  });
   callback(porDefecto);
   return () => select.value;
 }
 
 function renderPatrocinadores(patrocinadores) {
-  const cont = document.getElementById('patrocinadores');
-  if (!cont || !patrocinadores || patrocinadores.length === 0) { if (cont) cont.innerHTML = ''; return; }
-  cont.innerHTML = `
-    <div class="patrocinadores__label">Con el apoyo de</div>
-    <div class="patrocinadores__grid">
-      ${patrocinadores.map(p => `
-        <a href="${p.url || '#'}" target="_blank" rel="noopener">
-          <img src="${RUTA_IMG}${p.logo}" alt="${p.nombre}" loading="lazy">
-        </a>
-      `).join('')}
-    </div>
-  `;
+  const cont=document.getElementById('patrocinadores');if(!cont)return;
+  const cards=(patrocinadores??[]).map(p=>{const image='<img src="'+escaparHTML(RUTA_IMG+p.logo)+'" alt="'+escaparHTML(p.nombre)+'" loading="lazy">';
+    return /^https?:\/\//i.test(p.url??'')?'<a href="'+escaparHTML(p.url)+'" target="_blank" rel="noopener">'+image+'</a>':'<span class="sponsor-static">'+image+'</span>';});
+  cont.innerHTML=cards.length?'<div class="patrocinadores__label">Con el apoyo de</div><div class="patrocinadores__grid">'+cards.join('')+'</div>':'';
 }
 
 // Genera las pestañas de categoría y engancha el cambio de pestaña activa.
@@ -295,7 +315,7 @@ function iniciarTabs(categorias, callback, opciones = {}) {
     : '';
 
   tabs.innerHTML = botonTodos + cats.map(c => `
-    <button class="tab ${c.id === activa ? 'is-active' : ''}" data-cat="${c.id}">${c.nombre}</button>
+    <button class="tab ${c.id === activa ? 'is-active' : ''}" data-cat="${c.id}">${escaparHTML(c.nombre)}</button>
   `).join('');
 
   tabs.querySelectorAll('.tab').forEach(btn => {
@@ -303,6 +323,7 @@ function iniciarTabs(categorias, callback, opciones = {}) {
       activa = btn.dataset.cat || null;
       window.LMBC?.write('lmbc_category',activa||'');
       tabs.querySelectorAll('.tab').forEach(b => b.classList.toggle('is-active', b === btn));
+      window.dispatchEvent?.(new CustomEvent('lmbc:context'));
       callback(activa);
     });
   });

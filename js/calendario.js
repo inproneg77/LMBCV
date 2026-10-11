@@ -4,21 +4,24 @@ let tabsListas = false;
 
 const calendarParams = new URLSearchParams(window.location?.search||'');
 const calendarFilter={season:calendarParams.get('temporada')||'',team:calendarParams.get('equipo')||'',state:calendarParams.get('estado')||'',kind:calendarParams.get('tipo')||'',query:'',day:'',game:calendarParams.get('juego')||''};
+function favoritoCalendario(){return window.LMBC?.favorite?.(categoriaActiva||window.LMBC.context().category,calendarFilter.season)||'';}
+function actualizarFavoritoCalendario(){const mine=document.getElementById('calendar-mine');if(mine?.checked){calendarFilter.team=favoritoCalendario();calendarFilter.category=categoriaActiva||window.LMBC?.context().category;mine.checked=!!calendarFilter.team;}}
 function iniciarFiltrosCalendario(){
  const controls=document.querySelector('.controles');if(!controls||typeof PortalCore==='undefined')return;
  const node=document.createElement('div');node.className='calendar-filters';node.innerHTML='<label>Buscar equipos<input id="calendar-query" type="search" placeholder="Nombre del equipo"></label><label>Mostrar<select id="calendar-state"><option value="">Todos los partidos</option><option value="programado">Próximos / programados</option><option value="jugado">Resultados</option></select></label><label>Competencia<select id="calendar-kind"><option value="">Liga y amistosos</option><option value="liga">Solo liga</option><option value="amistoso">Solo amistosos</option></select></label><label>Fecha<input id="calendar-day" type="date"></label><label class="check-filter"><input id="calendar-mine" type="checkbox">Mi equipo</label><button class="secondary-link" id="calendar-clear">Limpiar filtros</button>';
  controls.after(node);
- const seasonLabel=document.createElement('label');seasonLabel.textContent='Temporada';const seasonSelect=document.createElement('select');seasonSelect.id='calendar-season';seasonSelect.innerHTML='<option value="">Todas las temporadas</option>'+ESTADO.temporadas.map(t=>'<option value="'+escaparHTML(t.id)+'">'+escaparHTML(t.nombre)+'</option>').join('');seasonLabel.append(seasonSelect);node.insertBefore(seasonLabel,node.querySelector('label.check-filter'));seasonSelect.value=calendarFilter.season;seasonSelect.onchange=()=>{calendarFilter.season=seasonSelect.value;calendarFilter.game='';render();};
+ const seasonLabel=document.createElement('label');seasonLabel.textContent='Temporada';const seasonSelect=document.createElement('select');seasonSelect.id='calendar-season';seasonSelect.innerHTML='<option value="">Todas las temporadas</option>'+ESTADO.temporadas.map(t=>'<option value="'+escaparHTML(t.id)+'">'+escaparHTML(t.nombre)+'</option>').join('');seasonLabel.append(seasonSelect);node.insertBefore(seasonLabel,node.querySelector('label.check-filter'));seasonSelect.value=calendarFilter.season;seasonSelect.onchange=async()=>{const value=seasonSelect.value;try{await ESTADO.ensureSeason(value);if(seasonSelect.value!==value)return;calendarFilter.season=value;calendarFilter.game='';actualizarFavoritoCalendario();window.dispatchEvent(new CustomEvent('lmbc:context'));renderProximoJuego();render();}catch(err){console.warn(err);}};
  for(const [key,event] of [['query','input'],['state','change'],['kind','change'],['day','change']]){const el=document.getElementById('calendar-'+key);el.value=calendarFilter[key];el.addEventListener(event,()=>{calendarFilter[key]=el.value;calendarFilter.game='';render();});}
- const mine=document.getElementById('calendar-mine');mine.checked=!!calendarFilter.team;mine.addEventListener('change',()=>{if(mine.checked&&!window.LMBC.read('lmbc_favorite')){mine.checked=false;window.LMBC.directory(true);return;}calendarFilter.team=mine.checked?window.LMBC.read('lmbc_favorite'):'';calendarFilter.game='';render();});
- window.addEventListener('lmbc:favorite',()=>{calendarFilter.team=window.LMBC.read('lmbc_favorite');mine.checked=!!calendarFilter.team;calendarFilter.game='';render();});
- document.getElementById('calendar-clear').onclick=()=>{Object.keys(calendarFilter).forEach(k=>calendarFilter[k]='');node.querySelectorAll('input,select').forEach(e=>{if(e.type==='checkbox')e.checked=false;else e.value='';});render();};
+ const mine=document.getElementById('calendar-mine');mine.checked=!!calendarFilter.team;
+ mine.addEventListener('change',()=>{if(mine.checked&&!favoritoCalendario()){mine.checked=false;window.LMBC.directory(true);return;}calendarFilter.team=mine.checked?favoritoCalendario():'';calendarFilter.category=mine.checked?(categoriaActiva||window.LMBC.context().category):'';calendarFilter.game='';render();});
+ window.addEventListener('lmbc:favorite',async e=>{const c=e.detail||{};try{if(c.season)await ESTADO.ensureSeason(c.season);}catch{return;}if(c.season){calendarFilter.season=c.season;seasonSelect.value=c.season;}if(c.category){categoriaActiva=c.category;document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('is-active',b.dataset.cat===c.category));}mine.checked=!!favoritoCalendario();calendarFilter.team=favoritoCalendario();calendarFilter.category=categoriaActiva;calendarFilter.game='';render();});
+ document.getElementById('calendar-clear').onclick=async()=>{const active=FanCore.activeSeason(ESTADO.temporadas);try{await ESTADO.ensureSeason(active);}catch{return;}Object.keys(calendarFilter).forEach(k=>calendarFilter[k]='');calendarFilter.season=active;node.querySelectorAll('input,select').forEach(e=>{if(e.type==='checkbox')e.checked=false;else e.value=e.id==='calendar-season'?active:'';});renderProximoJuego();render();};
 }
 
 
 async function iniciar() {
   window.addEventListener('beforeprint', prepararImpresion);
-  ESTADO = await cargarDatos();
+  ESTADO = await cargarDatos({temporada:calendarParams.has('temporada')?(calendarParams.get('temporada')||undefined):calendarFilter.game?undefined:'activa'});
   if (!calendarParams.has('temporada')) {
     const linkedGame = ESTADO.juegos.find(g => g.id === calendarFilter.game);
     calendarFilter.season = linkedGame?.temporada ?? ESTADO.temporadas.find(t => String(t.activa) === 'true')?.id ?? [...ESTADO.temporadas].sort((a,b) => b.id.localeCompare(a.id))[0]?.id ?? '';
@@ -29,6 +32,8 @@ async function iniciar() {
 
   iniciarTabs(ESTADO.categorias, (cat) => {
     categoriaActiva = cat;
+    actualizarFavoritoCalendario();
+    renderProximoJuego();
     tabsListas = true;
     render();
   }, { incluirTodos: true });
@@ -59,7 +64,7 @@ function renderProximoJuego() {
   if (!cont) return;
 
   const hoyISO = fechaLocalISO();
-  const programados = ESTADO.juegos.filter(j => j.estatus === 'programado');
+  const programados = ESTADO.juegos.filter(j => j.estatus === 'programado' && j.fecha >= hoyISO && (!calendarFilter.season || j.temporada === calendarFilter.season) && (!categoriaActiva||j.categoria_id===categoriaActiva) && (!calendarFilter.team||[j.local,j.visita].includes(calendarFilter.team)) && (calendarFilter.kind!=='liga'||esJuegoOficial(j)) && (calendarFilter.kind!=='amistoso'||esAmistoso(j)) && FanCore.seriesAllowsGame(j,ESTADO.playoffs));
 
   const destacado = programados.find(j => String(j.destacado) === 'true');
 
@@ -80,19 +85,19 @@ function renderProximoJuego() {
 
   cont.innerHTML = `
     <div class="proximo-juego ${esImportante ? 'is-importante' : ''}">
-      <div class="proximo-juego__etiqueta">${etiqueta} · ${categoria?.nombre ?? ''}</div>
+      <div class="proximo-juego__etiqueta">${etiqueta} · ${escaparHTML(categoria?.nombre ?? '')}</div>
       <div class="proximo-juego__equipos">
         <div class="proximo-juego__equipo">
-          <img src="${RUTA_IMG}${local?.logo ?? 'img/equipos/placeholder.svg'}" alt="${local?.nombre ?? ''}">
-          <span>${local?.nombre ?? 'Por definir'}</span>
+          <img src="${RUTA_IMG}${escaparHTML(local?.logo ?? 'img/equipos/placeholder.svg')}" alt="${escaparHTML(local?.nombre ?? '')}">
+          <span>${escaparHTML(local?.nombre ?? 'Por definir')}</span>
         </div>
         <div class="proximo-juego__vs">VS</div>
         <div class="proximo-juego__equipo">
-          <img src="${RUTA_IMG}${visita?.logo ?? 'img/equipos/placeholder.svg'}" alt="${visita?.nombre ?? ''}">
-          <span>${visita?.nombre ?? 'Por definir'}</span>
+          <img src="${RUTA_IMG}${escaparHTML(visita?.logo ?? 'img/equipos/placeholder.svg')}" alt="${escaparHTML(visita?.nombre ?? '')}">
+          <span>${escaparHTML(visita?.nombre ?? 'Por definir')}</span>
         </div>
       </div>
-      <div class="proximo-juego__info mono">${diaSemana} ${texto} · ${proximo.hora} hrs · ${sede}</div>
+      <div class="proximo-juego__info mono">${diaSemana} ${texto} · ${proximo.hora} hrs · ${escaparHTML(sede)}</div>
     </div>
   `;
 }
@@ -210,15 +215,15 @@ function renderJuego(j, lazy = false) {
 
   const mvp = nombreMVP(j, ESTADO.jugadoresPorId);
   const mvpHTML = jugado && mvp
-    ? `<div class="mvp"><span class="mvp__icon">★</span> ${ESTADO.categorias.find(c=>c.id===j.categoria_id)?.etiqueta_mvp ?? 'Jugador destacado'}: <b>${mvp}</b>${j.mvp_nombre && j.mvp_jugador ? ` — ${j.mvp_nombre}` : ''}</div>`
+    ? `<div class="mvp"><span class="mvp__icon">★</span> ${ESTADO.categorias.find(c=>c.id===j.categoria_id)?.etiqueta_mvp ?? 'Jugador destacado'}: <b>${escaparHTML(mvp)}</b>${j.mvp_nombre && j.mvp_jugador ? ` — ${escaparHTML(j.mvp_nombre)}` : ''}</div>`
     : '';
 
   const forfeitHTML = jugado && forfeit !== 'ninguno'
-    ? `<div class="observacion">⚠ Forfeit: ${forfeit === 'local' ? (local?.nombre ?? 'Local') : (visita?.nombre ?? 'Visita')} no se presentó.</div>`
+    ? `<div class="observacion">⚠ Forfeit: ${escaparHTML(forfeit === 'local' ? (local?.nombre ?? 'Local') : (visita?.nombre ?? 'Visita'))} no se presentó.</div>`
     : '';
 
   const observacionHTML = jugado && j.observaciones
-    ? `<div class="observacion">${j.observaciones}</div>`
+    ? `<div class="observacion">${escaparHTML(j.observaciones)}</div>`
     : '';
 
   const tieneEstadisticas = jugado && ((j.estadisticas_local ?? j.estadisticas ?? []).length + (j.estadisticas_visita ?? []).length) > 0;
@@ -227,18 +232,18 @@ function renderJuego(j, lazy = false) {
     <div class="juego ${jugado ? 'is-jugado' : ''}">
       ${faseHTML}
       <div class="equipo equipo--local">
-        <img src="${RUTA_IMG}${local?.logo ?? 'img/equipos/placeholder.svg'}" alt="${local?.nombre ?? ''}" loading="lazy">
-        <span class="equipo__nombre">${local?.nombre ?? 'Por definir'}</span>
+        <img src="${RUTA_IMG}${escaparHTML(local?.logo ?? 'img/equipos/placeholder.svg')}" alt="${escaparHTML(local?.nombre ?? '')}" loading="lazy">
+        <span class="equipo__nombre">${escaparHTML(local?.nombre ?? 'Por definir')}</span>
       </div>
       <div class="marcador">
         ${marcadorHTML}
 
       </div>
       <div class="equipo equipo--visita">
-        <img src="${RUTA_IMG}${visita?.logo ?? 'img/equipos/placeholder.svg'}" alt="${visita?.nombre ?? ''}" loading="lazy">
-        <span class="equipo__nombre">${visita?.nombre ?? 'Por definir'}</span>
+        <img src="${RUTA_IMG}${escaparHTML(visita?.logo ?? 'img/equipos/placeholder.svg')}" alt="${escaparHTML(visita?.nombre ?? '')}" loading="lazy">
+        <span class="equipo__nombre">${escaparHTML(visita?.nombre ?? 'Por definir')}</span>
       </div>
-      <div class="juego-meta"><span>${escaparHTML(j.hora)} hrs · ${sede}</span><span>${nombreTemporada}</span></div>
+      <div class="juego-meta"><span>${escaparHTML(j.hora)} hrs · ${escaparHTML(sede)}</span><span>${escaparHTML(nombreTemporada)}</span></div>
       ${mvpHTML}
       ${forfeitHTML}
       ${observacionHTML}

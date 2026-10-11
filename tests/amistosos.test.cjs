@@ -108,7 +108,7 @@ test('independent friendly dataset appears in calendar and leaves all official c
 function context() {
   const elements = {};
   const element = id => elements[id] ??= {value:'',innerHTML:'',textContent:'',disabled:false,hidden:false,dataset:{},style:{},classList:{add(){},remove(){},toggle(){}},addEventListener(){},querySelectorAll(){return []}};
-  return vm.createContext({console, setTimeout,clearTimeout,AbortController,URLSearchParams,window:{},document:{getElementById:element,querySelectorAll:()=>[]},localStorage:{getItem:()=>'',setItem(){}},atob,btoa,escape,unescape});
+  return vm.createContext({FanCore:require('../js/fan-core.js'),console, setTimeout,clearTimeout,AbortController,URLSearchParams,window:{},document:{getElementById:element,querySelectorAll:()=>[]},localStorage:{getItem:()=>'',setItem(){}},atob,btoa,escape,unescape});
 }
 function run(c,s){return vm.runInContext(s,c);}
 function load(c,p){run(c,read(p).replace(/^iniciar\w*\(\);\s*$/m,''));}
