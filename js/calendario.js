@@ -19,6 +19,10 @@ function iniciarFiltrosCalendario(){
 async function iniciar() {
   window.addEventListener('beforeprint', prepararImpresion);
   ESTADO = await cargarDatos();
+  if (!calendarParams.has('temporada')) {
+    const linkedGame = ESTADO.juegos.find(g => g.id === calendarFilter.game);
+    calendarFilter.season = linkedGame?.temporada ?? ESTADO.temporadas.find(t => String(t.activa) === 'true')?.id ?? [...ESTADO.temporadas].sort((a,b) => b.id.localeCompare(a.id))[0]?.id ?? '';
+  }
   renderPatrocinadores(ESTADO.patrocinadores);
   renderProximoJuego();
   iniciarFiltrosCalendario();

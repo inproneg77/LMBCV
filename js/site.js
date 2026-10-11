@@ -9,7 +9,7 @@
  const link=(p,label,key,cls='')=>`<a class="${cls} ${active(key)?'active':''}" ${active(key)?'aria-current="page"':''} href="${url(p)}">${label}</a>`;
  let searchData;
  async function catalog(){if(!searchData)searchData=Promise.all(['equipos','roster','categorias','temporadas'].map(async p=>{const r=await fetch(url('data/'+p+'.json'));if(!r.ok)throw Error('No se pudo cargar el directorio. Intenta nuevamente.');return r.json();})).catch(e=>{searchData=null;throw e;});return searchData;}
- function context(){let saved={};try{saved=JSON.parse(read('lmbc_fan_context')||'{}');}catch{}const p=new URLSearchParams(location.search);return {category:p.get('categoria')??saved.category??read('lmbc_category'),season:p.get('temporada')??saved.season??''};}
+ function context(){let saved={};try{saved=JSON.parse(read('lmbc_fan_context')||'{}');}catch{}const p=new URLSearchParams(location.search);return {category:p.get('categoria')??saved.category??read('lmbc_category'),season:document.getElementById('portal-season')?.value??document.getElementById('temporada-select')?.value??document.getElementById('calendar-season')?.value??p.get('temporada')??''};}
  const favoriteKey=(c,s)=>'lmbc_favorite:'+encodeURIComponent(s)+':'+encodeURIComponent(c);
  const currentFavorite=()=>{const c=context();return read(favoriteKey(c.category,c.season));};
  async function directory(favorite=false){

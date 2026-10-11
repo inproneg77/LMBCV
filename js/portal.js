@@ -1,7 +1,7 @@
 (function(){
  'use strict';
  const {url,escape:H,read,write}=LMBC,C=PortalCore,app=document.getElementById('portal-content'),page=document.body.dataset.portal;
- const params=new URLSearchParams(location.search);let state=null,index=[],tournamentsError=false,category=params.get('categoria')||(params.has('categoria')?'':(()=>{try{return JSON.parse(read('lmbc_fan_context')||'{}').category||read('lmbc_category');}catch{return read('lmbc_category');}})()),season=params.get('temporada')||(()=>{try{return JSON.parse(read('lmbc_fan_context')||'{}').season||'';}catch{return '';}})(),loadVersion=0;
+ const params=new URLSearchParams(location.search);let state=null,index=[],tournamentsError=false,category=params.get('categoria')||(params.has('categoria')?'':(()=>{try{return JSON.parse(read('lmbc_fan_context')||'{}').category||read('lmbc_category');}catch{return read('lmbc_category');}})()),season=params.get('temporada')||'',loadVersion=0;
  const opts=(xs,value)=>xs.map(x=>`<option value="${H(x.id)}" ${x.id===value?'selected':''}>${H(x.nombre??x.name)}</option>`).join('');
  const optionInput=(label,id,xs,value)=>`<label>${label}<select id="${id}">${opts(xs,value)}</select></label>`;
  async function json(p){const r=await fetch(url(p),{cache:'no-cache'});if(!r.ok)throw Error('No se pudo cargar la información.');return r.json();}
