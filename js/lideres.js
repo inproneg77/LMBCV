@@ -113,6 +113,7 @@ function renderLideres() {
       renderLideres();
     });
   });
+  if(typeof LMBCDownloads!=='undefined')LMBCDownloads.mount({title:'Líderes · '+(TIPOS_LIDERES.find(t=>t.id===tipoActivoL)?.titulo||'Puntos'),category:ESTADO_L.categorias.find(c=>c.id===categoriaActivaL)?.nombre||categoriaActivaL,season:ESTADO_L.temporadas.find(t=>t.id===temporadaActivaL)?.nombre||temporadaActivaL||'Todas las temporadas',note:'Líderes acumulados de la liga: los diez jugadores de la tabla seleccionada. Son estadísticas acumuladas; no representan el MVP de un partido. Amistosos y torneos independientes se consultan por separado.',sponsors:ESTADO_L.patrocinadores});
 }
 
 iniciarLideres();
