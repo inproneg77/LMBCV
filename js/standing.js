@@ -83,6 +83,7 @@ function renderStanding() {
       con 3 o más equipos empatados decide el diferencial de puntos.
     </p>
   `;
+  if(typeof LMBCDownloads!=='undefined')LMBCDownloads.mount({title:'Tabla de posiciones',category:ESTADO_S.categorias.find(c=>c.id===categoriaActivaS)?.nombre||categoriaActivaS,season:ESTADO_S.temporadas.find(t=>t.id===temporadaActivaS)?.nombre||temporadaActivaS||'Todas las temporadas',note:'Temporada regular de liga. Victoria = 2 pts · Derrota = 1 pt · Derrota por forfeit = 0 pts. Los resultados oficiales por forfeit se conservan en el standing. Desempates: enfrentamiento directo entre dos equipos; diferencial de puntos para tres o más.',sponsors:ESTADO_S.patrocinadores});
 }
 
 iniciarStanding();

@@ -82,6 +82,7 @@ function renderRankings() {
       renderRankings();
     });
   });
+  if(typeof LMBCDownloads!=='undefined')LMBCDownloads.mount({title:seleccionado.modo==='mvp'?'Reconocimientos MVP':'Rankings · '+seleccionado.titulo,category:ESTADO_R.categorias.find(c=>c.id===categoriaActivaR)?.nombre||categoriaActivaR,season:ESTADO_R.temporadas.find(t=>t.id===temporadaActivaR)?.nombre||temporadaActivaR||'Todas las temporadas',note:seleccionado.modo==='mvp'?'Cantidad de reconocimientos MVP registrados en los partidos de liga de esta categoría y temporada; no es un liderazgo de puntos acumulados.':'Promedios de temporada regular: se excluyen forfeits de ambos equipos. Amistosos y torneos independientes no se incluyen.',sponsors:ESTADO_R.patrocinadores});
 }
 
 function renderSeccionRanking(r, filas) {
