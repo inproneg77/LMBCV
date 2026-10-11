@@ -4,10 +4,10 @@
  const H=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const payloads=new Map();
  function gameActions(g,state){
-  if(g.estatus!=='jugado')return '';
+  if(!['jugado','programado'].includes(g.estatus))return '';
   const model=ArenaCore.gameModel(g,state),key=JSON.stringify([g.categoria_id,g.temporada,g.id]);
   payloads.set(key,model);
-  return '<div class="game-actions no-print"><button type="button" data-arena-share="'+H(key)+'">Compartir resultado ↗</button>'+(model.mvp?'<button type="button" data-arena-share="'+H(key)+'" data-arena-mvp>★ Compartir destacado</button>':'')+'</div>';
+  return '<div class="game-actions no-print"><button type="button" data-arena-share="'+H(key)+'">'+(model.played?'Compartir resultado ↗':'Descargar / compartir cartel ↗')+'</button>'+(model.played&&model.mvp?'<button type="button" data-arena-share="'+H(key)+'" data-arena-mvp>★ Compartir destacado</button>':'')+'</div>';
  }
  function switches(){return '<div class="profile-switch no-print" role="group" aria-label="Estadísticas del perfil"><button type="button" data-profile-show="oficial" aria-pressed="true" aria-controls="profile-oficial">Liga · oficiales</button><button type="button" data-profile-show="amistosos" aria-pressed="false" aria-controls="profile-amistosos">Amistosos</button></div>';}
  function fit(ctx,text,x,y,max,size,min=20){
@@ -23,19 +23,21 @@
  function drawLogo(ctx,img,x,y,w){if(!img)return;const scale=Math.min(w/img.naturalWidth,w/img.naturalHeight);ctx.drawImage(img,x+(w-img.naturalWidth*scale)/2,y+(w-img.naturalHeight*scale)/2,img.naturalWidth*scale,img.naturalHeight*scale);}
  async function poster(m,mvp){
   const canvas=document.createElement('canvas');canvas.width=1080;canvas.height=1080;const ctx=canvas.getContext('2d');if(!ctx)throw Error('Tu navegador no pudo generar la imagen.');
-  const [a,b,...sponsors]=await Promise.all([logo(m.localLogo),logo(m.visitorLogo),...m.sponsors.map(s=>logo(s.logo))]);
+  const [a,b,photo,...sponsors]=await Promise.all([logo(m.localLogo),logo(m.visitorLogo),mvp?logo(m.mvpPhoto):null,...m.sponsors.map(s=>logo(s.logo))]);
   ctx.fillStyle='#122825';ctx.fillRect(0,0,1080,1080);ctx.strokeStyle='#345145';ctx.lineWidth=2;ctx.beginPath();ctx.arc(1060,40,400,0,Math.PI*2);ctx.stroke();
   ctx.textAlign='left';ctx.fillStyle='#d6ee96';fit(ctx,'LMBC / CABORCA',64,85,952,28);
-  ctx.fillStyle='white';fit(ctx,mvp?'JUGADOR DESTACADO':'RESULTADO FINAL',64,159,952,55);
+  ctx.fillStyle='white';fit(ctx,mvp?'MVP DEL PARTIDO':m.played?'RESULTADO FINAL':'PRÓXIMO ENCUENTRO',64,159,952,55);
   ctx.fillStyle='#c4d4c7';fit(ctx,m.category+' · '+m.season,64,209,952,24);
   ctx.fillStyle='#d6ee96';fit(ctx,m.kind+(m.forfeit?' · FORFEIT':''),64,253,952,22);
   ctx.fillStyle='#fff';ctx.fillRect(112,300,150,150);ctx.fillRect(818,300,150,150);drawLogo(ctx,a,122,310,130);drawLogo(ctx,b,828,310,130);
-  ctx.textAlign='center';ctx.fillStyle='#fff';fit(ctx,String(m.localScore)+' — '+String(m.visitorScore),540,415,520,108,60);
+  ctx.textAlign='center';ctx.fillStyle='#fff';fit(ctx,m.played?String(m.localScore)+' — '+String(m.visitorScore):'VS',540,415,520,108,60);
   fit(ctx,m.local,270,510,420,32);fit(ctx,m.visitor,810,510,420,32);
-  ctx.fillStyle='#29473d';ctx.fillRect(64,560,952,150);ctx.fillStyle='#d6ee96';
-  fit(ctx,mvp?m.mvp:m.date+' · '+(m.time||''),540,620,850,mvp?44:32);
+  ctx.fillStyle='#29473d';ctx.fillRect(64,560,952,mvp?240:150);ctx.fillStyle='#d6ee96';
+  if(mvp&&photo){const size=170,ratio=Math.max(size/photo.naturalWidth,size/photo.naturalHeight),w=photo.naturalWidth*ratio,h=photo.naturalHeight*ratio;ctx.save();ctx.beginPath();ctx.rect(90,590,size,size);ctx.clip();ctx.drawImage(photo,90+(size-w)/2,590+(size-h)/2,w,h);ctx.restore();}
+  fit(ctx,mvp?m.mvp:m.date+' · '+(m.time||''),mvp&&photo?640:540,620,mvp&&photo?650:850,mvp?44:32);
+  if(mvp&&m.mvpLine){ctx.fillStyle='#fff';fit(ctx,(Number(m.mvpLine.puntos)||0)+' PUNTOS  ·  '+(Number(m.mvpLine.triples)||0)+' TRIPLES',photo?640:540,686,photo?650:850,29);}
   if(!mvp){ctx.fillStyle='#e1e9dd';fit(ctx,m.venue,540,666,850,24);}
-  if(mvp){ctx.fillStyle='#d6dfd8';fit(ctx,m.date+' · '+m.venue,540,763,950,24);}
+  if(mvp){ctx.fillStyle='#d6dfd8';fit(ctx,m.date+' · '+m.venue,photo?640:540,748,photo?650:850,22);}
   if(sponsors.some(Boolean)){
    ctx.fillStyle='#d6dfd8';fit(ctx,'CON EL APOYO DE',540,834,950,17);
    const start=540-(sponsors.length*130)/2;
@@ -49,11 +51,11 @@
   const isMvp=button.hasAttribute('data-arena-mvp'),previous=button.textContent;button.disabled=true;button.textContent='Preparando imagen…';
   let dlg,objectURL;
   try{
-   const blob=await poster(m,isMvp),file=new File([blob],isMvp?'lmbc-destacado.png':'lmbc-resultado.png',{type:'image/png'});
+   const blob=await poster(m,isMvp),file=new File([blob],isMvp?'lmbc-destacado.png':m.played?'lmbc-resultado.png':'lmbc-proximo-partido.png',{type:'image/png'});
    objectURL=URL.createObjectURL(blob);
    dlg=document.createElement('dialog');dlg.className='arena-share-dialog';dlg.setAttribute('aria-labelledby','arena-share-title');
    const page=url('calendario/?'+m.query);
-   dlg.innerHTML='<div class="dialog-head"><h2 id="arena-share-title">'+(isMvp?'Jugador destacado':'Resultado para compartir')+'</h2><button type="button" class="icon-button" data-dismiss aria-label="Cerrar">✕</button></div><img alt="Tarjeta del resultado '+H(m.local)+' contra '+H(m.visitor)+'" src="'+objectURL+'"><p>Descarga la imagen para WhatsApp o Facebook. Tú decides dónde publicarla.</p><div class="share-actions"><a class="primary-link" download="'+file.name+'" href="'+objectURL+'">Descargar imagen</a><button type="button" class="secondary-link" data-native>Compartir imagen</button><button type="button" class="secondary-link" data-copy>Copiar enlace</button></div><p data-status role="status"></p>';
+   dlg.innerHTML='<div class="dialog-head"><h2 id="arena-share-title">'+(isMvp?'MVP del partido':m.played?'Resultado para compartir':'Cartel del próximo encuentro')+'</h2><button type="button" class="icon-button" data-dismiss aria-label="Cerrar">✕</button></div><img alt="'+(isMvp?'MVP '+H(m.mvp):H(m.local)+' contra '+H(m.visitor))+'" src="'+objectURL+'"><p>Descarga la imagen para WhatsApp o Facebook. Tú decides dónde publicarla.</p><div class="share-actions"><a class="primary-link" download="'+file.name+'" href="'+objectURL+'">Descargar imagen</a><button type="button" class="secondary-link" data-native>Compartir imagen</button><button type="button" class="secondary-link" data-copy>Copiar enlace</button></div><p data-status role="status"></p>';
    document.body.append(dlg);dlg.showModal();dlg.querySelector('[data-dismiss]').onclick=()=>dlg.close();
    dlg.addEventListener('close',()=>{URL.revokeObjectURL(objectURL);dlg.remove();button.focus();},{once:true});
    const status=dlg.querySelector('[data-status]');
@@ -70,3 +72,4 @@
  });
  window.ArenaUI={gameActions,switches};
 })();
+
