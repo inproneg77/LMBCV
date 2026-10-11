@@ -6,22 +6,22 @@ const flush=()=>new Promise(resolve=>setImmediate(resolve));
 
 async function home(search){
  const requests=[],renders=[],app={innerHTML:''};
- const ctx=vm.createContext({URLSearchParams,location:{search},history:{replaceState(){}},CustomEvent:class{},window:{addEventListener(){},dispatchEvent(){}},document:{body:{dataset:{portal:'inicio'}},getElementById:id=>id==='portal-content'?app:null},LMBC:{url:p=>p,escape:String,read:k=>k==='lmbc_fan_context'?JSON.stringify({season:'2026-1',category:'var40'}):'',write(){}},PortalCore:{},FanView:{home:x=>{renders.push(x.season);return '';}},renderPatrocinadores(){},fetch:async()=>({ok:true,json:async()=>({torneos:[]})}),cargarDatos:async options=>{requests.push(options.temporada);return {categorias:[{id:'var40'}],temporadas:seasons,patrocinadores:[]};}});
+ const ctx=vm.createContext({FanCore:require('../js/fan-core.js'),URLSearchParams,location:{search},history:{replaceState(){}},CustomEvent:class{},window:{addEventListener(){},dispatchEvent(){}},document:{body:{dataset:{portal:'inicio'}},getElementById:id=>id==='portal-content'?app:null},LMBC:{url:p=>p,escape:String,read:k=>k==='lmbc_fan_context'?JSON.stringify({season:'2026-1',category:'var40'}):'',write(){}},PortalCore:{},FanView:{home:x=>{renders.push(x.season);return '';}},renderPatrocinadores(){},fetch:async()=>({ok:true,json:async()=>({torneos:[]})}),cargarDatos:async options=>{requests.push(options.temporada);return {categorias:[{id:'var40'}],temporadas:seasons,patrocinadores:[]};}});
  vm.runInContext(source('portal.js'),ctx);await flush();return {requests,renders};
 }
 test('Home ignores an old remembered season and requests the current active season',async()=>{const r=await home('');assert.deepEqual(r.requests,['activa']);assert.ok(r.renders.length);assert.ok(r.renders.every(s=>s==='2026-2'));});
 test('An explicit historical home link still loads the requested season',async()=>{const r=await home('?temporada=2026-1');assert.deepEqual(r.requests,['2026-1']);assert.ok(r.renders.every(s=>s==='2026-1'));});
 
-test('Public season selector defaults to active despite old browser preference, while allowing history and manual changes',()=>{
+test('Public season selector defaults to active despite old browser preference, while allowing history and manual changes',async()=>{
  for(const [search,expected] of [['','2026-2'],['?temporada=2026-1','2026-1'],['?temporada=invalid','2026-2']]){
   const changes=[],handlers={},select={value:'',addEventListener:(name,fn)=>handlers[name]=fn},cont={set innerHTML(html){select.value=html.match(/value="([^"]+)" selected/)[1];}};
-  const ctx=vm.createContext({URLSearchParams,window:{location:{search},LMBC:{read:()=> '2026-1',write(){}}},document:{getElementById:id=>id==='temporada-selector'?cont:select}});
-  vm.runInContext(source('datos.js'),ctx);ctx.iniciarSelectorTemporada(seasons,s=>changes.push(s));assert.equal(changes[0],expected);select.value='2026-1';handlers.change();assert.equal(changes.at(-1),'2026-1');
+  const ctx=vm.createContext({FanCore:require('../js/fan-core.js'),URLSearchParams,window:{location:{search},LMBC:{read:()=> '2026-1',write(){}}},document:{getElementById:id=>id==='temporada-selector'?cont:select}});
+  vm.runInContext(source('amistosos.js'),ctx);vm.runInContext(source('datos.js'),ctx);ctx.iniciarSelectorTemporada(seasons,s=>changes.push(s));assert.equal(changes[0],expected);select.value='2026-1';await handlers.change();assert.equal(changes.at(-1),'2026-1');
  }
 });
 
 async function calendar(search){
- const ctx=vm.createContext({URLSearchParams,window:{location:{search},addEventListener(){}},document:{querySelector:()=>null},cargarDatos:async()=>({temporadas:seasons,juegos:[{id:'historic',temporada:'2026-1'}],categorias:[],patrocinadores:[]}),iniciarTabs(){}});
+ const ctx=vm.createContext({FanCore:require('../js/fan-core.js'),URLSearchParams,window:{location:{search},addEventListener(){}},document:{querySelector:()=>null},cargarDatos:async()=>({temporadas:seasons,juegos:[{id:'historic',temporada:'2026-1'}],categorias:[],patrocinadores:[]}),iniciarTabs(){}});
  vm.runInContext(source('calendario.js').replace(/\biniciar\(\);\s*$/,''),ctx);
  vm.runInContext('renderPatrocinadores=()=>{};renderProximoJuego=()=>{};',ctx);
  await ctx.iniciar();return vm.runInContext('calendarFilter.season',ctx);

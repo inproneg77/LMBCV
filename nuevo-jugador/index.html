@@ -44,7 +44,7 @@
 
   .form-oculto{ display:none; }
 </style>
-<link rel="stylesheet" href="../css/modern.css?v=modern-2"><script defer src="../js/site.js?v=modern-2"></script></head>
+<link rel="stylesheet" href="../css/modern.css?v=modern-2"><script defer src="../js/fan-core.js?v=reliability-20261011-1"></script><script defer src="../js/site.js?v=reliability-20261011-1"></script><script src="../js/access.js?v=reliability-20261011-1"></script><script src="../js/capture-guard.js?v=reliability-20261011-1"></script></head>
 <body>
 
   <header class="site-header"><div class="site-header__inner"><a class="brand" href="../index.html">LMBC</a><nav class="site-nav"><a href="../index.html">Inicio</a><a href="../calendario/">Partidos</a><a href="../equipos/">Equipos</a><a href="../estadisticas/">Estadísticas</a><a href="../torneos/">Torneos</a><a href="../administrar/">Administrar</a></nav></div></header>
@@ -138,7 +138,7 @@
     </div>
   </div>
 
-<script src="../js/amistosos.js?v=torneos-1"></script>
+<script src="../js/amistosos.js?v=reliability-20261011-1"></script>
 <script>
 const OWNER = 'inproneg77';
 const REPO = 'LMBCV';
@@ -149,7 +149,7 @@ let juegosAmistososAlta = [];
 let cargaAmistosos = 0;
 let jugadorExistenteElegido = null; // { id, nombre } cuando modo = "existente"
 
-function token() { return localStorage.getItem('lmbc_gh_token') || ''; }
+function token() { return (window.LMBCAuth?window.LMBCAuth.get():localStorage.getItem('lmbc_gh_token')) || ''; }
 
 async function ghFetch(path) {
   const res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}?ref=${BRANCH}`, {
@@ -210,7 +210,7 @@ function buscarJugadorExistente() {
   cont.innerHTML = resultados.map(j => {
     const cats = (j.membresias ?? []).map(m => `${m.categoria_id} (${m.temporada})`).join(', ') || 'sin membresías';
     return `<div class="resultado-jugador" data-id="${j.id}" style="padding:8px 12px; border:1px solid var(--line); border-radius:8px; margin-bottom:6px; cursor:pointer; font-size:13px;">
-      <b>${j.nombre}</b> <span style="color:var(--text-dim);">— ${cats}</span>
+      <b>${escaparHTML(j.nombre)}</b> <span style="color:var(--text-dim);">— ${cats}</span>
     </div>`;
   }).join('');
 
@@ -262,7 +262,7 @@ function revisarDuplicados() {
 
   if (posibles.length > 0) {
     aviso.innerHTML = `⚠ <b>Ya existe${posibles.length > 1 ? 'n' : ''} jugador${posibles.length > 1 ? 'es' : ''} con nombre parecido:</b><br>` +
-      posibles.map(j => `${j.nombre} (ID: ${j.id})`).join(' · ') +
+      posibles.map(j => `${escaparHTML(j.nombre)} (ID: ${j.id})`).join(' · ') +
       `<br>Si es la misma persona, mejor agrégale la membresía nueva a su registro existente en vez de crear uno nuevo — evita duplicados.`;
     aviso.classList.add('visible');
   } else {
@@ -311,7 +311,7 @@ function actualizarEquiposDisponibles() {
   if (!cat) { selEquipo.innerHTML = '<option value="">Elige categoría primero…</option>'; return; }
   const disponibles = EQUIPOS.filter(e => (e.categorias ?? []).includes(cat));
   selEquipo.innerHTML = '<option value="">Elige equipo…</option>' +
-    disponibles.map(e => `<option value="${e.id}">${e.nombre}</option>`).join('');
+    disponibles.map(e => `<option value="${e.id}">${escaparHTML(e.nombre)}</option>`).join('');
 }
 
 function validarFormulario() {
@@ -332,11 +332,12 @@ async function iniciar() {
   tokenInput.value = token();
   actualizarEstadoToken();
   tokenInput.addEventListener('input', () => {
-    localStorage.setItem('lmbc_gh_token', tokenInput.value.trim());
+    window.LMBCAuth?window.LMBCAuth.set(tokenInput.value.trim()):localStorage.setItem('lmbc_gh_token',tokenInput.value.trim());
     actualizarEstadoToken();
-    if (tokenInput.value.trim()) cargarBase();
+
   });
 
+  tokenInput.addEventListener('change',()=>{if(token())cargarBase();});
   document.getElementById('sel-modo').addEventListener('change', actualizarModo);
   document.getElementById('in-buscar').addEventListener('input', buscarJugadorExistente);
   document.getElementById('in-nombre').addEventListener('input', () => {
@@ -384,11 +385,12 @@ async function cargarBase() {
     ROSTER_ACTUAL = rosterRes;
 
     document.getElementById('sel-categoria').innerHTML = '<option value="">Elige categoría…</option>' +
-      CATEGORIAS.map(c => `<option value="${c.id}">${c.nombre}</option>`).join('');
+      CATEGORIAS.map(c => `<option value="${c.id}">${escaparHTML(c.nombre)}</option>`).join('');
     document.getElementById('sel-temporada').innerHTML = '<option value="">Elige temporada…</option>' +
-      TEMPORADAS.map(t => `<option value="${t.id}">${t.nombre}${t.activa ? ' (activa)' : ''}</option>`).join('');
+      TEMPORADAS.map(t => `<option value="${t.id}">${escaparHTML(t.nombre)}${t.activa ? ' (activa)' : ''}</option>`).join('');
 
     document.getElementById('form-jugador').classList.remove('form-oculto');
+    window.CaptureGuard?.open('registro:jugador');
   } catch (err) {
     mostrarMsg('No se pudo cargar (revisa tu token): ' + err.message, true);
   }
@@ -431,7 +433,7 @@ async function guardar() {
         m.temporada === nuevaMembresia.temporada &&
         (!esAltaAmistoso() || m.juego_id === nuevaMembresia.juego_id)
       );
-      if (yaLaTiene) throw new Error(`${jugador.nombre} ya tiene esta participación registrada.`);
+      if (yaLaTiene) throw new Error(`${escaparHTML(jugador.nombre)} ya tiene esta participación registrada.`);
 
       jugador[campoParticipacion] = [...(jugador[campoParticipacion] ?? []), nuevaMembresia];
       nombreParaMensaje = jugador.nombre;
@@ -460,7 +462,8 @@ async function guardar() {
         : `Alta de jugador: ${nombreParaMensaje} — vía Nuevo Jugador`
     );
 
-    mostrarMsg(`¡Guardado! ${nombreParaMensaje} — se publicará en el sitio en 1-2 minutos.`, false);
+    mostrarMsg(`¡Guardado! ${nombreParaMensaje} — se publicará en el sitio en el proceso de publicación.`, false);
+    window.CaptureGuard?.clear();
     ROSTER_ACTUAL = fresco;
 
     // limpiar formulario para el siguiente registro

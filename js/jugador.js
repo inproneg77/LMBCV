@@ -108,8 +108,8 @@ function render(id) {
     .join(' · ');
 
   tituloWrap.innerHTML = `
-    <div class="profile-identity"><div class="profile-avatar" aria-hidden="true">${jugador?.foto&&/^img\/jugadores\/[a-zA-Z0-9_-]+\.png$/.test(jugador.foto)?`<img src="../${escaparHTML(jugador.foto)}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">`:escaparHTML((jugador?.nombre||'Jugador').trim().split(/\s+/).slice(0,2).map(n=>n[0]).join(''))}</div><div><div class="hero__eyebrow">Perfil de jugador</div>
-    <h1 class="hero__title">${jugador?.nombre ?? 'Jugador'}</h1>
+    <div class="profile-identity"><div class="profile-avatar" aria-hidden="true">${jugador?.foto&&/^img\/jugadores\/(?:optimized\/)?[a-zA-Z0-9_-]+\.(?:png|webp|jpg|jpeg)$/i.test(jugador.foto)?`<img src="../${escaparHTML(jugador.foto)}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">`:escaparHTML((jugador?.nombre||'Jugador').trim().split(/\s+/).slice(0,2).map(n=>n[0]).join(''))}</div><div><div class="hero__eyebrow">Perfil de jugador</div>
+    <h1 class="hero__title">${escaparHTML(jugador?.nombre ?? 'Jugador')}</h1>
     <p class="hero__sub">${equiposTexto || 'Sin equipo asignado'}${jugador?.numero ? ` · #${jugador.numero}` : ''}</p></div></div>
   `;
 
@@ -143,10 +143,10 @@ function renderGrupo(g) {
   return `
     <div class="jugador-grupo">
       <div class="jugador-grupo__titulo">
-        <img src="${RUTA_IMG}${equipo?.logo ?? 'img/equipos/placeholder.svg'}" alt="">
+        <img src="${RUTA_IMG}${escaparHTML(equipo?.logo ?? 'img/equipos/placeholder.svg')}" alt="">
         <div>
-          <b>${equipo?.nombre ?? '—'}</b>
-          <span>${categoria?.nombre ?? g.categoriaId} · ${temporada?.nombre ?? g.temporadaId ?? 'Sin temporada'}</span>
+          <b>${escaparHTML(equipo?.nombre ?? '—')}</b>
+          <span>${escaparHTML(categoria?.nombre ?? g.categoriaId)} · ${escaparHTML(temporada?.nombre ?? g.temporadaId ?? 'Sin temporada')}</span>
         </div>
       </div>
       <div class="table-scroll">
@@ -181,7 +181,7 @@ function renderFilaBitacora(f, mostrarTemporada = true) {
   return `
     <div class="historial-item" style="grid-template-columns: auto 1fr auto auto auto auto;">
       <span class="historial-item__resultado ${f.gano ? 'gano' : 'perdio'}">${f.gano ? 'G' : 'P'}</span>
-      <span class="historial-item__rival">${equipo?.nombre ?? '—'} vs ${rival?.nombre ?? '—'}</span>
+      <span class="historial-item__rival">${escaparHTML(equipo?.nombre ?? '—')} vs ${escaparHTML(rival?.nombre ?? '—')}</span>
       <span class="mono">${f.marcadorPropio}-${f.marcadorRival}</span>
       <span class="mono" title="Puntos / Triples / Faltas">${f.puntos}p · ${f.triples}t · ${f.faltas}f</span>
       <span class="historial-item__fecha mono">${texto}</span>

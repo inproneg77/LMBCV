@@ -9,7 +9,7 @@ const friendly=JSON.parse(read('tests/fixtures/amistosos.json'));
 const copy=x=>JSON.parse(JSON.stringify(x));
 async function setup(){
  const nodes={};
- const c=vm.createContext({console,URLSearchParams,AbortController,setTimeout,clearTimeout,window:{location:{search:''}},document:{getElementById:id=>nodes[id]??=( {innerHTML:'',addEventListener(){}} )}});
+ const c=vm.createContext({FanCore:require('../js/fan-core.js'),console,URLSearchParams,AbortController,setTimeout,clearTimeout,window:{location:{search:''}},document:{getElementById:id=>nodes[id]??=( {innerHTML:'',addEventListener(){}} )}});
  const players=friendly.jugadores.filter(p=>p.origen_liga_id).map(p=>({id:p.origen_liga_id,nombre:p.nombre,membresias:[{equipo_id:'OSV40',categoria_id:'var40',temporada:'2026-2'}]}));
  const teams=friendly.equipos.filter(e=>e.origen_liga_id).map(e=>({id:e.origen_liga_id,nombre:e.nombre,categorias:['var40']}));
  const data={'data/amistosos.json':copy(friendly),'data/roster.json':{jugadores:players},'data/equipos.json':{equipos:teams},'data/temporadas.json':{temporadas:[{id:'2026-2'}]},'data/categorias.json':[{id:'var40'}],'data/sedes.json':{sedes:[]},'data/patrocinadores.json':{patrocinadores:[]},'data/juegos_var40/2026-2.json':{juegos:[{id:'official',fecha:'2026-09-01',temporada:'2026-2',local:'OSV40',visita:'CUERVOSV40',estatus:'jugado',fase:'regular',marcador_local:12,marcador_visita:5,estadisticas_local:[{jugador:players[0].id,puntos:12,triples:1,faltas:2}]}]}};

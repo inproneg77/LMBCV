@@ -3,13 +3,13 @@ let categoriaActivaS = null;
 let temporadaActivaS = null;
 
 async function iniciarStanding() {
-  ESTADO_S = await cargarDatos();
+  ESTADO_S = await cargarDatos({temporada:new URLSearchParams(window.location?.search||'').get('temporada')||'activa',amistosos:false,roster:false});
   renderPatrocinadores(ESTADO_S.patrocinadores);
 
   iniciarSelectorTemporada(ESTADO_S.temporadas, (temp) => {
     temporadaActivaS = temp;
     renderStanding();
-  });
+  }, ESTADO_S);
 
   iniciarTabs(ESTADO_S.categorias, (cat) => {
     categoriaActivaS = cat;
@@ -62,8 +62,8 @@ function renderStanding() {
             <td class="rank">${i + 1}</td>
             <td>
               <div class="equipo-cell">
-                <img src="${RUTA_IMG}${f.equipo.logo}" alt="${f.equipo.nombre}" loading="lazy">
-                <span>${f.equipo.nombre}</span>
+                <img src="${RUTA_IMG}${escaparHTML(f.equipo.logo)}" alt="${escaparHTML(f.equipo.nombre)}" loading="lazy">
+                <span>${escaparHTML(f.equipo.nombre)}</span>
               </div>
             </td>
             <td>${f.jj}</td>

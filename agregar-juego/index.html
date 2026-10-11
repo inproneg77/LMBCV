@@ -47,7 +47,7 @@
   .form-oculto{ display:none; }
 </style>
 <link rel="stylesheet" href="../css/amistosos-captura.css?v=7">
-<link rel="stylesheet" href="../css/modern.css?v=modern-2"><script defer src="../js/site.js?v=modern-2"></script></head>
+<link rel="stylesheet" href="../css/modern.css?v=modern-2"><script defer src="../js/fan-core.js?v=reliability-20261011-1"></script><script defer src="../js/site.js?v=reliability-20261011-1"></script><script src="../js/access.js?v=reliability-20261011-1"></script><script src="../js/capture-guard.js?v=reliability-20261011-1"></script></head>
 <body data-amistosos="agenda">
 
   <header class="site-header"><div class="site-header__inner"><a class="brand" href="../index.html">LMBC</a><nav class="site-nav"><a href="../index.html">Inicio</a><a href="../calendario/">Partidos</a><a href="../equipos/">Equipos</a><a href="../estadisticas/">Estadísticas</a><a href="../torneos/">Torneos</a><a href="../administrar/">Administrar</a></nav></div></header>
@@ -158,8 +158,8 @@
 </section><section id="captura-amistosos" hidden><h2 id="am-titulo">Amistosos</h2><div class="cap-msg" id="am-mensaje" role="status" aria-live="polite"></div><p><span id="am-descripcion"></span></p><button type="button" id="am-cargar">Abrir amistosos con mi token</button><fieldset id="am-contenido" hidden><p id="am-estado-edicion" role="status"></p><div class="am-datos"><label>Categoría / rama<select id="am-categoria"></select></label><label>Temporada<select id="am-temporada"></select></label><label>Partido<select id="am-juego"></select></label><button data-am-agenda type="button" id="am-nuevo">Nuevo amistoso</button><label>Fecha<input id="am-fecha" type="date" ></label><label>Hora<input id="am-hora" type="time" ></label><label>Sede<select id="am-sede"></select></label><label data-am-resultados>Estatus<select id="am-estatus"><option value="programado">Programado</option><option value="jugado">Jugado</option></select></label><label data-am-resultados>Forfeit<select id="am-forfeit"><option value="ninguno">No hubo</option><option value="local">Local no se presentó</option><option value="visita">Visitante no se presentó</option></select></label></div><p data-am-resultados>Marca «Jugó» para incluir las estadísticas del jugador. Un forfeit se guarda sin estadísticas individuales.</p><section class="am-equipo"><h3>Local</h3><label>Equipo (liga o amistosos)<select id="am-equipo-local"></select></label><label data-am-agenda>Nombre del nuevo equipo<input id="am-nombre-local" maxlength="100" placeholder="Nombre del equipo invitado"></label><label data-am-agenda>Logo del nuevo equipo (PNG, JPG o WebP)<input id="am-logo-local" type="file" accept="image/png,image/jpeg,image/webp"></label><img id="am-vista-logo-local" hidden alt="Logo del equipo" style="width:72px;height:72px;object-fit:contain"><button data-am-agenda type="button" id="am-crear-local">Crear equipo local</button><label hidden>O copiar equipo y jugadores de liga<select id="am-liga-local"></select></label><div data-am-agenda class="am-editar-equipo"><label>Nombre del equipo seleccionado<input id="am-editar-nombre-local" maxlength="100"></label><label>Nuevo logo del equipo seleccionado<input id="am-editar-logo-local" type="file" accept="image/png,image/jpeg,image/webp"></label><button type="button" id="am-actualizar-equipo-local">Ver cambios antes de guardar</button><small>Se actualiza este equipo de amistosos en todos sus encuentros. La copia de liga conserva su identidad independiente.</small></div><div id="am-jugadores-local"></div><button type="button" id="am-agregar-local">Agregar jugador</button></section><section class="am-equipo"><h3>Visitante</h3><label>Equipo (liga o amistosos)<select id="am-equipo-visita"></select></label><label data-am-agenda>Nombre del nuevo equipo<input id="am-nombre-visita" maxlength="100" placeholder="Nombre del equipo invitado"></label><label data-am-agenda>Logo del nuevo equipo (PNG, JPG o WebP)<input id="am-logo-visita" type="file" accept="image/png,image/jpeg,image/webp"></label><img id="am-vista-logo-visita" hidden alt="Logo del equipo" style="width:72px;height:72px;object-fit:contain"><button data-am-agenda type="button" id="am-crear-visita">Crear equipo visitante</button><label hidden>O copiar equipo y jugadores de liga<select id="am-liga-visita"></select></label><div data-am-agenda class="am-editar-equipo"><label>Nombre del equipo seleccionado<input id="am-editar-nombre-visita" maxlength="100"></label><label>Nuevo logo del equipo seleccionado<input id="am-editar-logo-visita" type="file" accept="image/png,image/jpeg,image/webp"></label><button type="button" id="am-actualizar-equipo-visita">Ver cambios antes de guardar</button><small>Se actualiza este equipo de amistosos en todos sus encuentros. La copia de liga conserva su identidad independiente.</small></div><div id="am-jugadores-visita"></div><button type="button" id="am-agregar-visita">Agregar jugador</button></section><div class="am-datos"><label data-am-resultados>Marcador local<input id="am-marcador-local" type="number" min="0" step="1"></label><label data-am-resultados>Marcador visitante<input id="am-marcador-visita" type="number" min="0" step="1"></label><label data-am-resultados>Jugador destacado<select id="am-mvp"></select></label><label data-am-resultados>Detalle del destacado (opcional)<input id="am-detalle" type="text" ></label></div><button type="button" class="cap-btn" id="am-guardar">Guardar nuevo amistoso</button><button data-am-agenda type="button" id="am-eliminar" hidden style="color:#a33;margin-left:16px">Eliminar este amistoso</button><a id="am-ir-agenda" href="../agregar-juego/?modo=amistoso">Modificar programación, equipos o logos en Agregar Juego</a><a id="am-ir-captura" href="../captura/">Capturar estadísticas y resultado</a></fieldset></section>
   </div>
 
-<script src="../js/amistosos.js?v=torneos-1"></script>
-<script>
+<script src="../js/amistosos.js?v=reliability-20261011-1"></script>
+<div class="cap-wrap"><button type="button" class="secondary-link" id="abrir-papelera">Recuperar un juego eliminado</button><div id="juegos-papelera"></div></div><script>
 
 const OWNER = 'inproneg77';
 const REPO = 'LMBCV';
@@ -170,7 +170,7 @@ let TODOS_LOS_JUEGOS = []; // { id, categoria, temporada, local, visita, fecha }
 let archivoEdicionActual = null; // { path, sha, contenido } del archivo categoria+temporada que se está viendo en modo "editar"
 let juegoEnEdicionId = null;     // id del juego elegido para modificar/eliminar
 
-function token() { return localStorage.getItem('lmbc_gh_token') || ''; }
+function token() { return (window.LMBCAuth?window.LMBCAuth.get():localStorage.getItem('lmbc_gh_token')) || ''; }
 
 async function ghFetch(path) {
   const res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}?ref=${BRANCH}`, {
@@ -212,7 +212,7 @@ function actualizarEquipos() {
     return;
   }
   const disponibles = EQUIPOS.filter(e => (e.categorias ?? []).includes(cat));
-  const opciones = '<option value="">Elige equipo…</option>' + disponibles.map(e => `<option value="${e.id}">${e.nombre}</option>`).join('');
+  const opciones = '<option value="">Elige equipo…</option>' + disponibles.map(e => `<option value="${e.id}">${escaparHTML(e.nombre)}</option>`).join('');
   selLocal.innerHTML = opciones;
   selVisita.innerHTML = opciones;
 }
@@ -297,6 +297,7 @@ function elegirJuegoExistente() {
   document.getElementById('in-vuelta').value = juego.vuelta ?? 1;
   document.getElementById('chk-destacado').checked = String(juego.destacado) === 'true';
 
+  window.CaptureGuard?.open('agenda:'+document.getElementById('sel-categoria').value+':'+document.getElementById('sel-temporada').value+':'+id);
   camposEdicion.style.display = 'block';
   btnEliminar.style.display = 'inline-block';
   validarFormulario();
@@ -367,7 +368,7 @@ async function iniciar() {
   tokenInput.value = token();
   actualizarEstadoToken();
   tokenInput.addEventListener('input', () => {
-    localStorage.setItem('lmbc_gh_token', tokenInput.value.trim());
+    window.LMBCAuth?window.LMBCAuth.set(tokenInput.value.trim()):localStorage.setItem('lmbc_gh_token',tokenInput.value.trim());
     actualizarEstadoToken();
   });
   tokenInput.addEventListener('change',()=>{if(token())cargarBase().then(actualizarModo);});
@@ -407,11 +408,11 @@ async function cargarBase() {
     SEDES = sedeRes.sedes ?? [];
 
     document.getElementById('sel-categoria').innerHTML = '<option value="">Elige categoría…</option>' +
-      CATEGORIAS.map(c => `<option value="${c.id}">${c.nombre}</option>`).join('');
+      CATEGORIAS.map(c => `<option value="${c.id}">${escaparHTML(c.nombre)}</option>`).join('');
     document.getElementById('sel-temporada').innerHTML = '<option value="">Elige temporada…</option>' +
-      TEMPORADAS.map(t => `<option value="${t.id}">${t.nombre}${t.activa ? ' (activa)' : ''}</option>`).join('');
+      TEMPORADAS.map(t => `<option value="${t.id}">${escaparHTML(t.nombre)}${t.activa ? ' (activa)' : ''}</option>`).join('');
     document.getElementById('sel-sede').innerHTML = '<option value="">Elige sede…</option>' +
-      SEDES.map(s => `<option value="${s.id}">${s.nombre}</option>`).join('');
+      SEDES.map(s => `<option value="${s.id}">${escaparHTML(s.nombre)}</option>`).join('');
 
     // Traemos TODOS los archivos de juegos de todas las categorías/temporadas
     // que existan — para poder generar un ID que nunca choque con ninguno
@@ -429,6 +430,7 @@ async function cargarBase() {
     });
 
     document.getElementById('form-juego').classList.remove('form-oculto');
+    window.CaptureGuard?.open('agenda:nuevo');
   } catch (err) {
     mostrarMsg('No se pudo cargar (revisa tu token): ' + err.message, true);
   }
@@ -502,7 +504,8 @@ async function guardar() {
       `Juego agendado: ${eqLocal} vs ${eqVisita} (${nuevoJuego.fecha}) — vía Agregar Juego`
     );
 
-    mostrarMsg(`¡Guardado! ${eqLocal} vs ${eqVisita}, ${nuevoJuego.fecha} — se publicará en el sitio en 1-2 minutos.`, false);
+    window.CaptureGuard?.clear();
+    mostrarMsg(`Guardado en GitHub: ${eqLocal} vs ${eqVisita}, ${nuevoJuego.fecha}. El sitio se actualizará al terminar la publicación.`, false);
     TODOS_LOS_JUEGOS.push({ id, categoria, temporada, local: nuevoJuego.local, visita: nuevoJuego.visita, fecha: nuevoJuego.fecha });
 
     // limpiar para el siguiente
@@ -537,6 +540,10 @@ async function guardarEdicion() {
 
     const juego = fresco.contenido.juegos.find(j => j.id === juegoEnEdicionId);
     if (!juego) throw new Error('Este juego ya no está en el archivo (¿lo borraron desde otro lado?). Recarga la página.');
+    verificarVersionJuego(juego,archivoEdicionActual.contenido.juegos.find(j=>j.id===juegoEnEdicionId));
+    const cat=document.getElementById('sel-categoria').value;
+    if(!EQUIPOS.some(e=>e.id===document.getElementById('sel-local').value&&e.categorias.includes(cat))||!EQUIPOS.some(e=>e.id===document.getElementById('sel-visita').value&&e.categorias.includes(cat))||document.getElementById('sel-local').value===document.getElementById('sel-visita').value||!/^([01]\d|2[0-3]):[0-5]\d$/.test(document.getElementById('in-hora').value)||!document.getElementById('in-fecha').value)throw new Error('Revisa equipos, fecha y horario de 24 horas.');
+    if(juego.estatus==='jugado'&&(juego.local!==document.getElementById('sel-local').value||juego.visita!==document.getElementById('sel-visita').value||juego.fase!==document.getElementById('sel-fase').value))throw new Error('Un juego con resultado conserva sus equipos y fase. Puedes corregir su horario o sede; revisa el resultado desde Capturar resultados.');
 
     if (esAmistoso(juego) && (document.getElementById('sel-fase').value !== 'amistoso' || document.getElementById('sel-local').value !== juego.local || document.getElementById('sel-visita').value !== juego.visita)) {
       const roster = await ghFetch('data/roster.json');
@@ -557,7 +564,8 @@ async function guardarEdicion() {
 
     await ghGuardar(path, fresco.sha, fresco.contenido, `Juego modificado: ${eqLocal} vs ${eqVisita} (${juego.fecha}) — vía Agregar Juego`);
 
-    mostrarMsg(`¡Guardado! Se actualizó ${eqLocal} vs ${eqVisita}, ${juego.fecha}.`, false);
+    window.CaptureGuard?.clear();
+    mostrarMsg(`Guardado en GitHub: ${eqLocal} vs ${eqVisita}, ${juego.fecha}.`, false);
     archivoEdicionActual = { path, sha: null, contenido: fresco.contenido };
     await cargarJuegosProgramados();
   } catch (err) {
@@ -572,7 +580,7 @@ async function eliminar() {
   if (!juegoEnEdicionId || !archivoEdicionActual) return;
 
   const opcionTexto = document.querySelector(`#sel-juego-existente option[value="${juegoEnEdicionId}"]`)?.textContent ?? juegoEnEdicionId;
-  const confirmado = confirm(`¿Seguro que quieres ELIMINAR este juego?\n\n${opcionTexto}\n\nEsto no se puede deshacer desde aquí.`);
+  const confirmado = confirm(`¿Seguro que quieres ELIMINAR este juego?\n\n${opcionTexto}\n\nPodrás recuperarlo desde la papelera de esta categoría y temporada.`);
   if (!confirmado) return;
 
   const btn = document.getElementById('btn-eliminar');
@@ -593,11 +601,14 @@ async function eliminar() {
     const tieneInvitados = (roster?.contenido.jugadores ?? []).some(j => (j.participaciones_amistosos ?? []).some(p => p.juego_id === juego.id && p.temporada === juego.temporada && p.categoria_id === document.getElementById('sel-categoria').value));
     if (tieneInvitados) throw new Error('Retira primero las invitaciones de este juego en el roster antes de eliminarlo.');
 
+    verificarVersionJuego(juego,archivoEdicionActual.contenido.juegos.find(j=>j.id===juegoEnEdicionId));
+    fresco.contenido.papelera=[...(fresco.contenido.papelera??[]),{juego,eliminado:new Date().toISOString()}];
     fresco.contenido.juegos = fresco.contenido.juegos.filter(j => j.id !== juegoEnEdicionId);
 
     await ghGuardar(path, fresco.sha, fresco.contenido, `Juego eliminado (${juegoEnEdicionId}) — vía Agregar Juego`);
 
-    mostrarMsg('Juego eliminado. Se reflejará en el sitio en 1-2 minutos.', false);
+    mostrarMsg('Juego enviado a la papelera y guardado en GitHub. Se reflejará al terminar la publicación.', false);
+    window.CaptureGuard?.clear();
     archivoEdicionActual = { path, sha: null, contenido: fresco.contenido };
     juegoEnEdicionId = null;
     document.getElementById('campos-edicion').style.display = 'none';
@@ -620,6 +631,6 @@ function ocultarMsg() { document.getElementById('msg').className = 'cap-msg'; }
 
 iniciar();
 </script>
-<script src="../js/captura-amistosos.js?v=8"></script>
-<script>document.getElementById('modo-captura').addEventListener('change',function(){if(this.value==='torneo')location.href='../torneos/?administrar=1&vista=rol';});</script></body>
+<script src="../js/captura-amistosos.js?v=reliability-20261011-1"></script>
+<script>document.getElementById('modo-captura').addEventListener('change',function(){if(this.value==='torneo')location.href='../torneos/?administrar=1&vista=rol';});</script><script src="../js/recover-games.js?v=reliability-20261011-1"></script></body>
 </html>

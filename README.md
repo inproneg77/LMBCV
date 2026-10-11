@@ -8,7 +8,7 @@ En **Captura Rápida** (/captura/), selecciona la categoría y el partido marcad
 
 Equipos, jugadores y partidos nuevos de amistosos viven en data/amistosos.json; los logos en img/amistosos/. Al copiar un equipo de liga recibe una identidad independiente: sus integrantes y resultados no se inscriben en el torneo oficial. Un cambio de nombre o logo de un equipo de amistosos se refleja en todos sus encuentros. El calendario muestra partidos y estadísticas amistosas, separados de standing, líderes, rankings y totales oficiales.
 
-Se conserva el mismo token personal en localStorage (lmbc_gh_token), nunca dentro de un JSON. El guardado utiliza el SHA del archivo para detectar cambios concurrentes. La agenda preserva los resultados guardados; la captura preserva los datos de programación.
+El mismo token personal se conserva por sesión de forma predeterminada; «Recordar acceso en este navegador» permite guardarlo en localStorage (lmbc_gh_token). Los accesos que ya estaban recordados mantienen esa preferencia. «Desconectar» elimina ambas copias. Nunca se guarda dentro de un JSON. El guardado utiliza el SHA del archivo para detectar cambios concurrentes. La agenda preserva los resultados guardados; la captura preserva los datos de programación.
 
 Los amistosos anteriores almacenados por categoría/temporada y sus invitados conservan el flujo existente. La siguiente sección describe ese formato heredado.
 
@@ -220,3 +220,9 @@ Acceso público: `/torneos/`. Administración: `/torneos/?administrar=1`, tambi�
 ## Portal y administración
 
 Consulta [la navegación y arquitectura del portal](docs/portal-moderno.md). Inicio, Partidos, Equipos, Estadísticas y Torneos comparten diseño y navegación; el acceso de administración está en `/administrar/`.
+
+## Validación y operación
+
+Ejecutar `node scripts/test.cjs` y `node scripts/check-site.cjs` con Node 24 antes de integrar cambios. GitHub Actions los ejecuta también en cada PR. Consultar [Operación y pruebas](docs/operacion-y-pruebas.md) para los recorridos de aceptación, recuperación de juegos, borradores, respaldo y publicación.
+
+Los carteles de resultados y MVP conservan la transparencia de logos y fotos, sin placas blancas. Los bordes blancos rectangulares de logos heredados se corrigen solamente en la copia exportada. Las versiones WebP de las fotos reducen la transferencia sin reemplazar los originales. Comparar, Rankings e historias comparten el cálculo de rendimiento sin forfeits; standings conserva su efecto oficial.

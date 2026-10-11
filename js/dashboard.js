@@ -53,14 +53,8 @@ function liderPuntos(categoriaId) {
 // temporada — mismo criterio que juegosVigentes: la temporada con actividad
 // más reciente de esa categoría, no una global. =====
 function calcularSerie(serie) {
-  let victoriasA = 0, victoriasB = 0;
-  (serie.juegos ?? []).forEach(j => {
-    if (String(j.jugado) !== 'true') return;
-    if (j.marcador_a > j.marcador_b) victoriasA++;
-    else if (j.marcador_b > j.marcador_a) victoriasB++;
-  });
-  const ganador = victoriasA >= 2 ? serie.equipoA : victoriasB >= 2 ? serie.equipoB : null;
-  return { victoriasA, victoriasB, ganador };
+  const model=FanCore.seriesModel(serie);
+  return {victoriasA:model.a,victoriasB:model.b,ganador:model.winner,invalida:model.invalid};
 }
 
 function fechaUltimoJuego(serie) {
@@ -116,12 +110,12 @@ function renderCampeon(cat, estado) {
   return `
     <div class="campeon-card">
       <div class="campeon-card__trofeo">🏆</div>
-      <img src="${RUTA_IMG}${equipo?.logo ?? 'img/equipos/placeholder.svg'}" alt="" class="campeon-card__logo">
-      <div class="campeon-card__nombre">${equipo?.nombre ?? 'Equipo'}</div>
-      <div class="campeon-card__cat">Campeón · ${cat.nombre}</div>
+      <img src="${RUTA_IMG}${escaparHTML(equipo?.logo ?? 'img/equipos/placeholder.svg')}" alt="" class="campeon-card__logo">
+      <div class="campeon-card__nombre">${escaparHTML(equipo?.nombre ?? 'Equipo')}</div>
+      <div class="campeon-card__cat">Campeón · ${escaparHTML(cat.nombre)}</div>
       <div class="campeon-card__temp mono">${temporada}</div>
       ${estado.fecha ? `<div class="campeon-card__fecha mono">${formatearFecha(estado.fecha).texto}</div>` : ''}
-      ${estado.serie.mvp_serie ? `<div class="campeon-card__mvp">★ ${cat.etiqueta_mvp ?? 'MVP'} de la Final: <b>${estado.serie.mvp_serie}</b></div>` : ''}
+      ${estado.serie.mvp_serie ? `<div class="campeon-card__mvp">★ ${cat.etiqueta_mvp ?? 'MVP'} de la Final: <b>${escaparHTML(estado.serie.mvp_serie)}</b></div>` : ''}
     </div>
   `;
 }
@@ -133,8 +127,8 @@ function renderSerieEnCurso(cat, item) {
   return `
     <div class="juego serie">
       <div class="equipo equipo--local">
-        <img src="${RUTA_IMG}${equipoA?.logo ?? 'img/equipos/placeholder.svg'}" alt="" loading="lazy">
-        <span class="equipo__nombre">${equipoA?.nombre ?? 'Por definir'}</span>
+        <img src="${RUTA_IMG}${escaparHTML(equipoA?.logo ?? 'img/equipos/placeholder.svg')}" alt="" loading="lazy">
+        <span class="equipo__nombre">${escaparHTML(equipoA?.nombre ?? 'Por definir')}</span>
       </div>
       <div class="marcador">
         <div class="marcador__score">
@@ -142,11 +136,11 @@ function renderSerieEnCurso(cat, item) {
           <span class="mono" style="color:var(--text-dim); font-size:16px;">–</span>
           <span class="${victoriasB > victoriasA ? 'gano' : 'perdio'}">${victoriasB}</span>
         </div>
-        <div class="marcador__info mono" style="margin-top:6px;">${cat.nombre} · ${serie.ronda}</div>
+        <div class="marcador__info mono" style="margin-top:6px;">${escaparHTML(cat.nombre)} · ${serie.ronda}</div>
       </div>
       <div class="equipo equipo--visita">
-        <img src="${RUTA_IMG}${equipoB?.logo ?? 'img/equipos/placeholder.svg'}" alt="" loading="lazy">
-        <span class="equipo__nombre">${equipoB?.nombre ?? 'Por definir'}</span>
+        <img src="${RUTA_IMG}${escaparHTML(equipoB?.logo ?? 'img/equipos/placeholder.svg')}" alt="" loading="lazy">
+        <span class="equipo__nombre">${escaparHTML(equipoB?.nombre ?? 'Por definir')}</span>
       </div>
     </div>
   `;
@@ -235,8 +229,8 @@ function render() {
             : (fase === 'amistoso' ? ` · ${faseNombre}` : '');
           return `<div class="historial-item">
             <span class="historial-item__resultado" style="background:var(--gold);">${texto.split(' ')[0]}</span>
-            <span class="historial-item__rival">${local?.nombre ?? '—'} vs ${visita?.nombre ?? '—'}
-              <span class="mono" style="font-size:11px; color:var(--text-dim); font-weight:400;">${cat?.nombre ?? j.categoria_id}${fase === 'amistoso' ? etiquetaFase : ''}</span>${esImportante ? etiquetaFase : ''}
+            <span class="historial-item__rival">${escaparHTML(local?.nombre ?? '—')} vs ${escaparHTML(visita?.nombre ?? '—')}
+              <span class="mono" style="font-size:11px; color:var(--text-dim); font-weight:400;">${escaparHTML(cat?.nombre ?? j.categoria_id)}${fase === 'amistoso' ? etiquetaFase : ''}</span>${esImportante ? etiquetaFase : ''}
             </span>
             <span class="mono">${j.hora} hrs</span>
             <span class="historial-item__fecha mono">${texto}</span>
@@ -252,10 +246,10 @@ function render() {
         const lider = liderPuntos(cat.id);
         return `
           <div class="dash-cat-card">
-            <h4>${cat.nombre}</h4>
+            <h4>${escaparHTML(cat.nombre)}</h4>
             ${top3.length === 0 ? '<div class="empty" style="padding:12px; font-size:12px;">Sin standing todavía.</div>' : `
               <ol class="dash-top3">
-                ${top3.map(f => `<li><img src="${RUTA_IMG}${f.equipo.logo}" alt=""> ${f.equipo.nombre} <span class="mono">${f.pts} pts</span></li>`).join('')}
+                ${top3.map(f => `<li><img src="${RUTA_IMG}${escaparHTML(f.equipo.logo)}" alt=""> ${escaparHTML(f.equipo.nombre)} <span class="mono">${f.pts} pts</span></li>`).join('')}
               </ol>
             `}
             ${lider ? `<div class="dash-lider">🏀 Líder de puntos: <b>${linkJugador(lider.id, lider.nombre)}</b> (${lider.puntos})</div>` : ''}
