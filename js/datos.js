@@ -247,7 +247,7 @@ function iniciarSelectorTemporada(temporadas, callback) {
   }
 
   const ordenadas = [...temporadas].sort((a,b) => b.id.localeCompare(a.id));
-  const pedida = new URLSearchParams(window.location?.search||'').get('temporada') || window.LMBC?.read('lmbc_season');
+  const pedida = new URLSearchParams(window.location?.search||'').get('temporada');
   const porDefecto = ordenadas.find(t=>t.id===pedida)?.id ?? ordenadas.find(t => String(t.activa) === 'true')?.id ?? ordenadas[0].id;
 
   cont.innerHTML = `
