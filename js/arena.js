@@ -6,8 +6,9 @@
  function gameActions(g,state){
   if(!['jugado','programado'].includes(g.estatus))return '';
   const model=ArenaCore.gameModel(g,state),key=JSON.stringify([g.categoria_id,g.temporada,g.id]);
+  if(model.played)model.statistics=ArenaCore.statisticsModel(g,state);
   payloads.set(key,model);
-  return '<div class="game-actions no-print"><button type="button" data-arena-share="'+H(key)+'">'+(model.played?'Compartir resultado ↗':'Descargar / compartir cartel ↗')+'</button>'+(model.played&&model.mvp?'<button type="button" data-arena-share="'+H(key)+'" data-arena-mvp>★ Compartir destacado</button>':'')+'</div>';
+  return '<div class="game-actions no-print"><button type="button" data-arena-share="'+H(key)+'">'+(model.played?'Compartir resultado ↗':'Descargar / compartir cartel ↗')+'</button>'+(model.played&&model.mvp?'<button type="button" data-arena-share="'+H(key)+'" data-arena-mvp>★ Compartir destacado</button>':'')+(model.played?'<button type="button" data-arena-share="'+H(key)+'" data-arena-stats>Descargar / compartir estadísticas ↗</button>':'')+'</div>';
  }
  function switches(){return '<div class="profile-switch no-print" role="group" aria-label="Estadísticas del perfil"><button type="button" data-profile-show="oficial" aria-pressed="true" aria-controls="profile-oficial">Liga · oficiales</button><button type="button" data-profile-show="amistosos" aria-pressed="false" aria-controls="profile-amistosos">Amistosos</button></div>';}
  function fit(ctx,text,x,y,max,size,min=20){
@@ -45,7 +46,7 @@
   const canvas=document.createElement('canvas');canvas.width=1080;canvas.height=1080;const ctx=canvas.getContext('2d');if(!ctx)throw Error('Tu navegador no pudo generar la imagen.');
   const [a,b,photo,...sponsors]=await Promise.all([logo(m.localLogo),logo(m.visitorLogo),mvp?logo(m.mvpPhoto,false):null,...m.sponsors.map(s=>logo(s.logo))]);
   ctx.fillStyle='#122825';ctx.fillRect(0,0,1080,1080);ctx.strokeStyle='#345145';ctx.lineWidth=2;ctx.beginPath();ctx.arc(1060,40,400,0,Math.PI*2);ctx.stroke();
-  ctx.textAlign='left';ctx.fillStyle='#d6ee96';fit(ctx,'LMBC / CABORCA',64,85,952,28);
+  ctx.textAlign='left';ctx.fillStyle='#d6ee96';fit(ctx,'LMBC VETERANOS / CABORCA',64,85,952,28);
   ctx.fillStyle='white';fit(ctx,mvp?'MVP DEL PARTIDO':m.played?'RESULTADO FINAL':'PRÓXIMO ENCUENTRO',64,159,952,55);
   ctx.fillStyle='#c4d4c7';fit(ctx,m.category+' · '+m.season,64,209,952,24);
   ctx.fillStyle='#d6ee96';fit(ctx,m.kind+(m.forfeit?' · FORFEIT':''),64,253,952,22);
@@ -67,23 +68,30 @@
   ctx.fillStyle='#d6ee96';fit(ctx,'caborcavets.online',540,1020,900,25);
   return new Promise((resolve,reject)=>canvas.toBlob(blob=>blob?resolve(blob):reject(Error('No se pudo crear la imagen.')),'image/png'));
  }
- function shareImage({blob,name,title,alt,page,trigger,statusText=''}){
+ function shareImage({blob,name,title,alt,page,trigger,statusText='',scrollable=false}){
   const file=new File([blob],name,{type:'image/png'}),objectURL=URL.createObjectURL(blob),dlg=document.createElement('dialog');
   dlg.className='arena-share-dialog';dlg.setAttribute('aria-labelledby','arena-share-title');
   dlg.innerHTML='<div class="dialog-head"><h2 id="arena-share-title">'+H(title)+'</h2><button type="button" class="icon-button" data-dismiss aria-label="Cerrar">✕</button></div><img alt="'+H(alt||title)+'" src="'+objectURL+'"><p>Descarga la imagen para WhatsApp o Facebook. Tú decides dónde publicarla.</p><div class="share-actions"><a class="primary-link" download="'+H(name)+'" href="'+objectURL+'">Descargar imagen</a><button type="button" class="secondary-link" data-native>Compartir imagen</button><button type="button" class="secondary-link" data-copy>Copiar enlace</button></div><p data-status role="status"></p>';
+  if(scrollable){const img=dlg.querySelector('img'),view=document.createElement('div');view.className='arena-share-preview';img.before(view);view.append(img);}
   document.body.append(dlg);dlg.showModal();dlg.querySelector('[data-dismiss]').onclick=()=>dlg.close();
   dlg.addEventListener('close',()=>{URL.revokeObjectURL(objectURL);dlg.remove();trigger?.focus();},{once:true});
   const status=dlg.querySelector('[data-status]');status.textContent=statusText;
   dlg.querySelector('[data-native]').hidden=!(navigator.canShare&&navigator.canShare({files:[file]})&&navigator.share);
-  dlg.querySelector('[data-native]').onclick=async()=>{try{await navigator.share({files:[file],title:'LMBC · '+title});}catch(e){if(e.name!=='AbortError')status.textContent='Usa Descargar imagen para compartirla desde tu aplicación.';}};
+  dlg.querySelector('[data-native]').onclick=async()=>{try{await navigator.share({files:[file],title:'LMBC VETERANOS · '+title});}catch(e){if(e.name!=='AbortError')status.textContent='Usa Descargar imagen para compartirla desde tu aplicación.';}};
   dlg.querySelector('[data-copy]').onclick=async()=>{try{await navigator.clipboard.writeText(page);status.textContent='Enlace copiado.';}catch{status.textContent=page;}};
   return dlg;
+ }
+ let downloadsReady;
+ async function statisticsPoster(model){
+  if(!window.LMBCDownloads){if(!downloadsReady)downloadsReady=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=url('js/descargas.js?v=hoja-20261011-3');script.onload=resolve;script.onerror=()=>{downloadsReady=null;script.remove();reject(Error('No se pudo preparar la hoja. Intenta de nuevo.'));};document.head.append(script);});await downloadsReady;}
+  return window.LMBCDownloads.poster(model);
  }
  async function share(button){
   const m=payloads.get(button.dataset.arenaShare);if(!m)return;
   const isMvp=button.hasAttribute('data-arena-mvp'),previous=button.textContent;button.disabled=true;button.textContent='Preparando imagen…';
 
   try{
+   if(button.hasAttribute('data-arena-stats')){const {blob,missing}=await statisticsPoster(m.statistics);shareImage({blob,name:'lmbc-estadisticas-'+String(m.id).replace(/[^a-zA-Z0-9_-]/g,'-')+'.png',title:'Estadísticas del juego',scrollable:true,alt:'Estadísticas de '+m.local+' contra '+m.visitor,page:url('calendario/?'+m.query),trigger:button,statusText:missing?'Algún logo no pudo cargarse. Las estadísticas están completas.':''});return;}
    const blob=await poster(m,isMvp),file=new File([blob],isMvp?'lmbc-destacado.png':m.played?'lmbc-resultado.png':'lmbc-proximo-partido.png',{type:'image/png'});
    shareImage({blob,name:file.name,title:isMvp?'MVP del partido':m.played?'Resultado para compartir':'Cartel del próximo encuentro',alt:isMvp?'MVP '+m.mvp:m.local+' contra '+m.visitor,page:url('calendario/?'+m.query),trigger:button});
   }catch(e){const note=document.createElement('p');note.setAttribute('role','alert');note.textContent=e.message;button.parentElement.append(note);}

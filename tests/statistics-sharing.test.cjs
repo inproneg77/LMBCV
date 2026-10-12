@@ -1,0 +1,11 @@
+const {test}=require('node:test'),assert=require('node:assert/strict');
+const {statisticsModel}=require('../js/arena-core.js');
+const state={equiposPorId:{a:{nombre:'Local',logo:'img/a.png'},b:{nombre:'Visita',logo:'img/b.png'}},categorias:[{id:'f40',nombre:'Femenil 40 y más'}],temporadas:[{id:'2026-2',nombre:'Temporada 2026-2'}],sedesPorId:{gym:{nombre:'Municipal'}},jugadoresPorId:{p:{nombre:'Ana'},q:{nombre:'Beatriz'}},patrocinadores:[]};
+const g={id:'partido-1',categoria_id:'f40',temporada:'2026-2',fecha:'2026-10-10',hora:'18:00',local:'a',visita:'b',sede_id:'gym',estatus:'jugado',marcador_local:31,marcador_visita:20,estadisticas_local:[{jugador:'p',puntos:12,triples:2,faltas:3},{jugador:'sin-roster-actual',puntos:19,triples:3,faltas:2}],estadisticas_visita:[{jugador:'q',puntos:20,triples:4,faltas:1}]};
+test('Shared sheet preserves BOTH captured team lists, historical players, totals, score, context and leader details without changing data',()=>{
+ const before=JSON.stringify([g,state]),m=statisticsModel(g,state);assert.equal(m.rows.length,7);assert.deepEqual(m.rows[1].cells,['1','Ana','12','2','3']);assert.deepEqual(m.rows[3].cells,['','Total de Local','31','5','5']);assert.deepEqual(m.rows[6].cells,['','Total de Visita','20','4','1']);assert.equal(m.rows[2].cells[1],'sin-roster-actual');assert.match(m.subtitle,/31 – 20/);assert.equal(m.category,'Femenil 40 y más');assert.match(m.note,/Más puntos: Beatriz \(20\)/);assert.equal(new URL(m.page).searchParams.get('juego'),'partido-1');assert.equal(JSON.stringify([g,state]),before);
+});
+test('Legacy lines and friendlies use their captured participants; forfeit with missing stats never invents player points',()=>{
+ const legacy={...g,estadisticas_local:undefined,estadisticas:g.estadisticas_local,fase:'amistoso'};assert.equal(statisticsModel(legacy,state).rows[1].cells[1],'Ana');assert.match(statisticsModel(legacy,state).subtitle,/Amistoso/);
+ const m=statisticsModel({...g,marcador_local:20,marcador_visita:0,forfeit:'visita',estadisticas_local:[],estadisticas_visita:[]},state);assert.match(m.subtitle,/20 – 0.*Forfeit/);assert.equal(m.rows.filter(r=>r.cells[1]==='Sin estadísticas capturadas.').length,2);assert.ok(!m.rows.some(r=>r.cells[1]?.startsWith('Total')));
+});
