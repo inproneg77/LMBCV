@@ -5709,10 +5709,125 @@
       "destacado": "false",
       "marcador_local": 32,
       "marcador_visita": 25,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
-      "mvp_nombre": ""
+      "estadisticas_local": [
+        {
+          "jugador": "CHABELOH",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ABDELCO",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "TECOLIZ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ALEXVEGA",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "JSAL",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "JAREDROM",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CAINBELTRAN",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "Alexhndez",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "GBARRERAS",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 1
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "RMONTES",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "GERMANVALENZUELA",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "PEDROSALCEDO",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "GARCES",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "FABIANBARRERA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "KANGELES",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "FCOVARRUBI",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 0,
+          "faltas": 1
+        }
+      ],
+      "mvp_jugador": "GBARRERAS",
+      "mvp_nombre": "",
+      "estadisticas_completas": true
     }
   ]
 }
