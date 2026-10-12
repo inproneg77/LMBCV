@@ -67,23 +67,26 @@
   ctx.fillStyle='#d6ee96';fit(ctx,'caborcavets.online',540,1020,900,25);
   return new Promise((resolve,reject)=>canvas.toBlob(blob=>blob?resolve(blob):reject(Error('No se pudo crear la imagen.')),'image/png'));
  }
+ function shareImage({blob,name,title,alt,page,trigger,statusText=''}){
+  const file=new File([blob],name,{type:'image/png'}),objectURL=URL.createObjectURL(blob),dlg=document.createElement('dialog');
+  dlg.className='arena-share-dialog';dlg.setAttribute('aria-labelledby','arena-share-title');
+  dlg.innerHTML='<div class="dialog-head"><h2 id="arena-share-title">'+H(title)+'</h2><button type="button" class="icon-button" data-dismiss aria-label="Cerrar">✕</button></div><img alt="'+H(alt||title)+'" src="'+objectURL+'"><p>Descarga la imagen para WhatsApp o Facebook. Tú decides dónde publicarla.</p><div class="share-actions"><a class="primary-link" download="'+H(name)+'" href="'+objectURL+'">Descargar imagen</a><button type="button" class="secondary-link" data-native>Compartir imagen</button><button type="button" class="secondary-link" data-copy>Copiar enlace</button></div><p data-status role="status"></p>';
+  document.body.append(dlg);dlg.showModal();dlg.querySelector('[data-dismiss]').onclick=()=>dlg.close();
+  dlg.addEventListener('close',()=>{URL.revokeObjectURL(objectURL);dlg.remove();trigger?.focus();},{once:true});
+  const status=dlg.querySelector('[data-status]');status.textContent=statusText;
+  dlg.querySelector('[data-native]').hidden=!(navigator.canShare&&navigator.canShare({files:[file]})&&navigator.share);
+  dlg.querySelector('[data-native]').onclick=async()=>{try{await navigator.share({files:[file],title:'LMBC · '+title});}catch(e){if(e.name!=='AbortError')status.textContent='Usa Descargar imagen para compartirla desde tu aplicación.';}};
+  dlg.querySelector('[data-copy]').onclick=async()=>{try{await navigator.clipboard.writeText(page);status.textContent='Enlace copiado.';}catch{status.textContent=page;}};
+  return dlg;
+ }
  async function share(button){
   const m=payloads.get(button.dataset.arenaShare);if(!m)return;
   const isMvp=button.hasAttribute('data-arena-mvp'),previous=button.textContent;button.disabled=true;button.textContent='Preparando imagen…';
-  let dlg,objectURL;
+
   try{
    const blob=await poster(m,isMvp),file=new File([blob],isMvp?'lmbc-destacado.png':m.played?'lmbc-resultado.png':'lmbc-proximo-partido.png',{type:'image/png'});
-   objectURL=URL.createObjectURL(blob);
-   dlg=document.createElement('dialog');dlg.className='arena-share-dialog';dlg.setAttribute('aria-labelledby','arena-share-title');
-   const page=url('calendario/?'+m.query);
-   dlg.innerHTML='<div class="dialog-head"><h2 id="arena-share-title">'+(isMvp?'MVP del partido':m.played?'Resultado para compartir':'Cartel del próximo encuentro')+'</h2><button type="button" class="icon-button" data-dismiss aria-label="Cerrar">✕</button></div><img alt="'+(isMvp?'MVP '+H(m.mvp):H(m.local)+' contra '+H(m.visitor))+'" src="'+objectURL+'"><p>Descarga la imagen para WhatsApp o Facebook. Tú decides dónde publicarla.</p><div class="share-actions"><a class="primary-link" download="'+file.name+'" href="'+objectURL+'">Descargar imagen</a><button type="button" class="secondary-link" data-native>Compartir imagen</button><button type="button" class="secondary-link" data-copy>Copiar enlace</button></div><p data-status role="status"></p>';
-   document.body.append(dlg);dlg.showModal();dlg.querySelector('[data-dismiss]').onclick=()=>dlg.close();
-   dlg.addEventListener('close',()=>{URL.revokeObjectURL(objectURL);dlg.remove();button.focus();},{once:true});
-   const status=dlg.querySelector('[data-status]');
-   dlg.querySelector('[data-native]').hidden=!(navigator.canShare&&navigator.canShare({files:[file]})&&navigator.share);
-   dlg.querySelector('[data-native]').onclick=async()=>{try{await navigator.share({files:[file],title:'LMBC · '+m.local+' vs '+m.visitor});}catch(e){if(e.name!=='AbortError')status.textContent='Usa Descargar imagen para compartirla desde tu aplicación.';}};
-   dlg.querySelector('[data-copy]').onclick=async()=>{try{await navigator.clipboard.writeText(page);status.textContent='Enlace copiado.';}catch{status.textContent=page;}};
-  }catch(e){if(objectURL)URL.revokeObjectURL(objectURL);const note=document.createElement('p');note.setAttribute('role','alert');note.textContent=e.message;button.parentElement.append(note);}
+   shareImage({blob,name:file.name,title:isMvp?'MVP del partido':m.played?'Resultado para compartir':'Cartel del próximo encuentro',alt:isMvp?'MVP '+m.mvp:m.local+' contra '+m.visitor,page:url('calendario/?'+m.query),trigger:button});
+  }catch(e){const note=document.createElement('p');note.setAttribute('role','alert');note.textContent=e.message;button.parentElement.append(note);}
   finally{button.disabled=false;button.textContent=previous;}
  }
  document.addEventListener('click',e=>{
@@ -91,6 +94,6 @@
   if(tab){const root=tab.closest('[data-profile-root]');if(!root)return;root.querySelectorAll('[data-profile-panel]').forEach(el=>el.hidden=el.dataset.profilePanel!==tab.dataset.profileShow);root.querySelectorAll('[data-profile-show]').forEach(el=>el.setAttribute('aria-pressed',String(el===tab)));}
   const button=e.target.closest('[data-arena-share]');if(button){e.preventDefault();share(button);}
  });
- window.ArenaUI={gameActions,switches,poster,logoForExport:exportLogo};
+ window.ArenaUI={gameActions,switches,poster,shareImage,logoForExport:exportLogo};
 })();
 
