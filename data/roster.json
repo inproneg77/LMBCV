@@ -3544,6 +3544,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "RALVAREZ",
+      "nombre": "RAFAEL ALVAREZ",
+      "numero": "12",
+      "membresias": [
+        {
+          "categoria_id": "var49",
+          "equipo_id": "CARITAS",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
