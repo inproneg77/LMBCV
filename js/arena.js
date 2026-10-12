@@ -45,27 +45,27 @@
  async function poster(m,mvp){
   const canvas=document.createElement('canvas');canvas.width=1080;canvas.height=1080;const ctx=canvas.getContext('2d');if(!ctx)throw Error('Tu navegador no pudo generar la imagen.');
   const [a,b,photo,...sponsors]=await Promise.all([logo(m.localLogo),logo(m.visitorLogo),mvp?logo(m.mvpPhoto,false):null,...m.sponsors.map(s=>logo(s.logo))]);
-  ctx.fillStyle='#122825';ctx.fillRect(0,0,1080,1080);ctx.strokeStyle='#345145';ctx.lineWidth=2;ctx.beginPath();ctx.arc(1060,40,400,0,Math.PI*2);ctx.stroke();
-  ctx.textAlign='left';ctx.fillStyle='#d6ee96';fit(ctx,'LMBC VETERANOS / CABORCA',64,85,952,28);
-  ctx.fillStyle='white';fit(ctx,mvp?'MVP DEL PARTIDO':m.played?'RESULTADO FINAL':'PRÓXIMO ENCUENTRO',64,159,952,55);
-  ctx.fillStyle='#c4d4c7';fit(ctx,m.category+' · '+m.season,64,209,952,24);
-  ctx.fillStyle='#d6ee96';fit(ctx,m.kind+(m.forfeit?' · FORFEIT':''),64,253,952,22);
+  ctx.fillStyle='#faf9f6';ctx.fillRect(0,0,1080,1080);ctx.strokeStyle='#e6e1d7';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(64,284);ctx.lineTo(1016,284);ctx.stroke();ctx.fillStyle='#ae8b47';ctx.fillRect(64,32,72,4);
+  ctx.textAlign='left';ctx.fillStyle='#8b6b32';fit(ctx,'LMBC VETERANOS / CABORCA',64,85,952,28);
+  ctx.fillStyle='#202329';fit(ctx,mvp?'MVP DEL PARTIDO':m.played?'RESULTADO FINAL':'PRÓXIMO ENCUENTRO',64,159,952,55);
+  ctx.fillStyle='#60636a';fit(ctx,m.category+' · '+m.season,64,209,952,24);
+  ctx.fillStyle='#8b6b32';fit(ctx,m.kind+(m.forfeit?' · FORFEIT':''),64,253,952,22);
   // Draw original alpha directly onto the poster; no white backing plates.
   drawLogo(ctx,a,112,300,150);drawLogo(ctx,b,818,300,150);
-  ctx.textAlign='center';ctx.fillStyle='#fff';fit(ctx,m.played?String(m.localScore)+' — '+String(m.visitorScore):'VS',540,415,520,108,60);
+  ctx.textAlign='center';ctx.fillStyle='#202329';fit(ctx,m.played?String(m.localScore)+' — '+String(m.visitorScore):'VS',540,415,520,108,60);
   fit(ctx,m.local,270,510,420,32);fit(ctx,m.visitor,810,510,420,32);
-  ctx.fillStyle='#29473d';ctx.fillRect(64,560,952,mvp?240:150);ctx.fillStyle='#d6ee96';
+  ctx.fillStyle='#eeece5';ctx.beginPath();ctx.roundRect(64,560,952,mvp?240:150,20);ctx.fill();ctx.fillStyle='#8b6b32';
   if(mvp&&photo){const size=180;ctx.save();ctx.beginPath();ctx.roundRect(82,582,size,size,24);ctx.clip();drawLogo(ctx,photo,82,582,size);ctx.restore();}
   fit(ctx,mvp?m.mvp:m.date+' · '+(m.time||''),mvp&&photo?640:540,620,mvp&&photo?650:850,mvp?44:32);
-  if(mvp&&m.mvpLine){ctx.fillStyle='#fff';fit(ctx,(Number(m.mvpLine.puntos)||0)+' PUNTOS  ·  '+(Number(m.mvpLine.triples)||0)+' TRIPLES',photo?640:540,686,photo?650:850,29);}
-  if(!mvp){ctx.fillStyle='#e1e9dd';fit(ctx,m.venue,540,666,850,24);}
-  if(mvp){ctx.fillStyle='#d6dfd8';fit(ctx,m.date+' · '+m.venue,photo?640:540,748,photo?650:850,22);}
+  if(mvp&&m.mvpLine){ctx.fillStyle='#202329';fit(ctx,(Number(m.mvpLine.puntos)||0)+' PUNTOS  ·  '+(Number(m.mvpLine.triples)||0)+' TRIPLES',photo?640:540,686,photo?650:850,29);}
+  if(!mvp){ctx.fillStyle='#60636a';fit(ctx,m.venue,540,666,850,24);}
+  if(mvp){ctx.fillStyle='#60636a';fit(ctx,m.date+' · '+m.venue,photo?640:540,748,photo?650:850,22);}
   if(sponsors.some(Boolean)){
-   ctx.fillStyle='#d6dfd8';fit(ctx,'CON EL APOYO DE',540,834,950,17);
+   ctx.fillStyle='#60636a';fit(ctx,'CON EL APOYO DE',540,834,950,17);
    const present=sponsors.filter(Boolean),gap=Math.min(150,952/present.length),size=Math.min(100,gap-18),start=540-present.length*gap/2;
    present.forEach((img,i)=>drawLogo(ctx,img,start+i*gap+(gap-size)/2,858,size));
   }
-  ctx.fillStyle='#d6ee96';fit(ctx,'caborcavets.online',540,1020,900,25);
+  ctx.fillStyle='#8b6b32';fit(ctx,'caborcavets.online',540,1020,900,25);
   return new Promise((resolve,reject)=>canvas.toBlob(blob=>blob?resolve(blob):reject(Error('No se pudo crear la imagen.')),'image/png'));
  }
  function shareImage({blob,name,title,alt,page,trigger,statusText='',scrollable=false}){
@@ -83,7 +83,7 @@
  }
  let downloadsReady;
  async function statisticsPoster(model){
-  if(!window.LMBCDownloads){if(!downloadsReady)downloadsReady=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=url('js/descargas.js?v=hoja-20261011-3');script.onload=resolve;script.onerror=()=>{downloadsReady=null;script.remove();reject(Error('No se pudo preparar la hoja. Intenta de nuevo.'));};document.head.append(script);});await downloadsReady;}
+  if(!window.LMBCDownloads){if(!downloadsReady)downloadsReady=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=url('js/descargas.js?v=claro-20261011-1');script.onload=resolve;script.onerror=()=>{downloadsReady=null;script.remove();reject(Error('No se pudo preparar la hoja. Intenta de nuevo.'));};document.head.append(script);});await downloadsReady;}
   return window.LMBCDownloads.poster(model);
  }
  async function share(button){

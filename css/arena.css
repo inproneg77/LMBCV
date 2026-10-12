@@ -97,7 +97,7 @@ body.arena{background:var(--arena-paper);--navy:#172e29;--gold:#426a42;--gold-br
 .arena .historial-item{gap:10px;min-width:0}
 .arena .historial-item__rival{white-space:normal;overflow-wrap:anywhere}
 .arena .arena-share-dialog{width:min(640px,94vw);max-height:90dvh;padding:22px;border:1px solid var(--line);border-radius:20px}
-.arena .arena-share-dialog img{display:block;width:100%;max-height:54vh;object-fit:contain;border-radius:10px;background:#122825}
+.arena .arena-share-dialog img{display:block;width:100%;max-height:54vh;object-fit:contain;border-radius:10px;background:#faf9f6}
 .arena .arena-share-dialog .share-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 .arena .arena-share-dialog p{font-size:13px;color:var(--text-dim)}
 .arena .tor-card{border-radius:16px;box-shadow:none}
@@ -140,4 +140,4 @@ body.arena{background:var(--arena-paper);--navy:#172e29;--gold:#426a42;--gold-br
 }
 @media print{.arena .quick-paths,.arena .game-actions,.arena .profile-switch,.arena .ranking-podium,.arena-share-dialog{display:none!important}.arena [data-profile-panel][hidden]{display:block!important}.arena .juego{break-inside:avoid}.arena .portal-intro{background:white;color:black;min-height:0}.arena .portal-intro .muted{color:black}}
 
-.arena .arena-share-preview{max-height:54vh;overflow:auto;border-radius:10px;background:#122825}.arena .arena-share-preview img{max-height:none;height:auto;object-fit:initial}
+.arena .arena-share-preview{max-height:54vh;overflow:auto;border-radius:10px;background:#faf9f6}.arena .arena-share-preview img{max-height:none;height:auto;object-fit:initial}
