@@ -1,11 +1,6 @@
 {
   "patrocinadores": [
     {
-      "nombre": "LOS PIONEROS STEAK",
-      "logo": "img/equipos/5.png",
-      "url": "https://www.facebook.com/PionerosSteak"
-    },
-    {
       "nombre": "KBP BUSINESS CONSULTING",
       "logo": "img/equipos/logo-cobre-kbp-2024.png",
       "url": "https://www.kabepe.com/"
@@ -13,19 +8,6 @@
     {
       "nombre": "JK77",
       "logo": "img/equipos/jk77.png"
-    },
-    {
-      "nombre": "EL NARANJO",
-      "logo": "img/equipos/14.png",
-      "url": "https://www.facebook.com/elnaranjo.de.caborca"
-    },
-    {
-      "nombre": "QUESABIRRIAS MIKE",
-      "logo": "img/equipos/whatsapp-image-2022-01-31-at-10.05.39.jpeg"
-    },
-    {
-      "nombre": "EL PEDREGAL",
-      "logo": "img/equipos/pedregal.jpg"
     }
   ]
 }
