@@ -5689,10 +5689,104 @@
       "destacado": "false",
       "marcador_local": 47,
       "marcador_visita": 48,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
-      "mvp_nombre": ""
+      "estadisticas_local": [
+        {
+          "jugador": "RGARCIA",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JSAGARTE2",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "JLOPEZ2",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 2,
+          "faltas": 4
+        },
+        {
+          "jugador": "RBURRUEL2",
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 1,
+          "faltas": 2
+        },
+        {
+          "jugador": "RCASTRO",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 0,
+          "faltas": 1
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "IMORALES",
+          "asistio": "true",
+          "puntos": 16,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "JCABALLERO",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "SGONZA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "IVADRIAN",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "ENRVALEN",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "HUMBERREYNA",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 1,
+          "faltas": 3
+        },
+        {
+          "jugador": "JESUSLEON",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "EDMOND",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "IMORALES",
+      "mvp_nombre": "",
+      "estadisticas_completas": true
     },
     {
       "id": "var4020262_50",
