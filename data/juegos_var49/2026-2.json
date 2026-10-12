@@ -460,7 +460,7 @@
       "destacado": "false",
       "marcador_local": 50,
       "marcador_visita": 36,
-      "estadisticas_completas": false,
+      "estadisticas_completas": true,
       "estadisticas_local": [
         {
           "jugador": "HMACIEL",
@@ -561,6 +561,13 @@
           "puntos": 2,
           "triples": 0,
           "faltas": 1
+        },
+        {
+          "jugador": "MIKICASTRO",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
         },
         {
           "jugador": "GARCES",
