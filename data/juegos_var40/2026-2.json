@@ -1059,13 +1059,6 @@
           "faltas": 0
         },
         {
-          "jugador": "GMOCORON",
-          "asistio": "true",
-          "puntos": 6,
-          "triples": 1,
-          "faltas": 1
-        },
-        {
           "jugador": "PACHJES",
           "asistio": "true",
           "puntos": 0,
@@ -1106,6 +1099,13 @@
           "puntos": 3,
           "triples": 1,
           "faltas": 0
+        },
+        {
+          "jugador": "ACORONADO",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 1,
+          "faltas": 1
         }
       ],
       "destacado": "false",
@@ -1185,7 +1185,9 @@
         }
       ],
       "id": "J14",
-      "fecha": "2026-08-08"
+      "fecha": "2026-08-08",
+      "estadisticas_completas": true,
+      "mvp_nombre": ""
     },
     {
       "temporada": "2026-2",
