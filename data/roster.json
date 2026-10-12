@@ -3592,6 +3592,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "CPALACIOS",
+      "nombre": "CESAR PALACIOS",
+      "numero": "29",
+      "membresias": [
+        {
+          "categoria_id": "var49",
+          "equipo_id": "CARITAS",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
