@@ -3,7 +3,7 @@ let categoriaActiva = null;
 let tabsListas = false;
 
 const calendarParams = new URLSearchParams(window.location?.search||'');
-const calendarFilter={season:calendarParams.get('temporada')||'',team:calendarParams.get('equipo')||'',state:calendarParams.get('estado')||'',kind:calendarParams.get('tipo')||'',query:'',day:calendarParams.get('dia')||'',game:calendarParams.get('juego')||''};
+const calendarFilter={season:calendarParams.get('temporada')||'',team:calendarParams.get('equipo')||'',state:calendarParams.get('estado')||'',kind:calendarParams.get('tipo')||'',query:calendarParams.get('buscar')||'',day:calendarParams.get('dia')||'',game:calendarParams.get('juego')||''};
 function favoritoCalendario(){return window.LMBC?.favorite?.(categoriaActiva||window.LMBC.context().category,calendarFilter.season)||'';}
 function actualizarFavoritoCalendario(){const mine=document.getElementById('calendar-mine');if(mine?.checked){calendarFilter.team=favoritoCalendario();calendarFilter.category=categoriaActiva||window.LMBC?.context().category;mine.checked=!!calendarFilter.team;}}
 function iniciarFiltrosCalendario(){
@@ -11,7 +11,7 @@ function iniciarFiltrosCalendario(){
  const node=document.createElement('div');node.className='calendar-filters';node.innerHTML='<label>Buscar equipos<input id="calendar-query" type="search" placeholder="Nombre del equipo"></label><label>Mostrar<select id="calendar-state"><option value="">Todos los partidos</option><option value="programado">Próximos / programados</option><option value="jugado">Resultados</option></select></label><label>Competencia<select id="calendar-kind"><option value="">Liga y amistosos</option><option value="liga">Solo liga</option><option value="amistoso">Solo amistosos</option></select></label><label>Fecha<input id="calendar-day" type="date"></label><label class="check-filter"><input id="calendar-mine" type="checkbox">Mi equipo</label><button class="secondary-link" id="calendar-clear">Limpiar filtros</button>';
  controls.after(node);
  const seasonLabel=document.createElement('label');seasonLabel.textContent='Temporada';const seasonSelect=document.createElement('select');seasonSelect.id='calendar-season';seasonSelect.innerHTML='<option value="">Todas las temporadas</option>'+ESTADO.temporadas.map(t=>'<option value="'+escaparHTML(t.id)+'">'+escaparHTML(t.nombre)+'</option>').join('');seasonLabel.append(seasonSelect);node.insertBefore(seasonLabel,node.querySelector('label.check-filter'));seasonSelect.value=calendarFilter.season;seasonSelect.onchange=async()=>{const value=seasonSelect.value;try{await ESTADO.ensureSeason(value);if(seasonSelect.value!==value)return;calendarFilter.season=value;calendarFilter.game='';actualizarFavoritoCalendario();window.dispatchEvent(new CustomEvent('lmbc:context'));renderProximoJuego();render();}catch(err){console.warn(err);}};
- for(const [key,event] of [['query','input'],['state','change'],['kind','change'],['day','change']]){const el=document.getElementById('calendar-'+key);el.value=calendarFilter[key];el.addEventListener(event,()=>{calendarFilter[key]=el.value;calendarFilter.game='';render();});}
+ for(const [key,event] of [['query','input'],['state','change'],['kind','change'],['day','change']]){const el=document.getElementById('calendar-'+key);el.value=calendarFilter[key];el.addEventListener(event,()=>{calendarFilter[key]=el.value;calendarFilter.game='';renderProximoJuego();render();});}
  const mine=document.getElementById('calendar-mine');mine.checked=!!calendarFilter.team;
  mine.addEventListener('change',()=>{if(mine.checked&&!favoritoCalendario()){mine.checked=false;window.LMBC.directory(true);return;}calendarFilter.team=mine.checked?favoritoCalendario():'';calendarFilter.category=mine.checked?(categoriaActiva||window.LMBC.context().category):'';calendarFilter.game='';render();});
  window.addEventListener('lmbc:favorite',async e=>{const c=e.detail||{};try{if(c.season)await ESTADO.ensureSeason(c.season);}catch{return;}if(c.season){calendarFilter.season=c.season;seasonSelect.value=c.season;}if(c.category){categoriaActiva=c.category;document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('is-active',b.dataset.cat===c.category));}mine.checked=!!favoritoCalendario();calendarFilter.team=favoritoCalendario();calendarFilter.category=categoriaActiva;calendarFilter.game='';render();});
@@ -22,6 +22,7 @@ function iniciarFiltrosCalendario(){
 async function iniciar() {
   window.addEventListener('beforeprint', prepararImpresion);
   ESTADO = await cargarDatos({temporada:calendarParams.has('temporada')?(calendarParams.get('temporada')||undefined):calendarFilter.game?undefined:'activa'});
+  if(calendarFilter.season&&!ESTADO.temporadas.some(t=>t.id===calendarFilter.season))calendarFilter.season=FanCore.activeSeason(ESTADO.temporadas);
   if (!calendarParams.has('temporada')) {
     const linkedGame = ESTADO.juegos.find(g => g.id === calendarFilter.game);
     calendarFilter.season = linkedGame?.temporada ?? ESTADO.temporadas.find(t => String(t.activa) === 'true')?.id ?? [...ESTADO.temporadas].sort((a,b) => b.id.localeCompare(a.id))[0]?.id ?? '';
@@ -64,13 +65,14 @@ function renderProximoJuego() {
   if (!cont) return;
 
   const hoyISO = fechaLocalISO();
-  const programados = ESTADO.juegos.filter(j => j.estatus === 'programado' && j.fecha >= hoyISO && (!calendarFilter.season || j.temporada === calendarFilter.season) && (!categoriaActiva||j.categoria_id===categoriaActiva) && (!calendarFilter.team||[j.local,j.visita].includes(calendarFilter.team)) && (calendarFilter.kind!=='liga'||esJuegoOficial(j)) && (calendarFilter.kind!=='amistoso'||esAmistoso(j)) && FanCore.seriesAllowsGame(j,ESTADO.playoffs));
+  const filtered=typeof PortalCore!=='undefined'?PortalCore.filterGames(ESTADO.juegos,{...calendarFilter,category:categoriaActiva||''},ESTADO.equiposPorId):ESTADO.juegos;
+  const programados = filtered.filter(j => j.estatus === 'programado' && j.fecha >= hoyISO && (!calendarFilter.day||j.fecha===calendarFilter.day) && (!calendarFilter.game||j.id===calendarFilter.game) && (!calendarFilter.season || j.temporada === calendarFilter.season) && (!categoriaActiva||j.categoria_id===categoriaActiva) && (!calendarFilter.team||[j.local,j.visita].includes(calendarFilter.team)) && (calendarFilter.kind!=='liga'||esJuegoOficial(j)) && (calendarFilter.kind!=='amistoso'||esAmistoso(j)) && FanCore.seriesAllowsGame(j,ESTADO.playoffs));
 
   const destacado = programados.find(j => String(j.destacado) === 'true');
 
   const proximo = destacado ?? [...programados]
     .filter(j => j.fecha >= hoyISO)
-    .sort((a, b) => a.fecha === b.fecha ? a.hora.localeCompare(b.hora) : a.fecha.localeCompare(b.fecha))[0];
+    .sort((a, b) => a.fecha === b.fecha ? FanCore.hour(a.hora).localeCompare(FanCore.hour(b.hora)) : a.fecha.localeCompare(b.fecha))[0];
 
   if (!proximo) { cont.innerHTML = ''; return; }
 
@@ -97,7 +99,7 @@ function renderProximoJuego() {
           <span>${escaparHTML(visita?.nombre ?? 'Por definir')}</span>
         </div>
       </div>
-      <div class="proximo-juego__info mono">${diaSemana} ${texto} · ${proximo.hora} hrs · ${escaparHTML(sede)}</div>
+      <div class="proximo-juego__info mono">${diaSemana} ${texto} · ${FanCore.hour(proximo.hora)} hrs · ${escaparHTML(sede)}</div>
     </div>
   `;
 }
@@ -105,6 +107,12 @@ function renderProximoJuego() {
 function render() {
   const cont = document.getElementById('contenido');
   if (!tabsListas) return;
+  if(window.history?.replaceState&&window.location?.href){
+    const page=new URL(window.location.href);
+    const values={categoria:categoriaActiva||'',temporada:calendarFilter.season,equipo:calendarFilter.team,estado:calendarFilter.state,tipo:calendarFilter.kind,dia:calendarFilter.day,juego:calendarFilter.game,buscar:calendarFilter.query};
+    for(const [key,value] of Object.entries(values)){if(value||key==='categoria'||key==='temporada')page.searchParams.set(key,value||'');else page.searchParams.delete(key);}
+    window.history.replaceState(null,'',page.pathname+page.search+page.hash);
+  }
 
   // Calendario es un registro cronológico: se lee por fecha, no por
   // temporada. Se muestra TODO lo que hay — jugado o programado — sin
@@ -116,7 +124,7 @@ function render() {
 
   if(typeof PortalCore!=='undefined')juegos=PortalCore.filterGames(juegos,calendarFilter,ESTADO.equiposPorId).filter(j=>(!calendarFilter.day||j.fecha===calendarFilter.day)&&(!calendarFilter.game||j.id===calendarFilter.game));
   if (juegos.length === 0) {
-    cont.innerHTML = `<div class="empty">Todavía no hay juegos capturados para esta categoría.</div>`;
+    cont.innerHTML = `<div class="empty">No hay partidos que coincidan con esta selección. Puedes cambiar la categoría, temporada o limpiar los filtros.</div>`;
     return;
   }
 

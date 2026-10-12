@@ -141,3 +141,15 @@ body.arena{background:var(--arena-paper);--navy:#172e29;--gold:#426a42;--gold-br
 @media print{.arena .quick-paths,.arena .game-actions,.arena .profile-switch,.arena .ranking-podium,.arena-share-dialog{display:none!important}.arena [data-profile-panel][hidden]{display:block!important}.arena .juego{break-inside:avoid}.arena .portal-intro{background:white;color:black;min-height:0}.arena .portal-intro .muted{color:black}}
 
 .arena .arena-share-preview{max-height:54vh;overflow:auto;border-radius:10px;background:#faf9f6}.arena .arena-share-preview img{max-height:none;height:auto;object-fit:initial}
+
+/* Refinement of existing identity: readable controls, contained logos, accessible tables. */
+.arena .equipo-detalle-header img,.arena .jugador-grupo__titulo img{object-fit:contain;border:0;border-radius:0;background:transparent;flex-shrink:0}
+.arena .equipo-detalle-header>div,.arena .jugador-grupo__titulo>div{min-width:0;overflow-wrap:anywhere}
+.arena .table-scroll:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.arena button:focus-visible,.arena a:focus-visible,.arena select:focus-visible,.arena input:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+@media(max-width:760px){
+.arena .game-actions button,.arena .profile-switch button,.arena .volver-btn,.arena .pdf-btn,.arena .tab,.arena .nav-more-toggle{min-height:44px}
+.arena .section-heading{flex-wrap:wrap;gap:10px}.arena .section-heading h2{min-width:0;overflow-wrap:anywhere}
+.arena .historial-item__rival{overflow-wrap:anywhere;min-width:0}.arena .hoja__marcador{flex-wrap:wrap;text-align:center;gap:10px}
+.arena .has-horizontal-scroll:before{content:'Desliza para ver todas las columnas →';display:block;font-size:11px;color:var(--text-dim);padding:6px 0}
+}

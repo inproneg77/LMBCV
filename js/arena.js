@@ -6,7 +6,7 @@
  function gameActions(g,state){
   if(!['jugado','programado'].includes(g.estatus))return '';
   const model=ArenaCore.gameModel(g,state),key=JSON.stringify([g.categoria_id,g.temporada,g.id]);
-  if(model.played)model.statistics=ArenaCore.statisticsModel(g,state);
+  if(model.played)model.statisticsSource={game:g,state};
   payloads.set(key,model);
   return '<div class="game-actions no-print"><button type="button" data-arena-share="'+H(key)+'">'+(model.played?'Compartir resultado ↗':'Descargar / compartir cartel ↗')+'</button>'+(model.played&&model.mvp?'<button type="button" data-arena-share="'+H(key)+'" data-arena-mvp>★ Compartir destacado</button>':'')+(model.played?'<button type="button" data-arena-share="'+H(key)+'" data-arena-stats>Descargar / compartir estadísticas ↗</button>':'')+'</div>';
  }
@@ -91,7 +91,7 @@
   const isMvp=button.hasAttribute('data-arena-mvp'),previous=button.textContent;button.disabled=true;button.textContent='Preparando imagen…';
 
   try{
-   if(button.hasAttribute('data-arena-stats')){const {blob,missing}=await statisticsPoster(m.statistics);shareImage({blob,name:'lmbc-estadisticas-'+String(m.id).replace(/[^a-zA-Z0-9_-]/g,'-')+'.png',title:'Estadísticas del juego',scrollable:true,alt:'Estadísticas de '+m.local+' contra '+m.visitor,page:url('calendario/?'+m.query),trigger:button,statusText:missing?'Algún logo no pudo cargarse. Las estadísticas están completas.':''});return;}
+   if(button.hasAttribute('data-arena-stats')){const {blob,missing}=await statisticsPoster(ArenaCore.statisticsModel(m.statisticsSource.game,m.statisticsSource.state));shareImage({blob,name:'lmbc-estadisticas-'+String(m.id).replace(/[^a-zA-Z0-9_-]/g,'-')+'.png',title:'Estadísticas del juego',scrollable:true,alt:'Estadísticas de '+m.local+' contra '+m.visitor,page:url('calendario/?'+m.query),trigger:button,statusText:missing?'Algún logo no pudo cargarse. Las estadísticas están completas.':''});return;}
    const blob=await poster(m,isMvp),file=new File([blob],isMvp?'lmbc-destacado.png':m.played?'lmbc-resultado.png':'lmbc-proximo-partido.png',{type:'image/png'});
    shareImage({blob,name:file.name,title:isMvp?'MVP del partido':m.played?'Resultado para compartir':'Cartel del próximo encuentro',alt:isMvp?'MVP '+m.mvp:m.local+' contra '+m.visitor,page:url('calendario/?'+m.query),trigger:button});
   }catch(e){const note=document.createElement('p');note.setAttribute('role','alert');note.textContent=e.message;button.parentElement.append(note);}

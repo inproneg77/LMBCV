@@ -132,6 +132,29 @@ function render(id) {
     ${agruparPorTemporada(bitacoraDe(id, ESTADO_J.juegosAmistosos)).map(g => renderGrupo(g)).join('') || '<div class="empty">Sin participaciones en amistosos.</div>'}
     </section></div>
   `;
+  if(typeof LMBCDownloads!=='undefined'){
+    for(const kind of ['oficial','amistosos']){
+      const groups=agruparPorTemporada(bitacoraDe(id,kind==='oficial'?ESTADO_J.juegosOficiales:ESTADO_J.juegosAmistosos));
+      cont.querySelectorAll('#profile-'+kind+' .jugador-grupo').forEach((block,i)=>{
+        const model=imagenJugador(groups[i],kind,id),table=block.querySelector('table');
+        block.id=decodeURIComponent(new URL(model.page).hash.slice(1));table.id='player-table-'+kind+'-'+i;
+        LMBCDownloads.mount({...model,tableSelector:'#'+table.id,prepare:snapshot=>({...snapshot,...model})});
+      });
+    }
+  }
+  if(typeof location!=='undefined'&&new URLSearchParams(location.search).get('vista')==='amistosos'){
+    cont.querySelectorAll('[data-profile-panel]').forEach(el=>el.hidden=el.dataset.profilePanel!=='amistosos');
+    cont.querySelectorAll('[data-profile-show]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.profileShow==='amistosos')));
+  }
+}
+
+function imagenJugador(g,kind,id){
+  const player=ESTADO_J.jugadoresPorId[id],team=ESTADO_J.equiposPorId[g.equipoId];
+  const page=new URL(location.href);page.searchParams.set('id',id);page.searchParams.set('vista',kind);page.hash='player-'+kind+'-'+encodeURIComponent([g.categoriaId,g.temporadaId,g.equipoId].join('-'));
+  return {title:player?.nombre||'Jugador',category:ESTADO_J.categorias.find(c=>c.id===g.categoriaId)?.nombre||g.categoriaId,season:ESTADO_J.temporadas.find(t=>t.id===g.temporadaId)?.nombre||g.temporadaId,subtitle:(kind==='amistosos'?'Amistosos':'Liga · oficiales')+' · '+(team?.nombre||'Equipo'),teamLogo:team?.logo,
+    headers:['Fecha','Rival / equipo','Pts','3pt','Faltas'],
+    rows:[...g.filas.map(f=>({cells:[formatearFecha(f.juego.fecha).texto,ESTADO_J.equiposPorId[f.rivalId]?.nombre||f.rivalId,String(f.puntos),String(f.triples),String(f.faltas)],logos:['',new URL(RUTA_IMG+(ESTADO_J.equiposPorId[f.rivalId]?.logo||'img/equipos/placeholder.svg'),location.href).href]})),{cells:['Total',g.totales.jj+' juegos',String(g.totales.puntos),String(g.totales.triples),String(g.totales.faltas)],logos:[]}],
+    note:'Participaciones capturadas en este equipo, categoría y temporada. '+(kind==='amistosos'?'Independientes de los totales oficiales.':'Estadísticas oficiales de liga.'),sponsors:ESTADO_J.patrocinadores,page:page.href};
 }
 
 function renderGrupo(g) {

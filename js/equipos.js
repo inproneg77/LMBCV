@@ -6,6 +6,11 @@ let equipoActivoE = null;
 async function iniciarEquipos() {
   ESTADO_E = await cargarDatos({temporada:new URLSearchParams(window.location?.search||'').get('temporada')||'activa'});
   renderPatrocinadores(ESTADO_E.patrocinadores);
+  document.addEventListener('toggle',event=>{
+    const details=event.target;
+    if(details.matches?.('[data-team-game]')&&details.open)cargarHojaEquipo(details);
+  },true);
+  window.addEventListener('beforeprint',()=>document.querySelectorAll('[data-team-game]').forEach(cargarHojaEquipo));
 
   iniciarSelectorTemporada(ESTADO_E.temporadas, (temp) => {
     temporadaActivaE = temp;
@@ -243,6 +248,14 @@ function renderDetalleEquipo(equipoId) {
   });
 }
 
+function cargarHojaEquipo(details){
+  if(details.dataset.loaded)return;
+  const game=ESTADO_E.juegos.find(g=>g.id===details.dataset.teamGame&&g.categoria_id===details.dataset.category&&String(g.temporada)===details.dataset.season);
+  if(!game)return;
+  details.querySelector('.juego-detalle').innerHTML=renderHojaEstadistica(game,ESTADO_E)+(typeof ArenaUI!=='undefined'?ArenaUI.gameActions(game,ESTADO_E):'');
+  details.dataset.loaded='true';
+}
+
 function renderJuegoHistorial(j, equipoId) {
   const esLocal = esAmistoso(j) ? mismoRegistroAmistoso(j.local, equipoId, ESTADO_E.equiposPorId) : j.local === equipoId;
   const rival = ESTADO_E.equiposPorId[esLocal ? j.visita : j.local];
@@ -265,9 +278,9 @@ function renderJuegoHistorial(j, equipoId) {
   if (!tieneStats) return resumen;
 
   return `
-    <details class="juego-toggle">
+    <details class="juego-toggle" data-team-game="${escaparHTML(j.id)}" data-category="${escaparHTML(j.categoria_id)}" data-season="${escaparHTML(j.temporada)}">
       <summary>${resumen}</summary>
-      <div class="juego-detalle">${renderHojaEstadistica(j, ESTADO_E)}</div>
+      <div class="juego-detalle"></div>
     </details>
   `;
 }

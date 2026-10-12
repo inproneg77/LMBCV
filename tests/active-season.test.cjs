@@ -27,5 +27,5 @@ async function calendar(search){
  await ctx.iniciar();return vm.runInContext('calendarFilter.season',ctx);
 }
 test('Calendar defaults to active season',async()=>assert.equal(await calendar(''),'2026-2'));
-test('Calendar preserves explicit historical and all-season selections',async()=>{assert.equal(await calendar('?temporada=2026-1'),'2026-1');assert.equal(await calendar('?temporada='),'');});
+test('Calendar preserves explicit historical and all-season selections',async()=>{assert.equal(await calendar('?temporada=2026-1'),'2026-1');assert.equal(await calendar('?temporada='),'');assert.equal(await calendar('?temporada=invalid'),'2026-2');});
 test('An existing direct link to an old game remains accessible in its own season',async()=>assert.equal(await calendar('?juego=historic'),'2026-1'));
