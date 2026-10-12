@@ -28,7 +28,18 @@
   const played=selected.filter(g=>g.estatus==='jugado');
   return {kind:scope.kind,rol:{...common,title:'Rol · '+scope.date,headers:['#','Local','Visitante','Hora','Sede'],rows:rows(selected,false),note:scope.kind+' · Todos los encuentros de esta categoría y rama en la fecha indicada. Horario de 24 horas.'},results:{...common,title:'Resultados · '+scope.date,headers:['#','Local','Marcador','Visitante','Sede'],rows:rows(played,true),note:scope.kind+' · '+played.length+' de '+selected.length+' encuentros con resultado capturado. Los partidos pendientes no se presentan como resultados.'}};
  }
- const api={plain,gameModel,jornadaScopes,jornadaModels};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.ArenaCore=api;
+ function statisticsModel(g,state){
+  const m=gameModel(g,state),rows=[],all=[];
+  for(const [name,logo,list] of [[m.local,m.localLogo,g.estadisticas_local??g.estadisticas??[]],[m.visitor,m.visitorLogo,g.estadisticas_visita??[]]]){
+   rows.push({cells:['',name,'','',''],logos:['',logo,'','','']});
+   if(!list.length){rows.push({cells:['','Sin estadísticas capturadas.','','',''],logos:[]});continue;}
+   const totals=[0,0,0];list.forEach((e,i)=>{const player=plain(state.jugadoresPorId[e.jugador]?.nombre||e.jugador||'Sin nombre'),values=[e.puntos??0,e.triples??0,e.faltas??0];values.forEach((v,k)=>totals[k]+=Number(v));rows.push({cells:[String(i+1),player,...values.map(String)],logos:[]});all.push({...e,nombre:player});});
+   rows.push({cells:['','Total de '+name,...totals.map(String)],logos:[]});
+  }
+  const leaders=[];for(const [key,label] of [['puntos','Más puntos'],['triples','Más triples'],['faltas','Más faltas']]){const first=[...all].sort((a,b)=>(Number(b[key])||0)-(Number(a[key])||0))[0];if(first&&(key==='puntos'||Number(first[key])>0))leaders.push(label+': '+first.nombre+' ('+(first[key]??0)+')');}
+  return {title:'Estadísticas del juego',category:m.category,season:m.season,subtitle:m.local+' '+m.localScore+' – '+m.visitorScore+' '+m.visitor+' · '+m.date+' · '+m.time+' · '+m.venue+' · '+m.kind+(m.forfeit?' · Forfeit':''),headers:['#','Jugador / equipo','Pts','3pt','Faltas'],rows,generated:new Date().toLocaleString('es-MX',{timeZone:'America/Hermosillo',hour12:false}),sponsors:m.sponsors,page:'https://caborcavets.online/calendario/?'+m.query,note:leaders.join(' · ')};
+ }
+ const api={plain,gameModel,jornadaScopes,jornadaModels,statisticsModel};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.ArenaCore=api;
 })(typeof window!=='undefined'?window:this);
 
 

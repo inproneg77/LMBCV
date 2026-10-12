@@ -139,3 +139,5 @@ body.arena{background:var(--arena-paper);--navy:#172e29;--gold:#426a42;--gold-br
 .arena .mobile-dock .active{background:#e7efd9;color:#254c30}
 }
 @media print{.arena .quick-paths,.arena .game-actions,.arena .profile-switch,.arena .ranking-podium,.arena-share-dialog{display:none!important}.arena [data-profile-panel][hidden]{display:block!important}.arena .juego{break-inside:avoid}.arena .portal-intro{background:white;color:black;min-height:0}.arena .portal-intro .muted{color:black}}
+
+.arena .arena-share-preview{max-height:54vh;overflow:auto;border-radius:10px;background:#122825}.arena .arena-share-preview img{max-height:none;height:auto;object-fit:initial}
