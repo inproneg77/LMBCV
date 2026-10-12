@@ -341,9 +341,109 @@
       "temporada": "2026-2",
       "fase": "regular",
       "vuelta": 1,
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
-      "destacado": "false"
+      "destacado": "false",
+      "marcador_local": 57,
+      "marcador_visita": 26,
+      "estadisticas_completas": true,
+      "estadisticas_local": [
+        {
+          "jugador": "ABDELCO",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "TECOLIZ",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ALEXVEGA",
+          "asistio": "true",
+          "puntos": 16,
+          "triples": 2,
+          "faltas": 2
+        },
+        {
+          "jugador": "JURIAS",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JK7749",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "Alexhndez",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "GBARRERAS",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "DTEN",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "AMENDO",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "RDUARTE",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JONTIVEROS",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 2
+        },
+        {
+          "jugador": "GCASTILLO",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "FCELAYA",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "ALEXVEGA",
+      "mvp_nombre": ""
     },
     {
       "id": "var4920262_6",
