@@ -14,7 +14,13 @@ const catalogCache = new Map();
 // que UNA de las ~16 peticiones se trabara para que el sitio completo se
 // quedara cargando para siempre. Con esto, cada una tiene máximo 9s por
 // intento (2 intentos), y si de plano falla, se informa el error sin mostrar estadísticas incompletas.
-async function fetchJSON(url, valorPorDefecto = {}, intentos = 2) {
+const pendingJSON = new Map();
+function fetchJSON(url, valorPorDefecto = {}, intentos = 2) {
+  const key=url+'|'+intentos;
+  if(!pendingJSON.has(key))pendingJSON.set(key,fetchJSONRequest(url,valorPorDefecto,intentos).finally(()=>pendingJSON.delete(key)));
+  return pendingJSON.get(key);
+}
+async function fetchJSONRequest(url, valorPorDefecto = {}, intentos = 2) {
   const catalog = /^data\/(categorias|sedes|patrocinadores|equipos|roster|temporadas)\.json$/.test(url);
   const cached = catalogCache.get(url);
   if (catalog && cached && Date.now()-cached.at < 30000) return cached.value;
@@ -258,6 +264,13 @@ function renderHojaEstadistica(juego, ESTADO) {
 // Genera un selector de temporada (<select>) dentro de #temporada-selector.
 // callback(temporadaId) se llama al iniciar (con la temporada marcada como
 // activa, o la más reciente si ninguna lo está) y cada vez que cambie.
+function actualizarConsultaPublica(values){
+  if(!window.history?.replaceState||!window.location?.href)return;
+  const target=new URL(window.location.href);
+  for(const [key,value] of Object.entries(values))target.searchParams.set(key,value??'');
+  window.history.replaceState(null,'',target.pathname+target.search+target.hash);
+}
+
 function iniciarSelectorTemporada(temporadas, callback, estado) {
   const cont = document.getElementById('temporada-selector');
   if (!cont) return () => null;
@@ -283,7 +296,7 @@ function iniciarSelectorTemporada(temporadas, callback, estado) {
   select.addEventListener('change', async () => {
     const current=++version,value=select.value;
     window.LMBC?.write('lmbc_season',value);
-    try{if(estado?.ensureSeason)await estado.ensureSeason(value);if(current!==version)return;callback(value);window.dispatchEvent?.(new CustomEvent('lmbc:context'));}
+    try{if(estado?.ensureSeason)await estado.ensureSeason(value);if(current!==version)return;callback(value);actualizarConsultaPublica({temporada:value});window.dispatchEvent?.(new CustomEvent('lmbc:context'));}
     catch(err){console.warn(err);}
   });
   callback(porDefecto);
@@ -311,18 +324,19 @@ function iniciarTabs(categorias, callback, opciones = {}) {
 
   const tabs = document.getElementById('tabs');
   const botonTodos = opciones.incluirTodos
-    ? `<button class="tab ${activa === null ? 'is-active' : ''}" data-cat="">Todos</button>`
+    ? `<button class="tab ${activa === null ? 'is-active' : ''}" aria-pressed="${activa===null}" data-cat="">Todos</button>`
     : '';
 
   tabs.innerHTML = botonTodos + cats.map(c => `
-    <button class="tab ${c.id === activa ? 'is-active' : ''}" data-cat="${c.id}">${escaparHTML(c.nombre)}</button>
+    <button class="tab ${c.id === activa ? 'is-active' : ''}" aria-pressed="${c.id===activa}" data-cat="${c.id}">${escaparHTML(c.nombre)}</button>
   `).join('');
 
   tabs.querySelectorAll('.tab').forEach(btn => {
     btn.addEventListener('click', () => {
       activa = btn.dataset.cat || null;
       window.LMBC?.write('lmbc_category',activa||'');
-      tabs.querySelectorAll('.tab').forEach(b => b.classList.toggle('is-active', b === btn));
+      actualizarConsultaPublica({categoria:activa||''});
+      tabs.querySelectorAll('.tab').forEach(b => (b.classList.toggle('is-active', b === btn),b.setAttribute('aria-pressed',String(b===btn))));
       window.dispatchEvent?.(new CustomEvent('lmbc:context'));
       callback(activa);
     });

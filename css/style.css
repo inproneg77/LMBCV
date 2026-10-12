@@ -517,7 +517,7 @@ a{ color: inherit; text-decoration: none; }
     margin-bottom: 18px;
   }
   .equipo-detalle-header::before{
-    content: "REPORTE DE ESTADÍSTICAS — LMBC";
+    content: "REPORTE DE ESTADÍSTICAS — LMBC VETERANOS";
     display: block;
     font-family: 'Inter', sans-serif;
     font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
