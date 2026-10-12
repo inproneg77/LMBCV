@@ -3628,6 +3628,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "FCELAYA",
+      "nombre": "FRANCISCO CELAYA",
+      "numero": "9",
+      "membresias": [
+        {
+          "categoria_id": "var49",
+          "equipo_id": "FEDE49",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
