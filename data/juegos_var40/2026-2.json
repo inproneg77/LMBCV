@@ -5547,10 +5547,132 @@
       "destacado": "false",
       "marcador_local": 46,
       "marcador_visita": 36,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
-      "mvp_nombre": ""
+      "estadisticas_local": [
+        {
+          "jugador": "MAROVAR",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "AAROBLES",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "PACHJES",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "JORGETAPIA",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "LUISGARCIA",
+          "asistio": "true",
+          "puntos": 22,
+          "triples": 2,
+          "faltas": 2
+        },
+        {
+          "jugador": "AFIGUEROA",
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 2,
+          "faltas": 2
+        },
+        {
+          "jugador": "ACORONADO",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "MJUAREZ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "OCARBAJAL",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JMARTINEZ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "GORTEGA",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "AMENDO",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 3
+        },
+        {
+          "jugador": "SANTQUIN",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "PEMEND",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 3,
+          "faltas": 2
+        },
+        {
+          "jugador": "ELPONCE",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "TADMART",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "BOBPER",
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "LUISGARCIA",
+      "mvp_nombre": "22 PUNTOS, 2 TRIPLES",
+      "estadisticas_completas": true
     },
     {
       "id": "var4020262_49",
