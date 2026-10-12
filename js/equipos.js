@@ -213,6 +213,7 @@ function renderDetalleEquipo(equipoId) {
         category:ESTADO_E.categorias.find(c=>c.id===categoriaActivaE)?.nombre||categoriaActivaE,
         season:ESTADO_E.temporadas.find(t=>t.id===temporadaActivaE)?.nombre||temporadaActivaE||'Todas las temporadas',
         subtitle:kind,
+        teamLogo:new URL(RUTA_IMG+equipo.logo,location.href).href,
         page:(()=>{const link=new URL(page);link.searchParams.set('vista',panel);return link.href;})(),
         sponsors:ESTADO_E.patrocinadores,
         note:panel==='amistosos'?'Estadísticas de amistosos, independientes de los totales oficiales.':'Estadísticas oficiales capturadas de los jugadores con este equipo en la categoría y temporada seleccionadas.',
