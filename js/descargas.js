@@ -26,7 +26,7 @@
  function drawImage(ctx,img,x,y,w,h){if(!img)return;const ratio=Math.min(w/(img.naturalWidth||img.width),h/(img.naturalHeight||img.height));const iw=(img.naturalWidth||img.width)*ratio,ih=(img.naturalHeight||img.height)*ratio;ctx.drawImage(img,x+(w-iw)/2,y+(h-ih)/2,iw,ih);}
  async function poster(m){
   const canvas=document.createElement('canvas');canvas.width=1200;const ctx=canvas.getContext('2d');if(!ctx)throw Error('Este navegador no permite generar la imagen. Intenta de nuevo desde Chrome.');
-  const n=m.headers.length,weights=m.headers.map((h,i)=>i===0?.6:/equipo|jugador|valioso|local|visitante/i.test(h)?3.6:/sede|detalle/i.test(h)?2.4:1.2),sum=weights.reduce((a,b)=>a+b,0),widths=weights.map(w=>w/sum*1104);
+  const n=m.headers.length,weights=m.headers.map((h,i)=>i===0&&/^(#|pos|posición|lugar)$/i.test(h)?.6:/equipo|jugador|valioso|local|visitante/i.test(h)?3.6:/sede|detalle/i.test(h)?2.4:1.2),sum=weights.reduce((a,b)=>a+b,0),widths=weights.map(w=>w/sum*1104);
   ctx.font='500 22px Arial';const layout=m.rows.map(r=>{const wrapped=r.cells.map((c,i)=>lines(ctx,c,widths[i]-24-(r.logos[i]?52:0)));return {row:r,wrapped,height:Math.max(66,...wrapped.map(a=>a.length*29+24))};});
   ctx.font='700 20px Arial';const headers=m.headers.map((h,i)=>lines(ctx,h,widths[i]-18));const headHeight=Math.max(64,...headers.map(a=>a.length*26+24));
   ctx.font='700 36px Arial';const titleLines=lines(ctx,m.title,990),extraTitle=(titleLines.length-1)*42;
@@ -45,13 +45,13 @@
  }
  async function open(model,button){
   const previous=button.textContent;button.disabled=true;button.textContent='Preparando imagen…';
-  try{const {blob,missing}=await poster(model);root.ArenaUI.shareImage({blob,name:filename(model)+'.png',title:model.title,alt:model.title+' · '+model.category+' · '+model.season,page:model.page||location.href,trigger:button,statusText:missing?'Algún logo no pudo cargarse. Los datos están completos.':''});}
+  try{const {blob,missing}=await poster(model);root.ArenaUI.shareImage({blob,name:filename(model)+'.png',title:model.title,alt:model.title+' · '+model.category+' · '+model.season,page:model.page||location.href,trigger:button,scrollable:true,statusText:missing?'Algún logo no pudo cargarse. Los datos están completos.':''});}
   catch(e){const note=document.createElement('p');note.setAttribute('role','alert');note.textContent=e.message;button.parentElement.append(note);}
   finally{button.disabled=false;button.textContent=previous;}
  }
  function mount(meta){
-  const host=document.getElementById('contenido'),table=host?.querySelector('.standing-table');if(!table?.querySelector('tbody tr'))return;
-  const bar=document.createElement('div');bar.className='game-actions no-print';const button=document.createElement('button');button.type='button';button.textContent='Descargar / compartir ↗';button.setAttribute('aria-label','Descargar / compartir '+meta.title);bar.append(button);table.closest('.table-scroll').before(bar);button.onclick=()=>{const page=new URL(location.href),cat=document.querySelector('.tab.is-active')?.dataset.cat,season=document.getElementById('temporada-select')?.value;if(cat)page.searchParams.set('categoria',cat);if(season)page.searchParams.set('temporada',season);open(snapshot(table,{...meta,page:page.href}),button);};
+  const host=document.getElementById('contenido'),table=host?.querySelector(meta.tableSelector||'.standing-table');if(!table?.querySelector('tbody tr'))return;
+  const bar=document.createElement('div');bar.className='game-actions no-print';const button=document.createElement('button');button.type='button';button.textContent='Descargar / compartir ↗';button.setAttribute('aria-label','Descargar / compartir '+meta.title);bar.append(button);table.closest('.table-scroll').before(bar);button.onclick=()=>{const page=new URL(location.href),cat=document.querySelector('.tab.is-active')?.dataset.cat,season=document.getElementById('temporada-select')?.value;if(cat)page.searchParams.set('categoria',cat);if(season)page.searchParams.set('temporada',season);const model=snapshot(table,{...meta,page:meta.page||page.href});open(meta.prepare?meta.prepare(model):model,button);};
  }
  function mountJornada(host,models){
   if(!models.rol.rows.length)return;const group=document.createElement('div');group.className='jornada-downloads no-print';const label=document.createElement('span');label.textContent=models.rol.category+' · '+models.rol.season+' · '+models.kind;group.append(label);

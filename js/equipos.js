@@ -200,6 +200,36 @@ function renderDetalleEquipo(equipoId) {
     </section><section id="profile-amistosos" data-profile-panel="amistosos" ${typeof ArenaUI!=='undefined'?'hidden':''}>${renderAmistososEquipo(equipoId)}</section></div>
   `;
 
+
+  if(typeof LMBCDownloads!=='undefined'){
+    const page=new URL(location.href);
+    page.searchParams.set('equipo',equipoId);
+    page.searchParams.set('categoria',categoriaActivaE);
+    if(temporadaActivaE)page.searchParams.set('temporada',temporadaActivaE);
+    for(const [panel,kind] of [['oficial','Liga · oficiales'],['amistosos','Amistosos']]){
+      LMBCDownloads.mount({
+        tableSelector:'#profile-'+panel+' .standing-table',
+        title:'Roster · '+equipo.nombre,
+        category:ESTADO_E.categorias.find(c=>c.id===categoriaActivaE)?.nombre||categoriaActivaE,
+        season:ESTADO_E.temporadas.find(t=>t.id===temporadaActivaE)?.nombre||temporadaActivaE||'Todas las temporadas',
+        subtitle:kind,
+        page:(()=>{const link=new URL(page);link.searchParams.set('vista',panel);return link.href;})(),
+        sponsors:ESTADO_E.patrocinadores,
+        note:panel==='amistosos'?'Estadísticas de amistosos, independientes de los totales oficiales.':'Estadísticas oficiales capturadas de los jugadores con este equipo en la categoría y temporada seleccionadas.',
+        prepare:model=>{
+          const totals=model.headers.map((_,i)=>i===0?'Total':String(model.rows.reduce((sum,row)=>sum+Number(row.cells[i]||0),0)));
+          totals[1]='—';
+          return {...model,rows:[{cells:[equipo.nombre,'','','',''],logos:[new URL(RUTA_IMG+equipo.logo,location.href).href,'','','','']},...model.rows,{cells:totals,logos:[]} ]};
+        }
+      });
+    }
+  }
+
+  if(typeof location!=='undefined'&&new URLSearchParams(location.search).get('vista')==='amistosos'){
+    cont.querySelectorAll('[data-profile-panel]').forEach(el=>el.hidden=el.dataset.profilePanel!=='amistosos');
+    cont.querySelectorAll('[data-profile-show]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.profileShow==='amistosos')));
+  }
+
   document.getElementById('volver-equipos').addEventListener('click', () => {
     equipoActivoE = null;
     renderListaEquipos();
