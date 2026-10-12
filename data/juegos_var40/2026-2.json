@@ -5527,10 +5527,104 @@
       "destacado": "false",
       "marcador_local": 57,
       "marcador_visita": 36,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
-      "mvp_nombre": ""
+      "estadisticas_local": [
+        {
+          "jugador": "RLOPEZ4",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 2,
+          "faltas": 5
+        },
+        {
+          "jugador": "MARIONB",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "PATOSO",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "MEDEH",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "BARRYMEN",
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CHUCOGA",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "javlopez",
+          "asistio": "true",
+          "puntos": 20,
+          "triples": 6,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "FAVELATOLON",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "CHARROD",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ANGELFIE",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "SOROSJJ",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 2
+        },
+        {
+          "jugador": "MARPARRA",
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "PANSIBRIAN",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 1,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "BARRYMEN",
+      "mvp_nombre": "",
+      "estadisticas_completas": true
     },
     {
       "id": "var4020262_48",
