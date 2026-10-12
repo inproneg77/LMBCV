@@ -1897,9 +1897,109 @@
       "temporada": "2026-2",
       "fase": "regular",
       "vuelta": 3,
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
-      "destacado": "false"
+      "destacado": "false",
+      "marcador_local": 32,
+      "marcador_visita": 12,
+      "estadisticas_completas": false,
+      "estadisticas_local": [
+        {
+          "jugador": "CGUT",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "MGUTI",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "ARGRIJ",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "IURIAS",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "KENQUI",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "AGARCIA",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "ROCFLO",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ANGVAN",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ADRIHERR",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "VILMTOR",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "ESCCRIST",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "PATSAN",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "TERMIR",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        }
+      ],
+      "mvp_jugador": "AGARCIA",
+      "mvp_nombre": ""
     }
   ],
   "papelera": [
