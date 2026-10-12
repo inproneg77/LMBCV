@@ -3,7 +3,7 @@ let categoriaActiva = null;
 let tabsListas = false;
 
 const calendarParams = new URLSearchParams(window.location?.search||'');
-const calendarFilter={season:calendarParams.get('temporada')||'',team:calendarParams.get('equipo')||'',state:calendarParams.get('estado')||'',kind:calendarParams.get('tipo')||'',query:'',day:'',game:calendarParams.get('juego')||''};
+const calendarFilter={season:calendarParams.get('temporada')||'',team:calendarParams.get('equipo')||'',state:calendarParams.get('estado')||'',kind:calendarParams.get('tipo')||'',query:'',day:calendarParams.get('dia')||'',game:calendarParams.get('juego')||''};
 function favoritoCalendario(){return window.LMBC?.favorite?.(categoriaActiva||window.LMBC.context().category,calendarFilter.season)||'';}
 function actualizarFavoritoCalendario(){const mine=document.getElementById('calendar-mine');if(mine?.checked){calendarFilter.team=favoritoCalendario();calendarFilter.category=categoriaActiva||window.LMBC?.context().category;mine.checked=!!calendarFilter.team;}}
 function iniciarFiltrosCalendario(){
@@ -148,6 +148,7 @@ function render() {
             <div class="jornada__fecha display">${texto}</div>
             <div class="jornada__dia">${diaSemana}</div>
           </div>
+          <div data-jornada-download="${escaparHTML(fecha)}"></div>
           ${filas}
         </div>
       `;
@@ -160,6 +161,10 @@ function render() {
       </details>
     `;
   }).join('');
+  if(typeof LMBCDownloads!=='undefined')cont.querySelectorAll('[data-jornada-download]').forEach(host=>{
+    const visible=juegos.filter(g=>g.fecha===host.dataset.jornadaDownload);
+    for(const scope of ArenaCore.jornadaScopes(visible))LMBCDownloads.mountJornada(host,ArenaCore.jornadaModels(ESTADO.juegos,ESTADO,scope));
+  });
   cont.querySelectorAll('.juego-toggle').forEach(details=>details.addEventListener('toggle',()=>{
     if(!details.open||details.dataset.loaded)return;
     const game=juegos.find(j=>j.id===details.dataset.game);

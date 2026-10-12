@@ -14,7 +14,21 @@
    sponsors:(state.patrocinadores||[]).slice(0,3).map(s=>({name:plain(s.nombre),logo:s.logo||''})),
    query:new URLSearchParams({juego:g.id,categoria:g.categoria_id,temporada:g.temporada}).toString()};
  }
- const api={plain,gameModel};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.ArenaCore=api;
+ const gameKind=g=>g.fase==='amistoso'||g.ambito==='amistoso'?'Amistosos':'Liga';
+ function jornadaScopes(games){
+  const groups=new Map();for(const g of games){if(!['programado','jugado'].includes(g.estatus))continue;const scope={date:g.fecha,category:g.categoria_id,season:g.temporada,kind:gameKind(g)};groups.set(JSON.stringify(scope),scope);}return [...groups.values()];
+ }
+ function jornadaModels(games,state,scope){
+  if(!scope.date||!scope.category||!scope.season||!scope.kind)throw Error('Selecciona fecha, categoría y temporada.');
+  const selected=games.filter(g=>g.fecha===scope.date&&g.categoria_id===scope.category&&g.temporada===scope.season&&gameKind(g)===scope.kind&&['programado','jugado'].includes(g.estatus)).sort((a,b)=>(a.hora||'').localeCompare(b.hora||'')||String(a.id).localeCompare(String(b.id)));
+  const category=plain(state.categorias.find(c=>c.id===scope.category)?.nombre||scope.category),season=plain(state.temporadas.find(t=>t.id===scope.season)?.nombre||scope.season);
+  const page=new URLSearchParams({dia:scope.date,categoria:scope.category,temporada:scope.season,tipo:scope.kind==='Liga'?'liga':'amistoso'}).toString();
+  const common={category,season,generated:new Date().toLocaleString('es-MX',{timeZone:'America/Hermosillo',hour12:false}),sponsors:state.patrocinadores||[],page:'https://caborcavets.online/calendario/?'+page};
+  const rows=(list,result)=>list.map((g,i)=>{const m=gameModel(g,state);return {cells:result?[String(i+1),m.local,String(m.localScore)+' – '+String(m.visitorScore)+(m.forfeit?' · Forfeit':''),m.visitor,m.venue]:[String(i+1),m.local,m.visitor,m.time||'Por definir',m.venue],logos:result?['',m.localLogo,'',m.visitorLogo,'']:['',m.localLogo,m.visitorLogo,'','']};});
+  const played=selected.filter(g=>g.estatus==='jugado');
+  return {kind:scope.kind,rol:{...common,title:'Rol · '+scope.date,headers:['#','Local','Visitante','Hora','Sede'],rows:rows(selected,false),note:scope.kind+' · Todos los encuentros de esta categoría y rama en la fecha indicada. Horario de 24 horas.'},results:{...common,title:'Resultados · '+scope.date,headers:['#','Local','Marcador','Visitante','Sede'],rows:rows(played,true),note:scope.kind+' · '+played.length+' de '+selected.length+' encuentros con resultado capturado. Los partidos pendientes no se presentan como resultados.'}};
+ }
+ const api={plain,gameModel,jornadaScopes,jornadaModels};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.ArenaCore=api;
 })(typeof window!=='undefined'?window:this);
 
 
