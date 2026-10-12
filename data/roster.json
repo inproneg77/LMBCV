@@ -2327,17 +2327,6 @@
       ]
     },
     {
-      "id": "GMOCORON",
-      "nombre": "GUILLERMO CORONADO",
-      "membresias": [
-        {
-          "categoria_id": "var40",
-          "equipo_id": "ALTOV40",
-          "temporada": "2026-2"
-        }
-      ]
-    },
-    {
       "id": "SOCRATES",
       "nombre": "SOCRATES LOPEZ",
       "membresias": [
@@ -3532,24 +3521,6 @@
           "temporada": "2026-2"
         }
       ]
-    },
-    {
-      "id": "LFELIX",
-      "nombre": "LUIS FELIX",
-      "numero": "77",
-      "membresias": [
-        {
-          "categoria_id": "var40",
-          "equipo_id": "NARANJOV40",
-          "temporada": "2026-2"
-        },
-        {
-          "categoria_id": "var40",
-          "equipo_id": "OSV40",
-          "temporada": "2026-2"
-        }
-      ],
-      "foto": "img/jugadores/foto-0d0ca6cb-20a3-483d-bc9c-8b94cd8b6c08.png"
     },
     {
       "id": "JMARTINEZ",
