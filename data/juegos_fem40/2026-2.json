@@ -1996,6 +1996,13 @@
           "puntos": 2,
           "triples": 0,
           "faltas": 1
+        },
+        {
+          "jugador": "LMARUNE",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 2,
+          "faltas": 0
         }
       ],
       "mvp_jugador": "AGARCIA",
