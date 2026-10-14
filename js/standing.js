@@ -3,7 +3,7 @@ let categoriaActivaS = null;
 let temporadaActivaS = null;
 
 async function iniciarStanding() {
-  ESTADO_S = await cargarDatos({temporada:new URLSearchParams(window.location?.search||'').get('temporada')||'activa',amistosos:false,roster:false});
+  ESTADO_S = await cargarDatos({publico:'resumen',temporada:new URLSearchParams(window.location?.search||'').get('temporada')||'activa',amistosos:false,roster:false});
   renderPatrocinadores(ESTADO_S.patrocinadores);
 
   iniciarSelectorTemporada(ESTADO_S.temporadas, (temp) => {
@@ -32,6 +32,8 @@ function juegosRegularesVigentes() {
 //  - Equipo que pierde: 1 punto
 //  - Equipo que pierde por forfeit (no se presenta): 0 puntos
 function calcularStanding() {
+  const summary=ESTADO_S.summary?.(categoriaActivaS,temporadaActivaS,'standings');
+  if(summary)return summary.map(({equipoId,...r})=>({...r,equipo:ESTADO_S.equipos.find(e=>e.id===equipoId&&e.categoria_id===categoriaActivaS)}));
   return calcularTablaLiga(ESTADO_S.equipos.filter(e => e.categoria_id === categoriaActivaS), juegosRegularesVigentes());
 }
 

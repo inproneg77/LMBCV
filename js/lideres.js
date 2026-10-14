@@ -10,7 +10,7 @@ const TIPOS_LIDERES = [
 ];
 
 async function iniciarLideres() {
-  ESTADO_L = await cargarDatos({temporada:new URLSearchParams(window.location?.search||'').get('temporada')||'activa',amistosos:false});
+  ESTADO_L = await cargarDatos({publico:'resumen',temporada:new URLSearchParams(window.location?.search||'').get('temporada')||'activa',amistosos:false});
   renderPatrocinadores(ESTADO_L.patrocinadores);
   tipoActivoL = TIPOS_LIDERES[0].id;
 
@@ -28,6 +28,8 @@ async function iniciarLideres() {
 // Suma las estadísticas de todos los juegos jugados de la categoría/temporada
 // activa, agrupadas por jugador.
 function acumularEstadisticas() {
+  const summary=ESTADO_L.summary?.(categoriaActivaL,temporadaActivaL,'leaders');
+  if(summary)return summary.map(({jugadorId,equipoId,...r})=>({...r,jugador:ESTADO_L.jugadoresPorId[jugadorId],equipo:ESTADO_L.equiposPorId[equipoId]}));
   const juegos = ESTADO_L.juegosOficiales.filter(j =>
     j.categoria_id === categoriaActivaL &&
     j.estatus === 'jugado' &&

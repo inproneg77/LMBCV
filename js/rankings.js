@@ -4,7 +4,7 @@ let temporadaActivaR = null;
 let tipoActivoR = null;
 
 async function iniciarRankings() {
-  ESTADO_R = await cargarDatos({temporada:new URLSearchParams(window.location?.search||'').get('temporada')||'activa',amistosos:false});
+  ESTADO_R = await cargarDatos({publico:'resumen',temporada:new URLSearchParams(window.location?.search||'').get('temporada')||'activa',amistosos:false});
   renderPatrocinadores(ESTADO_R.patrocinadores);
   tipoActivoR = TIPOS[0].id;
 
@@ -23,6 +23,8 @@ async function iniciarRankings() {
 // defensivos a partir de los juegos de temporada regular ya jugados
 // Los forfeits conservan su resultado oficial, pero no cuentan como desempeño en cancha.
 function calcularEstadisticasEquipos() {
+  const summary=ESTADO_R.summary?.(categoriaActivaR,temporadaActivaR,'performance');
+  if(summary)return summary.map(({equipoId,...r})=>({...r,equipo:ESTADO_R.equipos.find(e=>e.id===equipoId&&e.categoria_id===categoriaActivaR)}));
   return ESTADO_R.equipos.filter(e=>e.categoria_id===categoriaActivaR)
     .map(e=>{const {officialGames,jg,jp,...performance}=FanCore.performanceStats(ESTADO_R.juegosOficiales,categoriaActivaR,temporadaActivaR,e.id);return {equipo:e,...performance};})
     .filter(s=>s.jj>0);

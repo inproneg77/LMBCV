@@ -49,6 +49,8 @@ async function fetchJSONRequest(url, valorPorDefecto = {}, intentos = 2) {
 }
 
 async function cargarDatos(opciones = {}) {
+  const publicData=opciones.publico&&window.LMBCPublic?await window.LMBCPublic.load(opciones):null;
+  const leer=(name,fallback)=>publicData?publicData.read(name,fallback):fetchJSON(name,fallback);
 
   // Los juegos ya no viven en UN archivo por categoría que crece para
   // siempre (eso era lo que hacía lenta la captura en /admin — Decap CMS
@@ -58,15 +60,15 @@ async function cargarDatos(opciones = {}) {
   // temporadas primero — por eso esta petición va aparte, antes del resto.
   // Independent catalogs start immediately, alongside the season index.
   const catalogRequests = [
-    fetchJSON('data/categorias.json', []),
-    fetchJSON('data/sedes.json', { sedes: [] }),
-    fetchJSON('data/patrocinadores.json', { patrocinadores: [] }),
-    fetchJSON('data/equipos.json', { equipos: [] }),
-    opciones.roster === false ? Promise.resolve({jugadores:[]}) : fetchJSON('data/roster.json', { jugadores: [] }),
-    opciones.amistosos === false ? Promise.resolve({equipos:[],jugadores:[],juegos:[]}) : fetchJSON('data/amistosos.json', { equipos: [], jugadores: [], juegos: [] }),
+    leer('data/categorias.json', []),
+    leer('data/sedes.json', { sedes: [] }),
+    leer('data/patrocinadores.json', { patrocinadores: [] }),
+    leer('data/equipos.json', { equipos: [] }),
+    opciones.roster === false ? Promise.resolve({jugadores:[]}) : leer('data/roster.json', { jugadores: [] }),
+    opciones.amistosos === false ? Promise.resolve({equipos:[],jugadores:[],juegos:[]}) : leer('data/amistosos.json', { equipos: [], jugadores: [], juegos: [] }),
   ];
   Promise.allSettled(catalogRequests); // Attach rejection handlers while the season index is loading.
-  const temporadasData = await fetchJSON('data/temporadas.json', { temporadas: [] });
+  const temporadasData = await leer('data/temporadas.json', { temporadas: [] });
   const temporadas = temporadasData.temporadas ?? [];
   const categoriasData = await catalogRequests[0];
   const CATS = (Array.isArray(categoriasData) ? categoriasData : []).map(c=>c.id);
@@ -79,8 +81,8 @@ async function cargarDatos(opciones = {}) {
     // Un archivo por cada combinación categoría × temporada. Si una
     // combinación no tiene archivo todavía (temporada nueva sin juegos
     // capturados en esa categoría), fetchJSON regresa vacío sin tronar.
-    ...CATS.flatMap(cat => idsTemporadas.map(temp => fetchJSON(`data/juegos_${cat}/${temp}.json`, { juegos: [] }))),
-    ...CATS.map(c => fetchJSON(`data/playoffs_${c}.json`, { series: [] })),
+    ...CATS.flatMap(cat => idsTemporadas.map(temp => leer(`data/juegos_${cat}/${temp}.json`, { juegos: [] }))),
+    ...CATS.map(c => leer(`data/playoffs_${c}.json`, { series: [] })),
   ]);
 
   const categorias = Array.isArray(categoriasRaw) ? categoriasRaw : [];
@@ -142,21 +144,40 @@ async function cargarDatos(opciones = {}) {
   const juegosAmistosos = juegos.filter(esAmistoso);
 
   const state = { categorias, sedes, equipos, juegos, juegosOficiales, juegosAmistosos, playoffs, jugadores, temporadas, patrocinadores, equiposPorId, sedesPorId, jugadoresPorId };
+  if(publicData){
+    state.playerSummary=publicData.profile;
+    state.loadedProfileSeasons=publicData.profileLoaded;
+    state.dashboardLeaders=publicData.dashboardLeaders;
+    state.summary=(cat,season,kind)=>publicData.metrics[season]?.[cat]?.[kind];
+  }
   const loaded = new Set(idsTemporadas), pending = new Map();
   state.ensureSeason = async season => {
+    if(publicData?.profile){
+      if(!pending.has(season))pending.set(season,(async()=>{const rows=await publicData.profileSeason(season);state.juegos.push(...rows);state.juegosOficiales.push(...rows.filter(esJuegoOficial));state.juegosAmistosos.push(...rows.filter(esAmistoso));return state;})().finally(()=>pending.delete(season)));
+      return pending.get(season);
+    }
     const ids = season ? [season] : temporadas.map(t=>t.id);
     await Promise.all(ids.filter(id=>temporadas.some(t=>t.id===id)).map(id=>{
       if(loaded.has(id))return;
       if(!pending.has(id))pending.set(id,(async()=>{
-        const files=await Promise.all(CATS.map(cat=>fetchJSON(`data/juegos_${cat}/${id}.json`,{juegos:[]})));
+        const files=await Promise.all(CATS.map(cat=>leer(`data/juegos_${cat}/${id}.json`,{juegos:[]})));
         const rows=CATS.flatMap((cat,i)=>(files[i].juegos??[]).map(g=>({...g,categoria_id:cat})));
+        if(publicData&&opciones.amistosos!==false){
+          const friendly=await publicData.friendlySeason(id);
+          if(friendly){
+            const extra=(friendly.juegos||[]).map(g=>({...g,fase:'amistoso'}));
+            state.juegos.push(...extra);state.juegosAmistosos.push(...extra);
+            for(const team of friendly.equipos||[])if(!state.equiposPorId[team.id])state.equiposPorId[team.id]=team;
+            for(const player of friendly.jugadores||[])if(!state.jugadoresPorId[player.id])state.jugadoresPorId[player.id]=player;
+          }
+        }
         state.juegos.push(...rows);state.juegosOficiales.push(...rows.filter(esJuegoOficial));state.juegosAmistosos.push(...rows.filter(esAmistoso));loaded.add(id);
       })().finally(()=>pending.delete(id)));
       return pending.get(id);
     }));
     return state;
   };
-  state.ensureHistory = () => state.ensureSeason('');
+  state.ensureHistory = () => publicData?.profile?Promise.all(Object.keys(publicData.profile.seasons).map(s=>state.ensureSeason(s))).then(()=>state):state.ensureSeason('');
   return state;
 }
 

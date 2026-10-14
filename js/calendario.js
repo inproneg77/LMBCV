@@ -1,6 +1,8 @@
 let ESTADO = null;
 let categoriaActiva = null;
 let tabsListas = false;
+let jornadasHistoricasMostradas=12;
+let jornadasAntesDeImprimir=null;
 
 const calendarParams = new URLSearchParams(window.location?.search||'');
 const calendarFilter={season:calendarParams.get('temporada')||'',team:calendarParams.get('equipo')||'',state:calendarParams.get('estado')||'',kind:calendarParams.get('tipo')||'',query:calendarParams.get('buscar')||'',day:calendarParams.get('dia')||'',game:calendarParams.get('juego')||''};
@@ -21,7 +23,8 @@ function iniciarFiltrosCalendario(){
 
 async function iniciar() {
   window.addEventListener('beforeprint', prepararImpresion);
-  ESTADO = await cargarDatos({temporada:calendarParams.has('temporada')?(calendarParams.get('temporada')||undefined):calendarFilter.game?undefined:'activa'});
+  window.addEventListener('afterprint',()=>{if(jornadasAntesDeImprimir!==null){jornadasHistoricasMostradas=jornadasAntesDeImprimir;jornadasAntesDeImprimir=null;render();}});
+  ESTADO = await cargarDatos({publico:'completo',temporada:calendarParams.has('temporada')?(calendarParams.get('temporada')||undefined):calendarFilter.game?undefined:'activa'});
   if(calendarFilter.season&&!ESTADO.temporadas.some(t=>t.id===calendarFilter.season))calendarFilter.season=FanCore.activeSeason(ESTADO.temporadas);
   if (!calendarParams.has('temporada')) {
     const linkedGame = ESTADO.juegos.find(g => g.id === calendarFilter.game);
@@ -43,6 +46,7 @@ async function iniciar() {
 // Printing still includes every statistics sheet, including collapsed games.
 function prepararImpresion() {
   if (!ESTADO) return;
+  if(jornadasAntesDeImprimir===null){jornadasAntesDeImprimir=jornadasHistoricasMostradas;jornadasHistoricasMostradas=Infinity;render();}
   document.querySelectorAll('.juego-toggle').forEach(details => {
     if (details.dataset.loaded) return;
     const game = ESTADO.juegos.find(j => j.id === details.dataset.game);
@@ -130,7 +134,10 @@ function render() {
 
   // Agrupar primero por mes, luego por fecha exacta dentro de cada mes
   const porMes = {};
-  juegos.forEach(j => {
+  const today=fechaLocalISO(),pastDates=[...new Set(juegos.filter(g=>g.fecha<today&&g.estatus!=='programado').map(g=>g.fecha))].sort().reverse();
+  const allowedDates=new Set(pastDates.slice(0,jornadasHistoricasMostradas));
+  const renderedGames=juegos.filter(g=>g.estatus==='programado'||g.fecha>=today||allowedDates.has(g.fecha));
+  renderedGames.forEach(j => {
     const mesKey = j.fecha.slice(0, 7); // "2026-08"
     (porMes[mesKey] ??= {})[j.fecha] ??= [];
     porMes[mesKey][j.fecha].push(j);
@@ -169,6 +176,9 @@ function render() {
       </details>
     `;
   }).join('');
+  if(pastDates.length>jornadasHistoricasMostradas){
+    const more=document.createElement('button');more.type='button';more.className='secondary-link no-print';more.textContent='Mostrar más jornadas anteriores ('+(pastDates.length-jornadasHistoricasMostradas)+' pendientes)';more.onclick=()=>{jornadasHistoricasMostradas+=12;render();};cont.append(more);
+  }
   if(typeof LMBCDownloads!=='undefined')cont.querySelectorAll('[data-jornada-download]').forEach(host=>{
     const visible=juegos.filter(g=>g.fecha===host.dataset.jornadaDownload);
     for(const scope of ArenaCore.jornadaScopes(visible))LMBCDownloads.mountJornada(host,ArenaCore.jornadaModels(ESTADO.juegos,ESTADO,scope));
