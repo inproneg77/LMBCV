@@ -6020,6 +6020,20 @@
       "mvp_jugador": "GBARRERAS",
       "mvp_nombre": "",
       "estadisticas_completas": true
+    },
+    {
+      "id": "var4020262_51",
+      "fecha": "2026-10-17",
+      "hora": "16:00",
+      "local": "NARANJOV40",
+      "visita": "ALTAR2026",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
