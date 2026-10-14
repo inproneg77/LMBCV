@@ -5,7 +5,7 @@ let equipoACmp = null;
 let equipoBCmp = null;
 
 async function iniciarComparar() {
-  ESTADO_CMP = await cargarDatos({temporada:new URLSearchParams(window.location?.search||'').get('temporada')||'activa',amistosos:false});
+  ESTADO_CMP = await cargarDatos({publico:'completo',temporada:new URLSearchParams(window.location?.search||'').get('temporada')||'activa',amistosos:false});
   renderPatrocinadores(ESTADO_CMP.patrocinadores);
 
   iniciarSelectorTemporada(ESTADO_CMP.temporadas, (temp) => {

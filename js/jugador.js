@@ -1,7 +1,8 @@
 let ESTADO_J = null;
 
 async function iniciarJugador() {
-  ESTADO_J = await cargarDatos();
+  const initialParams=new URLSearchParams(window.location.search);
+  ESTADO_J = await cargarDatos({publico:'jugador',jugador:initialParams.get('id')||'',temporada:initialParams.get('temporada')||undefined});
   renderPatrocinadores(ESTADO_J.patrocinadores);
 
   const params = new URLSearchParams(window.location.search);
@@ -47,6 +48,7 @@ function bitacoraDe(jugadorId, juegos = ESTADO_J.juegosOficiales) {
 }
 
 function contarMVP(jugadorId) {
+  if(ESTADO_J.playerSummary?.player.id===jugadorId)return ESTADO_J.playerSummary.mvp;
   return ESTADO_J.juegosOficiales.filter(j => j.estatus === 'jugado' && j.mvp_jugador === jugadorId).length;
 }
 
@@ -89,7 +91,7 @@ function render(id) {
     return;
   }
 
-  const totalCarrera = bitacora.reduce((acc, f) => ({
+  const totalCarrera = ESTADO_J.playerSummary?.totals || bitacora.reduce((acc, f) => ({
     jj: acc.jj + 1,
     puntos: acc.puntos + f.puntos,
     triples: acc.triples + f.triples,
@@ -114,6 +116,7 @@ function render(id) {
   `;
 
   cont.innerHTML = `
+    ${ESTADO_J.playerSummary?'<section class="profile-history no-print" aria-label="Consultar temporadas anteriores"><p>Los totales oficiales incluyen toda la trayectoria. Las participaciones se cargan por temporada.</p><div class="game-actions">'+Object.keys(ESTADO_J.playerSummary.seasons).sort().reverse().filter(s=>!ESTADO_J.loadedProfileSeasons().includes(s)).map(s=>'<button type="button" data-player-season="'+escaparHTML(s)+'">Cargar '+escaparHTML(ESTADO_J.temporadas.find(t=>t.id===s)?.nombre||s)+'</button>').join('')+'</div><p role="status" id="player-history-status"></p></section>':''}
     <div data-profile-root>${typeof ArenaUI!=='undefined'?ArenaUI.switches():''}<section id="profile-oficial" data-profile-panel="oficial" aria-label="Estadísticas oficiales">
     <h3 class="lideres__titulo display">Total oficial (todas las temporadas y equipos)</h3>
     <div class="dash-metricas">
@@ -126,12 +129,18 @@ function render(id) {
     </div>
 
     <h3 class="lideres__titulo display" style="margin-top:30px;">Desglose por Temporada, Categoría y Equipo</h3>
-    ${grupos.length === 0 ? '<div class="empty">Todavía no tiene estadísticas oficiales capturadas.</div>' : grupos.map(g => renderGrupo(g)).join('')}
+    ${grupos.length === 0 ? '<div class="empty">No hay estadísticas oficiales en las temporadas cargadas.</div>' : grupos.map(g => renderGrupo(g)).join('')}
     </section><section id="profile-amistosos" data-profile-panel="amistosos" aria-label="Estadísticas de amistosos" ${typeof ArenaUI!=='undefined'?'hidden':''}>
     <h3 class="lideres__titulo display" style="margin-top:30px;">Amistosos — fuera de los totales oficiales</h3>
-    ${agruparPorTemporada(bitacoraDe(id, ESTADO_J.juegosAmistosos)).map(g => renderGrupo(g)).join('') || '<div class="empty">Sin participaciones en amistosos.</div>'}
+    ${agruparPorTemporada(bitacoraDe(id, ESTADO_J.juegosAmistosos)).map(g => renderGrupo(g)).join('') || '<div class="empty">Sin participaciones en amistosos en las temporadas cargadas.</div>'}
     </section></div>
   `;
+  cont.querySelectorAll?.('[data-player-season]').forEach(button=>button.onclick=async()=>{
+    button.disabled=true;const status=document.getElementById('player-history-status');status.textContent='Cargando participaciones…';
+    const friendlyVisible=!cont.querySelector('#profile-amistosos').hidden;
+    try{await ESTADO_J.ensureSeason(button.dataset.playerSeason);render(id);if(friendlyVisible){cont.querySelectorAll('[data-profile-panel]').forEach(el=>el.hidden=el.dataset.profilePanel!=='amistosos');cont.querySelectorAll('[data-profile-show]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.profileShow==='amistosos')));}}
+    catch(error){button.disabled=false;status.textContent='No se pudo cargar esta temporada. Puedes reintentar.';}
+  });
   if(typeof LMBCDownloads!=='undefined'){
     for(const kind of ['oficial','amistosos']){
       const groups=agruparPorTemporada(bitacoraDe(id,kind==='oficial'?ESTADO_J.juegosOficiales:ESTADO_J.juegosAmistosos));
@@ -150,7 +159,7 @@ function render(id) {
 
 function imagenJugador(g,kind,id){
   const player=ESTADO_J.jugadoresPorId[id],team=ESTADO_J.equiposPorId[g.equipoId];
-  const page=new URL(location.href);page.searchParams.set('id',id);page.searchParams.set('vista',kind);page.hash='player-'+kind+'-'+encodeURIComponent([g.categoriaId,g.temporadaId,g.equipoId].join('-'));
+  const page=new URL(location.href);page.searchParams.set('id',id);page.searchParams.set('vista',kind);page.searchParams.set('temporada',g.temporadaId);page.hash='player-'+kind+'-'+encodeURIComponent([g.categoriaId,g.temporadaId,g.equipoId].join('-'));
   return {title:player?.nombre||'Jugador',category:ESTADO_J.categorias.find(c=>c.id===g.categoriaId)?.nombre||g.categoriaId,season:ESTADO_J.temporadas.find(t=>t.id===g.temporadaId)?.nombre||g.temporadaId,subtitle:(kind==='amistosos'?'Amistosos':'Liga · oficiales')+' · '+(team?.nombre||'Equipo'),teamLogo:team?.logo,
     headers:['Fecha','Rival / equipo','Pts','3pt','Faltas'],
     rows:[...g.filas.map(f=>({cells:[formatearFecha(f.juego.fecha).texto,ESTADO_J.equiposPorId[f.rivalId]?.nombre||f.rivalId,String(f.puntos),String(f.triples),String(f.faltas)],logos:['',new URL(RUTA_IMG+(ESTADO_J.equiposPorId[f.rivalId]?.logo||'img/equipos/placeholder.svg'),location.href).href]})),{cells:['Total',g.totales.jj+' juegos',String(g.totales.puntos),String(g.totales.triples),String(g.totales.faltas)],logos:[]}],

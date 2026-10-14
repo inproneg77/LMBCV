@@ -5,7 +5,7 @@ let temporadaActivaP = null;
 const ORDEN_RONDAS = ['Cuartos de Final', 'Semifinal', 'Final'];
 
 async function iniciarPlayoffs() {
-  ESTADO_P = await cargarDatos({temporada:new URLSearchParams(window.location?.search||'').get('temporada')||'activa',amistosos:false,roster:false});
+  ESTADO_P = await cargarDatos({publico:'playoffs',temporada:new URLSearchParams(window.location?.search||'').get('temporada')||'activa',amistosos:false,roster:false});
   renderPatrocinadores(ESTADO_P.patrocinadores);
 
   iniciarSelectorTemporada(ESTADO_P.temporadas, (temp) => {

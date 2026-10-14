@@ -19,3 +19,5 @@ jobs:
         run: node scripts/test.cjs
       - name: Validar enlaces locales y JSON
         run: node scripts/check-site.cjs
+      - name: Generar vistas públicas de la misma revisión
+        run: node scripts/build-public-data.cjs

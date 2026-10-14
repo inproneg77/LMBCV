@@ -4,7 +4,7 @@ let temporadaActivaE = null;
 let equipoActivoE = null;
 
 async function iniciarEquipos() {
-  ESTADO_E = await cargarDatos({temporada:new URLSearchParams(window.location?.search||'').get('temporada')||'activa'});
+  ESTADO_E = await cargarDatos({publico:'completo',temporada:new URLSearchParams(window.location?.search||'').get('temporada')||'activa'});
   renderPatrocinadores(ESTADO_E.patrocinadores);
   document.addEventListener('toggle',event=>{
     const details=event.target;

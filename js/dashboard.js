@@ -1,7 +1,7 @@
 let ESTADO_D = null;
 
 async function iniciarDashboard() {
-  ESTADO_D = await cargarDatos();
+  ESTADO_D = await cargarDatos({publico:'dashboard'});
   renderPatrocinadores(ESTADO_D.patrocinadores);
   render();
 }
@@ -35,6 +35,7 @@ function standingTop3(categoriaId) {
 
 // ===== Líder de puntos de una categoría =====
 function liderPuntos(categoriaId) {
+  if(ESTADO_D.dashboardLeaders)return ESTADO_D.dashboardLeaders[categoriaId]||null;
   const juegos = juegosVigentes(categoriaId).filter(j => j.estatus === 'jugado');
   const acumulado = {};
   const sumar = (lista) => (lista ?? []).forEach(e => {
