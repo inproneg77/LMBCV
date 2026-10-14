@@ -6048,6 +6048,20 @@
       "estatus": "programado",
       "forfeit": "ninguno",
       "destacado": "false"
+    },
+    {
+      "id": "var4020262_53",
+      "fecha": "2026-10-17",
+      "hora": "19:00",
+      "local": "OSV40",
+      "visita": "mineros4",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
