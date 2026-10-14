@@ -2007,6 +2007,20 @@
       ],
       "mvp_jugador": "AGARCIA",
       "mvp_nombre": ""
+    },
+    {
+      "id": "fem4020262_16",
+      "fecha": "2026-10-17",
+      "hora": "17:00",
+      "local": "LARAF40",
+      "visita": "MAESTRASF40",
+      "sede_id": "duela",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 3,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ],
   "papelera": [
