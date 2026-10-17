@@ -700,6 +700,20 @@
       ],
       "mvp_jugador": "MEMOSAL",
       "mvp_nombre": "38 PUNTOS, 6 TRIPLES"
+    },
+    {
+      "id": "var4920262_8",
+      "fecha": "2026-10-18",
+      "hora": "11:00",
+      "local": "VIKINGOSV40",
+      "visita": "RETRO49",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
