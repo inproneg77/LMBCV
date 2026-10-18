@@ -58,6 +58,7 @@ function build(root = path.resolve(__dirname,'..')) {
   const thin = g => {
     const {estadisticas_local,estadisticas_visita,estadisticas,...rest}=g;
     return {...rest,estadisticas_disponibles:!!((estadisticas_local??estadisticas??[]).length+(estadisticas_visita??[]).length),
+      public_mvp_team:(estadisticas_local??estadisticas??[]).some(e=>e.jugador===g.mvp_jugador&&String(e.asistio)!=='false')?g.local:(estadisticas_visita??[]).some(e=>e.jugador===g.mvp_jugador&&String(e.asistio)!=='false')?g.visita:'',
       public_mvp_line:[...(estadisticas_local??estadisticas??[]),...(estadisticas_visita??[])].find(e=>e.jugador===g.mvp_jugador&&String(e.asistio)!=='false')||null};
   };
   const thinGames=games.map(thin), summaries={}, seasonPaths={}, summaryPaths={};

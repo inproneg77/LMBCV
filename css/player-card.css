@@ -1,0 +1,10 @@
+.player-card-controls{margin-top:24px;padding:20px 0 0;border-top:1px solid var(--line,#dcd5c5);display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,1fr);gap:16px 24px;text-align:left}
+.player-card-controls p{margin:5px 0 0;font-size:14px;color:var(--text-dim)}
+.player-card-controls label{display:grid;gap:6px;font-size:12px;font-weight:600;min-width:0}
+.player-card-controls select{width:100%;max-width:100%;min-width:0;padding:12px;border:1px solid var(--line,#dcd5c5);border-radius:10px;font:inherit;color:inherit;background:var(--surface,#fff)}
+.player-card-controls .game-actions{margin:0;align-items:center}
+.player-card-controls [data-card-status]{align-self:center;overflow-wrap:anywhere}
+@media(max-width:620px){.player-card-controls{grid-template-columns:minmax(0,1fr);gap:14px}.player-card-controls .game-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.player-card-controls button{min-height:44px;white-space:normal}}
+@media print{.player-card-controls{display:none!important}}
+
+.player-card-controls [hidden]{display:none!important}
