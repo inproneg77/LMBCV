@@ -744,7 +744,7 @@
       "destacado": "false",
       "marcador_local": 62,
       "marcador_visita": 48,
-      "estadisticas_completas": false,
+      "estadisticas_completas": true,
       "estadisticas_local": [
         {
           "jugador": "CUBANO",
@@ -756,7 +756,7 @@
         {
           "jugador": "WEROSOTO",
           "asistio": "true",
-          "puntos": 14,
+          "puntos": 15,
           "triples": 0,
           "faltas": 1
         },
@@ -780,10 +780,74 @@
           "puntos": 9,
           "triples": 3,
           "faltas": 1
+        },
+        {
+          "jugador": "CJATOMEA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "DMAZON",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
         }
       ],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
+      "estadisticas_visita": [
+        {
+          "jugador": "GPALA",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 2,
+          "faltas": 1
+        },
+        {
+          "jugador": "DMAZ",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 2,
+          "faltas": 0
+        },
+        {
+          "jugador": "GARYFEL",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "MARIONB",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "MEMOSAL",
+          "asistio": "true",
+          "puntos": 28,
+          "triples": 3,
+          "faltas": 2
+        },
+        {
+          "jugador": "ODOACRO",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "FENCINAS",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "ESTEBANLOPEZ",
       "mvp_nombre": ""
     }
   ]
