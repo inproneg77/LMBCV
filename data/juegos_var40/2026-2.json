@@ -6036,10 +6036,103 @@
       "destacado": "false",
       "marcador_local": 57,
       "marcador_visita": 43,
-      "estadisticas_completas": false,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
+      "estadisticas_completas": true,
+      "estadisticas_local": [
+        {
+          "jugador": "RLOPEZ4",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 4,
+          "faltas": 2
+        },
+        {
+          "jugador": "ALDUKA",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "IVANMEND",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 2,
+          "faltas": 0
+        },
+        {
+          "jugador": "PATOSO",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "MEDEH",
+          "asistio": "true",
+          "puntos": 17,
+          "triples": 5,
+          "faltas": 0
+        },
+        {
+          "jugador": "BARRYMEN",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "CHUCOGA",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "javlopez",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "RGARCIA",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "JSAGARTE2",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 2,
+          "faltas": 0
+        },
+        {
+          "jugador": "GMENDEZYAQUI",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "RBURRUEL2",
+          "asistio": "true",
+          "puntos": 18,
+          "triples": 2,
+          "faltas": 1
+        },
+        {
+          "jugador": "RCASTRO",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "MEDEH",
       "mvp_nombre": ""
     },
     {
