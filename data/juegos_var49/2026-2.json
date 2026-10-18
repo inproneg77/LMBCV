@@ -851,8 +851,58 @@
       "destacado": "false",
       "marcador_local": 55,
       "marcador_visita": 32,
-      "estadisticas_completas": false,
-      "estadisticas_local": [],
+      "estadisticas_completas": true,
+      "estadisticas_local": [
+        {
+          "jugador": "GORTEGA",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "SANTQUIN",
+          "asistio": "true",
+          "puntos": 19,
+          "triples": 1,
+          "faltas": 2
+        },
+        {
+          "jugador": "ELPONCE",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "TADMART",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "BOBPER",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "VICFRAN",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "CAINBELTRAN",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
       "estadisticas_visita": [
         {
           "jugador": "AMENDO",
@@ -860,6 +910,13 @@
           "puntos": 2,
           "triples": 0,
           "faltas": 1
+        },
+        {
+          "jugador": "MMONTIJO",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
         },
         {
           "jugador": "RDUARTE",
@@ -888,9 +945,16 @@
           "puntos": 13,
           "triples": 0,
           "faltas": 1
+        },
+        {
+          "jugador": "ADIAZ",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 0
         }
       ],
-      "mvp_jugador": "",
+      "mvp_jugador": "SANTQUIN",
       "mvp_nombre": ""
     },
     {
