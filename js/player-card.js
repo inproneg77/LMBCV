@@ -70,7 +70,10 @@
   out+='<rect x="54" y="1420" width="972" height="38" fill="#1b2631"/>';
   (assets.sponsors||[]).filter(Boolean).slice(0,3).forEach((src,i)=>{out+=image(src,85+i*92,1427,78,25);});
   out+=txt('caborcavets.online',996,1447,16,gold,'text-anchor="end" letter-spacing="2"');
-  return out+'</g></g></svg>';
+  const artwork=out+'</g></g></svg>';
+  // MVP uses a champagne palette; geometry and all other card editions stay unchanged.
+  const champagne={"#e8ddbd":"#f1dfb4","#8b7450":"#9b763d","#fffdf1":"#fff7e1","#d1aa5a":"#d8b66f","#8f754a":"#ad854b","#20262e":"#352b20","#26313b":"#4b3b28","#101921":"#251e17","#15202b":"#30271d","#121c26":"#2a221a","#1b2631":"#30271d","#c8a76a":"#e3c78d","#e8dfcd":"#f0e3c9","#f4efe3":"#faf1dc","#cbbd9e":"#d8c297","#8b6c37":"#8b642d"};
+  return isMvp?artwork.replace(/((?:fill|stroke|stop-color)=")(#[0-9a-f]{6})(")/g,(match,before,color,after)=>before+(champagne[color]||color)+after):artwork;
  }
  function historySvg(m,assets,measure){
   const escText=(s,x,y,size=22,fill='#20262e',extra='')=>{const v=layout(s,860,size,1,measure);return '<text x="'+x+'" y="'+y+'" fill="'+fill+'" font-size="'+v.font+'" '+extra+'>'+esc(v.lines.join(' '))+'</text>';};
