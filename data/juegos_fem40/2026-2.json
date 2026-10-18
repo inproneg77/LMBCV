@@ -2018,9 +2018,16 @@
       "temporada": "2026-2",
       "fase": "regular",
       "vuelta": 3,
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
-      "destacado": "false"
+      "destacado": "false",
+      "marcador_local": 35,
+      "marcador_visita": 18,
+      "estadisticas_completas": false,
+      "estadisticas_local": [],
+      "estadisticas_visita": [],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
     },
     {
       "id": "fem4020262_17",
