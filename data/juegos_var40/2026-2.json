@@ -6249,9 +6249,102 @@
       "marcador_local": 46,
       "marcador_visita": 27,
       "estadisticas_completas": false,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
+      "estadisticas_local": [
+        {
+          "jugador": "TONGAR",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "AAROBLES",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JORGETAPIA",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "AFIGUEROA",
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "HENRYCHAVEZ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "ACORONADO",
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 3,
+          "faltas": 1
+        },
+        {
+          "jugador": "MJUAREZ",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "OCARBAJAL",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "JMARTINEZ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "HMACIEL",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "JESUSLEON",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "EDMOND",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 0
+        },
+        {
+          "jugador": "JCONTRERAS",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "AFIGUEROA",
       "mvp_nombre": ""
     }
   ]
