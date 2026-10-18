@@ -4,13 +4,18 @@
  function gameModel(g,state){
   const a=state.equiposPorId[g.local]||{},b=state.equiposPorId[g.visita]||{};
   const kind=g.fase==='amistoso'?'Amistoso':g.fase==='playoffs'?'Playoffs':g.fase==='final'?'Final':'Liga';
-  const p=state.jugadoresPorId[g.mvp_jugador];
-  return {id:g.id,date:g.fecha,time:typeof FanCore!=='undefined'?FanCore.hour(g.hora):g.hora,category:plain(state.categorias.find(c=>c.id===g.categoria_id)?.nombre||g.categoria_id),
+  const p=state.jugadoresPorId[g.mvp_jugador],category=state.categorias.find(c=>c.id===g.categoria_id);
+  const attended=l=>l.jugador===g.mvp_jugador&&String(l.asistio)!=='false';
+  const aLine=(g.estadisticas_local??g.estadisticas??[]).find(attended),bLine=(g.estadisticas_visita??[]).find(attended);
+  const teamId=aLine?g.local:bLine?g.visita:[g.local,g.visita].includes(g.public_mvp_team)?g.public_mvp_team:'';
+  const mvpTeam=state.equiposPorId[teamId];
+  return {id:g.id,categoryId:g.categoria_id,seasonId:g.temporada,branch:category?.rama||'',date:g.fecha,time:typeof FanCore!=='undefined'?FanCore.hour(g.hora):g.hora,category:plain(state.categorias.find(c=>c.id===g.categoria_id)?.nombre||g.categoria_id),
    season:plain(state.temporadas.find(t=>t.id===g.temporada)?.nombre||g.temporada),kind,
    played:g.estatus==='jugado',forfeit:['local','visita'].includes(g.forfeit),local:plain(a.nombre||'Por definir'),visitor:plain(b.nombre||'Por definir'),
    localLogo:a.logo||'',visitorLogo:b.logo||'',localScore:g.marcador_local,visitorScore:g.marcador_visita,
-   venue:plain(state.sedesPorId[g.sede_id]?.nombre||'Sede por definir'),mvp:p?plain(p.nombre):'',mvpPhoto:p?.foto||'',
-   mvpLine:p?[...(g.estadisticas_local??[]),...(g.estadisticas_visita??[])].find(l=>l.jugador===g.mvp_jugador&&String(l.asistio)!=='false')||null:null,
+   venue:plain(state.sedesPorId[g.sede_id]?.nombre||'Sede por definir'),mvp:p?plain(p.nombre):'',mvpPhoto:p?.foto_original||p?.foto||'',mvpPhotoFallback:p?.foto||'',
+   mvpId:p?.id||g.mvp_jugador,mvpNumber:p?.numero??'',mvpPosition:p?.posicion||'',mvpTeamId:teamId,mvpTeam:plain(mvpTeam?.nombre||''),mvpTeamLogo:mvpTeam?.logo||'',
+   mvpLine:p?(aLine||bLine||(g.public_mvp_line&&attended(g.public_mvp_line)?g.public_mvp_line:null)):null,
    sponsors:(state.patrocinadores||[]).slice(0,3).map(s=>({name:plain(s.nombre),logo:s.logo||''})),
    query:new URLSearchParams({juego:g.id,categoria:g.categoria_id,temporada:g.temporada}).toString()};
  }

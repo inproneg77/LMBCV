@@ -22,7 +22,7 @@ test('Current-season package preserves every league game, including all Polifunc
  const old=await loader({temporada:'activa'}),fast=await loader({temporada:'activa',publico:'completo'},true);
  assert.deepEqual(plain(fast.state.juegosOficiales),plain(old.state.juegosOficiales));
  assert.deepEqual(plain(fast.state.juegosAmistosos),plain(old.state.juegosAmistosos.filter(g=>g.temporada==='2026-2')));
- assert.ok(fast.state.juegosOficiales.some(g=>g.sede_id==='duela'&&g.estatus==='programado'));
+ assert.deepEqual(plain(fast.state.juegosOficiales.filter(g=>g.sede_id==='duela'&&g.estatus==='programado')),plain(old.state.juegosOficiales.filter(g=>g.sede_id==='duela'&&g.estatus==='programado')));
  assert.ok(fast.requests.length<old.requests.length);assert.ok(!fast.requests.some(r=>r.name.includes('juegos_')));
 });
 test('Precalculated standings, leaders and performance match existing rules in EVERY category and season',async()=>{
@@ -113,11 +113,11 @@ test('New captures and edits produce a distinct complete revision without changi
   fs.cpSync(path.join(root,'js'),path.join(fixture,'js'),{recursive:true});
   fs.cpSync(path.join(root,'data'),path.join(fixture,'data'),{recursive:true,filter:name=>!name.startsWith(path.join(root,'data/public'))});
   const categories=JSON.parse(fs.readFileSync(path.join(fixture,'data/categorias.json'),'utf8')),seasons=JSON.parse(fs.readFileSync(path.join(fixture,'data/temporadas.json'),'utf8')).temporadas;
-  const name=categories.flatMap(c=>seasons.map(s=>path.join('juegos_'+c.id,s.id+'.json'))).find(p=>fs.existsSync(path.join(fixture,'data',p))&&JSON.parse(fs.readFileSync(path.join(fixture,'data',p),'utf8')).juegos?.some(g=>g.estatus==='programado'));
-  assert.ok(name);const file=path.join(fixture,'data',name),data=JSON.parse(fs.readFileSync(file,'utf8')),game=data.juegos.find(g=>g.estatus==='programado');game.hora='23:15';
+  const name=categories.flatMap(c=>seasons.map(s=>path.join('juegos_'+c.id,s.id+'.json'))).find(p=>fs.existsSync(path.join(fixture,'data',p))&&JSON.parse(fs.readFileSync(path.join(fixture,'data',p),'utf8')).juegos?.length);
+  assert.ok(name);const file=path.join(fixture,'data',name),data=JSON.parse(fs.readFileSync(file,'utf8')),game=data.juegos.find(g=>g.estatus==='programado')||data.juegos[0],changedTime=game.hora==='23:15'?'23:30':'23:15';game.hora=changedTime;
   fs.writeFileSync(file,JSON.stringify(data));const captured=fs.readFileSync(file,'utf8');
   const rebuilt=require('../scripts/build-public-data.cjs').build(fixture);assert.notEqual(rebuilt.revision,built.revision);assert.equal(fs.readFileSync(file,'utf8'),captured);
   const index=JSON.parse(rebuilt.output.get('data/public/index.json')),pack=JSON.parse(rebuilt.output.get(index.seasons[game.temporada]));
-  assert.equal(pack.files['data/'+name.replaceAll(path.sep,'/')].juegos.find(g=>g.id===game.id).hora,'23:15');
+  assert.equal(pack.files['data/'+name.replaceAll(path.sep,'/')].juegos.find(g=>g.id===game.id).hora,changedTime);
  }finally{fs.rmSync(fixture,{recursive:true,force:true});}
 });

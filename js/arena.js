@@ -43,6 +43,7 @@
  }
  function drawLogo(ctx,img,x,y,w){if(!img)return;const width=img.naturalWidth||img.width,height=img.naturalHeight||img.height,scale=Math.min(w/width,w/height);ctx.drawImage(img,x+(w-width*scale)/2,y+(w-height*scale)/2,width*scale,height*scale);}
  async function poster(m,mvp){
+  if(mvp&&window.LMBCPlayerCard)return (await window.LMBCPlayerCard.poster(window.LMBCPlayerCard.mvpModel(m))).blob;
   const canvas=document.createElement('canvas');canvas.width=1080;canvas.height=1080;const ctx=canvas.getContext('2d');if(!ctx)throw Error('Tu navegador no pudo generar la imagen.');
   const [a,b,photo,...sponsors]=await Promise.all([logo(m.localLogo),logo(m.visitorLogo),mvp?logo(m.mvpPhoto,false):null,...m.sponsors.map(s=>logo(s.logo))]);
   ctx.fillStyle='#faf9f6';ctx.fillRect(0,0,1080,1080);ctx.strokeStyle='#e6e1d7';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(64,284);ctx.lineTo(1016,284);ctx.stroke();ctx.fillStyle='#ae8b47';ctx.fillRect(64,32,72,4);
@@ -68,10 +69,10 @@
   ctx.fillStyle='#8b6b32';fit(ctx,'caborcavets.online',540,1020,900,25);
   return new Promise((resolve,reject)=>canvas.toBlob(blob=>blob?resolve(blob):reject(Error('No se pudo crear la imagen.')),'image/png'));
  }
- function shareImage({blob,name,title,alt,page,trigger,statusText='',scrollable=false}){
+ function shareImage({blob,name,title,alt,page,trigger,statusText='',scrollable=false,downloadLabel='Descargar imagen',shareLabel='Compartir imagen'}){
   const file=new File([blob],name,{type:'image/png'}),objectURL=URL.createObjectURL(blob),dlg=document.createElement('dialog');
   dlg.className='arena-share-dialog';dlg.setAttribute('aria-labelledby','arena-share-title');
-  dlg.innerHTML='<div class="dialog-head"><h2 id="arena-share-title">'+H(title)+'</h2><button type="button" class="icon-button" data-dismiss aria-label="Cerrar">✕</button></div><img alt="'+H(alt||title)+'" src="'+objectURL+'"><p>Descarga la imagen para WhatsApp o Facebook. Tú decides dónde publicarla.</p><div class="share-actions"><a class="primary-link" download="'+H(name)+'" href="'+objectURL+'">Descargar imagen</a><button type="button" class="secondary-link" data-native>Compartir imagen</button><button type="button" class="secondary-link" data-copy>Copiar enlace</button></div><p data-status role="status"></p>';
+  dlg.innerHTML='<div class="dialog-head"><h2 id="arena-share-title">'+H(title)+'</h2><button type="button" class="icon-button" data-dismiss aria-label="Cerrar">✕</button></div><img alt="'+H(alt||title)+'" src="'+objectURL+'"><p>Descarga la imagen para WhatsApp o Facebook. Tú decides dónde publicarla.</p><div class="share-actions"><a class="primary-link" download="'+H(name)+'" href="'+objectURL+'">'+H(downloadLabel)+'</a><button type="button" class="secondary-link" data-native>'+H(shareLabel)+'</button><button type="button" class="secondary-link" data-copy>Copiar enlace</button></div><p data-status role="status"></p>';
   if(scrollable){const img=dlg.querySelector('img'),view=document.createElement('div');view.className='arena-share-preview';img.before(view);view.append(img);}
   document.body.append(dlg);dlg.showModal();dlg.querySelector('[data-dismiss]').onclick=()=>dlg.close();
   dlg.addEventListener('close',()=>{URL.revokeObjectURL(objectURL);dlg.remove();trigger?.focus();},{once:true});
@@ -92,8 +93,8 @@
 
   try{
    if(button.hasAttribute('data-arena-stats')){const {blob,missing}=await statisticsPoster(ArenaCore.statisticsModel(m.statisticsSource.game,m.statisticsSource.state));shareImage({blob,name:'lmbc-estadisticas-'+String(m.id).replace(/[^a-zA-Z0-9_-]/g,'-')+'.png',title:'Estadísticas del juego',scrollable:true,alt:'Estadísticas de '+m.local+' contra '+m.visitor,page:url('calendario/?'+m.query),trigger:button,statusText:missing?'Algún logo no pudo cargarse. Las estadísticas están completas.':''});return;}
-   const blob=await poster(m,isMvp),file=new File([blob],isMvp?'lmbc-destacado.png':m.played?'lmbc-resultado.png':'lmbc-proximo-partido.png',{type:'image/png'});
-   shareImage({blob,name:file.name,title:isMvp?'MVP del partido':m.played?'Resultado para compartir':'Cartel del próximo encuentro',alt:isMvp?'MVP '+m.mvp:m.local+' contra '+m.visitor,page:url('calendario/?'+m.query),trigger:button});
+   const blob=await poster(m,isMvp),file=new File([blob],isMvp&&window.LMBCPlayerCard?window.LMBCPlayerCard.filename(window.LMBCPlayerCard.mvpModel(m)):isMvp?'lmbc-destacado.png':m.played?'lmbc-resultado.png':'lmbc-proximo-partido.png',{type:'image/png'});
+   shareImage({blob,name:file.name,downloadLabel:isMvp?'Descargar tarjeta':'Descargar imagen',shareLabel:isMvp?'Compartir tarjeta':'Compartir imagen',title:isMvp?'Tarjeta MVP del partido':m.played?'Resultado para compartir':'Cartel del próximo encuentro',alt:isMvp?'MVP '+m.mvp:m.local+' contra '+m.visitor,page:url('calendario/?'+m.query),trigger:button});
   }catch(e){const note=document.createElement('p');note.setAttribute('role','alert');note.textContent=e.message;button.parentElement.append(note);}
   finally{button.disabled=false;button.textContent=previous;}
  }

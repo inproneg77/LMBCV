@@ -48,7 +48,7 @@ function bitacoraDe(jugadorId, juegos = ESTADO_J.juegosOficiales) {
 }
 
 function contarMVP(jugadorId) {
-  if(ESTADO_J.playerSummary?.player.id===jugadorId)return ESTADO_J.playerSummary.mvp;
+  if(ESTADO_J.playerSummary?.player?.id===jugadorId)return ESTADO_J.playerSummary.mvp;
   return ESTADO_J.juegosOficiales.filter(j => j.estatus === 'jugado' && j.mvp_jugador === jugadorId).length;
 }
 
@@ -115,6 +115,16 @@ function render(id) {
     <p class="hero__sub">${equiposTexto || 'Sin equipo asignado'}${jugador?.numero ? ` · #${jugador.numero}` : ''}</p></div></div>
   `;
 
+  if(typeof LMBCPlayerCard!=='undefined'&&tituloWrap.querySelector){
+    const host=document.createElement('div');host.className='no-print';tituloWrap.append(host);
+    const scopes=opcionesTarjetaJugador(id),params=new URLSearchParams(location.search),season=params.get('temporada')||FanCore.activeSeason(ESTADO_J.temporadas);
+    const kind=params.get('vista')==='amistosos'?'amistosos':'oficial';
+    const career=params.get('tarjeta')==='trayectoria'||(!params.get('tarjeta')&&!params.get('temporada')&&!params.get('categoria')&&!params.get('equipo'));
+    let match=scopes.findIndex(s=>(career?s.model.type==='career':s.model.seasonId===season&&(!params.get('categoria')||s.model.categoryId===params.get('categoria'))&&(!params.get('equipo')||s.model.teamId===params.get('equipo')))&&s.kind===kind);
+    if(match<0)match=scopes.findIndex(s=>s.kind===kind);
+    LMBCPlayerCard.mount(host,{scopes,selected:Math.max(0,match),view:params.get('lado')==='reverso'?'back-'+Math.max(0,Number(params.get('pagina')||1)-1):'front'});
+  }
+
   cont.innerHTML = `
     ${ESTADO_J.playerSummary?'<section class="profile-history no-print" aria-label="Consultar temporadas anteriores"><p>Los totales oficiales incluyen toda la trayectoria. Las participaciones se cargan por temporada.</p><div class="game-actions">'+Object.keys(ESTADO_J.playerSummary.seasons).sort().reverse().filter(s=>!ESTADO_J.loadedProfileSeasons().includes(s)).map(s=>'<button type="button" data-player-season="'+escaparHTML(s)+'">Cargar '+escaparHTML(ESTADO_J.temporadas.find(t=>t.id===s)?.nombre||s)+'</button>').join('')+'</div><p role="status" id="player-history-status"></p></section>':''}
     <div data-profile-root>${typeof ArenaUI!=='undefined'?ArenaUI.switches():''}<section id="profile-oficial" data-profile-panel="oficial" aria-label="Estadísticas oficiales">
@@ -157,9 +167,38 @@ function render(id) {
   }
 }
 
+function opcionesTarjetaJugador(id){
+  const player=ESTADO_J.jugadoresPorId[id];if(!player)return [];
+  const groups=new Map(),key=g=>[g.kind,g.categoriaId,g.temporadaId,g.equipoId].join('|');
+  const actual=ESTADO_J.playerSummary?.groups||[
+    ...agruparPorTemporada(bitacoraDe(id)).map(g=>({...g,kind:'oficial'})),
+    ...agruparPorTemporada(bitacoraDe(id,ESTADO_J.juegosAmistosos)).map(g=>({...g,kind:'amistosos'}))
+  ];
+  for(const g of actual)groups.set(key(g),g);
+  for(const m of ESTADO_J.jugadores.filter(p=>p.id===id)){
+    const g={kind:'oficial',categoriaId:m.categoria_id,temporadaId:m.temporada,equipoId:m.equipo_id,totales:{jj:0,puntos:0,triples:0}};
+    if(g.categoriaId&&g.temporadaId&&g.equipoId&&!groups.has(key(g)))groups.set(key(g),g);
+  }
+  const scopes=[...groups.values()].sort((a,b)=>String(b.temporadaId).localeCompare(String(a.temporadaId))).map(g=>{
+    const team=ESTADO_J.equiposPorId[g.equipoId],category=ESTADO_J.categorias.find(c=>c.id===g.categoriaId),season=ESTADO_J.temporadas.find(t=>t.id===g.temporadaId);
+    const page=new URL(location.href);page.searchParams.set('id',id);page.searchParams.set('categoria',g.categoriaId);page.searchParams.set('equipo',g.equipoId);page.searchParams.set('temporada',g.temporadaId);page.searchParams.set('vista',g.kind);page.searchParams.set('tarjeta','temporada');page.searchParams.delete('lado');page.searchParams.delete('pagina');page.hash='';
+    const model=LMBCPlayerCard.profileModel({player,team,category,season,group:g,kind:g.kind,page:page.href});model.sponsors=ESTADO_J.patrocinadores||[];
+    return {kind:g.kind,label:[model.season,model.category,model.team,model.kind].filter(Boolean).join(' · '),model};
+  });
+  const careers=[];
+  for(const kind of ['oficial','amistosos']){
+    const rows=scopes.filter(s=>s.kind===kind&&s.model.totals.jj>0).map(({model:m})=>({team:m.team,teamLogo:m.teamLogo,teamId:m.teamId,category:m.category,categoryId:m.categoryId,season:m.season,seasonId:m.seasonId,totals:m.totals}));
+    if(!rows.length)continue;
+    const page=new URL(location.href);for(const key of ['categoria','equipo','temporada','lado','pagina'])page.searchParams.delete(key);page.searchParams.set('id',id);page.searchParams.set('vista',kind);page.searchParams.set('tarjeta','trayectoria');page.hash='';
+    const model=LMBCPlayerCard.careerModel({player,rows,kind,totals:kind==='oficial'?ESTADO_J.playerSummary?.totals:undefined,mvp:kind==='oficial'?contarMVP(id):undefined,page:page.href,sponsors:ESTADO_J.patrocinadores||[]});
+    careers.push({kind,label:kind==='oficial'?'Trayectoria oficial · Todos sus equipos y categorías':'Historial de amistosos · Todos sus equipos y categorías',model});
+  }
+  return [...careers,...scopes];
+}
+
 function imagenJugador(g,kind,id){
   const player=ESTADO_J.jugadoresPorId[id],team=ESTADO_J.equiposPorId[g.equipoId];
-  const page=new URL(location.href);page.searchParams.set('id',id);page.searchParams.set('vista',kind);page.searchParams.set('temporada',g.temporadaId);page.hash='player-'+kind+'-'+encodeURIComponent([g.categoriaId,g.temporadaId,g.equipoId].join('-'));
+  const page=new URL(location.href);page.searchParams.set('id',id);page.searchParams.set('vista',kind);page.searchParams.set('categoria',g.categoriaId);page.searchParams.set('equipo',g.equipoId);page.searchParams.set('tarjeta','temporada');page.searchParams.delete('lado');page.searchParams.delete('pagina');page.searchParams.set('temporada',g.temporadaId);page.hash='player-'+kind+'-'+encodeURIComponent([g.categoriaId,g.temporadaId,g.equipoId].join('-'));
   return {title:player?.nombre||'Jugador',category:ESTADO_J.categorias.find(c=>c.id===g.categoriaId)?.nombre||g.categoriaId,season:ESTADO_J.temporadas.find(t=>t.id===g.temporadaId)?.nombre||g.temporadaId,subtitle:(kind==='amistosos'?'Amistosos':'Liga · oficiales')+' · '+(team?.nombre||'Equipo'),teamLogo:team?.logo,
     headers:['Fecha','Rival / equipo','Pts','3pt','Faltas'],
     rows:[...g.filas.map(f=>({cells:[formatearFecha(f.juego.fecha).texto,ESTADO_J.equiposPorId[f.rivalId]?.nombre||f.rivalId,String(f.puntos),String(f.triples),String(f.faltas)],logos:['',new URL(RUTA_IMG+(ESTADO_J.equiposPorId[f.rivalId]?.logo||'img/equipos/placeholder.svg'),location.href).href]})),{cells:['Total',g.totales.jj+' juegos',String(g.totales.puntos),String(g.totales.triples),String(g.totales.faltas)],logos:[]}],
