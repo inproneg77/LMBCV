@@ -3725,6 +3725,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "MVIZCARRA",
+      "nombre": "MARTIN VIZCARRA",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "mineros4",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
