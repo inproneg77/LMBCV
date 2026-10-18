@@ -6248,7 +6248,7 @@
       "destacado": "false",
       "marcador_local": 46,
       "marcador_visita": 27,
-      "estadisticas_completas": false,
+      "estadisticas_completas": true,
       "estadisticas_local": [
         {
           "jugador": "TONGAR",
@@ -6288,7 +6288,7 @@
         {
           "jugador": "ACORONADO",
           "asistio": "true",
-          "puntos": 14,
+          "puntos": 15,
           "triples": 3,
           "faltas": 1
         },
@@ -6332,7 +6332,7 @@
         {
           "jugador": "EDMOND",
           "asistio": "true",
-          "puntos": 8,
+          "puntos": 9,
           "triples": 2,
           "faltas": 0
         },
@@ -6342,6 +6342,20 @@
           "puntos": 5,
           "triples": 0,
           "faltas": 0
+        },
+        {
+          "jugador": "EDURAN",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "EALTAMIRAN",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
         }
       ],
       "mvp_jugador": "AFIGUEROA",
