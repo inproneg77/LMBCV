@@ -6120,10 +6120,117 @@
       "destacado": "true",
       "marcador_local": 49,
       "marcador_visita": 30,
-      "estadisticas_completas": false,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
+      "estadisticas_completas": true,
+      "estadisticas_local": [
+        {
+          "jugador": "JAVVALD",
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 1,
+          "faltas": 2
+        },
+        {
+          "jugador": "MEMOSAL",
+          "asistio": "true",
+          "puntos": 1,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "ISAAOLA",
+          "asistio": "true",
+          "puntos": 20,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "NEGROURQ",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "JCVILL",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "LALOCEL",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "BARNWYB",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "RMONTES",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "ESTEBANLOPEZ",
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 5,
+          "faltas": 2
+        },
+        {
+          "jugador": "GERMANVALENZUELA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "GARCES",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "FABIANBARRERA",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "KANGELES",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "JFRIAS2",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "MMONTIJO",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "JAVVALD",
       "mvp_nombre": ""
     },
     {
