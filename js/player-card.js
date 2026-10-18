@@ -58,7 +58,6 @@
   out+='<path d="M786 54H1026V142H754Z" fill="url(#metal)"/>'+block(season,902,111,208,30,1,ink,'text-anchor="middle" font-weight="900" font-style="italic"');
   out+=block(m.kind+' · '+m.category+branch,88,186,812,22,1,'#fff6e4','font-weight="700" letter-spacing="1"');
   out+='<path d="M846 213L1000 180V358L846 391Z" fill="#f5e8c9" fill-opacity=".12" stroke="'+gold+'" stroke-width="2"/>'+image(assets.team,856,219,130,130);
-  if(m.number!==''&&m.number!==null)out+=txt('#'+m.number,977,477,104,'#fff8e5','text-anchor="end" font-family="Impact, Arial Black, sans-serif" font-weight="900" font-style="italic" stroke="#20262e" stroke-width="2" paint-order="stroke"');
   out+=txt(m.type==='career'?(m.kind==='Amistosos'?'TRAYECTORIA · AMISTOSOS':'TRAYECTORIA OFICIAL'+(m.careerMvp?' · '+m.careerMvp+' MVP':'')):'CABORCA · BÁSQUETBOL',88,930,16,'#f8edce','transform="rotate(-90 88 930)" font-weight="700" letter-spacing="4"');
   const lift=isMvp?80:0;out+='<path d="M54 '+(1070-lift)+'L1026 '+(950-lift)+'V1286H54Z" fill="url(#metal)"/><path d="M54 '+(1082-lift)+'L1026 '+(962-lift)+'V1286H54Z" fill="url(#band)"/><path d="M54 '+(1094-lift)+'L1026 '+(974-lift)+'" stroke="'+gold+'" stroke-opacity=".7" stroke-width="2"/>';
   let name=layout(text(m.name).trim().toUpperCase(),866,isMvp?84:92,1,measure);if(name.font<64)name=layout(text(m.name).trim().toUpperCase(),866,isMvp?56:64,2,measure);const nameY=isMvp?(name.lines.length===1?1134:1088):(name.lines.length===1?1190:1132);
