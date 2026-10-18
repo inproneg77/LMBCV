@@ -2024,7 +2024,36 @@
       "marcador_local": 35,
       "marcador_visita": 18,
       "estadisticas_completas": false,
-      "estadisticas_local": [],
+      "estadisticas_local": [
+        {
+          "jugador": "CGUT",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "AGUT",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "MGUTI",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "KENQUI",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
       "estadisticas_visita": [],
       "mvp_jugador": "",
       "mvp_nombre": ""
