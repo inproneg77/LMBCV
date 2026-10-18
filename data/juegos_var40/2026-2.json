@@ -6287,7 +6287,43 @@
       "marcador_visita": 38,
       "estadisticas_completas": false,
       "estadisticas_local": [],
-      "estadisticas_visita": [],
+      "estadisticas_visita": [
+        {
+          "jugador": "CESDOMIN",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 5
+        },
+        {
+          "jugador": "GABRARG",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "CARDURAN",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "JOSEISAB",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "RACIELREYES",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 3
+        }
+      ],
       "mvp_jugador": "",
       "mvp_nombre": ""
     },
