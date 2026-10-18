@@ -846,9 +846,52 @@
       "temporada": "2026-2",
       "fase": "regular",
       "vuelta": 1,
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
-      "destacado": "false"
+      "destacado": "false",
+      "marcador_local": 55,
+      "marcador_visita": 32,
+      "estadisticas_completas": false,
+      "estadisticas_local": [],
+      "estadisticas_visita": [
+        {
+          "jugador": "AMENDO",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "RDUARTE",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "JONTIVEROS",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 2
+        },
+        {
+          "jugador": "GCASTILLO",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "FCELAYA",
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 0,
+          "faltas": 1
+        }
+      ],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
     },
     {
       "id": "var4920262_10",
