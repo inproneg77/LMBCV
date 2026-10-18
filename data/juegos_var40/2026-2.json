@@ -6306,10 +6306,110 @@
       "destacado": "false",
       "marcador_local": 80,
       "marcador_visita": 24,
-      "estadisticas_completas": false,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
+      "estadisticas_completas": true,
+      "estadisticas_local": [
+        {
+          "jugador": "FAVELATOLON",
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 1,
+          "faltas": 3
+        },
+        {
+          "jugador": "CHARROD",
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "TITOMEN",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "ANGELFIE",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "FONSECAR",
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "MARPARRA",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 1,
+          "faltas": 2
+        },
+        {
+          "jugador": "PANSIBRIAN",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 1,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "GORTEGA",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "SANTQUIN",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "PEMEND",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 2,
+          "faltas": 0
+        },
+        {
+          "jugador": "ELPONCE",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "TADMART",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "BOBPER",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "VICFRAN",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "FONSECAR",
       "mvp_nombre": ""
     },
     {
