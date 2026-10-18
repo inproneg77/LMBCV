@@ -739,9 +739,52 @@
       "temporada": "2026-2",
       "fase": "regular",
       "vuelta": 1,
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
-      "destacado": "false"
+      "destacado": "false",
+      "marcador_local": 62,
+      "marcador_visita": 48,
+      "estadisticas_completas": false,
+      "estadisticas_local": [
+        {
+          "jugador": "CUBANO",
+          "asistio": "true",
+          "puntos": 17,
+          "triples": 4,
+          "faltas": 2
+        },
+        {
+          "jugador": "WEROSOTO",
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "GERA5",
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 3,
+          "faltas": 0
+        },
+        {
+          "jugador": "javlopez",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 2
+        },
+        {
+          "jugador": "ESTEBANLOPEZ",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 3,
+          "faltas": 1
+        }
+      ],
+      "estadisticas_visita": [],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
     }
   ]
 }
