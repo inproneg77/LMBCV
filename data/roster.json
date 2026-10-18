@@ -2948,18 +2948,6 @@
       ]
     },
     {
-      "id": "DIRVING",
-      "nombre": "DIRVING AGUIRRE",
-      "numero": "23",
-      "membresias": [
-        {
-          "categoria_id": "var40",
-          "equipo_id": "BURROSV40",
-          "temporada": "2026-2"
-        }
-      ]
-    },
-    {
       "id": "ROBERTONUNEZ",
       "nombre": "ROBERTO NUÑEZ",
       "numero": "21",
@@ -2967,6 +2955,18 @@
         {
           "categoria_id": "var40",
           "equipo_id": "CONEXIONV40",
+          "temporada": "2026-2"
+        }
+      ]
+    },
+    {
+      "id": "DIRVING",
+      "nombre": "DIRVING AGUIRRE",
+      "numero": "23",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "BURROSV40",
           "temporada": "2026-2"
         }
       ]
@@ -3305,11 +3305,6 @@
         {
           "categoria_id": "var40",
           "equipo_id": "SMV40",
-          "temporada": "2026-2"
-        },
-        {
-          "categoria_id": "var49",
-          "equipo_id": "OSV40",
           "temporada": "2026-2"
         },
         {
