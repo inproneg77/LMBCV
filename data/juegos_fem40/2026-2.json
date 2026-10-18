@@ -2023,8 +2023,15 @@
       "destacado": "false",
       "marcador_local": 35,
       "marcador_visita": 18,
-      "estadisticas_completas": false,
+      "estadisticas_completas": true,
       "estadisticas_local": [
+        {
+          "jugador": "BSOTELO",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 0
+        },
         {
           "jugador": "CGUT",
           "asistio": "true",
@@ -2035,9 +2042,9 @@
         {
           "jugador": "AGUT",
           "asistio": "true",
-          "puntos": 4,
+          "puntos": 6,
           "triples": 0,
-          "faltas": 0
+          "faltas": 1
         },
         {
           "jugador": "MGUTI",
@@ -2047,15 +2054,100 @@
           "faltas": 2
         },
         {
+          "jugador": "ARGRIJ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
           "jugador": "KENQUI",
           "asistio": "true",
           "puntos": 4,
           "triples": 0,
           "faltas": 0
+        },
+        {
+          "jugador": "MARISANTA",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "PGUTIERREZ",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 2
         }
       ],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
+      "estadisticas_visita": [
+        {
+          "jugador": "ADRIMART",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "FERGAST",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "PATROB",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "MERCACAR",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "PAOARA",
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "CORAORD",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "KARSALC",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "LIZETHROM",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "LIZMEZA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "PGUTIERREZ",
       "mvp_nombre": ""
     },
     {
