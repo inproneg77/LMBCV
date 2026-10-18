@@ -6096,7 +6096,14 @@
       "vuelta": 1,
       "estatus": "programado",
       "forfeit": "ninguno",
-      "destacado": "true"
+      "destacado": "true",
+      "marcador_local": 49,
+      "marcador_visita": 30,
+      "estadisticas_completas": false,
+      "estadisticas_local": [],
+      "estadisticas_visita": [],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
     },
     {
       "id": "var4020262_56",
