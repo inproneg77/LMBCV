@@ -3769,6 +3769,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "FENCINAS",
+      "nombre": "FEDERICO ENCINAS",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var49",
+          "equipo_id": "OSV40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
