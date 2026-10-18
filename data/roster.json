@@ -3713,6 +3713,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "EALTAMIRAN",
+      "nombre": "ENRIQUE ALTAMIRANO",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ICATSONV40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
