@@ -1,36 +1,49 @@
 <!doctype html>
 <html lang="es">
 <head>
- <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
- <title>Caborca Piensa en Grande — Copa de Básquetbol</title>
- <meta name="description" content="El espacio de la Copa Caborca Piensa en Grande. Ediciones, categorías femeniles y varoniles, equipos, calendario, grupos, resultados y líderes.">
- <meta name="theme-color" content="#751b3c">
- <link rel="stylesheet" href="css/torneos.css?v=copa-experience-20261010"><link rel="stylesheet" href="css/copa.css?v=copa-experience-20261010">
- <script src="js/copa.js?v=copa-experience-20261010"></script>
- <link rel="stylesheet" href="css/copa-2026.css?v=copa-experience-20261010">
- <link rel="stylesheet" href="css/copa-premium.css?v=copa-experience-20261010">
- <link rel="stylesheet" href="css/copa-experience.css?v=copa-experience-20261010">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#751b3c">
+<meta name="description" content="Copa Caborca Piensa en Grande: equipos, calendario, resultados y estadísticas.">
+<title>Copa Caborca Piensa en Grande</title>
+<style>body{margin:0;background:#faf8f4;color:#57152f;font:16px/1.6 system-ui,sans-serif}main{max-width:38rem;margin:12vh auto;padding:2rem}h1{font:500 2.5rem Georgia,serif}a{color:#751b3c}button{background:#751b3c;color:#fff;border:0;padding:.8rem 1.2rem;border-radius:6px;font:inherit;cursor:pointer}</style>
 </head>
 <body>
- <a class="skip" href="#main">Saltar al contenido</a>
- <header class="copa-header">
-  <a class="copa-brand" href="./" aria-label="Inicio de Caborca Piensa en Grande"><span id="copa-mark" class="brand-mark" aria-hidden="true">CPG<span>•</span></span><img id="copa-logo" hidden alt="Logo de la copa"><span><strong>CABORCA<br>PIENSA EN GRANDE</strong><small id="copa-mode">Básquetbol · Caborca, Sonora</small></span></a>
-  <nav aria-label="Navegación de la copa"><a href="./">Ediciones</a><button type="button" class="copa-favorite-top" id="copa-favorite-top" data-action="favorite-open" hidden>☆ Mi equipo</button><a class="admin-link" href="?administrar=1">Administrar copa <span aria-hidden="true">↗</span></a></nav>
- </header>
- <section class="copa-hero" aria-label="Presentación de la copa">
-  <div class="hero-copy"><span class="eyebrow"><i aria-hidden="true"></i> CABORCA, SONORA · BÁSQUETBOL</span><h1>Piensa en<br><em>Grande.</em></h1><p class="hero-lead">La pasión nos reúne.<br>La cancha escribe la historia.</p><a class="hero-cta" href="#tor-app">Vive la copa <span aria-hidden="true">↗</span></a><div class="hero-footnote"><span>UNA CIUDAD. UNA COPA.</span><span>MUCHAS HISTORIAS.</span></div></div>
-  <div class="copa-emblem" aria-hidden="true"><span class="emblem-caption">EL ENCUENTRO QUE NOS UNE</span><div class="emblem-orbit"><svg class="trophy-art" viewBox="0 0 360 380" fill="none"><circle cx="180" cy="157" r="128" stroke="currentColor" stroke-opacity=".18"/><circle cx="180" cy="157" r="116" stroke="currentColor" stroke-opacity=".35"/><path d="M134 97h92l-9 69c-3 28-21 46-37 46s-34-18-37-46l-9-69Z" stroke="currentColor" stroke-width="2"/><path d="M137 116h-25v26c0 25 16 37 36 38m75-64h25v26c0 25-16 37-36 38M174 212v49m12-49v49m-27 0h42l12 14h-66l12-14Zm-11 14h64v17h-64v-17Z" stroke="currentColor" stroke-width="2"/><circle cx="180" cy="147" r="23" stroke="currentColor" stroke-width="1.4"/><path d="M157 147h46m-23-23v46m-13-42c20 11 20 26 0 38m26-38c-20 11-20 26 0 38" stroke="currentColor" stroke-width="1.1"/><path d="m180 33 4 8-4 8-4-8 4-8ZM68 211l4 8-4 8-4-8 4-8Zm224 0 4 8-4 8-4-8 4-8Z" fill="currentColor"/><path d="M70 315h76m68 0h76" stroke="currentColor" stroke-opacity=".5"/><text x="180" y="321" fill="currentColor" font-family="serif" font-size="21" text-anchor="middle">CPG</text></svg></div><span class="emblem-city">CABORCA PIENSA EN GRANDE</span><span class="emblem-sub">EL JUEGO. LA COMUNIDAD. EL LEGADO.</span></div>
- </section>
- <div class="copa-strip"><span><b>01</b> Femenil y varonil</span><span><b>02</b> Cada categoría, su historia</span><span><b>03</b> Una final. Todo en la cancha.</span></div>
- <main id="main" class="tor-wrap">
-  <div id="tor-message" role="status" aria-live="polite"></div>
-  <section id="tor-auth" hidden aria-label="Acceso de organización"><h2>Administrar la copa</h2><p>Crea una edición, registra sus categorías y organiza la competencia.</p><label>Token de GitHub para el repositorio piensa<input type="password" id="tor-token" autocomplete="off" placeholder="Token con acceso a piensa"></label><div class="tor-actions"><button id="tor-connect">Conectar</button><button id="tor-disconnect" class="secondary">Cerrar acceso</button></div><p class="tor-muted">Se guarda en este navegador hasta cerrar acceso. Necesita permiso Contents: lectura y escritura en inproneg77/piensa. Este acceso es independiente del de la liga.</p></section>
-  <div id="tor-app"><p role="status">Cargando ediciones de la copa…</p></div>
- </main>
- <dialog id="tor-dialog"><form id="tor-form"><div id="tor-fields"></div><p id="tor-form-error" role="alert"></p><div class="tor-actions"><button type="submit">Guardar / continuar</button><button type="button" id="tor-cancel" class="secondary">Cancelar</button></div></form></dialog>
- <footer class="copa-footer"><strong>Caborca Piensa en Grande</strong><p>Una copa. Una comunidad. Una nueva historia cada año.</p><a href="?administrar=1">Acceso de organización</a></footer>
- <nav id="copa-dock" class="copa-mobile-dock" aria-label="Navegación rápida de la copa" hidden></nav>
- <script src="js/torneos-core.js?v=copa-experience-20261010"></script><script src="js/copa-fan.js?v=copa-experience-20261010"></script><script src="js/torneos-storage.js?v=copa-experience-20261010"></script><script src="js/copa-share.js?v=copa-experience-20261010"></script><script src="js/copa-reports.js?v=copa-experience-20261010"></script><script src="js/torneos-ui.js?v=copa-experience-20261010"></script>
-</body></html>
-
-
+<main aria-live="polite"><h1>Caborca Piensa en Grande</h1><p id="route-message" role="status">Cargando la copa…</p><p><a id="route-fallback" href="https://inproneg77.github.io/piensa/">Abrir el sitio de Copa</a></p></main>
+<script>
+(async function(){
+'use strict';
+const base='https://inproneg77.github.io/piensa/';
+const direct=new URL(base);direct.search=location.search;direct.hash=location.hash;
+document.getElementById('route-fallback').href=direct.href;
+try{
+ const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),15000);
+ let response,source;
+ try{response=await fetch(base+'index.html?entry='+Date.now(),{cache:'no-store',credentials:'omit',signal:controller.signal});if(!response.ok)throw Error('HTTP '+response.status);source=await response.text();}finally{clearTimeout(timer);}
+ const parsed=new DOMParser().parseFromString(source,'text/html');
+ if(!parsed.getElementById('tor-app')||!parsed.querySelector('script[src*="torneos-ui.js"]'))throw Error('La publicación de Copa no está lista.');
+ for(const element of parsed.querySelectorAll('link[rel="stylesheet"][href],script[src],img[src]')){
+  const attr=element.tagName==='LINK'?'href':'src';
+  element.setAttribute(attr,new URL(element.getAttribute(attr),base).href);
+ }
+ // Keep navigation and browser storage on caborcavets.online; only assets use Copa's origin.
+ document.documentElement.lang=parsed.documentElement.lang||'es';
+ document.documentElement.innerHTML=parsed.documentElement.innerHTML;
+ for(const inert of Array.from(document.querySelectorAll('script'))){
+  const script=document.createElement('script');
+  for(const attribute of Array.from(inert.attributes))if(!['async','defer'].includes(attribute.name))script.setAttribute(attribute.name,attribute.value);
+  script.async=false;
+  if(inert.hasAttribute('src')){
+   await new Promise((ok,no)=>{const timeout=setTimeout(()=>no(Error('No se pudo cargar un recurso de Copa.')),15000);script.onload=()=>{clearTimeout(timeout);ok();};script.onerror=()=>{clearTimeout(timeout);no(Error('No se pudo cargar un recurso de Copa.'));};inert.replaceWith(script);});
+  }else{script.textContent=inert.textContent;inert.replaceWith(script);}
+ }
+ document.dispatchEvent(new Event('DOMContentLoaded'));
+}catch(error){
+ document.body.innerHTML='<main><h1>Caborca Piensa en Grande</h1><p role="alert">No se pudo cargar la copa con esta conexión.</p><p><button type="button" id="route-retry">Reintentar</button></p><p><a id="route-fallback">Abrir el sitio de Copa</a></p></main>';
+ document.getElementById('route-fallback').href=direct.href;
+ document.getElementById('route-retry').onclick=()=>location.reload();
+}
+})();
+</script>
+</body>
+</html>
