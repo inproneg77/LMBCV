@@ -19,3 +19,11 @@ Los cambios de capturas o registros posteriores no modifican silenciosamente los
 Los borradores no aparecen en la galería, pero el repositorio continúa siendo público: no deben contener datos confidenciales. La disponibilidad de compartir archivo depende del navegador; siempre se conserva la descarga PNG. El despliegue debe terminar para ver una nueva publicación u ocultación.
 
 Este módulo pertenece exclusivamente a la liga. No modifica el sistema ni los datos de Copa Caborca, amistosos o torneos independientes. Tampoco cambia las reglas, resultados o estadísticas existentes.
+
+## Selección y revisión de cada estadística
+
+El panel muestra casillas independientes para puntos, triples, equipo más ofensivo, equipo más defensivo, equipo más triplero, mejor defensa de triples, Fair Play y registro individual de faltas. Se puede incluir o excluir cada reconocimiento. El selector «Clasificación que quieres revisar» muestra la tabla completa, buscador y un botón para previsualizar su tarjeta, antes de elegir los MVP.
+
+Los cinco rankings de equipos reutilizan los promedios de la liga y excluyen forfeits en ambos lados. Su mínimo de juegos es independiente del mínimo individual. Los reconocimientos de triples y faltas de equipos requieren hojas disponibles para esa estadística; no se consideran ceros las hojas ausentes. Se preservan los empates.
+
+Durante la temporada, «Revisar tarjetas» y «Ver tarjeta de este reconocimiento» permiten generar imágenes marcadas como provisionales. No pueden guardarse ni publicarse como premios oficiales. La publicación definitiva requiere terminar la fase regular y confirmar la revisión.
