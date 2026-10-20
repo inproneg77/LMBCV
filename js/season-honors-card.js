@@ -14,7 +14,7 @@ function honorsEdition(m,assets,measure){
  out+='<path d="M70 403H355L297 967H70Z" fill="'+ink+'"/><path d="M373 403H1008V980H315Z" fill="#e2d7c2"/><path d="M400 403L342 967" stroke="url(#foil)" stroke-width="8"/>';
  for(let i=0;i<12;i++)out+='<path d="M'+(430+i*48)+' 403L'+(360+i*48)+' 967" stroke="'+gold+'" opacity=".12"/>';
  out+='<g clip-path="url(#portrait)">'+(assets.photo?im(assets.photo,350,386,644,581,'xMidYMin slice'):im(assets.team,445,478,480,350))+'</g>';
- out+=t(primary.value,211,650,136,'#f8edce','font-family="Impact,Arial Black,Arial,sans-serif" text-anchor="middle"',275)+t(primary.label,211,710,20,'#e6c995','text-anchor="middle" font-weight="700"',245,3);
+ out+=t(primary.value,200,650,118,'#f8edce','font-family="Impact,Arial Black,Arial,sans-serif" text-anchor="middle"',230)+t(primary.label,200,710,20,'#e6c995','text-anchor="middle" font-weight="700"',230,3);
  out+='<path d="M172 822L211 792L250 822L235 867H187Z" fill="none" stroke="url(#foil)" stroke-width="3"/><path d="M193 824H229L223 847H199ZM211 847V860M200 861H222" fill="none" stroke="#e6c995" stroke-width="3"/>';
  out+=t('EDICIÓN',211,915,15,'#e6c995','text-anchor="middle" letter-spacing="4"',245)+t('CONMEMORATIVA',211,941,15,'#e6c995','text-anchor="middle" letter-spacing="2"',245);
  out+='<rect x="70" y="994" width="938" height="94" fill="'+ink+'"/>';
