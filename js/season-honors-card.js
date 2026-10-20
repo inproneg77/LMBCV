@@ -3,7 +3,30 @@
 const P=typeof module!=='undefined'&&module.exports?require('./player-card.js'):root.LMBCPlayerCard;
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const colors={champion:['#d7b878','#33291c'],roster:['#d7b878','#33291c'],'mvp-season':['#e4c477','#171b20'],'mvp-final':['#dfc38f','#3c3024']};
+function honorsEdition(m,assets,measure){
+ const ink='#202729',gold='#987344',cream='#f6f0e5',team=m.award.startsWith('team-'),primary=m.stats?.[0]||{value:'',label:''},rest=(m.stats||[]).slice(1);
+ const t=(s,x,y,size,fill=ink,extra='',width=880,lines=1)=>{const a=P.layout(String(s??''),width,size,lines,measure);return '<text x="'+x+'" y="'+y+'" font-size="'+a.font+'" fill="'+fill+'" '+extra+'>'+a.lines.map((v,i)=>'<tspan x="'+x+'" dy="'+(i?a.font*1.12:0)+'">'+esc(v)+'</tspan>').join('')+'</text>';};
+ const im=(src,x,y,w,h,align='xMidYMid meet')=>/^data:image\/(png|jpeg|webp);base64,[a-zA-Z0-9+/=\s]+$/.test(src||'')?'<image href="'+src+'" x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" preserveAspectRatio="'+align+'"/>':'';
+ const title=m.title.replace(/^LÍDER DE /,'').replace(/^EQUIPO MÁS /,'').replace(/^EQUIPO /,'');
+ let out='<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1512" viewBox="0 0 1080 1512"><defs><linearGradient id="foil" x2="1" y2=".5"><stop stop-color="#8e693e"/><stop offset=".28" stop-color="#d7bb83"/><stop offset=".48" stop-color="#fff3cd"/><stop offset=".7" stop-color="#aa8653"/><stop offset="1" stop-color="#e1c995"/></linearGradient><linearGradient id="paper" x2="1" y2="1"><stop stop-color="#fffaf0"/><stop offset="1" stop-color="#e8ddc9"/></linearGradient><clipPath id="portrait"><path d="M408 386H994V967H350Z"/></clipPath></defs><g font-family="Arial,sans-serif"><rect width="1080" height="1512" rx="24" fill="'+ink+'"/><rect x="10" y="10" width="1060" height="1492" rx="18" fill="url(#foil)"/><rect x="23" y="23" width="1034" height="1466" rx="10" fill="url(#paper)"/><path d="M50 188H1030M50 1340H1030" stroke="'+gold+'" stroke-width="1"/>';
+ out+=im(assets.league,66,54,88,100)+t('LMBC VETERANOS',180,94,29,ink,'font-weight="900" letter-spacing="2"',620)+t(m.season,180,132,22,gold,'letter-spacing="1"',620)+im(assets.team,912,55,100,100);
+ out+=t('HONORES DE TEMPORADA',70,229,17,gold,'font-weight="700" letter-spacing="5"',760)+t(team?'DISTINCIÓN DE EQUIPO':'LÍDER DE',70,289,32,ink,'font-weight="700" letter-spacing="5"',920)+t(title,63,369,88,ink,'font-family="Impact,Arial Black,Arial,sans-serif" font-weight="900"',945);
+ out+='<path d="M70 403H355L297 967H70Z" fill="'+ink+'"/><path d="M373 403H1008V980H315Z" fill="#e2d7c2"/><path d="M400 403L342 967" stroke="url(#foil)" stroke-width="8"/>';
+ for(let i=0;i<12;i++)out+='<path d="M'+(430+i*48)+' 403L'+(360+i*48)+' 967" stroke="'+gold+'" opacity=".12"/>';
+ out+='<g clip-path="url(#portrait)">'+(assets.photo?im(assets.photo,350,386,644,581,'xMidYMin slice'):im(assets.team,445,478,480,350))+'</g>';
+ out+=t(primary.value,211,650,136,'#f8edce','font-family="Impact,Arial Black,Arial,sans-serif" text-anchor="middle"',275)+t(primary.label,211,710,20,'#e6c995','text-anchor="middle" font-weight="700"',245,3);
+ out+='<path d="M172 822L211 792L250 822L235 867H187Z" fill="none" stroke="url(#foil)" stroke-width="3"/><path d="M193 824H229L223 847H199ZM211 847V860M200 861H222" fill="none" stroke="#e6c995" stroke-width="3"/>';
+ out+=t('EDICIÓN',211,915,15,'#e6c995','text-anchor="middle" letter-spacing="4"',245)+t('CONMEMORATIVA',211,941,15,'#e6c995','text-anchor="middle" letter-spacing="2"',245);
+ out+='<rect x="70" y="994" width="938" height="94" fill="'+ink+'"/>';
+ rest.forEach((s,i)=>{const w=938/Math.max(1,rest.length),x=70+w*(i+.5);if(i)out+='<path d="M'+(70+w*i)+' 1012V1070" stroke="#c9ac78" opacity=".4"/>';out+=t(s.value,x,1038,35,'#fff5df','text-anchor="middle" font-weight="900"',w-30)+t(s.label,x,1069,14,'#dfc89e','text-anchor="middle" font-weight="700"',w-30);});
+ out+=t(m.name.toUpperCase(),70,1169,67,ink,'font-family="Impact,Arial Black,Arial,sans-serif" font-weight="900"',938,2);
+ out+=t(team?'RECONOCIMIENTO COLECTIVO':m.team,73,1283,22,gold,'font-weight="700" letter-spacing="2"',930);
+ out+=t(m.category+(m.branch&&!m.category.includes(m.branch)?' · '+m.branch:''),70,1381,24,ink,'font-weight="700"',930)+t(m.detail,70,1419,17,gold,'',930,2);
+ out+=t(m.provisional?'VISTA PREVIA · NO ES UN PREMIO CONFIRMADO':'UNA TEMPORADA. UNA HUELLA.',70,1463,13,ink,'font-weight="700" letter-spacing="1"',680)+t('caborcavets.online',1008,1463,15,ink,'text-anchor="end"',260);
+ return out+'</g></svg>';
+}
 function svg(m,assets={},measure){
+ if(m.award?.startsWith('leader-')||m.award?.startsWith('team-'))return honorsEdition(m,assets,measure);
  const [accent,ink]=colors[m.award]||['#a6b8c8','#1e2c38'],roster=m.award==='roster',summary=m.award==='summary',list=roster?(m.roster||[]):summary?(m.items||[]):[],height=roster?Math.max(1512,670+Math.ceil(list.length/3)*270):summary?Math.max(1512,530+list.length*144):1512;
  const image=(src,x,y,w,h,align='xMidYMid meet')=>/^data:image\/(png|jpeg|webp);base64,[a-zA-Z0-9+/=\s]+$/.test(src||'')?'<image href="'+src+'" x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" preserveAspectRatio="'+align+'"/>':'';
  const text=(s,x,y,size=24,fill=ink,extra='',width=880,lines=1)=>{const a=P.layout(String(s??''),width,size,lines,measure);return '<text x="'+x+'" y="'+y+'" font-size="'+a.font+'" fill="'+fill+'" '+extra+'>'+a.lines.map((v,i)=>'<tspan x="'+x+'" dy="'+(i?a.font*1.15:0)+'">'+esc(v)+'</tspan>').join('')+'</text>';};
