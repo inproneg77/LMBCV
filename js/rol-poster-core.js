@@ -20,25 +20,26 @@ function model({games,teams,categories,seasons,venues,category,season,date}){
  })};
 }
 function svg(m,assets={},measure){
- const ink='#26332F',gold='#A7834C',muted='#647169',top=314,row=158,height=Math.max(1350,top+m.games.length*row+120),width=1080;
+ const ink='#25302F',gold='#A7834C',muted='#647169',top=420,row=172,height=Math.max(1350,top+m.games.length*row+120),width=1080;
  const image=(src,x,y,w,h)=>/^data:image\/(png|jpeg|webp);base64,[a-zA-Z0-9+/=\s]+$/.test(src||'')?'<image href="'+src+'" x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" preserveAspectRatio="xMidYMid meet"/>':'';
  const text=(v,x,y,size=24,fill=ink,extra='',w=980,lines=1)=>{const a=layout(v,w,size,lines,measure);return '<text x="'+x+'" y="'+y+'" font-size="'+a.font+'" fill="'+fill+'" '+extra+'>'+a.lines.map((s,i)=>'<tspan x="'+x+'" dy="'+(i?a.font*1.12:0)+'">'+esc(s)+'</tspan>').join('')+'</text>';};
- let out='<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="'+height+'" viewBox="0 0 1080 '+height+'"><defs><linearGradient id="foil" x2="1" y2="1"><stop stop-color="#9B794B"/><stop offset=".4" stop-color="#F0DEB3"/><stop offset="1" stop-color="#AD8951"/></linearGradient></defs><g font-family="Arial,sans-serif"><rect width="1080" height="'+height+'" fill="#F8F4EB"/><path d="M25 28V'+(height-28)+'M1055 28V'+(height-28)+'" stroke="url(#foil)" stroke-width="2"/><g opacity=".045">'+image(assets.league,190,Math.max(310,(height-780)/2),950,950)+'</g>';
- out+=image(assets.league,49,41,90,100)+text('LMBC VETERANOS',161,78,30,ink,'font-weight="900" letter-spacing="2"',860)+text(m.season,161,116,21,gold,'letter-spacing="1"',800);
- out+=text('JORNADA',44,195,65,ink,'font-family="Impact,Arial Black,Arial,sans-serif" font-weight="900" letter-spacing="2"',650)+text('ROL REGULAR',1034,182,16,gold,'text-anchor="end" font-weight="700" letter-spacing="2"',300);
- out+=text(m.category+(m.branch&&!m.category.toLowerCase().includes(m.branch.toLowerCase())?' · '+m.branch:''),46,239,29,ink,'font-weight="700"',990);
- out+=text(m.dateLabel,46,282,25,muted,'',850)+text(m.games.length+' PARTIDOS',1034,282,16,gold,'text-anchor="end" font-weight="700"',180);
+ let out='<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="'+height+'" viewBox="0 0 1080 '+height+'"><defs><linearGradient id="foil" x2="1" y2="1"><stop stop-color="#967044"/><stop offset=".19" stop-color="#D7BA7E"/><stop offset=".39" stop-color="#FFF0C7"/><stop offset=".55" stop-color="#A8834A"/><stop offset=".77" stop-color="#F2E1B6"/><stop offset="1" stop-color="#9A7849"/></linearGradient><linearGradient id="header" x2="1" y2="1"><stop stop-color="#182322"/><stop offset="1" stop-color="#34423C"/></linearGradient></defs><g font-family="Arial,sans-serif"><rect width="1080" height="'+height+'" rx="28" fill="'+ink+'"/><rect x="10" y="10" width="1060" height="'+(height-20)+'" rx="23" fill="url(#foil)"/><rect x="25" y="25" width="1030" height="'+(height-50)+'" rx="13" fill="#F8F4EB"/><rect x="34" y="34" width="1012" height="'+(height-68)+'" rx="8" fill="none" stroke="#BFA572" stroke-width="1"/><g opacity=".045">'+image(assets.league,165,Math.max(420,(height-780)/2),950,950)+'</g><rect x="35" y="35" width="1010" height="217" rx="8" fill="url(#header)"/><path d="M35 247H1045" stroke="url(#foil)" stroke-width="7"/><path d="M244 59V223" stroke="url(#foil)" opacity=".6"/>';
+ out+=image(assets.league,57,48,176,181)+text('LMBC VETERANOS',274,108,36,'#FFF5DF','font-weight="900" letter-spacing="3"',720)+text(m.season,276,153,27,'#DCC18B','letter-spacing="2"',720)+text('LIGA MUNICIPAL DE BÁSQUETBOL · CABORCA',276,199,17,'#E2D9C6','font-weight="700" letter-spacing="1"',710);
+ out+=text('JORNADA',58,326,76,ink,'font-family="Impact,Arial Black,Arial,sans-serif" font-weight="900" letter-spacing="3"',670)+text('ROL REGULAR',1020,312,17,gold,'text-anchor="end" font-weight="700" letter-spacing="2"',290);
+ out+=text(m.category+(m.branch&&!m.category.toLowerCase().includes(m.branch.toLowerCase())?' · '+m.branch:''),60,368,29,ink,'font-weight="700"',950);
+ out+=text(m.dateLabel,60,402,24,muted,'',785)+text(m.games.length+' PARTIDOS',1020,402,16,gold,'text-anchor="end" font-weight="700"',170);
  m.games.forEach((g,i)=>{const y=top+i*row,initials=t=>t.name.split(/\s+/).filter(Boolean).slice(0,2).map(s=>s[0]).join('');
-  out+='<rect x="44" y="'+y+'" width="992" height="144" rx="10" fill="#FFFFFF" fill-opacity=".66" stroke="#E4DFD3"/>';
-  out+=assets.teams?.[g.local.id]?image(assets.teams[g.local.id],65,y+22,86,80):text(initials(g.local),108,y+74,30,gold,'text-anchor="middle" font-weight="900"',82);
-  out+=assets.teams?.[g.visitor.id]?image(assets.teams[g.visitor.id],929,y+22,86,80):text(initials(g.visitor),972,y+74,30,gold,'text-anchor="middle" font-weight="900"',82);
-  out+=text(g.local.name,169,y+52,27,ink,'font-weight="900"',295,2)+text(g.visitor.name,911,y+52,27,ink,'text-anchor="end" font-weight="900"',295,2)+text('VS',540,y+65,25,gold,'text-anchor="middle" font-weight="700"',70);
-  if(g.played)out+=text('YA JUGADO',540,y+87,10,muted,'text-anchor="middle" letter-spacing="1"',100);
-  out+='<path d="M169 '+(y+99)+'H911" stroke="#DFD6C5"/>';
-  out+=text(g.time+' · '+g.venue,540,y+128,22,ink,'text-anchor="middle"',910);
+  out+='<rect x="49" y="'+(y+4)+'" width="982" height="154" rx="8" fill="#E8E0CE" opacity=".55"/><rect x="48" y="'+y+'" width="984" height="154" rx="8" fill="#FFFFFF" fill-opacity=".78" stroke="#CDB78C"/><path d="M62 '+(y+31)+'V'+(y+14)+'H90M990 '+(y+14)+'H1018V'+(y+31)+'" fill="none" stroke="url(#foil)" stroke-width="3"/>';
+  out+=assets.teams?.[g.local.id]?image(assets.teams[g.local.id],70,y+22,104,88):text(initials(g.local),122,y+74,32,gold,'text-anchor="middle" font-weight="900"',95);
+  out+=assets.teams?.[g.visitor.id]?image(assets.teams[g.visitor.id],906,y+22,104,88):text(initials(g.visitor),958,y+74,32,gold,'text-anchor="middle" font-weight="900"',95);
+  out+='<path d="M510 '+(y+38)+'L540 '+(y+21)+'L570 '+(y+38)+'V'+(y+72)+'L540 '+(y+89)+'L510 '+(y+72)+'Z" fill="#F5EFE1" stroke="url(#foil)"/>';
+  out+=text(g.local.name,191,y+51,28,ink,'font-weight="900"',264,2)+text(g.visitor.name,889,y+51,28,ink,'text-anchor="end" font-weight="900"',264,2)+text('VS',540,y+65,24,gold,'text-anchor="middle" font-weight="900"',50);
+  if(g.played)out+=text('YA JUGADO',540,y+105,10,muted,'text-anchor="middle" letter-spacing="1"',100);
+  out+='<path d="M190 '+(y+113)+'H890" stroke="#D6C39F"/>';
+  out+=text(g.time+' · '+g.venue,540,y+141,23,ink,'text-anchor="middle" font-weight="700"',900);
  });
- out+='<path d="M44 '+(height-77)+'H1036" stroke="url(#foil)"/>';
- out+=text('LA CANCHA NOS UNE',46,height-39,15,gold,'letter-spacing="3"',500)+text('caborcavets.online',1034,height-39,18,muted,'text-anchor="end"',400);
+ out+='<path d="M60 '+(height-87)+'H1020" stroke="url(#foil)" stroke-width="2"/><path d="M49 272V297M49 272H74M1031 272H1006M1031 272V297M49 '+(height-115)+'V'+(height-49)+'H115M1031 '+(height-115)+'V'+(height-49)+'H965" fill="none" stroke="url(#foil)" stroke-width="3"/>';
+ out+=text('LA CANCHA NOS UNE',66,height-54,15,gold,'font-weight="700" letter-spacing="3"',490)+text('caborcavets.online',1014,height-54,18,muted,'text-anchor="end"',400);
  return out+'</g></svg>';
 }
 function filename(m){const safe=v=>String(v).replace(/[^a-zA-Z0-9_-]/g,'-');return ['LMBC','Rol',m.seasonId,m.categoryId,m.date].map(safe).join('-')+'.png';}
