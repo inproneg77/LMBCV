@@ -1,0 +1,35 @@
+const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const R=require('../js/rol-poster-core.js');
+const fixture=()=>({category:'v40',season:'s',date:'2026-10-24',categories:[{id:'v40',nombre:'Varonil 40 y más'},{id:'f40',nombre:'Femenil',rama:'Femenil'}],seasons:[{id:'s',nombre:'Temporada S'}],teams:[{id:'a',nombre:'Equipo A',logo:'img/a.png',categorias:['v40','f40']},{id:'b',nombre:'Equipo B',logo:'img/b.png',categorias:['v40','f40']}],venues:[{id:'gym',nombre:'Gimnasio Municipal'},{id:'duela',nombre:'Duela Polifuncional'}],games:[{id:'1',categoria_id:'v40',temporada:'s',fecha:'2026-10-24',hora:'5:00 PM',local:'a',visita:'b',sede_id:'duela',fase:'regular',estatus:'programado'},{id:'2',categoria_id:'v40',temporada:'s',fecha:'2026-10-24',hora:'16:00',local:'b',visita:'a',sede_id:'gym',estatus:'jugado'}]});
+test('Official capture poster includes the COMPLETE saved regular jornada across both venues and retains 24-hour times',()=>{
+ const f=fixture(),before=JSON.stringify(f),g=f.games[0];f.games.push({...g,id:'friend',fase:'amistoso'},{...g,id:'final',fase:'final'},{...g,id:'playoffs',fase:'playoffs'},{...g,id:'cup',torneo_id:'cup'},{...g,id:'fem',categoria_id:'f40'},{...g,id:'old',temporada:'old'},{...g,id:'later',fecha:'2026-10-25'},{...g,id:'cancel',estatus:'cancelado'},{...g,id:'friendly-scope',ambito:'amistoso'});
+ const m=R.model(f);assert.deepEqual(m.games.map(g=>g.id),['2','1']);assert.equal(m.games[1].time,'17:00');assert.equal(m.games[1].venue,'Duela Polifuncional');assert.equal(m.games[0].venue,'Gimnasio Municipal');assert.equal(m.games[0].played,true);assert.equal(JSON.stringify(fixture()),before);const copy=JSON.stringify(f);R.model(f);assert.equal(JSON.stringify(f),copy);
+});
+test('Reprogramming, deleting and updating a team logo are reflected without using unsaved capture fields',()=>{
+ const f=fixture();let m=R.model(f);assert.equal(m.games.length,2);f.games[0].fecha='2026-10-25';assert.equal(R.model(f).games.length,1);assert.equal(R.model({...f,date:'2026-10-25'}).games[0].id,'1');f.games.splice(1,1);assert.throws(()=>R.model(f),/No hay juegos/);f.teams[0].logo='img/new.png';m=R.model({...f,date:'2026-10-25'});assert.equal(m.games[0].local.logo,'img/new.png');
+});
+test('Poster validates scope, invalid dates and duplicate game identities; all long jornadas remain in one PNG',()=>{
+ const f=fixture();assert.throws(()=>R.model({...f,category:'unknown'}),/Selecciona/);assert.throws(()=>R.model({...f,date:'2026-02-31'}),/válida/);f.games.push({...f.games[0]});assert.throws(()=>R.model(f),/ID repetido/);f.games=Array.from({length:10},(_,i)=>({...f.games[0],id:'g'+i}));const m=R.model(f),svg=R.svg(m);assert.equal(m.games.length,10);assert.ok(Number(svg.match(/height="(\d+)"/)[1])>1350);assert.equal((svg.match(/Gimnasio Municipal|Duela Polifuncional/g)||[]).length,10);assert.match(R.filename(m),/\.png$/);
+});
+test('SVG escapes text, rejects external asset URLs and includes the actual league watermark when present',()=>{
+ const f=fixture();f.teams[0].nombre='<script> & nombre';const m=R.model(f),a=R.svg(m,{league:'data:image/png;base64,aGVsbG8=',teams:{a:'https://bad.test/a.png'}});assert.match(a,/&lt;script&gt; &amp; nombre/);assert.ok(!a.includes('https://bad.test'));assert.ok(a.includes('opacity=".045"'));assert.ok(a.includes('data:image/png;base64,aGVsbG8='));
+});
+function client({token='test-token',permissions=true,delay=false}={}){
+ const ids=['sel-categoria','sel-temporada','rol-poster-fecha','modo-captura','sel-fase','rol-poster-tools','rol-poster-create','rol-poster-status','token'];
+ const elements=Object.fromEntries(ids.map(id=>[id,{id,value:{'sel-categoria':'v40','sel-temporada':'s','rol-poster-fecha':'2026-10-24','modo-captura':'liga','sel-fase':'regular'}[id]||'',hidden:true,disabled:false,addEventListener(){}}]));
+ const calls=[],events={},f=fixture();let actualToken=token,shared=0,release;
+ const controls={'[data-native]':{},'[data-status]':{}},dlg={open:true,classList:{add(){}},querySelector:s=>controls[s],close(){this.open=false;}};
+ const ctx=vm.createContext({LMBCRolPoster:R,URL,URLSearchParams,AbortController,setTimeout,clearTimeout,TextDecoder,Uint8Array,atob:s=>Buffer.from(s,'base64').toString('binary'),LMBC:{url:p=>'https://league.test/'+p},window:{LMBCAuth:{get:()=>actualToken},addEventListener:(name,fn)=>events[name]=fn},document:{readyState:'complete',getElementById:id=>elements[id],addEventListener(){}},location:{origin:'https://league.test'},navigator:{},File:class{},ArenaUI:{shareImage(){shared++;return dlg;}},fetch:async(url,request)=>{calls.push({url,request});if(delay&&calls.length===1)await new Promise(r=>release=r);const reply=x=>({ok:true,json:async()=>x});if(url.endsWith('/LMBCV'))return reply({permissions:{push:permissions}});if(url.endsWith('/git/ref/heads/main'))return reply({object:{sha:'head'}});const name=url.split('/contents/')[1]?.split('?')[0],files={'data/juegos_v40/s.json':{juegos:f.games},'data/equipos.json':{equipos:f.teams},'data/categorias.json':f.categories,'data/temporadas.json':{temporadas:f.seasons},'data/sedes.json':{sedes:f.venues}};assert.ok(url.endsWith('?ref=head'));return reply({content:Buffer.from(JSON.stringify(files[name])).toString('base64')});}});
+ let source=fs.readFileSync(path.join(__dirname,'../js/rol-poster.js'),'utf8');source=source.replace("if(document.readyState==='loading')", "png=async()=>({type:'image/png'});window.testHooks={create,update,reset};if(document.readyState==='loading')");vm.runInContext(source,ctx);
+ return {ctx,elements,calls,events,shared:()=>shared,release:()=>release(),disconnect:()=>{actualToken='';events['lmbc:access']();}};
+}
+test('Special poster is available only in official regular capture; invalid/read-only access cannot load the jornada',async()=>{
+ for(const setup of [{token:''},{permissions:false}]){const c=client(setup);await c.ctx.window.testHooks.create();assert.equal(c.shared(),0);assert.ok(c.calls.length<=1);}
+ for(const [id,value] of [['modo-captura','amistoso'],['modo-captura','torneo'],['sel-fase','final']]){const c=client();c.elements[id].value=value;c.ctx.window.testHooks.update();assert.equal(c.elements['rol-poster-tools'].hidden,true);await c.ctx.window.testHooks.create();assert.equal(c.calls.length,0);}
+});
+test('Authenticated poster reads a pinned GitHub snapshot with GET only, generates PNG and closes on disconnect',async()=>{
+ const c=client();await c.ctx.window.testHooks.create();assert.equal(c.shared(),1);assert.ok(c.calls.every(x=>x.request.method==='GET'));assert.ok(c.calls.every(x=>x.request.headers.Authorization==='Bearer test-token'));assert.match(c.elements['rol-poster-status'].textContent,/2 partidos/);c.disconnect();assert.equal(c.elements['rol-poster-tools'].hidden,true);
+});
+test('Disconnecting while the jornada loads cannot open an old authorized preview',async()=>{
+ const c=client({delay:true}),pending=c.ctx.window.testHooks.create();c.disconnect();c.release();await pending;assert.equal(c.shared(),0);assert.match(c.elements['rol-poster-status'].textContent,/acceso cambió/);
+});

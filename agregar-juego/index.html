@@ -47,7 +47,7 @@
   .form-oculto{ display:none; }
 </style>
 <link rel="stylesheet" href="../css/amistosos-captura.css?v=7">
-<link rel="stylesheet" href="../css/modern.css?v=modern-2"><script defer src="../js/fan-core.js?v=reliability-20261011-1"></script><script defer src="../js/site.js?v=honors-private-20261020-1"></script><script src="../js/access.js?v=reliability-20261011-1"></script><script src="../js/capture-guard.js?v=reliability-20261011-1"></script></head>
+<link rel="stylesheet" href="../css/modern.css?v=modern-2"><script defer src="../js/fan-core.js?v=reliability-20261011-1"></script><script defer src="../js/site.js?v=honors-private-20261020-1"></script><script src="../js/access.js?v=reliability-20261011-1"></script><script src="../js/capture-guard.js?v=reliability-20261011-1"></script><link rel="stylesheet" href="../css/rol-poster.css?v=rol-20261020-1"><script defer src="../js/arena.js?v=cards-20261017-1"></script><script defer src="../js/rol-poster-core.js?v=rol-20261020-1"></script><script defer src="../js/rol-poster.js?v=rol-20261020-1"></script></head>
 <body data-amistosos="agenda">
 
   <header class="site-header"><div class="site-header__inner"><a class="brand" href="../index.html">LMBC VETERANOS</a><nav class="site-nav"><a href="../index.html">Inicio</a><a href="../calendario/">Partidos</a><a href="../equipos/">Equipos</a><a href="../estadisticas/">Estadísticas</a><a href="../torneos/">Torneos</a><a href="../administrar/">Administrar</a></nav></div></header>
@@ -120,7 +120,7 @@
         <div class="campo">
           <label>Hora</label>
           <input type="time" id="in-hora" required>
-          <div class="hint">Como ya la escribes en el sitio — con AM/PM.</div>
+          <div class="hint">Horario de 24 horas, por ejemplo 17:30.</div>
         </div>
       </div>
 
@@ -158,6 +158,7 @@
 </section><section id="captura-amistosos" hidden><h2 id="am-titulo">Amistosos</h2><div class="cap-msg" id="am-mensaje" role="status" aria-live="polite"></div><p><span id="am-descripcion"></span></p><button type="button" id="am-cargar">Abrir amistosos con mi token</button><fieldset id="am-contenido" hidden><p id="am-estado-edicion" role="status"></p><div class="am-datos"><label>Categoría / rama<select id="am-categoria"></select></label><label>Temporada<select id="am-temporada"></select></label><label>Partido<select id="am-juego"></select></label><button data-am-agenda type="button" id="am-nuevo">Nuevo amistoso</button><label>Fecha<input id="am-fecha" type="date" ></label><label>Hora<input id="am-hora" type="time" ></label><label>Sede<select id="am-sede"></select></label><label data-am-resultados>Estatus<select id="am-estatus"><option value="programado">Programado</option><option value="jugado">Jugado</option></select></label><label data-am-resultados>Forfeit<select id="am-forfeit"><option value="ninguno">No hubo</option><option value="local">Local no se presentó</option><option value="visita">Visitante no se presentó</option></select></label></div><p data-am-resultados>Marca «Jugó» para incluir las estadísticas del jugador. Un forfeit se guarda sin estadísticas individuales.</p><section class="am-equipo"><h3>Local</h3><label>Equipo (liga o amistosos)<select id="am-equipo-local"></select></label><label data-am-agenda>Nombre del nuevo equipo<input id="am-nombre-local" maxlength="100" placeholder="Nombre del equipo invitado"></label><label data-am-agenda>Logo del nuevo equipo (PNG, JPG o WebP)<input id="am-logo-local" type="file" accept="image/png,image/jpeg,image/webp"></label><img id="am-vista-logo-local" hidden alt="Logo del equipo" style="width:72px;height:72px;object-fit:contain"><button data-am-agenda type="button" id="am-crear-local">Crear equipo local</button><label hidden>O copiar equipo y jugadores de liga<select id="am-liga-local"></select></label><div data-am-agenda class="am-editar-equipo"><label>Nombre del equipo seleccionado<input id="am-editar-nombre-local" maxlength="100"></label><label>Nuevo logo del equipo seleccionado<input id="am-editar-logo-local" type="file" accept="image/png,image/jpeg,image/webp"></label><button type="button" id="am-actualizar-equipo-local">Ver cambios antes de guardar</button><small>Se actualiza este equipo de amistosos en todos sus encuentros. La copia de liga conserva su identidad independiente.</small></div><div id="am-jugadores-local"></div><button type="button" id="am-agregar-local">Agregar jugador</button></section><section class="am-equipo"><h3>Visitante</h3><label>Equipo (liga o amistosos)<select id="am-equipo-visita"></select></label><label data-am-agenda>Nombre del nuevo equipo<input id="am-nombre-visita" maxlength="100" placeholder="Nombre del equipo invitado"></label><label data-am-agenda>Logo del nuevo equipo (PNG, JPG o WebP)<input id="am-logo-visita" type="file" accept="image/png,image/jpeg,image/webp"></label><img id="am-vista-logo-visita" hidden alt="Logo del equipo" style="width:72px;height:72px;object-fit:contain"><button data-am-agenda type="button" id="am-crear-visita">Crear equipo visitante</button><label hidden>O copiar equipo y jugadores de liga<select id="am-liga-visita"></select></label><div data-am-agenda class="am-editar-equipo"><label>Nombre del equipo seleccionado<input id="am-editar-nombre-visita" maxlength="100"></label><label>Nuevo logo del equipo seleccionado<input id="am-editar-logo-visita" type="file" accept="image/png,image/jpeg,image/webp"></label><button type="button" id="am-actualizar-equipo-visita">Ver cambios antes de guardar</button><small>Se actualiza este equipo de amistosos en todos sus encuentros. La copia de liga conserva su identidad independiente.</small></div><div id="am-jugadores-visita"></div><button type="button" id="am-agregar-visita">Agregar jugador</button></section><div class="am-datos"><label data-am-resultados>Marcador local<input id="am-marcador-local" type="number" min="0" step="1"></label><label data-am-resultados>Marcador visitante<input id="am-marcador-visita" type="number" min="0" step="1"></label><label data-am-resultados>Jugador destacado<select id="am-mvp"></select></label><label data-am-resultados>Detalle del destacado (opcional)<input id="am-detalle" type="text" ></label></div><button type="button" class="cap-btn" id="am-guardar">Guardar nuevo amistoso</button><button data-am-agenda type="button" id="am-eliminar" hidden style="color:#a33;margin-left:16px">Eliminar este amistoso</button><a id="am-ir-agenda" href="../agregar-juego/?modo=amistoso">Modificar programación, equipos o logos en Agregar Juego</a><a id="am-ir-captura" href="../captura/">Capturar estadísticas y resultado</a></fieldset></section>
   </div>
 
+<section id="rol-poster-tools" class="rol-poster-tools" hidden><h2>Cartel especial de jornada</h2><p>Genera una imagen con todos los partidos regulares guardados para la categoría, rama y temporada seleccionadas, en todas las sedes.</p><label for="rol-poster-fecha">Fecha de la jornada</label><input id="rol-poster-fecha" type="date"><button id="rol-poster-create" type="button" disabled>Crear cartel de jornada</button><p id="rol-poster-status" role="status" aria-live="polite">Guarda los partidos antes de generar la imagen. El cartel se crea con tu acceso de administración y no se publica automáticamente.</p></section>
 <script src="../js/amistosos.js?v=reliability-20261011-1"></script>
 <div class="cap-wrap"><button type="button" class="secondary-link" id="abrir-papelera">Recuperar un juego eliminado</button><div id="juegos-papelera"></div></div><script>
 
@@ -504,6 +505,7 @@ async function guardar() {
       `Juego agendado: ${eqLocal} vs ${eqVisita} (${nuevoJuego.fecha}) — vía Agregar Juego`
     );
 
+    if(window.CustomEvent)window.dispatchEvent(new window.CustomEvent('lmbc:agenda-saved',{detail:{category:categoria,season:temporada,date:nuevoJuego.fecha}}));
     window.CaptureGuard?.clear();
     mostrarMsg(`Guardado en GitHub: ${eqLocal} vs ${eqVisita}, ${nuevoJuego.fecha}. El sitio se actualizará al terminar la publicación.`, false);
     TODOS_LOS_JUEGOS.push({ id, categoria, temporada, local: nuevoJuego.local, visita: nuevoJuego.visita, fecha: nuevoJuego.fecha });
@@ -563,6 +565,7 @@ async function guardarEdicion() {
     const eqVisita = EQUIPOS.find(e => e.id === juego.visita)?.nombre ?? juego.visita;
 
     await ghGuardar(path, fresco.sha, fresco.contenido, `Juego modificado: ${eqLocal} vs ${eqVisita} (${juego.fecha}) — vía Agregar Juego`);
+    if(window.CustomEvent)window.dispatchEvent(new window.CustomEvent('lmbc:agenda-saved',{detail:{date:juego.fecha}}));
 
     window.CaptureGuard?.clear();
     mostrarMsg(`Guardado en GitHub: ${eqLocal} vs ${eqVisita}, ${juego.fecha}.`, false);
@@ -606,6 +609,7 @@ async function eliminar() {
     fresco.contenido.juegos = fresco.contenido.juegos.filter(j => j.id !== juegoEnEdicionId);
 
     await ghGuardar(path, fresco.sha, fresco.contenido, `Juego eliminado (${juegoEnEdicionId}) — vía Agregar Juego`);
+    if(window.CustomEvent)window.dispatchEvent(new window.CustomEvent('lmbc:agenda-saved',{detail:{date:juego.fecha}}));
 
     mostrarMsg('Juego enviado a la papelera y guardado en GitHub. Se reflejará al terminar la publicación.', false);
     window.CaptureGuard?.clear();
