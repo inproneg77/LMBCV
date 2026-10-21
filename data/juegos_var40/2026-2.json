@@ -6767,6 +6767,20 @@
       ],
       "mvp_jugador": "AFIGUEROA",
       "mvp_nombre": ""
+    },
+    {
+      "id": "var4020262_57",
+      "fecha": "2026-10-24",
+      "hora": "16:00",
+      "local": "ICATSONV40",
+      "visita": "VIKINGOSV40",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
