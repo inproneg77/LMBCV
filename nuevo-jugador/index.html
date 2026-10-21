@@ -82,7 +82,7 @@
         <label>¿Qué vas a hacer?</label>
         <select id="sel-modo">
           <option value="nuevo">Dar de alta un jugador nuevo</option>
-          <option value="existente">Asignar una participación a un jugador que ya existe</option>
+          <option value="existente">Asignar participación o corregir nombre de un jugador existente</option>
         </select>
         <div class="hint">Si el jugador ya está en el roster y solo va a jugar una categoría o temporada nueva, usa la segunda opción — así no se duplica.</div>
       </div>
@@ -92,6 +92,13 @@
         <input type="text" id="in-buscar" placeholder="Escribe el nombre…" autocomplete="off">
         <div id="resultados-busqueda" style="margin-top:8px;"></div>
         <div class="hint" id="jugador-elegido-hint"></div>
+        <div id="editar-nombre-existente" hidden style="margin-top:16px;">
+          <label for="in-nombre-existente">Corregir nombre completo</label>
+          <input type="text" id="in-nombre-existente" autocomplete="off" maxlength="160">
+          <div class="hint">Se conserva el mismo jugador, foto, equipos e historial en todas sus categorías y temporadas. No necesitas elegir equipo ni agregar una participación para corregir su nombre.</div>
+          <button type="button" class="cap-btn" id="btn-guardar-nombre" disabled>Guardar nombre</button>
+          <div class="cap-msg" id="msg-nombre" role="status" aria-live="polite"></div>
+        </div>
       </div>
 
       <div id="campos-nombre-nuevo">
@@ -148,6 +155,55 @@ let EQUIPOS = [], CATEGORIAS = [], TEMPORADAS = [], ROSTER_ACTUAL = null;
 let juegosAmistososAlta = [];
 let cargaAmistosos = 0;
 let jugadorExistenteElegido = null; // { id, nombre } cuando modo = "existente"
+let guardandoJugador = false;
+
+function actualizarEditorNombre() {
+  const visible = document.getElementById('sel-modo').value === 'existente' && !!jugadorExistenteElegido;
+  document.getElementById('editar-nombre-existente').hidden = !visible;
+  document.getElementById('in-nombre-existente').value = visible ? jugadorExistenteElegido.nombre : '';
+  document.getElementById('msg-nombre').className = 'cap-msg';
+}
+
+async function guardarNombre() {
+  if (guardandoJugador || !token() || !jugadorExistenteElegido) return;
+  const elegido = { id: jugadorExistenteElegido.id, nombre: jugadorExistenteElegido.nombre };
+  const nombre = document.getElementById('in-nombre-existente').value.trim();
+  if (!nombre || nombre === elegido.nombre) return;
+  const estado = document.getElementById('msg-nombre');
+  guardandoJugador = true;
+  window.CaptureGuard?.setBusy(true);
+  validarFormulario();
+  estado.textContent = 'Guardando nombre…';
+  estado.className = 'cap-msg ok';
+  try {
+    const fresco = await ghFetch('data/roster.json');
+    const jugador = fresco.contenido.jugadores.find(j => j.id === elegido.id);
+    if (!jugador) throw new Error('El jugador ya no está en el roster. Recarga antes de continuar.');
+    if (jugador.nombre !== elegido.nombre) throw new Error('El nombre cambió desde que seleccionaste al jugador. Vuelve a cargar y revisa el nombre actual antes de corregirlo.');
+    jugador.nombre = nombre;
+    await ghGuardar('data/roster.json', fresco.sha, fresco.contenido, `Corrección de nombre: ${elegido.id} — ${nombre}`);
+    ROSTER_ACTUAL = fresco;
+    // No cambiamos la selección si el usuario buscó otra persona mientras se guardaba.
+    if (jugadorExistenteElegido?.id === elegido.id) {
+      jugadorExistenteElegido = jugador;
+      document.getElementById('jugador-elegido-hint').textContent = `Elegido: ${nombre} (ID: ${jugador.id}) — puedes agregar una participación abajo.`;
+      document.querySelectorAll('.resultado-jugador').forEach(el => {
+        if (el.dataset.id === elegido.id) el.querySelector('b').textContent = nombre;
+      });
+    }
+    estado.textContent = `Nombre guardado: ${nombre}. Se actualizará en el sitio al terminar la publicación.`;
+    estado.className = 'cap-msg ok';
+    // Conserva los demás campos pendientes de asignar, sin marcarlos como guardados.
+    window.CaptureGuard?.persist();
+  } catch (err) {
+    estado.textContent = 'No se guardó el nombre: ' + err.message;
+    estado.className = 'cap-msg error';
+  } finally {
+    guardandoJugador = false;
+    window.CaptureGuard?.setBusy(false);
+    validarFormulario();
+  }
+}
 
 function token() { return (window.LMBCAuth?window.LMBCAuth.get():localStorage.getItem('lmbc_gh_token')) || ''; }
 
@@ -188,6 +244,7 @@ function actualizarModo() {
     document.getElementById('resultados-busqueda').innerHTML = '';
     document.getElementById('jugador-elegido-hint').textContent = '';
   }
+  actualizarEditorNombre();
   validarFormulario();
 }
 
@@ -195,6 +252,7 @@ function buscarJugadorExistente() {
   const texto = normalizar(document.getElementById('in-buscar').value);
   const cont = document.getElementById('resultados-busqueda');
   jugadorExistenteElegido = null;
+  actualizarEditorNombre();
   if (!texto || texto.length < 2) { cont.innerHTML = ''; validarFormulario(); return; }
 
   const resultados = ROSTER_ACTUAL.contenido.jugadores
@@ -222,6 +280,7 @@ function buscarJugadorExistente() {
       cont.querySelectorAll('.resultado-jugador').forEach(x => x.style.background = '');
       el.style.background = 'var(--baby-soft)';
       document.getElementById('jugador-elegido-hint').textContent = `Elegido: ${jugador.nombre} (ID: ${jugador.id}) — se le va a agregar la nueva categoría/temporada, no se crea un jugador nuevo.`;
+      actualizarEditorNombre();
       validarFormulario();
     });
   });
@@ -315,6 +374,9 @@ function actualizarEquiposDisponibles() {
 }
 
 function validarFormulario() {
+  const nombre = document.getElementById('in-nombre-existente').value.trim();
+  document.getElementById('btn-guardar-nombre').disabled = guardandoJugador || !token() || !jugadorExistenteElegido || !nombre || nombre === jugadorExistenteElegido.nombre;
+  if (guardandoJugador) { document.getElementById('btn-guardar').disabled = true; return; }
   if (esAltaAmistoso() && !document.getElementById('sel-amistoso').value) { document.getElementById('btn-guardar').disabled = true; return; }
 
   const modo = document.getElementById('sel-modo').value;
@@ -334,6 +396,7 @@ async function iniciar() {
   tokenInput.addEventListener('input', () => {
     window.LMBCAuth?window.LMBCAuth.set(tokenInput.value.trim()):localStorage.setItem('lmbc_gh_token',tokenInput.value.trim());
     actualizarEstadoToken();
+    validarFormulario();
 
   });
 
@@ -358,6 +421,8 @@ async function iniciar() {
   document.getElementById('sel-equipo').addEventListener('change', validarFormulario);
   document.getElementById('sel-temporada').addEventListener('change', validarFormulario);
   document.getElementById('btn-guardar').addEventListener('click', guardar);
+  document.getElementById('in-nombre-existente').addEventListener('input', validarFormulario);
+  document.getElementById('btn-guardar-nombre').addEventListener('click', guardarNombre);
   ['sel-alcance', 'sel-categoria', 'sel-temporada'].forEach(id => document.getElementById(id).addEventListener('change', actualizarAmistosos));
   document.getElementById('sel-amistoso').addEventListener('change', () => { actualizarEquiposDisponibles(); validarFormulario(); });
 
@@ -397,6 +462,10 @@ async function cargarBase() {
 }
 
 async function guardar() {
+  if (guardandoJugador) return;
+  guardandoJugador = true;
+  window.CaptureGuard?.setBusy(true);
+  validarFormulario();
   const btn = document.getElementById('btn-guardar');
   btn.disabled = true;
   btn.textContent = 'Guardando…';
@@ -475,6 +544,7 @@ async function guardar() {
     document.getElementById('resultados-busqueda').innerHTML = '';
     document.getElementById('jugador-elegido-hint').textContent = '';
     jugadorExistenteElegido = null;
+    actualizarEditorNombre();
     document.getElementById('sel-categoria').value = '';
     document.getElementById('sel-equipo').innerHTML = '<option value="">Elige categoría primero…</option>';
     document.getElementById('sel-temporada').value = '';
@@ -484,6 +554,8 @@ async function guardar() {
   } catch (err) {
     mostrarMsg('Error al guardar: ' + err.message, true);
   } finally {
+    guardandoJugador = false;
+    window.CaptureGuard?.setBusy(false);
     validarFormulario();
     btn.textContent = 'Guardar en GitHub';
   }
