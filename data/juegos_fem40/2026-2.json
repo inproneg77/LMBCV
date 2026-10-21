@@ -2298,6 +2298,20 @@
       ],
       "mvp_jugador": "RSUA",
       "mvp_nombre": ""
+    },
+    {
+      "id": "fem4020262_18",
+      "fecha": "2026-10-24",
+      "hora": "17:00",
+      "local": "DIAMONDS40",
+      "visita": "MAESTRASF40",
+      "sede_id": "duela",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 4,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ],
   "papelera": [
