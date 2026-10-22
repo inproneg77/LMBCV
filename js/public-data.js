@@ -6,7 +6,10 @@
   if(!/^data\/public\/[a-zA-Z0-9_./-]+\.json$/.test(name))throw Error('Ruta pública inválida.');
   if(!requests.has(name))requests.set(name,(async()=>{
    const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),optional?2500:9000);
-   try{const response=await fetch(new URL(name,base).href,{cache:'no-cache',signal:controller.signal});if(!response.ok)throw Error('No se pudo cargar '+name);return await response.json();}
+   // El índice siempre se revalida. Cada paquete tiene una ruta nueva al
+   // cambiar los datos: reutilizarlo no puede ocultar capturas recientes.
+   const immutable=/^data\/public\/[a-f0-9]{24}\//.test(name);
+   try{const response=await fetch(new URL(name,base).href,{cache:immutable?'force-cache':'no-cache',signal:controller.signal});if(!response.ok)throw Error('No se pudo cargar '+name);return await response.json();}
    finally{clearTimeout(timer);}
   })().catch(error=>{requests.delete(name);throw error;}));
   return requests.get(name);
@@ -27,6 +30,10 @@
    }
    return loaded.get(id);
   }
+  // El roster y los partidos son independientes; no esperar a descargar
+  // toda la temporada para comenzar a pedir los nombres y las fotos.
+  const rosterRequest=options.roster!==false&&mode!=='jugador'?json(index.roster):Promise.resolve();
+  rosterRequest.catch(()=>{});
   try{
    if(mode==='jugador'){
     const encoded=new TextEncoder().encode(options.jugador||''),hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',encoded)),b=>b.toString(16).padStart(2,'0')).join('').slice(0,24);
@@ -36,7 +43,7 @@
    }else if(mode==='dashboard')dashboard=valid(await json(index.dashboard));
    else if(mode==='playoffs'){}
    else await Promise.all((selected?[selected]:seasonList.map(s=>s.id)).map(season));
-   if(options.roster!==false&&!profile)roster=await json(index.roster);
+   roster=await rosterRequest;
   }catch{return null;}
   async function read(name,fallback){
    if(Object.hasOwn(index.files,name))return index.files[name];
