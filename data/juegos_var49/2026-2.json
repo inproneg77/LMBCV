@@ -1091,6 +1091,20 @@
       "estatus": "programado",
       "forfeit": "ninguno",
       "destacado": "false"
+    },
+    {
+      "id": "var4920262_12",
+      "fecha": "2026-10-25",
+      "hora": "12:00",
+      "local": "FEDE49",
+      "visita": "OSV40",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
