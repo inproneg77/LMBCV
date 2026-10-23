@@ -1077,6 +1077,20 @@
       ],
       "mvp_jugador": "ESTEBANLOPEZ",
       "mvp_nombre": ""
+    },
+    {
+      "id": "var4920262_11",
+      "fecha": "2026-10-25",
+      "hora": "11:00",
+      "local": "RETRO49",
+      "visita": "CARITAS",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
