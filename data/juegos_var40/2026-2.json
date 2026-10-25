@@ -6783,7 +6783,7 @@
       "destacado": "false",
       "marcador_local": 33,
       "marcador_visita": 56,
-      "estadisticas_completas": false,
+      "estadisticas_completas": true,
       "estadisticas_local": [
         {
           "jugador": "HMACIEL",
@@ -6826,6 +6826,13 @@
           "puntos": 5,
           "triples": 1,
           "faltas": 0
+        },
+        {
+          "jugador": "EGUERRA",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 1,
+          "faltas": 4
         }
       ],
       "estadisticas_visita": [
@@ -6877,9 +6884,16 @@
           "puntos": 6,
           "triples": 0,
           "faltas": 0
+        },
+        {
+          "jugador": "AESPINOZA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
         }
       ],
-      "mvp_jugador": "",
+      "mvp_jugador": "GBARRERAS",
       "mvp_nombre": ""
     },
     {
