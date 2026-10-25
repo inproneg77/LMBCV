@@ -6792,9 +6792,144 @@
       "temporada": "2026-2",
       "fase": "regular",
       "vuelta": 1,
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
-      "destacado": "true"
+      "destacado": "true",
+      "marcador_local": 46,
+      "marcador_visita": 66,
+      "estadisticas_completas": true,
+      "estadisticas_local": [
+        {
+          "jugador": "JK77",
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JAVVALD",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "MEMOSAL",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ANDGUZ",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ISAAOLA",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 1,
+          "faltas": 2
+        },
+        {
+          "jugador": "MCUEN",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "NEGROURQ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "JCVILL",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "ALISANC",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "BARNWYB",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "WEROSOTO",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "GERA5",
+          "asistio": "true",
+          "puntos": 18,
+          "triples": 5,
+          "faltas": 0
+        },
+        {
+          "jugador": "DRIVERA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CHULOVILLA",
+          "asistio": "true",
+          "puntos": 19,
+          "triples": 3,
+          "faltas": 3
+        },
+        {
+          "jugador": "JT3VOR",
+          "asistio": "true",
+          "puntos": 19,
+          "triples": 5,
+          "faltas": 2
+        },
+        {
+          "jugador": "TONODIAZPAD",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "MARKOZPLA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "JCAMPUZANO",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "JT3VOR",
+      "mvp_nombre": "19 pts, 5 Triples"
     },
     {
       "id": "var4020262_59",
