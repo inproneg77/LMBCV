@@ -3820,6 +3820,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "JLEYVA",
+      "nombre": "JULIANA LEYVA",
+      "numero": "22",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "TEALONGF40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
