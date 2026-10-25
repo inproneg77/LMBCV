@@ -6955,9 +6955,137 @@
       "temporada": "2026-2",
       "fase": "regular",
       "vuelta": 1,
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
-      "destacado": "false"
+      "destacado": "false",
+      "marcador_local": 17,
+      "marcador_visita": 39,
+      "estadisticas_completas": true,
+      "estadisticas_local": [
+        {
+          "jugador": "TONGAR",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "GERALOPEZ",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JORGETAPIA",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "LUISGARCIA",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "HENRYCHAVEZ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ACORONADO",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "MJUAREZ",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "OCARBAJAL",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JMARTINEZ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "GPALA",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "DMAZ",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 3
+        },
+        {
+          "jugador": "DNEB",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "ANARAIZA",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CYESK",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "CARLOSALVAREZ",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "JOSERABAGO",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ELIASTRUJ",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 2
+        }
+      ],
+      "mvp_jugador": "DNEB",
+      "mvp_nombre": ""
     }
   ]
 }
