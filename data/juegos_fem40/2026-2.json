@@ -2421,7 +2421,7 @@
       "destacado": "false",
       "marcador_local": 40,
       "marcador_visita": 20,
-      "estadisticas_completas": false,
+      "estadisticas_completas": true,
       "estadisticas_local": [
         {
           "jugador": "ROCFLO",
@@ -2462,6 +2462,13 @@
           "jugador": "LMARUNE",
           "asistio": "true",
           "puntos": 6,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ARODRIGUEZ",
+          "asistio": "true",
+          "puntos": 4,
           "triples": 0,
           "faltas": 0
         }
@@ -2506,6 +2513,13 @@
           "jugador": "CTNTGUT",
           "asistio": "true",
           "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "JLEYVA",
+          "asistio": "true",
+          "puntos": 4,
           "triples": 0,
           "faltas": 0
         }
