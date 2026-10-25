@@ -6784,8 +6784,101 @@
       "marcador_local": 33,
       "marcador_visita": 56,
       "estadisticas_completas": false,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
+      "estadisticas_local": [
+        {
+          "jugador": "HMACIEL",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "RPIMIENTA",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "IMORALES",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "HUMBERREYNA",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 3
+        },
+        {
+          "jugador": "JESUSLEON",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "IMORALES2",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "ABDELCO",
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "ALEXVEGA",
+          "asistio": "true",
+          "puntos": 17,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "JSAL",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "JAREDROM",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CENTAVOSAENZ",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "GBARRERAS",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "DTEN",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
       "mvp_jugador": "",
       "mvp_nombre": ""
     },
