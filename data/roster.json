@@ -3808,6 +3808,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "ARODRIGUEZ",
+      "nombre": "ALEJANDRA RODRIGUEZ",
+      "numero": "87",
+      "membresias": [
+        {
+          "categoria_id": "fem40",
+          "equipo_id": "SALDOSF40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
