@@ -3837,6 +3837,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "EGUERRA",
+      "nombre": "EDSON GUERRA",
+      "numero": "19",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "ICATSONV40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
