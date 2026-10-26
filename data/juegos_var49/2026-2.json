@@ -1223,9 +1223,95 @@
       "temporada": "2026-2",
       "fase": "regular",
       "vuelta": 1,
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
-      "destacado": "false"
+      "destacado": "false",
+      "marcador_local": 49,
+      "marcador_visita": 87,
+      "estadisticas_completas": false,
+      "estadisticas_local": [
+        {
+          "jugador": "HMACIEL",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "GORTEGA",
+          "asistio": "true",
+          "puntos": 16,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "SANTQUIN",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "ELPONCE",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "TADMART",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "BOBPER",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "WEROSOTO",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "javlopez",
+          "asistio": "true",
+          "puntos": 26,
+          "triples": 8,
+          "faltas": 0
+        },
+        {
+          "jugador": "ESTEBANLOPEZ",
+          "asistio": "true",
+          "puntos": 26,
+          "triples": 6,
+          "faltas": 0
+        },
+        {
+          "jugador": "GABINORUIZ",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "CJATOMEA",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 1
+        }
+      ],
+      "mvp_jugador": "GABINORUIZ",
+      "mvp_nombre": ""
     }
   ]
 }
