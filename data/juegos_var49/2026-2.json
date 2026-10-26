@@ -1107,14 +1107,21 @@
       "destacado": "false",
       "marcador_local": 32,
       "marcador_visita": 78,
-      "estadisticas_completas": false,
+      "estadisticas_completas": true,
       "estadisticas_local": [
         {
           "jugador": "IMORALES",
           "asistio": "true",
-          "puntos": 7,
+          "puntos": 12,
           "triples": 1,
           "faltas": 3
+        },
+        {
+          "jugador": "DANIELCONTRERAS",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 1,
+          "faltas": 0
         },
         {
           "jugador": "MMONTIJO",
@@ -1187,6 +1194,13 @@
           "puntos": 2,
           "triples": 0,
           "faltas": 1
+        },
+        {
+          "jugador": "GMENDEZYAQUI",
+          "asistio": "true",
+          "puntos": 16,
+          "triples": 0,
+          "faltas": 0
         },
         {
           "jugador": "FENCINAS",
