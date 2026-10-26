@@ -1102,9 +1102,102 @@
       "temporada": "2026-2",
       "fase": "regular",
       "vuelta": 1,
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
-      "destacado": "false"
+      "destacado": "false",
+      "marcador_local": 32,
+      "marcador_visita": 78,
+      "estadisticas_completas": false,
+      "estadisticas_local": [
+        {
+          "jugador": "IMORALES",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 3
+        },
+        {
+          "jugador": "MMONTIJO",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "RDUARTE",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "JONTIVEROS",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "ADIAZ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "GPALA",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "DMAZ",
+          "asistio": "true",
+          "puntos": 1,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "GARYFEL",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "MEMOSAL",
+          "asistio": "true",
+          "puntos": 48,
+          "triples": 4,
+          "faltas": 0
+        },
+        {
+          "jugador": "JOSERABAGO",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "LCELAYA",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "FENCINAS",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "MEMOSAL",
+      "mvp_nombre": ""
     },
     {
       "id": "var4920262_13",
