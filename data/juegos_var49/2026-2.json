@@ -1228,7 +1228,7 @@
       "destacado": "false",
       "marcador_local": 49,
       "marcador_visita": 87,
-      "estadisticas_completas": false,
+      "estadisticas_completas": true,
       "estadisticas_local": [
         {
           "jugador": "HMACIEL",
@@ -1301,6 +1301,13 @@
           "puntos": 10,
           "triples": 0,
           "faltas": 3
+        },
+        {
+          "jugador": "GORTIZ",
+          "asistio": "true",
+          "puntos": 16,
+          "triples": 2,
+          "faltas": 0
         },
         {
           "jugador": "CJATOMEA",
