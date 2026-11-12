@@ -7321,6 +7321,20 @@
       ],
       "mvp_jugador": "DNEB",
       "mvp_nombre": ""
+    },
+    {
+      "id": "var4020262_61",
+      "fecha": "2026-11-14",
+      "hora": "16:00",
+      "local": "CFEV40",
+      "visita": "MADERASV40",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "true"
     }
   ]
 }
