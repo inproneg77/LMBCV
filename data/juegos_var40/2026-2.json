@@ -7335,6 +7335,20 @@
       "estatus": "programado",
       "forfeit": "ninguno",
       "destacado": "true"
+    },
+    {
+      "id": "var4020262_62",
+      "fecha": "2026-11-14",
+      "hora": "17:00",
+      "local": "CUERVOSV40",
+      "visita": "SMV40",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
