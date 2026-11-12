@@ -2526,6 +2526,20 @@
       ],
       "mvp_jugador": "NERSANT",
       "mvp_nombre": ""
+    },
+    {
+      "id": "fem4020262_20",
+      "fecha": "2026-11-14",
+      "hora": "16:00",
+      "local": "TEALONGF40",
+      "visita": "DIAMONDS40",
+      "sede_id": "duela",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 4,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ],
   "papelera": [
