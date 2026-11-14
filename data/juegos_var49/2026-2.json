@@ -1426,6 +1426,20 @@
       ],
       "mvp_jugador": "GABINORUIZ",
       "mvp_nombre": ""
+    },
+    {
+      "id": "var4920262_14",
+      "fecha": "2026-11-15",
+      "hora": "11:00",
+      "local": "VIKINGOSV40",
+      "visita": "CARITAS",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
