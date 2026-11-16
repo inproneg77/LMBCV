@@ -1442,10 +1442,124 @@
       "destacado": "false",
       "marcador_local": 59,
       "marcador_visita": 29,
-      "estadisticas_completas": false,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
+      "estadisticas_completas": true,
+      "estadisticas_local": [
+        {
+          "jugador": "ABDELCO",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "TECOLIZ",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "MANOLOLIZ",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "JK7749",
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "GBARRERAS",
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "DTEN",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "martramirez",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "HENRYCHAVEZ",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "RMURRIETA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "FRAMOS",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "RFIGUEROA",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CPALACIOS",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "PSALAS",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "JMADUENO",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "NSARABIA",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JGONZALEZ",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "TECOLIZ",
       "mvp_nombre": ""
     },
     {
