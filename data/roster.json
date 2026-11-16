@@ -3924,6 +3924,18 @@
           "temporada": "2026-2"
         }
       ]
+    },
+    {
+      "id": "GESPINOZA",
+      "nombre": "GERARDO ESPINOZA",
+      "numero": "",
+      "membresias": [
+        {
+          "categoria_id": "var40",
+          "equipo_id": "SMV40",
+          "temporada": "2026-2"
+        }
+      ]
     }
   ]
 }
