@@ -7332,9 +7332,102 @@
       "temporada": "2026-2",
       "fase": "regular",
       "vuelta": 1,
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
-      "destacado": "true"
+      "destacado": "true",
+      "marcador_local": 74,
+      "marcador_visita": 30,
+      "estadisticas_completas": true,
+      "estadisticas_local": [
+        {
+          "jugador": "JK77",
+          "asistio": "true",
+          "puntos": 23,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "MEMOSAL",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 1,
+          "faltas": 2
+        },
+        {
+          "jugador": "ISAAOLA",
+          "asistio": "true",
+          "puntos": 26,
+          "triples": 1,
+          "faltas": 3
+        },
+        {
+          "jugador": "LALOCEL",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "POLLOALEJ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "MLARA",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 0,
+          "faltas": 3
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "GORTEGA",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "SANTQUIN",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "PEMEND",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "TADMART",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "BOBPER",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "VICFRAN",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "MLARA",
+      "mvp_nombre": ""
     },
     {
       "id": "var4020262_62",
