@@ -1578,8 +1578,94 @@
       "marcador_local": 61,
       "marcador_visita": 88,
       "estadisticas_completas": false,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
+      "estadisticas_local": [
+        {
+          "jugador": "PEMEND",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 2,
+          "faltas": 0
+        },
+        {
+          "jugador": "FERMINZAVALA",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ALEXESPINOZA",
+          "asistio": "true",
+          "puntos": 28,
+          "triples": 6,
+          "faltas": 0
+        },
+        {
+          "jugador": "LUISBAUTISTA",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "GARCES",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "LCASTLLO",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "CUBANO",
+          "asistio": "true",
+          "puntos": 39,
+          "triples": 11,
+          "faltas": 1
+        },
+        {
+          "jugador": "WEROSOTO",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "GERA5",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 3,
+          "faltas": 0
+        },
+        {
+          "jugador": "javlopez",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "ESTEBANLOPEZ",
+          "asistio": "true",
+          "puntos": 24,
+          "triples": 3,
+          "faltas": 1
+        },
+        {
+          "jugador": "GORTIZ",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
       "mvp_jugador": "",
       "mvp_nombre": ""
     },
