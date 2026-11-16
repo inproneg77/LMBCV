@@ -1577,7 +1577,7 @@
       "destacado": "false",
       "marcador_local": 61,
       "marcador_visita": 88,
-      "estadisticas_completas": false,
+      "estadisticas_completas": true,
       "estadisticas_local": [
         {
           "jugador": "PEMEND",
@@ -1620,6 +1620,13 @@
           "puntos": 2,
           "triples": 0,
           "faltas": 0
+        },
+        {
+          "jugador": "RCASTILLO",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 1,
+          "faltas": 1
         }
       ],
       "estadisticas_visita": [
@@ -1654,7 +1661,7 @@
         {
           "jugador": "ESTEBANLOPEZ",
           "asistio": "true",
-          "puntos": 24,
+          "puntos": 25,
           "triples": 3,
           "faltas": 1
         },
@@ -1666,7 +1673,7 @@
           "faltas": 0
         }
       ],
-      "mvp_jugador": "",
+      "mvp_jugador": "CUBANO",
       "mvp_nombre": ""
     },
     {
