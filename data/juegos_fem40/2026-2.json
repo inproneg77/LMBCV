@@ -2542,10 +2542,110 @@
       "destacado": "false",
       "marcador_local": 35,
       "marcador_visita": 30,
-      "estadisticas_completas": false,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
+      "estadisticas_completas": true,
+      "estadisticas_local": [
+        {
+          "jugador": "MGARCIA",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "GPECEL",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "LBRACA",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JANLAB",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "AMFRA",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "kasilva",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "IVANEGAS",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "JLEYVA",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "CYES",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "ELSAGON",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "RSUA",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "ANABUSTA",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ROXTA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "DIAROM",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "JANLAB",
       "mvp_nombre": ""
     },
     {
