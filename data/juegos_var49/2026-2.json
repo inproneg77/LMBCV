@@ -1691,10 +1691,96 @@
       "destacado": "false",
       "marcador_local": 40,
       "marcador_visita": 62,
-      "estadisticas_completas": false,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
+      "estadisticas_completas": true,
+      "estadisticas_local": [
+        {
+          "jugador": "IMORALES",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "DANIELCONTRERAS",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "GCASTILLO",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "ADIAZ",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "HMACIEL",
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 2,
+          "faltas": 0
+        },
+        {
+          "jugador": "GORTEGA",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "SANTQUIN",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "ELPONCE",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "TADMART",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "BOBPER",
+          "asistio": "true",
+          "puntos": 16,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "VICFRAN",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CAINBELTRAN",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "BOBPER",
       "mvp_nombre": ""
     }
   ]
