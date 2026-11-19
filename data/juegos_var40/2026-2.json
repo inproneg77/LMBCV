@@ -7444,10 +7444,117 @@
       "destacado": "false",
       "marcador_local": 67,
       "marcador_visita": 71,
-      "estadisticas_completas": false,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
+      "estadisticas_completas": true,
+      "estadisticas_local": [
+        {
+          "jugador": "CHOCOLEM",
+          "asistio": "true",
+          "puntos": 27,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "FAVELATOLON",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "CHARROD",
+          "asistio": "true",
+          "puntos": 22,
+          "triples": 2,
+          "faltas": 1
+        },
+        {
+          "jugador": "TITOMEN",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ANGELFIE",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "FONSECAR",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "SOROSJJ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "CUBANO",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 3,
+          "faltas": 2
+        },
+        {
+          "jugador": "WEROSOTO",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "GERA5",
+          "asistio": "true",
+          "puntos": 20,
+          "triples": 6,
+          "faltas": 0
+        },
+        {
+          "jugador": "CHULOVILLA",
+          "asistio": "true",
+          "puntos": 25,
+          "triples": 3,
+          "faltas": 0
+        },
+        {
+          "jugador": "TONODIAZPAD",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "MARKOZPLA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JCAMPUZANO",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "GESPINOZA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        }
+      ],
+      "mvp_jugador": "CHULOVILLA",
       "mvp_nombre": ""
     },
     {
