@@ -2547,6 +2547,20 @@
       "estadisticas_visita": [],
       "mvp_jugador": "",
       "mvp_nombre": ""
+    },
+    {
+      "id": "fem4020262_21",
+      "fecha": "2026-11-21",
+      "hora": "15:00",
+      "local": "SALDOSF40",
+      "visita": "MAESTRASF40",
+      "sede_id": "duela",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 3,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ],
   "papelera": [
