@@ -7686,10 +7686,96 @@
       "destacado": "false",
       "marcador_local": 26,
       "marcador_visita": 54,
-      "estadisticas_completas": false,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
+      "estadisticas_completas": true,
+      "estadisticas_local": [
+        {
+          "jugador": "RMONTES",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "PEDROSALCEDO",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "GARCES",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "FABIANBARRERA",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "KANGELES",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "MMONTIJO",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "NCAZAREZ",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "JSAGARTE2",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JLOPEZ2",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "ETORRES2",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "GMENDEZYAQUI",
+          "asistio": "true",
+          "puntos": 21,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "RBURRUEL2",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 1
+        }
+      ],
+      "mvp_jugador": "GMENDEZYAQUI",
       "mvp_nombre": ""
     },
     {
