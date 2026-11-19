@@ -7540,6 +7540,20 @@
       "estatus": "programado",
       "forfeit": "ninguno",
       "destacado": "false"
+    },
+    {
+      "id": "var4020262_68",
+      "fecha": "2026-11-21",
+      "hora": "18:00",
+      "local": "CUERVOSV40",
+      "visita": "ICATSONV40",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
