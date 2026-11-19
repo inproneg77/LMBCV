@@ -7707,10 +7707,110 @@
       "destacado": "false",
       "marcador_local": 49,
       "marcador_visita": 25,
-      "estadisticas_completas": false,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
+      "estadisticas_completas": true,
+      "estadisticas_local": [
+        {
+          "jugador": "CESDOMIN",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "MAANMONT",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "IVRANG",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "CARDURAN",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "JOSEISAB",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "LUIDAVISLA",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "RACIELREYES",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 3
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "HMACIEL",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "RPIMIENTA",
+          "asistio": "true",
+          "puntos": 1,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "HUMBERREYNA",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "EDMOND",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "IMORALES2",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "EDURAN",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "EGUERRA",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 1,
+          "faltas": 3
+        }
+      ],
+      "mvp_jugador": "LUIDAVISLA",
       "mvp_nombre": ""
     },
     {
