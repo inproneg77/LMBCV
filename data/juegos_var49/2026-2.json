@@ -1796,6 +1796,20 @@
       "estatus": "programado",
       "forfeit": "ninguno",
       "destacado": "false"
+    },
+    {
+      "id": "var4920262_18",
+      "fecha": "2026-11-22",
+      "hora": "13:00",
+      "local": "SMV40",
+      "visita": "CARITAS",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
