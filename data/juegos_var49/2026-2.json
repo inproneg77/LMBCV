@@ -1782,6 +1782,20 @@
       ],
       "mvp_jugador": "BOBPER",
       "mvp_nombre": ""
+    },
+    {
+      "id": "var4920262_17",
+      "fecha": "2026-11-22",
+      "hora": "12:00",
+      "local": "VIKINGOSV40",
+      "visita": "OSV40",
+      "sede_id": "gimnasio",
+      "temporada": "2026-2",
+      "fase": "regular",
+      "vuelta": 1,
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "destacado": "false"
     }
   ]
 }
