@@ -7909,9 +7909,109 @@
       "temporada": "2026-2",
       "fase": "regular",
       "vuelta": 1,
-      "estatus": "programado",
+      "estatus": "jugado",
       "forfeit": "ninguno",
-      "destacado": "true"
+      "destacado": "true",
+      "marcador_local": 47,
+      "marcador_visita": 51,
+      "estadisticas_completas": true,
+      "estadisticas_local": [
+        {
+          "jugador": "JK77",
+          "asistio": "true",
+          "puntos": 12,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "MEMOSAL",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 3,
+          "faltas": 4
+        },
+        {
+          "jugador": "ISAAOLA",
+          "asistio": "true",
+          "puntos": 15,
+          "triples": 1,
+          "faltas": 2
+        },
+        {
+          "jugador": "JOELGRIJ",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "NEGROURQ",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 4
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "GPALA",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 2
+        },
+        {
+          "jugador": "DMAZ",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "DNEB",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "ANARAIZA",
+          "asistio": "true",
+          "puntos": 22,
+          "triples": 2,
+          "faltas": 2
+        },
+        {
+          "jugador": "GARYFEL",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "CYESK",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "JOSERABAGO",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ELIASTRUJ",
+          "asistio": "true",
+          "puntos": 5,
+          "triples": 0,
+          "faltas": 4
+        }
+      ],
+      "mvp_jugador": "ANARAIZA",
+      "mvp_nombre": ""
     },
     {
       "id": "var4020262_67",
