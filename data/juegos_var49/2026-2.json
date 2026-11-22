@@ -1798,8 +1798,15 @@
       "destacado": "false",
       "marcador_local": 47,
       "marcador_visita": 39,
-      "estadisticas_completas": false,
+      "estadisticas_completas": true,
       "estadisticas_local": [
+        {
+          "jugador": "CHABELOH",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 1
+        },
         {
           "jugador": "ABDELCO",
           "asistio": "true",
@@ -1885,6 +1892,13 @@
           "puntos": 8,
           "triples": 2,
           "faltas": 2
+        },
+        {
+          "jugador": "CARLOSPEREZ",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 0
         }
       ],
       "mvp_jugador": "MANOLOLIZ",
