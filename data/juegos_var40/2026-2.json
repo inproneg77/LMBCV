@@ -8070,10 +8070,124 @@
       "destacado": "false",
       "marcador_local": 48,
       "marcador_visita": 52,
-      "estadisticas_completas": false,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
+      "estadisticas_completas": true,
+      "estadisticas_local": [
+        {
+          "jugador": "RGARCIA",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "JSAGARTE2",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "ETORRES2",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "GMENDEZYAQUI",
+          "asistio": "true",
+          "puntos": 18,
+          "triples": 1,
+          "faltas": 4
+        },
+        {
+          "jugador": "RBURRUEL2",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "GGALAVINA",
+          "asistio": "true",
+          "puntos": 13,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "RCASTRO",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "SOCRATES",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "PACHJES",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 1,
+          "faltas": 2
+        },
+        {
+          "jugador": "JORGETAPIA",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JUANDUARTE",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "MARIOFIERRO",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 2,
+          "faltas": 0
+        },
+        {
+          "jugador": "AFIGUEROA",
+          "asistio": "true",
+          "puntos": 22,
+          "triples": 3,
+          "faltas": 5
+        },
+        {
+          "jugador": "HENRYCHAVEZ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "ACORONADO",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "MJUAREZ",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "AFIGUEROA",
       "mvp_nombre": ""
     },
     {
