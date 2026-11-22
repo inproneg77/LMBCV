@@ -8044,9 +8044,16 @@
       "temporada": "2026-2",
       "fase": "regular",
       "vuelta": 1,
-      "estatus": "programado",
-      "forfeit": "ninguno",
-      "destacado": "false"
+      "estatus": "jugado",
+      "forfeit": "local",
+      "destacado": "false",
+      "marcador_local": 0,
+      "marcador_visita": 20,
+      "estadisticas_completas": true,
+      "estadisticas_local": [],
+      "estadisticas_visita": [],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
     },
     {
       "id": "var4020262_69",
