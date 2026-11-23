@@ -8326,10 +8326,103 @@
       "destacado": "false",
       "marcador_local": 37,
       "marcador_visita": 43,
-      "estadisticas_completas": false,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
+      "estadisticas_completas": true,
+      "estadisticas_local": [
+        {
+          "jugador": "CESDOMIN",
+          "asistio": "true",
+          "puntos": 14,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "CARDURAN",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JOSEISAB",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "JOSEROJAS",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "MVIZCARRA",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "CHABELOH",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 2,
+          "faltas": 1
+        },
+        {
+          "jugador": "ABDELCO",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 0
+        },
+        {
+          "jugador": "TECOLIZ",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "ALEXVEGA",
+          "asistio": "true",
+          "puntos": 11,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "JSAL",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "DANIELCONTRERAS",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        },
+        {
+          "jugador": "CAINBELTRAN",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "GBARRERAS",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 1
+        }
+      ],
+      "mvp_jugador": "ALEXVEGA",
       "mvp_nombre": ""
     }
   ]
