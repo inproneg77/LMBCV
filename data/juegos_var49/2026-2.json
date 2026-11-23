@@ -1940,10 +1940,103 @@
       "destacado": "false",
       "marcador_local": 30,
       "marcador_visita": 35,
-      "estadisticas_completas": false,
-      "estadisticas_local": [],
-      "estadisticas_visita": [],
-      "mvp_jugador": "",
+      "estadisticas_completas": true,
+      "estadisticas_local": [
+        {
+          "jugador": "PEMEND",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 2,
+          "faltas": 2
+        },
+        {
+          "jugador": "RMONTES",
+          "asistio": "true",
+          "puntos": 2,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "FERMINZAVALA",
+          "asistio": "true",
+          "puntos": 9,
+          "triples": 0,
+          "faltas": 1
+        },
+        {
+          "jugador": "ALEXESPINOZA",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 1,
+          "faltas": 4
+        },
+        {
+          "jugador": "MIKICASTRO",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "GARCES",
+          "asistio": "true",
+          "puntos": 3,
+          "triples": 0,
+          "faltas": 3
+        },
+        {
+          "jugador": "LCASTLLO",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 1
+        }
+      ],
+      "estadisticas_visita": [
+        {
+          "jugador": "IMORALES",
+          "asistio": "true",
+          "puntos": 10,
+          "triples": 0,
+          "faltas": 5
+        },
+        {
+          "jugador": "AMENDO",
+          "asistio": "true",
+          "puntos": 7,
+          "triples": 1,
+          "faltas": 2
+        },
+        {
+          "jugador": "DANIELCONTRERAS",
+          "asistio": "true",
+          "puntos": 6,
+          "triples": 0,
+          "faltas": 2
+        },
+        {
+          "jugador": "JONTIVEROS",
+          "asistio": "true",
+          "puntos": 8,
+          "triples": 1,
+          "faltas": 1
+        },
+        {
+          "jugador": "GCASTILLO",
+          "asistio": "true",
+          "puntos": 4,
+          "triples": 0,
+          "faltas": 4
+        },
+        {
+          "jugador": "ADIAZ",
+          "asistio": "true",
+          "puntos": 0,
+          "triples": 0,
+          "faltas": 0
+        }
+      ],
+      "mvp_jugador": "IMORALES",
       "mvp_nombre": ""
     }
   ]
