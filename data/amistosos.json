@@ -22,6 +22,18 @@
       "nombre": "CUERVOS",
       "logo": "img/equipos/cuervos-dos.jpeg",
       "origen_liga_id": "CUERVOSV40"
+    },
+    {
+      "id": "am-e-77cf60e50f65cd940634f78fa158488a",
+      "nombre": "EL NARANJO",
+      "logo": "img/equipos/3.png",
+      "origen_liga_id": "NARANJOV40"
+    },
+    {
+      "id": "am-e-baa5245855cc86e17d3e869cdd1dd748",
+      "nombre": "VIKINGOS",
+      "logo": "img/equipos/35.png",
+      "origen_liga_id": "VIKINGOSV40"
     }
   ],
   "jugadores": [
@@ -476,6 +488,188 @@
       "nombre": "EDUARDO CELAYA",
       "numero": "",
       "equipo_id": "am-e-ce42e954e67f4298edb2417d9f2686c2"
+    },
+    {
+      "id": "am-p-9f271c913816218901db24b24bfa5792",
+      "nombre": "RICHARD LOPEZ",
+      "numero": "4",
+      "equipo_id": "am-e-77cf60e50f65cd940634f78fa158488a",
+      "origen_liga_id": "RLOPEZ4"
+    },
+    {
+      "id": "am-p-7ef1a3f4b3f146e3b1ae218d486b3950",
+      "nombre": "MARIO BRACAMONTES",
+      "numero": "19",
+      "equipo_id": "am-e-77cf60e50f65cd940634f78fa158488a",
+      "origen_liga_id": "MARIONB"
+    },
+    {
+      "id": "am-p-b89f3106843c6b000ab12bdea983054d",
+      "nombre": "ALDO MENDOZA",
+      "numero": "23",
+      "equipo_id": "am-e-77cf60e50f65cd940634f78fa158488a",
+      "origen_liga_id": "ALDUKA"
+    },
+    {
+      "id": "am-p-dbda0a59ac49679b9e15c4da57802201",
+      "nombre": "IVAN MENDOZA",
+      "numero": "13",
+      "equipo_id": "am-e-77cf60e50f65cd940634f78fa158488a",
+      "origen_liga_id": "IVANMEND"
+    },
+    {
+      "id": "am-p-3c7442c8794d0f25fea8492bc763d66e",
+      "nombre": "PATRICIO SOQUI",
+      "numero": "10",
+      "equipo_id": "am-e-77cf60e50f65cd940634f78fa158488a",
+      "origen_liga_id": "PATOSO"
+    },
+    {
+      "id": "am-p-b5e1bcca39e38af314ff0ab8e1e3c349",
+      "nombre": "FRANCISCO MEDEHUARI",
+      "numero": "11",
+      "equipo_id": "am-e-77cf60e50f65cd940634f78fa158488a",
+      "origen_liga_id": "MEDEH"
+    },
+    {
+      "id": "am-p-0da1ae25d9a91a383ca5c3eae508eef9",
+      "nombre": "JOAQUIN MENDEZ",
+      "numero": "9",
+      "equipo_id": "am-e-77cf60e50f65cd940634f78fa158488a",
+      "origen_liga_id": "BARRYMEN"
+    },
+    {
+      "id": "am-p-fcae1136fe1e9c83e3bed188e5b8d953",
+      "nombre": "MARTIN GALLEGOS",
+      "numero": "7",
+      "equipo_id": "am-e-77cf60e50f65cd940634f78fa158488a",
+      "origen_liga_id": "CHUCOGA"
+    },
+    {
+      "id": "am-p-872722cafd640f81efd942891bc63b77",
+      "nombre": "JAVIER LOPEZ",
+      "numero": "013",
+      "equipo_id": "am-e-77cf60e50f65cd940634f78fa158488a",
+      "origen_liga_id": "javlopez"
+    },
+    {
+      "id": "am-p-f751c04c965c84d3ba2a5c648283503a",
+      "nombre": "WILDOLFO RUIZ",
+      "numero": "23",
+      "equipo_id": "am-e-77cf60e50f65cd940634f78fa158488a",
+      "origen_liga_id": "WRUIZ"
+    },
+    {
+      "id": "am-p-f0ea7ebf8a61dbf31d5c9f1e8de2d44d",
+      "nombre": "JORGE HERNANDEZ",
+      "numero": "1",
+      "equipo_id": "am-e-baa5245855cc86e17d3e869cdd1dd748",
+      "origen_liga_id": "CHABELOH"
+    },
+    {
+      "id": "am-p-0c8358894aaf5b7a19350d9fef4367a6",
+      "nombre": "ABDEL CONTRERAS",
+      "numero": "12",
+      "equipo_id": "am-e-baa5245855cc86e17d3e869cdd1dd748",
+      "origen_liga_id": "ABDELCO"
+    },
+    {
+      "id": "am-p-bab8091cff38809bd21a5c3286a2471e",
+      "nombre": "CESAR LIZARRAGA",
+      "numero": "13",
+      "equipo_id": "am-e-baa5245855cc86e17d3e869cdd1dd748",
+      "origen_liga_id": "TECOLIZ"
+    },
+    {
+      "id": "am-p-6b240a5666b1891afc4e015f411bb4b9",
+      "nombre": "ALEJANDRO VEGA",
+      "numero": "9",
+      "equipo_id": "am-e-baa5245855cc86e17d3e869cdd1dd748",
+      "origen_liga_id": "ALEXVEGA"
+    },
+    {
+      "id": "am-p-cf6b90c8c84f36ec441797d200076562",
+      "nombre": "JORGE SALAZAR",
+      "numero": "23",
+      "equipo_id": "am-e-baa5245855cc86e17d3e869cdd1dd748",
+      "origen_liga_id": "JSAL"
+    },
+    {
+      "id": "am-p-7b66c6cb2658b75227321bb938af90e7",
+      "nombre": "JARED ROMERO",
+      "numero": "19",
+      "equipo_id": "am-e-baa5245855cc86e17d3e869cdd1dd748",
+      "origen_liga_id": "JAREDROM"
+    },
+    {
+      "id": "am-p-6817caf3258baf2ad5b640c442f1cd42",
+      "nombre": "JORGE URIAS",
+      "numero": "31",
+      "equipo_id": "am-e-baa5245855cc86e17d3e869cdd1dd748",
+      "origen_liga_id": "JURIAS"
+    },
+    {
+      "id": "am-p-543b1a48a49303d0939e1b25aa04bceb",
+      "nombre": "DANIEL CONTRERAS",
+      "numero": "46",
+      "equipo_id": "am-e-baa5245855cc86e17d3e869cdd1dd748",
+      "origen_liga_id": "DANIELCONTRERAS"
+    },
+    {
+      "id": "am-p-c9bb0b7a48919d258b1d81f0695fde6a",
+      "nombre": "CESAR SAENZ",
+      "numero": "1",
+      "equipo_id": "am-e-baa5245855cc86e17d3e869cdd1dd748",
+      "origen_liga_id": "CENTAVOSAENZ"
+    },
+    {
+      "id": "am-p-79b71fc9e6bddb51773705a9a204b4c3",
+      "nombre": "CAIN BELTRAN",
+      "numero": "10",
+      "equipo_id": "am-e-baa5245855cc86e17d3e869cdd1dd748",
+      "origen_liga_id": "CAINBELTRAN"
+    },
+    {
+      "id": "am-p-47803ae0f6aaa12a68075b12832b861c",
+      "nombre": "ODOACRO QUINTERO",
+      "numero": "0",
+      "equipo_id": "am-e-baa5245855cc86e17d3e869cdd1dd748",
+      "origen_liga_id": "ODOACRO"
+    },
+    {
+      "id": "am-p-a0a04d92242302939558272ebffae193",
+      "nombre": "ALEJANDRO HERNANDEZ",
+      "numero": "15",
+      "equipo_id": "am-e-baa5245855cc86e17d3e869cdd1dd748",
+      "origen_liga_id": "Alexhndez"
+    },
+    {
+      "id": "am-p-1f7a084fec7bda9c9dea996ca1a5b5a9",
+      "nombre": "GABRIEL ORTIZ",
+      "numero": "10",
+      "equipo_id": "am-e-baa5245855cc86e17d3e869cdd1dd748",
+      "origen_liga_id": "GORTIZ"
+    },
+    {
+      "id": "am-p-a91782d5857b90deb117de43af216184",
+      "nombre": "GILDARDO BARRERAS",
+      "numero": "99",
+      "equipo_id": "am-e-baa5245855cc86e17d3e869cdd1dd748",
+      "origen_liga_id": "GBARRERAS"
+    },
+    {
+      "id": "am-p-67256dbd4aa67c68a6836d8eb3f8c4e1",
+      "nombre": "DARIO TEN",
+      "numero": "45",
+      "equipo_id": "am-e-baa5245855cc86e17d3e869cdd1dd748",
+      "origen_liga_id": "DTEN"
+    },
+    {
+      "id": "am-p-e3f6c5ccba22228c98180d412d63e8c2",
+      "nombre": "ALDO ESPINOZA",
+      "numero": "",
+      "equipo_id": "am-e-baa5245855cc86e17d3e869cdd1dd748",
+      "origen_liga_id": "AESPINOZA"
     }
   ],
   "juegos": [
@@ -1051,6 +1245,55 @@
       ],
       "mvp_jugador": "am-p-1baee4ddc0e294a8baf7d32eae094b01",
       "mvp_nombre": "15 PUNTOS, REBOTES, DEFENSA"
+    },
+    {
+      "id": "am-j-74bce70380a0b3fbf199b4fb3a181a75",
+      "categoria_id": "var40",
+      "temporada": "2026-2",
+      "fase": "amistoso",
+      "fecha": "2026-11-28",
+      "hora": "16:00",
+      "estatus": "programado",
+      "forfeit": "ninguno",
+      "local": "am-e-77cf60e50f65cd940634f78fa158488a",
+      "visita": "am-e-baa5245855cc86e17d3e869cdd1dd748",
+      "marcador_local": 0,
+      "marcador_visita": 0,
+      "sede_id": "duela",
+      "convocados_local": [
+        "am-p-9f271c913816218901db24b24bfa5792",
+        "am-p-7ef1a3f4b3f146e3b1ae218d486b3950",
+        "am-p-b89f3106843c6b000ab12bdea983054d",
+        "am-p-dbda0a59ac49679b9e15c4da57802201",
+        "am-p-3c7442c8794d0f25fea8492bc763d66e",
+        "am-p-b5e1bcca39e38af314ff0ab8e1e3c349",
+        "am-p-0da1ae25d9a91a383ca5c3eae508eef9",
+        "am-p-fcae1136fe1e9c83e3bed188e5b8d953",
+        "am-p-872722cafd640f81efd942891bc63b77",
+        "am-p-f751c04c965c84d3ba2a5c648283503a"
+      ],
+      "estadisticas_local": [],
+      "convocados_visita": [
+        "am-p-f0ea7ebf8a61dbf31d5c9f1e8de2d44d",
+        "am-p-0c8358894aaf5b7a19350d9fef4367a6",
+        "am-p-bab8091cff38809bd21a5c3286a2471e",
+        "am-p-6b240a5666b1891afc4e015f411bb4b9",
+        "am-p-cf6b90c8c84f36ec441797d200076562",
+        "am-p-7b66c6cb2658b75227321bb938af90e7",
+        "am-p-6817caf3258baf2ad5b640c442f1cd42",
+        "am-p-543b1a48a49303d0939e1b25aa04bceb",
+        "am-p-c9bb0b7a48919d258b1d81f0695fde6a",
+        "am-p-79b71fc9e6bddb51773705a9a204b4c3",
+        "am-p-47803ae0f6aaa12a68075b12832b861c",
+        "am-p-a0a04d92242302939558272ebffae193",
+        "am-p-1f7a084fec7bda9c9dea996ca1a5b5a9",
+        "am-p-a91782d5857b90deb117de43af216184",
+        "am-p-67256dbd4aa67c68a6836d8eb3f8c4e1",
+        "am-p-e3f6c5ccba22228c98180d412d63e8c2"
+      ],
+      "estadisticas_visita": [],
+      "mvp_jugador": "",
+      "mvp_nombre": ""
     }
   ]
 }
